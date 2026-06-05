@@ -646,14 +646,11 @@
   "leave": {},
   "officeAtt": {},
   "orgName": "工事部",
-  "foldSite": {
-    "1": false
-  },
   "actuals": {},
   "excl": [],
   "weekBase": "2026-06-01",
   "fiveBase": "2026-06-04",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/5 12:02:33"
+  "_savedAt": "2026/6/5 12:52:25"
 }

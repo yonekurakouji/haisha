@@ -66,6 +66,36 @@
             "isDriver": false,
             "memo": ""
           }
+        ],
+        "2026-06-06": [
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "近藤",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "アグン",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": ""
+          }
         ]
       },
       "dayData": {},
@@ -518,7 +548,19 @@
       "gatherTime": "6:15",
       "note": "乳剤、砂",
       "okiba": "有",
-      "kaisou": "○"
+      "kaisou": "○",
+      "report": {
+        "2026-06-11": {
+          "per": {
+            "駒田": {
+              "drive": 2
+            },
+            "小松﨑": {
+              "drive": 2
+            }
+          }
+        }
+      }
     },
     {
       "id": "4",
@@ -973,7 +1015,17 @@
     }
   ],
   "leave": {},
-  "officeAtt": {},
+  "officeAtt": {
+    "2026-06-04": {
+      "島田聖子": "work"
+    },
+    "2026-06-05": {
+      "島田聖子": "work"
+    },
+    "2026-06-08": {
+      "島田聖子": "work"
+    }
+  },
   "orgName": "工事部",
   "actuals": {},
   "excl": [],
@@ -981,5 +1033,5 @@
   "fiveBase": "2026-06-04",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/5 14:22:59"
+  "_savedAt": "2026/6/5 15:05:44"
 }

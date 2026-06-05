@@ -1,0 +1,1326 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>配車・予定／日報</title>
+<style>
+:root{
+  --bg:#f1f5f9;--bg1:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;
+  --tx:#0f172a;--tx2:#475569;--tx3:#94a3b8;
+  --bd:#e2e8f0;--bd2:#cbd5e1;--bd3:#e2e8f0;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-size:12px;font-family:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Meiryo",sans-serif;color:var(--tx);background:var(--bg);}
+button{cursor:pointer;font-size:12px;font-family:inherit;}
+input,select{font-size:12px;font-family:inherit;color:var(--tx);background:var(--bg1);border:1px solid var(--bd2);border-radius:6px;padding:4px 8px;outline:none;}
+input:focus,select:focus{border-color:#1e293b;}
+.hdr{background:#1e293b;color:#f1f5f9;padding:8px 12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.hbtn{background:#334155;color:#f1f5f9;border:1px solid #475569;border-radius:6px;padding:5px 12px;font-size:11px;}
+.hbtn:hover{background:#475569;}
+.nav{background:var(--bg1);border-bottom:1px solid var(--bd3);display:flex;overflow-x:auto;}
+.nb{padding:8px 12px;font-size:12px;font-weight:500;border:none;border-bottom:2px solid transparent;background:none;color:var(--tx2);white-space:nowrap;cursor:pointer;}
+.nb.on{border-bottom-color:#1e293b;color:var(--tx);}
+.main{padding:10px;}
+.tb{display:flex;align-items:center;gap:5px;flex-wrap:wrap;margin-bottom:8px;}
+.btn{border:1px solid var(--bd2);border-radius:6px;padding:4px 10px;background:var(--bg1);color:var(--tx);}
+.btn:hover{background:var(--bg2);}
+.btnp{background:#1e293b;color:#f1f5f9;border-color:#1e293b;}
+.btnp:hover{background:#334155;}
+.btnd{color:#dc2626;border-color:#fca5a5;background:none;}
+.btncopy{color:#0369a1;border-color:#7dd3fc;background:none;}
+.ord{border:1px solid var(--bd2);border-radius:4px;background:var(--bg1);color:var(--tx2);font-size:11px;padding:0 5px;line-height:1.4;}
+.ord:hover{background:var(--bg2);}
+.ord:disabled{opacity:0.25;cursor:default;}
+.card{background:var(--bg1);border:1px solid var(--bd3);border-radius:10px;padding:10px;margin-bottom:8px;}
+.bday{background:#fef3c7;color:#92400e;font-size:10px;font-weight:500;padding:1px 5px;border-radius:4px;display:inline-block;}
+.bngt{background:#e0e7ff;color:#3730a3;font-size:10px;font-weight:500;padding:1px 5px;border-radius:4px;display:inline-block;}
+.bdrv{background:#1e40af;color:#fff;font-size:10px;padding:1px 5px;border-radius:4px;display:inline-block;margin-left:2px;}
+.bmach{background:#e2e8f0;color:#334155;font-size:10px;padding:1px 5px;border-radius:4px;display:inline-flex;align-items:center;gap:2px;margin:1px;}
+.bmach button,.bwork button{background:none;border:none;color:#64748b;cursor:pointer;font-size:11px;padding:0;}
+.bwork{background:#d1fae5;color:#065f46;font-size:10px;padding:1px 5px;border-radius:4px;display:inline-flex;align-items:center;gap:2px;margin:1px;}
+.bcnt{background:#f0fdf4;color:#166534;font-size:11px;font-weight:500;padding:2px 8px;border-radius:4px;border:1px solid #86efac;}
+.tbl{border-collapse:collapse;width:100%;}
+.tbl th,.tbl td{border:1px solid var(--bd3);padding:3px 4px;font-size:11px;vertical-align:top;}
+.tbl th{background:var(--bg2);font-weight:500;text-align:center;}
+.nc{background:var(--bg2);font-weight:500;text-align:center;white-space:nowrap;}
+.chip{display:inline-flex;align-items:center;gap:2px;background:var(--bg2);border:1px solid var(--bd3);border-radius:4px;padding:1px 6px;font-size:11px;margin:1px;}
+.ar{display:flex;align-items:center;gap:4px;flex-wrap:wrap;padding:3px 0;border-bottom:1px solid var(--bd3);}
+.ar:last-child{border-bottom:none;}
+.hint{font-size:11px;color:var(--tx3);}
+.row1{display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin-bottom:5px;padding-bottom:5px;border-bottom:1px solid var(--bd3);}
+.row2{display:flex;gap:5px;flex-wrap:wrap;align-items:center;margin-bottom:5px;padding-bottom:5px;border-bottom:1px solid var(--bd3);}
+.lbl{font-size:10px;color:var(--tx2);white-space:nowrap;}
+.day-row{margin-bottom:5px;border-radius:8px;border:1px solid var(--bd3);overflow:hidden;}
+.dhdr{display:flex;align-items:center;gap:5px;padding:4px 8px;background:var(--bg2);flex-wrap:wrap;}
+.site-block{border-radius:6px;padding:5px 7px;margin-bottom:4px;}
+.site-block:last-child{margin-bottom:0;}
+.site-block-day{background:#fffbeb;border:1px solid #fde68a;}
+.site-block-night{background:#eef2ff;border:1px solid #c7d2fe;}
+.sb-name{font-size:12px;font-weight:500;color:#1e40af;margin-bottom:2px;}
+.sb-meta{font-size:10px;color:var(--tx2);margin-bottom:3px;line-height:1.6;}
+.sb-divider{border:none;border-top:1px dashed var(--bd3);margin:3px 0;}
+.sb-worker{font-size:11px;padding:1px 0;display:flex;align-items:center;gap:3px;flex-wrap:wrap;}
+.sb-car{font-size:10px;color:#854d0e;background:#fef9c3;border-radius:3px;padding:0 4px;}
+.savebar{background:#dcfce7;border:1px solid #86efac;border-radius:8px;padding:6px 10px;margin-bottom:8px;font-size:11px;color:#166534;}
+.wrow{display:flex;align-items:center;gap:3px;margin-bottom:2px;font-size:12px;}
+/* ===== 印刷用 ===== */
+#printArea{display:none;}
+@media print{
+  body{background:#fff;}
+  *{-webkit-print-color-adjust:exact !important;print-color-adjust:exact !important;}
+  #app{display:none !important;}
+  #printArea{display:block !important;}
+  .pp{page-break-after:always;padding:6mm;}
+  .pp:last-child{page-break-after:auto;}
+  .pp h2{font-size:15px;margin:0;}
+  .pp table{border-collapse:collapse;width:100%;font-size:10px;}
+  .pp th,.pp td{border:1px solid #999;padding:2px 4px;}
+  .pp th{background:#eee;}
+  .ppsum{margin-top:8px;display:grid;grid-template-columns:repeat(4,1fr);gap:4px;}
+  .ppsum div{border:1px solid #999;padding:3px 5px;font-size:10px;}
+  .ppsum b{font-size:13px;}
+  .pphead{display:flex;align-items:flex-end;justify-content:space-between;border-bottom:2px solid #1e3a5f;padding-bottom:4px;margin-bottom:8px;}
+  .pphead .org{font-size:18px;font-weight:bold;color:#1e3a5f;}
+  .pphead .sub{font-size:12px;color:#333;}
+  .pphead .date{font-size:10px;color:#666;text-align:right;}
+}
+/* 向き：印刷用ページサイズ */
+@media print{
+  .land .pp{}
+}
+@page{size:A4 portrait;margin:8mm;}
+body.printLandscape @page,.printLandscape{}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="printArea"></div>
+<script>
+const IW=[
+  {no:"002",name:"阿部",fullName:"阿部光男",kana:"ｱﾍﾞﾐﾂｵ",birth:"1980-09-15",group:"main",hireDate:"2014-07-10",email:"firstperman320@gmail.com"},
+  {no:"005",name:"小松﨑",fullName:"小松﨑勇一",kana:"ｺﾏﾂｻﾞｷﾕｳｲﾁ",birth:"1984-11-24",group:"main",hireDate:"2017-04-01",email:"yuuichi.1124@gmail.com"},
+  {no:"046",name:"駒田",fullName:"駒田拓也",kana:"ｺﾏﾀﾀｸﾔ",birth:"1989-07-19",group:"main",hireDate:"2026-03-01",email:"blackblack44449090@gmail.com"},
+  {no:"045",name:"近藤",fullName:"近藤竜馬",kana:"ｺﾝﾄﾞｳﾘｮｳﾏ",birth:"1990-05-20",group:"main",hireDate:"2025-12-03",email:"ryooma0520@gmail.com"},
+  {no:"044",name:"中川",fullName:"中川純彰",kana:"ﾅｶｶﾞﾜﾖｼｱｷ",birth:"1980-04-12",group:"main",hireDate:"2025-11-01",email:"sevenjin2017@gmail.com"},
+  {no:"047",name:"大竹",fullName:"大竹琉斗",kana:"ｵｵﾀｹﾘｭｳﾄ",birth:"2009-12-30",group:"main",hireDate:"2026-03-01",email:"ryuyu.mocaau.com@icloud.com"},
+  {no:"048",name:"菅沼",fullName:"菅沼彪雅",kana:"ｽｶﾞﾇﾏﾋｭｳｶﾞ",birth:"2010-02-24",group:"main",hireDate:"2026-03-01",email:"s.hyouga0524@gmail.com"},
+  {no:"049",name:"佐藤",fullName:"佐藤",kana:"",birth:"",group:"main",hireDate:"",email:""},
+  {no:"060",name:"アグン",fullName:"アグン プリヤント",kana:"ｱｸﾞﾝ ﾌﾟﾘﾔﾝﾄ",birth:"2000-08-10",group:"main",hireDate:"2025-12-16",email:"agungpriyanto4949@gmail.com"},
+  {no:"061",name:"アリヤ",fullName:"アディア トマ ナラリヤ",kana:"ｱﾃﾞｨｱ ﾄﾏ ﾅﾗﾘﾔ",birth:"2006-06-28",group:"main",hireDate:"2025-12-16",email:"yatmaad@gmail.com"},
+  {no:"062",name:"アマダ",fullName:"ムハンマド アキダ プトラ アマダ",kana:"ﾑﾊﾝﾏﾄﾞ ｱｷﾀﾞ ﾌﾟﾄﾗ ｱﾏﾀﾞ",birth:"2002-09-06",group:"main",hireDate:"2026-04-02",email:""},
+  {no:"050",name:"関",fullName:"関正樹",kana:"ｾｷﾏｻｷ",birth:"1980-06-27",group:"helper",hireDate:"2025-02-01",email:"masaki45fromjapan@gmail.com"},
+  {no:"001",name:"米倉",fullName:"米倉",kana:"",birth:"",group:"helper",hireDate:"",email:""},
+  {no:"003",name:"渋川",fullName:"渋川",kana:"",birth:"",group:"helper",hireDate:"",email:""},
+  {no:"042",name:"樋口",fullName:"樋口",kana:"",birth:"",group:"helper",hireDate:"",email:""},
+  {no:"035",name:"ハオ",fullName:"ハオ",kana:"",birth:"",group:"helper",hireDate:"",email:""},
+  {no:"041",name:"ティ",fullName:"ティ",kana:"",birth:"",group:"helper",hireDate:"",email:""},
+  {no:"043",name:"横田",fullName:"横田",kana:"",birth:"",group:"helper",hireDate:"",email:""}
+];
+// 事務員（初期データ。既存データに読込済みの場合はマスタで追加してください）
+IW.push({no:"070",name:"島田",fullName:"島田聖子",kana:"ｼﾏﾀﾞｼｮｳｺ",birth:"1980-01-06",group:"office",hireDate:"2026-03-09",email:"butabutajintan0923@gmail.com"});
+const IR=["OP(オペ)","AJ(補助)","回送/運転","手元","工事手伝"];
+const IWK=["舗装","切削","路盤工","側溝","掘削","埋戻","残土処理","区画線","その他"];
+const IM=["R1","R2","R3","R8","R9","S3","S8","P5","P7"];
+const IV=[{name:"2tダンプ",allowance:0},{name:"3tダンプ",allowance:0},{name:"4tダンプ",allowance:0},{name:"ハイエース",allowance:0},{name:"Wキャブ",allowance:0},{name:"各自(自分の車)",allowance:0}];
+const WD=["日","月","火","水","木","金","土"];
+let _id=1;const uid=()=>String(_id++);
+const fmt=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+const pd=s=>{const[y,m,d]=s.split('-').map(Number);const r=new Date(y,m-1,d);r.setHours(0,0,0,0);return r;};
+const addD=(d,n)=>{const r=new Date(d);r.setDate(r.getDate()+n);return r;};
+const toDay=()=>{const t=new Date();t.setHours(0,0,0,0);return t;};
+const monSt=d=>{const r=new Date(d);const dw=r.getDay();r.setDate(r.getDate()+(dw===0?-6:1-dw));r.setHours(0,0,0,0);return r;};
+const g5=s=>Array.from({length:5},(_,i)=>addD(s,i));
+const g7=s=>Array.from({length:7},(_,i)=>addD(s,i));
+const pTime=v=>{if(!v)return'';v=v.replace(/[：:]/g,':').trim();if(/^\d{1,2}:\d{2}$/.test(v))return v;const n=v.replace(/\D/g,'');if(n.length<=2)return n.padStart(2,'0')+':00';if(n.length===3)return n[0]+':'+n.slice(1);if(n.length===4)return n.slice(0,2)+':'+n.slice(2);return v;};
+const dc=o=>JSON.parse(JSON.stringify(o));
+/* ===== 日本の祝日 自動判定 ===== */
+const _holCache={};
+function holidaysOf(year){
+  if(_holCache[year])return _holCache[year];
+  const H={};
+  const set=(m,d,name)=>{if(d)H[`${year}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`]=name;};
+  const nthMon=(m,n)=>{let c=0;for(let d=1;d<=31;d++){const dt=new Date(year,m-1,d);if(dt.getMonth()!==m-1)break;if(dt.getDay()===1){c++;if(c===n)return d;}}return null;};
+  set(1,1,'元日');set(1,nthMon(1,2),'成人の日');set(2,11,'建国記念の日');set(2,23,'天皇誕生日');
+  set(3,Math.floor(20.8431+0.242194*(year-1980)-Math.floor((year-1980)/4)),'春分の日');
+  set(4,29,'昭和の日');set(5,3,'憲法記念日');set(5,4,'みどりの日');set(5,5,'こどもの日');
+  set(7,nthMon(7,3),'海の日');set(8,11,'山の日');set(9,nthMon(9,3),'敬老の日');
+  set(9,Math.floor(23.2488+0.242194*(year-1980)-Math.floor((year-1980)/4)),'秋分の日');
+  set(10,nthMon(10,2),'スポーツの日');set(11,3,'文化の日');set(11,23,'勤労感謝の日');
+  Object.keys(H).slice().forEach(k=>{const dt=pd(k);if(dt.getDay()===0){let nx=addD(dt,1);while(H[fmt(nx)])nx=addD(nx,1);H[fmt(nx)]='振替休日';}});
+  _holCache[year]=H;return H;
+}
+const isHoliday=dk=>!!holidaysOf(Number(dk.slice(0,4)))[dk];
+const isSunday=dk=>pd(dk).getDay()===0;
+
+/* ===== 現場終了報告データ =====
+   site.report[dk] = {start,end,weather,work,otDefault, per:{社員名:{ot,drive,excluded}}}
+*/
+function getReport(site,dk){return (site.report&&site.report[dk])||{};}
+function ensureReport(si,dk){const s=S.sites[si];s.report=s.report||{};s.report[dk]=s.report[dk]||{per:{}};if(!s.report[dk].per)s.report[dk].per={};return s.report[dk];}
+
+/* ある社員のある日の実績（終了報告から取得、無ければ空） */
+function workerActual(workerName,dk){
+  // その社員が配置されている現場を探す
+  for(const s of S.sites){
+    if(!(s.days||[]).includes(dk))continue;
+    const dd=(s.dayData&&s.dayData[dk])||{};
+    if(dd.cancelled)continue;
+    const has=(s.assigns?.[dk]||[]).some(a=>a.name===workerName);
+    if(!has)continue;
+    const rep=getReport(s,dk);
+    const per=(rep.per&&rep.per[workerName])||{};
+    if(per.excluded)continue;
+    return {site:s,rep,per,
+      start:per.start!==undefined?per.start:rep.start,
+      end:per.end!==undefined?per.end:rep.end,
+      ot:per.ot!==undefined?per.ot:(rep.otDefault||0),
+      drive:per.drive||0,
+      otManual:per.ot!==undefined};
+  }
+  return null;
+}
+
+/* ===== 個別日報の集計 ===== */
+function isOfficeSite(site,dk){
+  if((site.place||'').includes('事務所'))return true;
+  const dd=(site.dayData&&site.dayData[dk])||{};
+  if(dd.office)return true;
+  return false;
+}
+/* その社員がその現場のその日、事務所扱いか（場所事務所 or 共通officeDefault or 個人office） */
+function isOfficeForWorker(site,dk,name){
+  if(isOfficeSite(site,dk))return true;
+  const rep=getReport(site,dk);
+  const p=(rep.per&&rep.per[name])||{};
+  if(p.office!==undefined)return p.office;
+  if(rep.officeDefault)return true;
+  return false;
+}
+function aggWorker(workerName,dkList){
+  const r={workDays:0,nightDays:0,leave:0,genba:0,office:0,maxRen:0,ot:0,sun:0,hol:0,beforeHol:0,rest:0,drive:{}};
+  const units=[];
+  dkList.forEach(dk=>{
+    const ly=S.leave&&S.leave[dk]&&S.leave[dk][workerName];
+    let dayWorked=false,nightWorked=false;
+    ['昼','夜'].forEach(slot=>{
+      let worked=false,genba=false,office=false;
+      for(const s of S.sites){
+        if(s.shift!==slot)continue;
+        if(!(s.days||[]).includes(dk))continue;
+        const dd=(s.dayData&&s.dayData[dk])||{};
+        if(dd.cancelled)continue;
+        const a=(s.assigns?.[dk]||[]).find(x=>x.name===workerName);
+        if(!a)continue;
+        const rep=getReport(s,dk);const per=(rep.per&&rep.per[workerName])||{};
+        if(per.excluded)continue;
+        worked=true;
+        if(isOfficeForWorker(s,dk,workerName))office=true;else genba=true;
+        if((per.drive||0)>0&&a.vehicle){r.drive[a.vehicle]=(r.drive[a.vehicle]||0)+per.drive;}
+        const ot=per.ot!==undefined?per.ot:(rep.otDefault||0);
+        r.ot+=Number(ot)||0;
+      }
+      units.push({worked});
+      if(worked){
+        dayWorked=true;
+        if(slot==='夜')nightWorked=true;
+        if(office&&!genba)r.office++;else if(genba)r.genba++;else r.office++;
+        if(isSunday(dk))r.sun++;
+        if(isHoliday(dk))r.hol++;
+        if(slot==='夜'){const nx=fmt(addD(pd(dk),1));if(isSunday(nx)||isHoliday(nx))r.beforeHol++;}
+      }
+    });
+    if(ly)r.leave++;
+    if(dayWorked)r.workDays++;
+    else if(!ly)r.rest++;
+    if(nightWorked)r.nightDays++;
+  });
+  let cur=0,renSum=0;
+  units.forEach(u=>{
+    if(u.worked){cur++;}
+    else{if(cur>=2)renSum+=(cur-1);cur=0;}
+  });
+  if(cur>=2)renSum+=(cur-1);
+  r.maxRen=renSum;
+  return r;
+}
+function daysInMonth(ym){const[y,mo]=ym.split('-').map(Number);const last=new Date(y,mo,0).getDate();return Array.from({length:last},(_,i)=>`${ym}-${String(i+1).padStart(2,'0')}`);}
+/* 有給使用日数を、指定した日付リストで数える */
+function countLeave(name,dkList){let c=0;dkList.forEach(dk=>{if(S.leave&&S.leave[dk]&&S.leave[dk][name])c++;});return c;}
+function daysInYear(year){const arr=[];for(let m=1;m<=12;m++){const last=new Date(year,m,0).getDate();for(let d=1;d<=last;d++)arr.push(`${year}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`);}return arr;}
+/* 8月始まり年度（startYear年8月1日〜翌年7月31日） */
+function fyStartYear(dk){const[y,m]=dk.split('-').map(Number);return m>=8?y:y-1;}
+function fyDays(startYear){const arr=[];let d=new Date(startYear,7,1);const end=new Date(startYear+1,6,31);while(d<=end){arr.push(fmt(d));d=addD(d,1);}return arr;}
+/* 有給の集計期間：入社日の月日を起点に、対象日(refDk)が属する1年。
+   例：入社3/15 → 3/15〜翌3/14。入社日未設定ならnullを返す（呼び出し側で会社年度にフォールバック）。 */
+function leaveYearDays(hireDate,refDk){
+  if(!hireDate)return null;
+  const hd=pd(hireDate);const hm=hd.getMonth(),hday=hd.getDate();
+  const ref=pd(refDk);
+  // refが属する「入社応当日年度」の開始日を求める
+  let startYear=ref.getFullYear();
+  const anchorThisYear=new Date(ref.getFullYear(),hm,hday);
+  if(ref<anchorThisYear)startYear=ref.getFullYear()-1;
+  let start=new Date(startYear,hm,hday);
+  // 2/29入社などの調整
+  if(start.getMonth()!==hm)start=new Date(startYear,hm+1,0);
+  let end=addD(new Date(startYear+1,hm,hday),-1);
+  if(new Date(startYear+1,hm,hday).getMonth()!==hm)end=addD(new Date(startYear+1,hm+1,0),-1);
+  const arr=[];let d=new Date(start);while(d<=end){arr.push(fmt(d));d=addD(d,1);}
+  return {days:arr,start:fmt(start),end:fmt(end)};
+}
+
+/* ===== localStorage に自動保存（このファイルを開いたブラウザに残り続ける） ===== */
+const LS="haisha_app_data_v2";
+/* 重機: 文字列配列 or {name,qty}配列 両対応。表示用に正規化 */
+const normMachines=arr=>(arr||[]).map(m=>typeof m==='string'?{name:m,qty:1}:{name:m.name,qty:m.qty||1});
+const machLabel=m=>m.qty&&m.qty>1?`${m.name}×${m.qty}`:m.name;
+/* 使用回数カウント（マスタ自動並び替え用） */
+function usageCount(kind){
+  const cnt={};
+  S.sites.forEach(s=>{
+    if(kind==='works')(s.works||[]).forEach(w=>cnt[w]=(cnt[w]||0)+1);
+    if(kind==='machines')normMachines(s.machines).forEach(m=>cnt[m.name]=(cnt[m.name]||0)+1);
+    Object.values(s.assigns||{}).forEach(arr=>arr.forEach(a=>{
+      if(kind==='roles'&&a.role)cnt[a.role]=(cnt[a.role]||0)+1;
+      if(kind==='vehicles'&&a.vehicle)cnt[a.vehicle]=(cnt[a.vehicle]||0)+1;
+    }));
+  });
+  return cnt;
+}
+function sortByUsage(list,kind,keyFn){
+  const cnt=usageCount(kind);
+  return list.slice().sort((a,b)=>(cnt[keyFn(b)]||0)-(cnt[keyFn(a)]||0));
+}
+function loadStore(){try{const r=localStorage.getItem(LS);return r?JSON.parse(r):null;}catch{return null;}}
+function saveStore(o){try{localStorage.setItem(LS,JSON.stringify(o));}catch(e){console.warn(e);}}
+
+let S={tab:"weekly",wMode:"site",showPast:false,foldSite:{},sites:[],workers:IW,roles:IR,works:IWK,machines:IM,vehicles:IV,contacts:[],leave:{},officeAtt:{},orgName:"工事部",weekBase:fmt(monSt(toDay())),fiveBase:fmt(toDay()),excl:[],actuals:{},rpW:"",rpYM:fmt(toDay()).slice(0,7),izYM:fmt(toDay()).slice(0,7),fyView:null,openDays:{},lastSaved:""};
+
+const persist=()=>saveStore({...S,excl:[...S.excl]});
+function applyData(d){
+  if(!d)return;
+  S.sites=d.sites||[];S.workers=d.workers||IW;S.roles=d.roles||IR;S.works=d.works||IWK;
+  S.machines=d.machines||IM;S.vehicles=d.vehicles||IV;S.contacts=d.contacts||[];S.actuals=d.actuals||{};
+  S.leave=d.leave||{};
+  S.officeAtt=d.officeAtt||{};
+  if(d.orgName)S.orgName=d.orgName;
+  S.foldSite=d.foldSite||{};
+  S.excl=new Set(d.excl||[]);
+  if(d.weekBase)S.weekBase=d.weekBase;if(d.fiveBase)S.fiveBase=d.fiveBase;if(d.rpYM)S.rpYM=d.rpYM;if(d.izYM)S.izYM=d.izYM;
+  if(d.wMode)S.wMode=d.wMode;if(d.openDays)S.openDays=d.openDays;
+}
+let VIEW_MODE=false; // 社員閲覧モード（編集不可）
+function init(){
+  // URLのハッシュ/クエリで閲覧モード判定。例: ...html?view=1&data=<エンコードされたデータURL>
+  let params;
+  try{params=new URLSearchParams(location.search||'');}catch{params=new URLSearchParams('');}
+  const isView=params.get('view')==='1'||(location.hash||'').indexOf('view')>=0;
+  const dataUrl=params.get('data');
+  if(isView){
+    VIEW_MODE=true;
+    S.tab='weekly';
+    // data指定があればそれを、無ければ同じフォルダのdata.jsonを読む
+    const url=dataUrl?decodeURIComponent(dataUrl):'data.json';
+    fetchAndApply(url);
+    return;
+  }
+  const d=loadStore();
+  if(d){applyData(d);}else{S.excl=new Set();}
+  if(!S.openDays)S.openDays={};
+  render();
+}
+function fetchAndApply(url){
+  document.getElementById('app').innerHTML='<div style="padding:40px;text-align:center;color:#475569;">予定データを読み込み中...</div>';
+  fetch(url).then(r=>{if(!r.ok)throw new Error('取得失敗');return r.json();}).then(d=>{
+    applyData(d);if(!S.openDays)S.openDays={};render();
+  }).catch(e=>{
+    document.getElementById('app').innerHTML='<div style="padding:40px;text-align:center;color:#b91c1c;">データの読み込みに失敗しました。<br>共有リンクが正しいか管理者に確認してください。<br><span style="font-size:11px;color:#94a3b8;">'+e.message+'</span></div>';
+  });
+}
+const render=()=>{document.getElementById('app').innerHTML=html();};
+
+window.exportShare=function(){
+  const data={sites:S.sites,workers:S.workers,roles:S.roles,works:S.works,machines:S.machines,vehicles:S.vehicles,contacts:S.contacts,leave:S.leave,officeAtt:S.officeAtt,orgName:S.orgName,foldSite:S.foldSite,actuals:S.actuals,excl:[...S.excl],weekBase:S.weekBase,fiveBase:S.fiveBase,rpYM:S.rpYM,izYM:S.izYM,_savedAt:new Date().toLocaleString('ja-JP')};
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='data.json';
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+};
+window.exportFile=function(){
+  const data={sites:S.sites,workers:S.workers,roles:S.roles,works:S.works,machines:S.machines,vehicles:S.vehicles,contacts:S.contacts,leave:S.leave,officeAtt:S.officeAtt,orgName:S.orgName,foldSite:S.foldSite,actuals:S.actuals,excl:[...S.excl],weekBase:S.weekBase,fiveBase:S.fiveBase,rpYM:S.rpYM,izYM:S.izYM,_savedAt:new Date().toLocaleString('ja-JP')};
+  const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
+  const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=`配車予定_${fmt(toDay())}.json`;
+  document.body.appendChild(a);a.click();document.body.removeChild(a);
+  S.lastSaved=new Date().toLocaleString('ja-JP');render();
+};
+window.importFile=function(input){
+  const file=input.files&&input.files[0];if(!file)return;
+  const r=new FileReader();
+  r.onload=e=>{
+    try{
+      const d=JSON.parse(e.target.result);
+      // 先にlocalStorageへ確実に書き込む（exclは配列のまま保存）
+      const toStore={...d};
+      if(toStore.excl&&toStore.excl instanceof Set)toStore.excl=[...toStore.excl];
+      localStorage.setItem(LS,JSON.stringify(toStore));
+      alert('読み込み完了しました！画面を更新します。');
+      location.reload();
+    }catch(err){alert('読み込みエラー: ファイルが正しくありません');}
+  };
+  r.readAsText(file);
+  input.value='';
+};
+
+const html=()=>{
+  if(VIEW_MODE){
+    const vtabs=[{id:"weekly",l:"週間予定表"},{id:"byworker",l:"社員別"}];
+    if(S.tab==='report')S.tab='weekly';
+    return`<div class="hdr">
+      <span style="font-weight:500;font-size:14px;">配車・予定／日報</span>
+      <span style="font-size:11px;color:#93c5fd;margin-left:8px;">閲覧モード</span>
+    </div>
+    <div class="nav">${vtabs.map(t=>`<button class="nb${S.tab===t.id?' on':''}" onclick="T('${t.id}')">${t.l}</button>`).join('')}</div>
+    <div class="main">${S.tab==='byworker'?bBW():bW()}</div>`;
+  }
+  const tabs=[{id:"weekly",l:"週間予定表"},{id:"dispatch",l:"配車・割振"},{id:"byworker",l:"社員別"},{id:"bymachine",l:"機械別"},{id:"report",l:"日報"},{id:"izumi",l:"出面"},{id:"master",l:"マスタ"}];
+  return`<div class="hdr">
+    <span style="font-weight:500;font-size:14px;">配車・予定／日報</span>
+    <div style="margin-left:auto;display:flex;gap:6px;align-items:center;">
+      <span style="font-size:10px;color:#86efac;">自動保存ON</span>
+      <button class="hbtn" onclick="exportFile()">💾 ファイル書出</button>
+      <label class="hbtn" style="cursor:pointer;">📂 読込<input type="file" accept=".json,application/json" onchange="importFile(this)" style="display:none;"></label>
+    </div>
+  </div>
+  <div class="nav">${tabs.map(t=>`<button class="nb${S.tab===t.id?' on':''}" onclick="T('${t.id}')">${t.l}</button>`).join('')}</div>
+  <div class="main">
+    <div class="savebar">✓ このファイルは自動保存されます。開き直しても前回の続きから使えます。バックアップしたい時は「💾 ファイル書出」を押してください。</div>
+    ${S.tab==='weekly'?bW():S.tab==='dispatch'?bD():S.tab==='byworker'?bBW():S.tab==='bymachine'?bBM():S.tab==='report'?bR():S.tab==='izumi'?bI():bMaster()}
+  </div>`;
+};
+
+const thS=(bg,co,ex='')=>`border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:${bg};color:${co};${ex}`;
+const dayHds=(days,cs)=>{
+  const td=toDay();
+  return days.map(d=>{
+    const dk=fmt(d),isE=S.excl.has(dk),isTd=fmt(d)===fmt(td),dw=d.getDay();
+    const bg=isE?'#fca5a5':isTd?'#93c5fd':dw===0?'#fda4af':dw===6?'#bfdbfe':'#cbd5e1';
+    const co=isE?'#7f1d1d':dw===0?'#881337':dw===6?'#1e3a8a':'#0f172a';
+    return`<th ${cs?`colspan="${cs}"`:''}onclick="TE('${dk}')" style="${thS(bg,co,'cursor:pointer;min-width:100px;')}">${(d.getMonth()+1)}/${d.getDate()}(${WD[dw]})${isTd?' ★':''}${isE?'<br><span style="font-size:9px;color:#dc2626;">除外</span>':''}</th>`;
+  }).join('');
+};
+const wNav=()=>`<div class="tb"><strong style="font-size:13px;">週間予定表</strong>
+  <div style="display:flex;border:1px solid var(--bd2);border-radius:6px;overflow:hidden;">
+    <button onclick="WM('person')" style="padding:4px 10px;border:none;background:${S.wMode==='person'?'#1e293b':'none'};color:${S.wMode==='person'?'#f1f5f9':'var(--tx2)'};cursor:pointer;font-size:11px;">個人別</button>
+    <button onclick="WM('site')" style="padding:4px 10px;border:none;background:${S.wMode==='site'?'#1e293b':'none'};color:${S.wMode==='site'?'#f1f5f9':'var(--tx2)'};cursor:pointer;font-size:11px;">現場別</button>
+  </div>
+  <button class="btn" onclick="MF(-5)">◀ 前</button><button class="btn" onclick="MF(0)">今日</button><button class="btn" onclick="MF(5)">次 ▶</button>
+  <input type="date" value="${S.fiveBase}" onchange="SF(this.value)" style="width:140px;">
+  ${!VIEW_MODE?`<button class="btn" onclick="printWeekSet()" style="background:#166534;color:#fff;border-color:#166534;">🖨 3種まとめてPDF</button><button class="btn" onclick="printWeek()">🖨 今の表だけ</button><button class="btn" onclick="showWeekMail()" style="background:#1e40af;color:#fff;border-color:#1e40af;">✉ 予定をメール</button>`:`<button class="btn" onclick="printWeekSet()">🖨 印刷/PDF</button>`}
+  </div>`;
+
+function bW(){return S.wMode==='person'?bWP():bWS();}
+
+function bWP(){
+  const days=g5(pd(S.fiveBase));
+  const hd=dayHds(days,'2');
+  const hs=days.map(d=>{const dk=fmt(d),isE=S.excl.has(dk);return['昼','夜'].map(sl=>`<th style="${thS(isE?'#fecaca':'#f1f5f9','#475569')}">${sl}</th>`).join('');}).join('');
+  const rows=S.workers.filter(w=>w.group!=='office').map((w,ri)=>{
+    const isH=w.group==='helper';
+    const cells=days.flatMap(d=>{
+      const dk=fmt(d),isE=S.excl.has(dk);
+      return['昼','夜'].map(slot=>{
+        if(isE)return`<td style="background:#fee2e2;text-align:center;color:#dc2626;border:1px solid var(--bd3);">✕</td>`;
+        const onLeave=S.leave&&S.leave[dk]&&S.leave[dk][w.name];
+        const items=S.sites.filter(s=>s.shift===slot&&(s.days||[]).includes(dk)).flatMap(s=>(s.assigns?.[dk]||[]).filter(a=>a.name===w.name).map(a=>({s,a})));
+        if(!items.length){
+          if(slot==='昼'&&onLeave)return`<td onclick="ToggleLeave('${dk}','${w.name}')" style="border:1px solid var(--bd3);text-align:center;background:#fae8ff;color:#86198f;font-size:10px;font-weight:500;cursor:pointer;">有給</td>`;
+          return`<td onclick="ToggleLeave('${dk}','${w.name}')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;" title="クリックで有給">—</td>`;
+        }
+        return`<td style="border:1px solid var(--bd3);padding:2px;vertical-align:top;background:${slot==='昼'?'#fffbeb':'#eef2ff'};">${items.map(({s,a})=>`<div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:500;color:#1e40af;">${s.place||'(未入力)'}</div><div style="font-size:10px;color:var(--tx2);">${a.role||''}${a.isDriver?' <span class="bdrv">運転</span>':''}${s.gatherTime?` 集合${s.gatherTime}`:''}</div></div>`).join('')}</td>`;
+      });
+    });
+    return`<tr style="background:${ri%2===0?'var(--bg1)':'var(--bg2)'};">
+      <td class="nc" style="font-size:10px;color:var(--tx2);width:32px;">${w.no}</td>
+      <td class="nc" style="font-weight:${isH?'400':'500'};width:48px;">${w.name}</td>${cells.join('')}</tr>`;
+  }).join('');
+  // 事務員行（1日=昼夜結合の1セル、クリックで 出勤→有給→休→空 を循環）
+  const offW=S.workers.filter(w=>w.group==='office');
+  const offRows=offW.map(w=>{
+    const cells=days.map(d=>{
+      const dk=fmt(d),isE=S.excl.has(dk);
+      if(isE)return`<td colspan="2" style="background:#fee2e2;text-align:center;color:#dc2626;border:1px solid var(--bd3);">✕</td>`;
+      const st=(S.officeAtt[dk]&&S.officeAtt[dk][w.name])||'';
+      const disp=st==='work'?{t:'出勤',bg:'#dcfce7',co:'#166534'}:st==='leave'?{t:'有給',bg:'#fae8ff',co:'#86198f'}:st==='off'?{t:'休',bg:'#f1f5f9',co:'#94a3b8'}:{t:'—',bg:'var(--bg1)',co:'var(--tx3)'};
+      return`<td colspan="2" onclick="CycleOffice('${dk}','${w.name}')" style="border:1px solid var(--bd3);text-align:center;background:${disp.bg};color:${disp.co};font-size:11px;font-weight:500;cursor:pointer;" title="クリックで 出勤→有給→休→空">${disp.t}</td>`;
+    });
+    return`<tr style="background:#fffaf0;">
+      <td class="nc" style="font-size:10px;color:var(--tx2);width:32px;">${w.no}</td>
+      <td class="nc" style="width:48px;">${w.name}</td>${cells.join('')}</tr>`;
+  }).join('');
+  const offHeader=offW.length?`<tr><td colspan="${2+days.length*2}" style="background:#fef3c7;color:#92400e;font-size:11px;font-weight:500;padding:3px 8px;border:1px solid var(--bd3);">事務員（クリックで 出勤→有給→休 を切替）</td></tr>`:'';
+  return wNav()+`<div style="overflow-x:auto;"><table class="tbl"><thead>
+    <tr><th colspan="2" style="${thS('#334155','#f1f5f9')}">職員</th>${hd}</tr>
+    <tr><th colspan="2" style="${thS('#475569','#e2e8f0')}font-size:10px;">昼/夜</th>${hs}</tr>
+  </thead><tbody>${rows}${offHeader}${offRows}</tbody></table></div>`;
+}
+
+/* 現場終了報告パネル（現場別ビュー内に開閉表示） */
+function repPanel(site,dk,assigns){
+  const si=S.sites.indexOf(site);
+  const key=`rep_${site.id}_${dk}`;
+  const isOpen=S.openDays[key];
+  const rep=getReport(site,dk);
+  const done=rep.start||rep.end||rep.weather||(rep.per&&Object.keys(rep.per).some(n=>rep.per[n]&&(rep.per[n].ot!==undefined||rep.per[n].drive)));
+  if(!isOpen){
+    return`<div style="margin-top:4px;text-align:right;"><button class="btn" onclick="event.stopPropagation();TogRep('${key}')" style="font-size:11px;padding:2px 8px;${done?'background:#dcfce7;border-color:#86efac;color:#166534;':'color:#0369a1;border-color:#7dd3fc;'}">${done?'✅ 報告済（編集）':'📝 終了報告'}</button></div>`;
+  }
+  const per=rep.per||{};
+  const rows=assigns.map(a=>{
+    const p=per[a.name]||{};
+    const otVal=p.ot!==undefined?p.ot:'';
+    const otManual=p.ot!==undefined;
+    const offState=p.office!==undefined?p.office:(rep.officeDefault||false);
+    const offManual=p.office!==undefined;
+    return`<div style="display:flex;align-items:center;gap:5px;padding:2px 0;border-bottom:1px dashed var(--bd3);flex-wrap:wrap;">
+      <span style="width:60px;font-size:11px;${p.excluded?'text-decoration:line-through;color:var(--tx3);':''}">${a.name}</span>
+      <label style="font-size:10px;color:var(--tx2);">残業<input type="number" step="0.5" value="${otVal}" placeholder="${rep.otDefault||0}" onchange="SetPer(${si},'${dk}','${a.name}','ot',this.value)" style="width:48px;padding:1px 3px;${otManual?'background:#fef9c3;border-color:#facc15;':''}">h</label>
+      <label style="font-size:10px;color:var(--tx2);">運転<input type="number" value="${p.drive||''}" placeholder="0" onchange="SetPer(${si},'${dk}','${a.name}','drive',this.value)" style="width:40px;padding:1px 3px;">回</label>
+      <button onclick="TogPerOffice(${si},'${dk}','${a.name}')" style="font-size:10px;padding:1px 6px;border-radius:4px;border:1px solid ${offState?'#f59e0b':'var(--bd2)'};background:${offState?'#fef3c7':'var(--bg1)'};color:${offState?'#b45309':'var(--tx2)'};${offManual?'font-weight:600;':''}">${offState?'事務所扱い':'現場'}</button>
+      <label style="font-size:10px;color:var(--tx2);cursor:pointer;"><input type="checkbox" ${p.excluded?'checked':''} onchange="SetPer(${si},'${dk}','${a.name}','excluded',this.checked)">除外</label>
+    </div>`;
+  }).join('');
+  return`<div style="margin-top:5px;border:1px solid #86efac;border-radius:6px;padding:6px 8px;background:#f0fdf4;" onclick="event.stopPropagation();">
+    <div style="display:flex;align-items:center;gap:5px;margin-bottom:5px;flex-wrap:wrap;">
+      <b style="font-size:11px;color:#166534;">終了報告</b>
+      <button class="btn" onclick="TogRep('${key}')" style="font-size:10px;padding:1px 6px;margin-left:auto;">閉じる</button>
+    </div>
+    <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:5px;">
+      <label style="font-size:10px;color:var(--tx2);">開始<input type="time" value="${rep.start||''}" onchange="SetRep(${si},'${dk}','start',this.value)" style="width:96px;"></label>
+      <label style="font-size:10px;color:var(--tx2);">終了<input type="time" value="${rep.end||''}" onchange="SetRep(${si},'${dk}','end',this.value)" style="width:96px;"></label>
+      <label style="font-size:10px;color:var(--tx2);">天候<input value="${rep.weather||''}" placeholder="晴" onchange="SetRep(${si},'${dk}','weather',this.value)" style="width:50px;"></label>
+      <label style="font-size:10px;color:var(--tx2);">残業(共通)<input type="number" step="0.5" value="${rep.otDefault||''}" placeholder="0" onchange="SetRep(${si},'${dk}','otDefault',this.value)" style="width:48px;">h</label>
+      <button onclick="TogRepOffice(${si},'${dk}')" style="font-size:10px;padding:2px 8px;border-radius:4px;border:1px solid ${rep.officeDefault?'#f59e0b':'var(--bd2)'};background:${rep.officeDefault?'#fef3c7':'var(--bg1)'};color:${rep.officeDefault?'#b45309':'var(--tx2)'};">${rep.officeDefault?'全員 事務所扱い':'全員 現場扱い'}</button>
+    </div>
+    <div style="font-size:10px;color:var(--tx2);margin-bottom:2px;">社員ごと（残業:空欄=共通／黄色=個別。事務所扱いボタンで現場↔事務所を個別切替）</div>
+    ${rows}
+  </div>`;
+}
+function bWS(){
+  const days=g5(pd(S.fiveBase));
+  const dayRows=days.map(d=>{
+    const dk=fmt(d);const isE=S.excl.has(dk);const isTd=fmt(d)===fmt(toDay());const dw=d.getDay();
+    const bg=isE?'#fca5a5':isTd?'#93c5fd':dw===0?'#fda4af':dw===6?'#bfdbfe':'#cbd5e1';
+    const co=isE?'#7f1d1d':dw===0?'#881337':dw===6?'#1e3a8a':'#0f172a';
+    const activeSites=S.sites.filter(s=>(s.days||[]).includes(dk));
+    const daySites=activeSites.filter(s=>s.shift==='昼');
+    const nightSites=activeSites.filter(s=>s.shift==='夜');
+    const renderSiteBlock=(site)=>{
+      const dd=(site.dayData&&site.dayData[dk])||{};
+      const isCancel=dd.cancelled;
+      const altWork=dd.altWork||'';
+      const assigns=(site.assigns?.[dk]||[]).slice().sort((a,b)=>{
+        const ia=S.workers.findIndex(w=>w.name===a.name);const ib=S.workers.findIndex(w=>w.name===b.name);
+        return (ia<0?999:ia)-(ib<0?999:ib);
+      });
+      const ctName=site.contact==='__manual__'?site.contactManual:site.contact;
+      const ctTel=site.contact==='__manual__'?site.contactTel:(S.contacts.find(c=>c.name===site.contact)||{}).tel||'';
+      const isNight=site.shift==='夜';
+      const blockCls=isNight?'site-block site-block-night':'site-block site-block-day';
+      const mc=normMachines(site.machines);
+      return`<div class="${blockCls}" style="${isCancel?'opacity:0.55;':''}">
+        <div style="display:flex;gap:8px;">
+          <div style="flex:1;min-width:0;">
+            <div class="sb-name">
+              <span class="${isNight?'bngt':'bday'}">${site.shift}</span> ${site.place||'(未入力)'}
+              ${(site.works||[]).length?`<span style="font-size:10px;color:#065f46;background:#d1fae5;border-radius:4px;padding:0 4px;margin:0 3px;">${site.works.join('・')}</span>`:''}
+              <span class="bcnt" style="margin-left:2px;">計${assigns.length}名</span>
+              ${isCancel?'<span style="background:#9ca3af;color:#fff;font-size:10px;padding:1px 5px;border-radius:4px;margin-left:4px;">中止</span>':''}
+              ${!VIEW_MODE?`<button class="btn" onclick="EditSite('${site.id}')" style="font-size:10px;padding:0 6px;margin-left:6px;">✎ 編集</button>`:''}
+            </div>
+            ${altWork?`<div style="font-size:11px;color:#b45309;background:#fef3c7;border-radius:4px;padding:1px 5px;margin-bottom:3px;">別作業: ${altWork}</div>`:''}
+            <div class="sb-meta">
+              ${site.prime||ctName?`<span>${site.prime||''}${ctName?` <b>${ctName}</b>${ctTel?` <span style="color:#1e40af;">${ctTel}</span>`:''}`:''}</span><br>`:''}
+              ${mc.length?`<span>重機: ${mc.map(m=>`<span class="bmach">${machLabel(m)}</span>`).join('')}</span><br>`:''}
+              ${site.gatherTime?`<span>集合: <b style="color:#b45309;">${site.gatherTime}</b></span><br>`:''}
+              ${site.okiba||site.kaisou?`<span>${site.okiba?`置場:${site.okiba} `:''}${site.kaisou?`回送:${site.kaisou}`:''}</span>`:''}
+            </div>
+          </div>
+          ${(site.ourContact||site.leader)?`<div style="width:96px;flex-shrink:0;border-left:2px solid ${isNight?'#c7d2fe':'#fde68a'};padding-left:6px;font-size:11px;">
+            ${site.leader?`<div style="margin-bottom:3px;"><span style="color:var(--tx2);">リーダー：</span><b style="color:#b45309;">${site.leader}</b></div>`:''}
+            ${site.ourContact?`<div><span style="color:var(--tx2);">担当：</span><b>${site.ourContact}</b></div>`:''}
+          </div>`:''}
+        </div>
+        ${assigns.length?`<hr class="sb-divider">${assigns.map(a=>{
+          const w=S.workers.find(x=>x.name===a.name);const isH=w?.group==='helper';const isLeader=a.name===site.leader;
+          return`<div class="sb-worker">
+            <span style="font-weight:${isLeader?'700':isH?'400':'500'};color:${isLeader?'#b45309':isH?'var(--tx2)':'var(--tx)'};">${a.name||'(未設定)'}${isLeader?'★':''}</span>
+            ${a.role?`<span style="font-size:10px;color:var(--tx2);">${a.role}</span>`:''}
+            ${a.vehicle?`<span class="sb-car">${a.vehicle}</span>`:''}
+            ${a.isDriver?'<span class="bdrv">運転</span>':''}
+            ${a.memo?`<span style="font-size:10px;color:var(--tx2);">${a.memo}</span>`:''}
+          </div>`;
+        }).join('')}`:'<div style="font-size:10px;color:var(--tx3);">作業員未配置</div>'}
+        ${assigns.length&&!isCancel&&!VIEW_MODE?repPanel(site,dk,assigns):''}
+      </div>`;
+    };
+    const content=isE
+      ?`<td style="border:1px solid var(--bd3);background:#fee2e2;text-align:center;color:#dc2626;padding:8px;">除外日</td>`
+      :`<td style="border:1px solid var(--bd3);padding:5px;vertical-align:top;background:var(--bg1);">
+          ${!activeSites.length?`<div style="color:var(--tx3);font-size:11px;padding:8px;">予定なし</div>`:''}
+          ${daySites.map(renderSiteBlock).join('')}${nightSites.map(renderSiteBlock).join('')}
+        </td>`;
+    return`<tr>
+      <th onclick="TE('${dk}')" style="${thS(bg,co,'cursor:pointer;text-align:center;padding:8px 6px;white-space:nowrap;vertical-align:top;')}">${(d.getMonth()+1)}/${d.getDate()}<br>(${WD[dw]})${isTd?'<br>★':''}</th>
+      ${content}
+    </tr>`;
+  }).join('');
+  return wNav()+`<div style="overflow-x:auto;"><table class="tbl" style="width:100%;">
+    <thead><tr><th style="${thS('#334155','#f1f5f9','width:64px;')}">日付</th><th style="${thS('#334155','#f1f5f9')}">現場・作業員</th></tr></thead>
+    <tbody>${dayRows}</tbody></table></div>`;
+}
+
+function bD(){
+  const days=S.showPast
+    ? Array.from({length:44},(_,i)=>addD(toDay(),i-30)) // 過去30日〜先14日
+    : Array.from({length:14},(_,i)=>addD(toDay(),i));    // 今日〜先14日
+  const todayK=fmt(toDay());
+  const dups={};
+  S.sites.forEach(s=>(s.days||[]).forEach(dk=>(s.assigns?.[dk]||[]).forEach(a=>{const k=`${dk}|${s.shift}|${a.name}`;dups[k]=(dups[k]||0)+1;})));
+  const dupK=Object.entries(dups).filter(([,v])=>v>1).map(([k])=>k);
+  const cards=S.sites.map((site,si)=>{
+    const actDays=(site.days||[]).filter(dk=>days.some(d=>fmt(d)===dk)).filter(dk=>S.showPast||dk>=todayK);
+    const dayBtns=days.map(d=>{const dk=fmt(d),sel=(site.days||[]).includes(dk),dw=d.getDay();return`<button class="chip" onclick="TSD(${si},'${dk}')" style="${sel?'background:#1e293b;color:#f1f5f9;border-color:#1e293b;':''}">${(d.getMonth()+1)}/${d.getDate()}(${WD[dw]})</button>`;}).join('');
+    const mc=normMachines(site.machines);
+    const selM=mc.map((m,mi)=>`<span class="bmach">${m.name}<input type="number" min="1" value="${m.qty}" onchange="SetMQ(${si},${mi},this.value)" style="width:34px;padding:1px 3px;margin:0 2px;font-size:10px;">台<button onclick="RM(${si},${mi})">×</button></span>`).join('');
+    const machOpts=S.machines.filter(m=>!mc.some(x=>x.name===m)).map(m=>`<option value="${m}">${m}</option>`).join('');
+    const selWK=(site.works||[]).map((w,wi)=>`<span class="bwork">${w}<button onclick="RWK(${si},${wi})">×</button></span>`).join('');
+    const workOpts=S.works.filter(w=>!(site.works||[]).includes(w)).map(w=>`<option value="${w}">${w}</option>`).join('');
+    const ctOpts=S.contacts.map(c=>`<option value="${c.name}"${site.contact===c.name?' selected':''}>${c.name}${c.tel?' ('+c.tel+')':''}</option>`).join('');
+    const asgSecs=actDays.map(dk=>{
+      const assigns=site.assigns?.[dk]||[],isOpen=S.openDays[`${si}_${dk}`];
+      const dd=(site.dayData&&site.dayData[dk])||{};
+      const isCancel=dd.cancelled;
+      const rows=assigns.map((a,ai)=>{
+        const isDup=(dups[`${dk}|${site.shift}|${a.name}`]||0)>1;
+        const vA=a.isDriver&&a.vehicle?S.vehicles.find(v=>v.name===a.vehicle)?.allowance||0:0;
+        return`<div class="ar" style="${isDup?'background:#fee2e2;border-radius:4px;padding:3px;':''}">
+          <select onchange="UA(${si},'${dk}',${ai},'name',this.value)" style="width:74px;"><option value="">社員−</option>
+            <optgroup label="メンバー">${S.workers.filter(w=>w.group==='main').map(w=>`<option value="${w.name}"${a.name===w.name?' selected':''}>${w.name}</option>`).join('')}</optgroup>
+            <optgroup label="助っ人">${S.workers.filter(w=>w.group==='helper').map(w=>`<option value="${w.name}"${a.name===w.name?' selected':''}>${w.name}</option>`).join('')}</optgroup>
+          </select>
+          <select onchange="UA(${si},'${dk}',${ai},'role',this.value)" style="width:100px;"><option value="">内容−</option>${S.roles.map(r=>`<option${a.role===r?' selected':''}>${r}</option>`).join('')}</select>
+          <select onchange="UA(${si},'${dk}',${ai},'vehicle',this.value)" style="width:90px;"><option value="">車−</option>${S.vehicles.map(v=>`<option value="${v.name}"${a.vehicle===v.name?' selected':''}>${v.name}</option>`).join('')}</select>
+          <label style="display:flex;align-items:center;gap:2px;cursor:pointer;font-size:11px;"><input type="checkbox" ${a.isDriver?'checked':''} onchange="UA(${si},'${dk}',${ai},'isDriver',this.checked)">運転${a.isDriver?'<span class="bdrv">🚗</span>':''}${vA>0?`<span style="color:#92400e;font-size:10px;">+¥${vA}</span>`:''}</label>
+          <input value="${a.memo||''}" placeholder="摘要" onchange="UA(${si},'${dk}',${ai},'memo',this.value)" style="flex:1;min-width:80px;font-size:11px;">
+          ${isDup?'<span style="color:#dc2626;font-size:10px;">⚠重複</span>':''}
+          <button class="btn btnd" onclick="RA(${si},'${dk}',${ai})" style="padding:1px 6px;margin-left:auto;">✕</button>
+        </div>`;
+      }).join('');
+      /* その日だけの上書き編集（工事内容・重機・集合） */
+      const dWorks=dd.works!==undefined?dd.works:null;
+      const dMach=dd.machines!==undefined?dd.machines:null;
+      const dGather=dd.gatherTime!==undefined?dd.gatherTime:null;
+      const editPanel=`<div style="background:var(--bg2);border-radius:6px;padding:6px 8px;margin-bottom:6px;font-size:11px;">
+        <div style="color:var(--tx2);margin-bottom:4px;">この日の内容（空欄なら現場の共通設定を使用）</div>
+        <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
+          <label>工事内容:<input value="${dWorks!==null?dWorks:''}" placeholder="${(site.works||[]).join('・')||'共通'}" onchange="SetDD(${si},'${dk}','worksText',this.value)" style="width:130px;margin-left:3px;"></label>
+          <label>重機:<input value="${dMach!==null?dMach:''}" placeholder="${normMachines(site.machines).map(machLabel).join('・')||'共通'}" onchange="SetDD(${si},'${dk}','machText',this.value)" style="width:120px;margin-left:3px;"></label>
+          <label>集合:<input value="${dGather!==null?dGather:''}" placeholder="${site.gatherTime||'共通'}" onblur="SetDDTime(${si},'${dk}',this)" style="width:60px;margin-left:3px;"></label>
+        </div>
+      </div>`;
+      return`<div style="margin-top:4px;border:1px solid var(--bd3);border-radius:6px;overflow:hidden;${isCancel?'opacity:0.7;':''}">
+        <div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--bg2);flex-wrap:wrap;">
+          <span style="font-size:11px;font-weight:500;cursor:pointer;" onclick="TOD(${si},'${dk}')">${dk} ${isOpen?'▲':'▼'}</span>
+          <span class="bcnt">${assigns.length}名配置</span>
+          ${isCancel?'<span style="background:#9ca3af;color:#fff;font-size:10px;padding:1px 6px;border-radius:4px;">中止</span>':''}
+          <button class="btn btncopy" onclick="event.stopPropagation();showCopy(${si},'${dk}')" style="padding:1px 6px;font-size:11px;">📋 コピー</button>
+          <button class="btn" onclick="ToggleCancel(${si},'${dk}')" style="padding:1px 6px;font-size:11px;${isCancel?'background:#9ca3af;color:#fff;border-color:#9ca3af;':'color:#b91c1c;border-color:#fca5a5;'}">${isCancel?'中止解除':'現場中止'}</button>
+          <input value="${dd.altWork||''}" placeholder="別作業（手入力）" onchange="SetDD(${si},'${dk}','altWork',this.value)" style="width:130px;font-size:11px;">
+        </div>
+        ${isOpen?`<div style="padding:6px 8px;">${editPanel}${rows}<button class="btn" onclick="AA(${si},'${dk}')" style="margin-top:4px;font-size:11px;">＋ 社員追加</button></div>`:''}
+      </div>`;
+    }).join('');
+    const folded=S.foldSite[site.id];
+    if(folded){
+      return`<div class="card" id="site_${site.id}" style="padding:6px 10px;">
+        <div style="display:flex;align-items:center;gap:8px;">
+          <span class="${site.shift==='夜'?'bngt':'bday'}">${site.shift}</span>
+          <span style="font-weight:600;">${site.place||'(未入力)'}</span>
+          ${(site.works||[]).length?`<span style="font-size:10px;color:#065f46;background:#d1fae5;border-radius:4px;padding:0 5px;">${site.works.join('・')}</span>`:''}
+          <span style="font-size:11px;color:var(--tx3);">${site.days?.length?'計'+site.days.length+'日':''}</span>
+          <button class="btn" onclick="FoldSite('${site.id}')" style="margin-left:auto;padding:2px 10px;">▼ 開く</button>
+        </div>
+      </div>`;
+    }
+    return`<div class="card" id="site_${site.id}">
+      <div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="btn" onclick="FoldSite('${site.id}')" style="padding:1px 10px;background:#f0fdf4;border-color:#86efac;color:#166534;font-size:11px;">▲ 畳む（終わった現場）</button></div>
+      <div class="row1">
+        <select onchange="US(${si},'shift',this.value)" style="width:60px;font-weight:500;"><option${site.shift==='昼'?' selected':''}>昼</option><option${site.shift==='夜'?' selected':''}>夜</option></select>
+        <input value="${site.place||''}" placeholder="場所（必須）" onchange="US(${si},'place',this.value)" style="flex:1;min-width:120px;font-weight:500;">
+        <input value="${site.prime||''}" placeholder="元請名" onchange="US(${si},'prime',this.value)" style="flex:1;min-width:90px;">
+        <div style="display:flex;align-items:center;gap:2px;">
+          <span class="lbl">担当:</span>
+          <select onchange="US(${si},'contact',this.value)" style="width:92px;"><option value="">選択−</option>${ctOpts}<option value="__manual__"${site.contact==='__manual__'?' selected':''}>手入力</option></select>
+          ${site.contact==='__manual__'?`<input value="${site.contactManual||''}" placeholder="担当者名" onchange="US(${si},'contactManual',this.value)" style="width:80px;"><input value="${site.contactTel||''}" placeholder="電話番号" onchange="US(${si},'contactTel',this.value)" style="width:100px;">`:site.contact?`<span style="font-size:10px;color:var(--tx2);">${(S.contacts.find(c=>c.name===site.contact)||{}).tel||''}</span>`:''}
+        </div>
+        <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">置場:</span><select onchange="US(${si},'okiba',this.value)" style="width:56px;"><option value="">−</option><option${site.okiba==='有'?' selected':''}>有</option><option${site.okiba==='無'?' selected':''}>無</option></select></div>
+        <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">回送車:</span><select onchange="US(${si},'kaisou',this.value)" style="width:56px;"><option value="">−</option><option${site.kaisou==='○'?' selected':''}>○</option><option${site.kaisou==='×'?' selected':''}>×</option></select></div>
+        <button class="btn btnd" onclick="DS(${si})" style="padding:2px 8px;margin-left:auto;">✕</button>
+      </div>
+      <div class="row2">
+        <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">弊社担当:</span><select onchange="US(${si},'ourContact',this.value)" style="width:84px;"><option value="">選択−</option>${S.workers.filter(w=>w.group==='main').map(w=>`<option value="${w.name}"${site.ourContact===w.name?' selected':''}>${w.name}</option>`).join('')}</select></div>
+        <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">リーダー:</span><select onchange="US(${si},'leader',this.value)" style="width:84px;"><option value="">選択−</option>${S.workers.map(w=>`<option value="${w.name}"${site.leader===w.name?' selected':''}>${w.name}</option>`).join('')}</select></div>
+        <div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl">工事内容:</span>${selWK}<select onchange="AWK2(${si},this.value);this.value=''" style="width:88px;"><option value="">＋ 追加</option>${workOpts}</select></div>
+        <div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl">使用重機:</span>${selM}<select onchange="AM(${si},this.value);this.value=''" style="width:80px;"><option value="">＋ 追加</option>${machOpts}</select></div>
+        <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">集合:</span><input value="${site.gatherTime||''}" placeholder="900" onblur="UST(${si},'gatherTime',this)" onkeydown="if(event.key==='Enter'){UST(${si},'gatherTime',this);}" style="width:60px;"></div>
+        <input value="${site.note||''}" placeholder="摘要・備考" onchange="US(${si},'note',this.value)" style="flex:1;min-width:90px;">
+      </div>
+      <div style="margin-bottom:5px;">
+        <div class="hint" style="margin-bottom:3px;">工事日</div>
+        <div style="display:flex;flex-wrap:wrap;gap:2px;margin-bottom:3px;">${dayBtns}</div>
+        <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;"><input type="date" id="from_${si}" style="width:140px;"><span class="hint">〜</span><input type="date" id="to_${si}" style="width:140px;"><button class="btn" onclick="AP(${si})">期間追加</button>${site.days?.length?`<span class="hint">計${site.days.length}日</span>`:''}</div>
+      </div>
+      ${actDays.length?`<div><div class="hint" style="margin-bottom:3px;">割り振り（今週分）</div>${asgSecs}</div>`:''}
+    </div>`;
+  }).join('');
+  return`<div class="tb"><strong style="font-size:13px;">配車・割振</strong><span style="font-size:11px;color:var(--tx3);">今日から2週間分</span><button class="btn" onclick="TogPast()" style="${S.showPast?'background:#fef3c7;border-color:#fde68a;color:#92400e;':''}">${S.showPast?'過去も表示中':'今日以降のみ'}</button><button class="btn btnp" onclick="AS()" style="margin-left:auto;">＋ 現場追加</button></div>
+  ${dupK.length?`<div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:6px;padding:5px 10px;margin-bottom:8px;font-size:11px;color:#991b1b;">⚠ 重複: ${dupK.map(k=>k.split('|').join(' ')).join(' / ')}</div>`:''}
+  ${!S.sites.length?'<div style="text-align:center;color:var(--tx3);padding:32px;">「＋ 現場追加」で現場を登録</div>':cards}
+  <div id="cmodal"></div>`;
+}
+
+function bBW(){
+  const days=g7(pd(S.weekBase));
+  const hd=days.map(d=>{const dw=d.getDay();return`<th style="${thS(dw===0?'#fda4af':dw===6?'#bfdbfe':'#cbd5e1',dw===0?'#881337':dw===6?'#1e3a8a':'#0f172a')}">${(d.getMonth()+1)}/${d.getDate()}(${WD[dw]})</th>`;}).join('');
+  const rows=S.workers.filter(w=>w.group!=='helper').map((w,ri)=>{
+    if(w.group==='office'){
+      // 事務員は出勤状況を表示
+      const cells=days.map(d=>{const dk=fmt(d);const st=(S.officeAtt[dk]&&S.officeAtt[dk][w.name])||'';const disp=st==='work'?{t:'出勤',bg:'#dcfce7',co:'#166534'}:st==='leave'?{t:'有給',bg:'#fae8ff',co:'#86198f'}:st==='off'?{t:'休',bg:'#f1f5f9',co:'#94a3b8'}:{t:'',bg:'',co:''};return`<td style="border:1px solid var(--bd3);text-align:center;${disp.bg?`background:${disp.bg};color:${disp.co};font-size:10px;font-weight:500;`:''}">${disp.t}</td>`;}).join('');
+      return`<tr style="background:#fffaf0;"><td class="nc" style="width:58px;">${w.name}<br><span style="font-size:9px;color:#b45309;">事務</span></td>${cells}</tr>`;
+    }
+    const cells=days.map(d=>{const dk=fmt(d);const my=S.sites.flatMap(s=>{if(!(s.days||[]).includes(dk))return[];return(s.assigns?.[dk]||[]).filter(a=>a.name===w.name).map(a=>({s,a}));}).sort((x,y)=>(x.s.shift==='夜'?1:0)-(y.s.shift==='夜'?1:0));if(!my.length)return`<td style="border:1px solid var(--bd3);"></td>`;return`<td style="border:1px solid var(--bd3);padding:2px;">${my.map(({s,a})=>`<div style="padding:1px 3px;border-radius:3px;background:${s.shift==='夜'?'#eef2ff':'#fffbeb'};margin-bottom:1px;"><span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span> <b style="font-size:11px;">${s.place||'(未設定)'}</b>${a.isDriver?'<span class="bdrv">運転</span>':''}${a.memo?`<span style="font-size:10px;color:var(--tx2);"> ${a.memo}</span>`:''}</div>`).join('')}</td>`;}).join('');
+    return`<tr style="background:${ri%2===0?'var(--bg1)':'var(--bg2)'};">
+      <td class="nc" style="font-weight:500;width:58px;">${w.name}</td>${cells}</tr>`;
+  }).join('');
+  return`<div class="tb"><strong style="font-size:13px;">社員別</strong><button class="btn" onclick="MW(-7)">◀</button><input type="date" value="${S.weekBase}" onchange="SWB(this.value)" style="width:140px;"><button class="btn" onclick="MW(7)">▶</button></div>
+  <div style="overflow-x:auto;"><table class="tbl"><thead><tr><th style="${thS('#334155','#f1f5f9')}width:58px;">社員名</th>${hd}</tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+
+function bBM(){
+  const days=g7(pd(S.weekBase));
+  const hd=days.map(d=>{const dw=d.getDay();return`<th style="${thS(dw===0?'#fda4af':dw===6?'#bfdbfe':'#cbd5e1',dw===0?'#881337':dw===6?'#1e3a8a':'#0f172a')}">${(d.getMonth()+1)}/${d.getDate()}(${WD[dw]})</th>`;}).join('');
+  const rows=S.machines.map(m=>{const cells=days.map(d=>{const dk=fmt(d);const hits=S.sites.filter(s=>normMachines(s.machines).some(x=>x.name===m)&&(s.days||[]).includes(dk));if(!hits.length)return`<td style="border:1px solid var(--bd3);"></td>`;return`<td style="border:1px solid var(--bd3);padding:2px;">${hits.map(s=>{const mm=normMachines(s.machines).find(x=>x.name===m);return`<div style="padding:1px 3px;border-radius:3px;background:${s.shift==='夜'?'#eef2ff':'#fffbeb'};margin-bottom:1px;"><span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span> ${s.place||'(未設定)'}${mm&&mm.qty>1?` <b>×${mm.qty}</b>`:''}</div>`;}).join('')}</td>`;}).join('');return`<tr><td class="nc" style="font-family:monospace;width:50px;">${m}</td>${cells}</tr>`;}).join('');
+  return`<div class="tb"><strong style="font-size:13px;">機械別</strong><button class="btn" onclick="MW(-7)">◀</button><input type="date" value="${S.weekBase}" onchange="SWB(this.value)" style="width:140px;"><button class="btn" onclick="MW(7)">▶</button></div>
+  <div style="overflow-x:auto;"><table class="tbl"><thead><tr><th style="${thS('#334155','#f1f5f9')}width:50px;">重機</th>${hd}</tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+
+function bR(){
+  const [ry,rm]=S.rpYM.split('-').map(Number);
+  const lastDay=new Date(ry,rm,0).getDate();
+  const mDays=Array.from({length:lastDay},(_,i)=>`${S.rpYM}-${String(i+1).padStart(2,'0')}`);
+  const gds=dk=>{if(!S.rpW)return[];return S.sites.flatMap(s=>{if(!(s.days||[]).includes(dk))return[];return(s.assigns?.[dk]||[]).filter(a=>a.name===S.rpW).map(a=>({s,a}));});};
+  let totD=0,totA=0;const drvC={};
+  mDays.forEach(dk=>{const sh=gds(dk);if(sh.length)totD++;sh.forEach(({a})=>{if(a.isDriver&&a.vehicle){totA+=S.vehicles.find(v=>v.name===a.vehicle)?.allowance||0;drvC[a.vehicle]=(drvC[a.vehicle]||0)+1;}});});
+  const rows=mDays.map(dk=>{
+    const dt=pd(dk),dw=dt.getDay();const isSun=dw===0,isSat=dw===6;
+    const ds=gds(dk),has=ds.length>0;
+    const hBg=isSun?'#fee2e2':isSat?'#dbeafe':has?'#fef9c3':'var(--bg2)';
+    const hCo=isSun?'#991b1b':isSat?'#1e40af':'var(--tx)';
+    const secs=has?['昼','夜'].map(slot=>{
+      const ss=ds.filter(({s})=>s.shift===slot);if(!ss.length)return'';
+      return ss.map(({s,a})=>{
+        const ak=`${dk}__${s.id}`,act=S.actuals[ak]||{};
+        const dd=(s.dayData&&s.dayData[dk])||{};
+        const isCancel=dd.cancelled;
+        const vA=a.isDriver&&a.vehicle?S.vehicles.find(v=>v.name===a.vehicle)?.allowance||0:0;
+        const ctName=s.contact==='__manual__'?s.contactManual:s.contact;
+        const ctTel=s.contact==='__manual__'?s.contactTel:(S.contacts.find(c=>c.name===s.contact)||{}).tel||'';
+        const mc=normMachines(s.machines);
+        return`<div style="padding:5px 8px;border-top:1px solid var(--bd3);${isCancel?'opacity:0.5;background:#f1f5f9;':''}">
+          <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;flex-wrap:wrap;">
+            <span class="${slot==='夜'?'bngt':'bday'}">${slot}</span><b style="font-size:12px;">${s.place||'(未設定)'}</b>
+            ${isCancel?'<span style="background:#9ca3af;color:#fff;font-size:10px;padding:1px 6px;border-radius:4px;">中止</span>':''}
+            ${dd.altWork?`<span style="background:#fef3c7;color:#b45309;font-size:10px;padding:1px 6px;border-radius:4px;">別作業:${dd.altWork}</span>`:''}
+            ${s.prime?`<span style="font-size:10px;color:var(--tx2);">${s.prime}</span>`:''}
+            ${(s.works||[]).map(w=>`<span class="bwork">${w}</span>`).join('')}${mc.map(m=>`<span class="bmach">${machLabel(m)}</span>`).join('')}
+            ${a.isDriver?`<span class="bdrv">運転 ${a.vehicle}</span>`:''}${vA>0?`<span style="color:#92400e;font-size:10px;font-weight:500;">+¥${vA}</span>`:''}
+          </div>
+          <div style="font-size:10px;color:var(--tx2);margin-bottom:3px;display:flex;gap:8px;flex-wrap:wrap;">
+            <span>担当:${a.role||'—'}</span><span>集合:${s.gatherTime||'—'}</span><span>車:${a.vehicle||'—'}</span>
+            ${s.okiba?`<span>置場:${s.okiba}</span>`:''}${s.kaisou?`<span>回送:${s.kaisou}</span>`:''}
+            ${ctName?`<span>元請担当:${ctName}${ctTel?' '+ctTel:''}</span>`:''}
+            ${s.ourContact?`<span>弊社担当:${s.ourContact}</span>`:''}${s.leader?`<span>リーダー:${s.leader}</span>`:''}
+            ${a.memo?`<span>備考:${a.memo}</span>`:''}
+          </div>
+          <div style="display:flex;gap:5px;flex-wrap:wrap;">
+            <label style="display:flex;align-items:center;gap:2px;font-size:11px;color:var(--tx2);">開始<input type="time" value="${act.start||''}" onchange="ACT('${ak}','start',this.value)" style="width:96px;"></label>
+            <label style="display:flex;align-items:center;gap:2px;font-size:11px;color:var(--tx2);">終了<input type="time" value="${act.end||''}" onchange="ACT('${ak}','end',this.value)" style="width:96px;"></label>
+            <label style="display:flex;align-items:center;gap:2px;font-size:11px;color:var(--tx2);">天候<input value="${act.weather||''}" placeholder="晴/雨" onchange="ACT('${ak}','weather',this.value)" style="width:54px;"></label>
+            <label style="display:flex;align-items:center;gap:2px;font-size:11px;color:var(--tx2);">数量<input value="${act.qty||''}" placeholder="50m³" onchange="ACT('${ak}','qty',this.value)" style="width:62px;"></label>
+            <label style="display:flex;align-items:center;gap:2px;font-size:11px;color:var(--tx2);flex:1;min-width:120px;">作業<input value="${act.work||''}" onchange="ACT('${ak}','work',this.value)" style="flex:1;min-width:55px;"></label>
+            <label style="display:flex;align-items:center;gap:2px;font-size:11px;color:var(--tx2);flex:1;min-width:90px;">備考<input value="${act.memo||''}" onchange="ACT('${ak}','memo',this.value)" style="flex:1;min-width:50px;"></label>
+          </div>
+        </div>`;
+      }).join('');
+    }).join(''):'';
+    return`<div class="day-row" style="${!has?'opacity:0.4;':''}">
+      <div class="dhdr" style="background:${hBg};"><span style="font-weight:500;font-size:12px;color:${hCo};min-width:86px;">${rm}/${dt.getDate()}(${WD[dw]})</span>
+        ${!has?'<span class="hint">予定なし</span>':ds.map(({s})=>`<span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span><b style="font-size:11px;margin-left:3px;">${s.place||'(未設定)'}</b>`).join('')}
+      </div>${secs}</div>`;
+  }).join('');
+  // ===== 全集計（月＋年度8月始まり） =====
+  const monthDks=daysInMonth(S.rpYM);
+  // 年度の開始年：fyView優先、なければ表示中の月から判定
+  const fySY=S.fyView!==null?S.fyView:fyStartYear(S.rpYM+'-01');
+  const fyDkList=fyDays(fySY);
+  const aggM=S.rpW?aggWorker(S.rpW,monthDks):null;
+  const aggY=S.rpW?aggWorker(S.rpW,fyDkList):null;
+  const driveRows=agg=>{
+    const ks=Object.keys(agg.drive);
+    if(!ks.length)return'<span style="color:var(--tx3);">なし</span>';
+    return ks.map(v=>`${v}: <b>${agg.drive[v]}</b>回`).join(' / ');
+  };
+  const sumCard=(title,agg,extra,head,foot)=>`<div class="card" style="margin-top:10px;${extra||''}">
+    <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;"><div style="font-weight:600;font-size:13px;">${title}</div>${head||''}</div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:6px;">
+      ${[['勤務日数',agg.workDays+'日'],['夜間出勤',agg.nightDays+'日'],['連荘',agg.maxRen],['現場回数',agg.genba+'回'],['事務所回数',agg.office+'回'],['有給使用',agg.leave+'日'],['残業合計',agg.ot+'h'],['日曜出勤',agg.sun+'日'],['祝日出勤',agg.hol+'日'],['日祝前(夜)',agg.beforeHol+'回'],['休日',agg.rest+'日']].map(([l,v])=>`<div style="background:var(--bg2);border-radius:6px;padding:6px 8px;"><div style="font-size:10px;color:var(--tx2);">${l}</div><div style="font-size:15px;font-weight:600;">${v}</div></div>`).join('')}
+    </div>
+    <div style="margin-top:8px;background:var(--bg2);border-radius:6px;padding:6px 8px;"><div style="font-size:10px;color:var(--tx2);margin-bottom:2px;">運転集計（車種別）</div><div style="font-size:12px;">${driveRows(agg)}</div></div>
+    ${foot||''}
+  </div>`;
+  // 有給は入社日起点で数える（入社日未設定なら会社年度）
+  const rpWorker=S.workers.find(w=>w.name===S.rpW);
+  const ly=S.rpW&&rpWorker?leaveYearDays(rpWorker.hireDate,S.rpYM+'-15'):null;
+  const leaveByHire=ly?countLeave(S.rpW,ly.days):null;
+  const fyHead=`<div style="margin-left:auto;display:flex;align-items:center;gap:4px;"><button class="btn" onclick="FY(-1)" style="padding:1px 8px;">◀</button><span style="font-size:11px;">${fySY}/8〜${fySY+1}/7</span><button class="btn" onclick="FY(1)" style="padding:1px 8px;">▶</button></div>`;
+  const leaveNote=ly?`<div style="margin-top:8px;background:#fae8ff;border:1px solid #e9d5ff;border-radius:6px;padding:6px 8px;font-size:11px;color:#86198f;">有給は入社日起点で集計：<b>${ly.start}〜${ly.end}</b> の使用 <b style="font-size:14px;">${leaveByHire}日</b><span style="color:#a78bfa;">（※上の「有給使用」は会社年度の参考値）</span></div>`:`<div style="margin-top:8px;font-size:10px;color:var(--tx3);">※入社日をマスタに登録すると、有給は入社日起点の1年で集計されます。</div>`;
+  const drvTbl=S.rpW?(sumCard(`${ry}年${rm}月 集計`,aggM,'border-color:#1e40af;')+sumCard(`年度集計`,aggY,'border-color:#86198f;',fyHead,leaveNote)):'';
+  const mW=S.workers.filter(w=>w.group==='main'),hW=S.workers.filter(w=>w.group==='helper'),oW=S.workers.filter(w=>w.group==='office');
+  return`<div class="tb" style="flex-wrap:wrap;"><strong style="font-size:13px;">日報</strong>
+    <select onchange="SRW(this.value)" style="width:90px;"><option value="">— 社員 —</option>
+      <optgroup label="メンバー">${mW.map(w=>`<option value="${w.name}"${S.rpW===w.name?' selected':''}>${w.name}</option>`).join('')}</optgroup>
+      <optgroup label="助っ人">${hW.map(w=>`<option value="${w.name}"${S.rpW===w.name?' selected':''}>${w.name}</option>`).join('')}</optgroup>
+      ${oW.length?`<optgroup label="事務員">${oW.map(w=>`<option value="${w.name}"${S.rpW===w.name?' selected':''}>${w.name}</option>`).join('')}</optgroup>`:''}
+    </select>
+    <button class="btn" onclick="CM(-1)">◀</button><strong>${ry}年 ${rm}月</strong><button class="btn" onclick="CM(1)">▶</button>
+    <button class="btn" onclick="printAllReports()" style="background:#166534;color:#fff;border-color:#166534;">🖨 全員印刷</button>
+    <button class="btn" onclick="showMailList()" style="background:#1e40af;color:#fff;border-color:#1e40af;">✉ 全員メール</button>
+    ${S.rpW?`<button class="btn" onclick="printOneReport()">🖨 この人だけ</button>`:''}
+    ${S.rpW?`<button class="btn" onclick="mailOne('${S.rpW}')">✉ この人へ送信</button>`:''}
+    ${S.rpW?`<div style="margin-left:auto;background:var(--bg2);border:1px solid var(--bd3);border-radius:6px;padding:3px 10px;font-size:12px;display:flex;gap:8px;"><span>出勤 <b>${totD}日</b></span>${totA>0?`<span>手当 <b style="color:#92400e;">¥${totA.toLocaleString()}</b></span>`:''}</div>`:''}</div>
+  ${!S.rpW?'<div style="text-align:center;color:var(--tx3);padding:32px;">社員を選択してください</div>':(rpWorker&&rpWorker.group==='office'?officeReport(rpWorker,ry,rm):rows+drvTbl)}`;
+}
+/* 事務員の日報（出勤状況） */
+function officeReport(w,ry,rm){
+  const monthDks=daysInMonth(S.rpYM);
+  let work=0,leave=0,off=0;
+  const rows=monthDks.map(dk=>{
+    const dt=pd(dk),dw=dt.getDay();
+    const st=(S.officeAtt[dk]&&S.officeAtt[dk][w.name])||'';
+    if(st==='work')work++;else if(st==='leave')leave++;else if(st==='off')off++;
+    const disp=st==='work'?{t:'出勤',c:'#166534',bg:'#dcfce7'}:st==='leave'?{t:'有給',c:'#86198f',bg:'#fae8ff'}:st==='off'?{t:'休',c:'#94a3b8',bg:'#f1f5f9'}:{t:'—',c:'var(--tx3)',bg:'var(--bg1)'};
+    const isSun=dw===0,isHol=isHoliday(dk);
+    return`<tr><td style="text-align:center;${isSun?'color:#dc2626;':isHol?'color:#ea580c;':''}">${rm}/${dt.getDate()}(${WD[dw]})</td><td style="text-align:center;background:${disp.bg};color:${disp.c};font-weight:500;">${disp.t}</td></tr>`;
+  }).join('');
+  // 有給は入社日起点
+  const ly=leaveYearDays(w.hireDate,S.rpYM+'-15');
+  let leaveByHire=null;
+  if(ly){leaveByHire=0;ly.days.forEach(dk=>{if(S.officeAtt[dk]&&S.officeAtt[dk][w.name]==='leave')leaveByHire++;});}
+  return`<div class="card" style="border-color:#f59e0b;">
+    <div style="font-weight:600;margin-bottom:8px;">${ry}年${rm}月 事務員出勤　${w.name}</div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px;">
+      <div style="background:#dcfce7;border-radius:6px;padding:8px;"><div style="font-size:10px;color:#166534;">出勤日数</div><div style="font-size:18px;font-weight:700;color:#166534;">${work}日</div></div>
+      <div style="background:#fae8ff;border-radius:6px;padding:8px;"><div style="font-size:10px;color:#86198f;">有給</div><div style="font-size:18px;font-weight:700;color:#86198f;">${leave}日</div></div>
+      <div style="background:#f1f5f9;border-radius:6px;padding:8px;"><div style="font-size:10px;color:#64748b;">休</div><div style="font-size:18px;font-weight:700;color:#64748b;">${off}日</div></div>
+    </div>
+    ${ly?`<div style="background:#fae8ff;border:1px solid #e9d5ff;border-radius:6px;padding:6px 8px;font-size:11px;color:#86198f;margin-bottom:10px;">有給（入社日起点 ${ly.start}〜${ly.end}）使用 <b style="font-size:14px;">${leaveByHire}日</b></div>`:''}
+    <table class="tbl" style="max-width:300px;"><thead><tr><th>日付</th><th>状況</th></tr></thead><tbody>${rows}</tbody></table>
+  </div>`;
+}
+
+function bI(){
+  const [ry,rm]=S.izYM.split('-').map(Number);
+  const last=new Date(ry,rm,0).getDate();
+  const mDays=Array.from({length:last},(_,i)=>`${S.izYM}-${String(i+1).padStart(2,'0')}`);
+  const exD=mDays.filter(dk=>S.excl.has(dk)).length,wkD=last-exD;
+  const counts=S.workers.map(w=>{let c=0;mDays.forEach(dk=>{if(S.sites.some(s=>(s.days||[]).includes(dk)&&(s.assigns?.[dk]||[]).some(a=>a.name===w.name)))c++;});return{w,c};}).filter(x=>x.c>0).sort((a,b)=>b.c-a.c);
+  const maxC=Math.max(...counts.map(x=>x.c),1);
+  const bars=counts.map(({w,c})=>{const bl=Math.round(c/maxC*340),isH=w.group==='helper';return`<div style="display:flex;align-items:center;gap:6px;margin-bottom:5px;"><div style="width:52px;text-align:right;font-size:12px;font-weight:${isH?'400':'500'};color:${isH?'var(--tx2)':'var(--tx)'};">${w.name}</div><div style="flex:1;background:var(--bg2);border-radius:4px;height:20px;overflow:hidden;"><div style="width:${bl}px;max-width:100%;height:100%;background:${isH?'#94a3b8':'#1e40af'};border-radius:4px;display:flex;align-items:center;padding-left:6px;"><span style="font-size:11px;color:#fff;white-space:nowrap;font-weight:500;">${c}日 (${wkD>0?Math.round(c/wkD*100):0}%)</span></div></div></div>`;}).join('');
+  return`<div class="tb"><strong style="font-size:13px;">出面（全体）</strong><button class="btn" onclick="CI(-1)">◀</button><strong>${ry}年 ${rm}月</strong><button class="btn" onclick="CI(1)">▶</button><span class="hint" style="margin-left:6px;">稼働日:${wkD}日</span></div>
+  ${!counts.length?'<div style="text-align:center;color:var(--tx3);padding:32px;">データがありません</div>':`<div class="card"><div style="font-weight:500;margin-bottom:10px;">${ry}年${rm}月 出勤日数</div>${bars}</div>
+  <table class="tbl" style="max-width:400px;margin-top:8px;"><thead><tr><th>社員名</th><th>出勤日数</th><th>出勤率</th><th>区分</th></tr></thead><tbody>
+  ${counts.map(({w,c})=>`<tr><td style="font-weight:${w.group==='main'?'500':'400'};">${w.name}</td><td style="text-align:center;">${c}日</td><td style="text-align:center;">${wkD>0?Math.round(c/wkD*100):0}%</td><td style="text-align:center;font-size:10px;">${w.group==='main'?'メンバー':'助っ人'}</td></tr>`).join('')}
+  <tr style="background:var(--bg2);font-weight:500;"><td>合計(延べ)</td><td style="text-align:center;">${counts.reduce((s,x)=>s+x.c,0)}日</td><td colspan="2"></td></tr>
+  </tbody></table>`}`;
+}
+
+function bMaster(){
+  const N=S.workers.length;
+  const workerRow=(w,i)=>`<div class="wrow" style="flex-direction:column;align-items:stretch;gap:3px;border-bottom:1px solid var(--bd3);padding-bottom:5px;margin-bottom:5px;">
+    <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;">
+      <button class="ord" onclick="MoveW(${i},-1)" ${i===0?'disabled':''}>▲</button>
+      <button class="ord" onclick="MoveW(${i},1)" ${i===N-1?'disabled':''}>▼</button>
+      <span style="color:var(--tx3);width:28px;font-size:10px;">${w.no}</span>
+      <label style="font-size:9px;color:var(--tx3);">表示名<input value="${w.name||''}" onchange="SetWF(${i},'name',this.value)" style="width:70px;padding:1px 3px;font-size:11px;font-weight:600;"></label>
+      <label style="font-size:9px;color:var(--tx3);">氏名<input value="${w.fullName||''}" onchange="SetWF(${i},'fullName',this.value)" style="width:130px;padding:1px 3px;font-size:10px;"></label>
+      <span style="font-size:10px;color:var(--tx3);">${w.group==='main'?'主力':w.group==='office'?'事務員':'助っ人'}</span>
+      <button class="btn btnd" onclick="DWI(${i})" style="padding:1px 5px;margin-left:auto;">✕</button>
+    </div>
+    <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;padding-left:54px;">
+      <label style="font-size:9px;color:var(--tx3);">ﾌﾘｶﾞﾅ<input value="${w.kana||''}" onchange="SetWF(${i},'kana',this.value)" style="width:120px;padding:1px 3px;font-size:10px;"></label>
+      <label style="font-size:9px;color:var(--tx3);">生年月日<input type="date" value="${w.birth||''}" onchange="SetWF(${i},'birth',this.value)" style="width:115px;padding:1px 3px;font-size:10px;"></label>
+      <label style="font-size:9px;color:var(--tx3);">入社<input type="date" value="${w.hireDate||''}" onchange="SetWF(${i},'hireDate',this.value)" style="width:115px;padding:1px 3px;font-size:10px;"></label>
+      <input value="${w.email||''}" placeholder="メールアドレス" onchange="SetWF(${i},'email',this.value)" style="flex:1;min-width:160px;padding:1px 4px;font-size:10px;">
+    </div>
+  </div>`;
+  const msec=(title,list,addH)=>`<div class="card"><div style="font-weight:500;margin-bottom:6px;">${title}</div>
+    <div style="max-height:160px;overflow-y:auto;margin-bottom:6px;">${list}</div>
+    <div style="border-top:1px solid var(--bd3);padding-top:6px;">${addH}</div></div>`;
+  return`<strong style="font-size:13px;">マスタ管理</strong>
+  <div style="background:#dbeafe;border:1px solid #93c5fd;border-radius:8px;padding:6px 10px;margin:6px 0 10px;font-size:11px;color:#1e40af;">変更は自動保存されます。社員マスタは普段たたんでおけます。</div>
+  <div class="card" style="margin-bottom:8px;">
+    <div style="display:flex;align-items:center;gap:8px;cursor:pointer;" onclick="TogMaster('workers')">
+      <span style="font-weight:500;">👷 社員マスタ（入社日・メール・並び順）</span>
+      <span style="font-size:11px;color:var(--tx3);">${S.workers.length}名</span>
+      <span style="margin-left:auto;">${S.openMaster?'▲ 閉じる':'▼ 開く'}</span>
+    </div>
+    ${S.openMaster?`<div style="margin-top:8px;">
+      <div style="max-height:360px;overflow-y:auto;margin-bottom:6px;">
+        ${S.workers.map((w,i)=>workerRow(w,i)).join('')}
+      </div>
+      <div style="border-top:1px solid var(--bd3);padding-top:6px;display:flex;flex-wrap:wrap;gap:3px;align-items:center;">
+        <input id="nwno" placeholder="番号" style="width:48px;"><input id="nwname" placeholder="名前" style="width:90px;">
+        <select id="nwg" style="width:80px;"><option value="main">メンバー</option><option value="helper">助っ人</option><option value="office">事務員</option></select>
+        <button class="btn btnp" onclick="AW()">社員を追加</button>
+        <button class="btn" onclick="reloadWorkers()" style="margin-left:auto;background:#fef3c7;border-color:#fde68a;color:#92400e;">↻ 社員を最新版に入れ替え</button>
+      </div>
+    </div>`:''}
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;">
+    ${msec('元請担当者',(S.contacts||[]).map((c,i)=>`<div style="display:flex;align-items:center;gap:3px;margin-bottom:2px;font-size:12px;"><span style="flex:1;">${c.name}</span><span style="font-size:11px;color:var(--tx2);">${c.tel||''}</span><button class="btn btnd" onclick="DCT(${i})" style="padding:1px 5px;">✕</button></div>`).join(''),`<div style="display:flex;flex-wrap:wrap;gap:3px;"><input id="nctn" placeholder="担当者名" style="flex:1;min-width:80px;"><input id="nctt" placeholder="電話番号" style="flex:1;min-width:90px;"><button class="btn btnp" onclick="ACT2()" style="width:100%;">追加</button></div>`)}
+    ${msec('担当内容（役割）※よく使う順',sortByUsage(S.roles,'roles',x=>x).map((r)=>{const i=S.roles.indexOf(r);return`<div style="display:flex;align-items:center;gap:3px;margin-bottom:2px;font-size:12px;"><span style="flex:1;">${r}</span><button class="btn btnd" onclick="DR(${i})" style="padding:1px 5px;">✕</button></div>`;}).join(''),`<div style="display:flex;gap:3px;"><input id="nrole" placeholder="役割名" style="flex:1;"><button class="btn btnp" onclick="AR()">追加</button></div>`)}
+    ${msec('工事内容 ※よく使う順',sortByUsage(S.works,'works',x=>x).map((w)=>{const i=S.works.indexOf(w);return`<div style="display:flex;align-items:center;gap:3px;margin-bottom:2px;font-size:12px;"><span style="flex:1;">${w}</span><button class="btn btnd" onclick="DWK(${i})" style="padding:1px 5px;">✕</button></div>`;}).join(''),`<div style="display:flex;gap:3px;"><input id="nwork" placeholder="工事内容名" style="flex:1;"><button class="btn btnp" onclick="AWK()">追加</button></div>`)}
+    ${msec('重機 ※よく使う順',sortByUsage(S.machines,'machines',x=>x).map((m)=>{const i=S.machines.indexOf(m);return`<div style="display:flex;align-items:center;gap:3px;margin-bottom:2px;font-size:12px;"><span style="flex:1;font-family:monospace;">${m}</span><button class="btn btnd" onclick="DM(${i})" style="padding:1px 5px;">✕</button></div>`;}).join(''),`<div style="display:flex;gap:3px;"><input id="nm" placeholder="重機コード" style="flex:1;"><button class="btn btnp" onclick="AM2()">追加</button></div>`)}
+    <div class="card"><div style="font-weight:500;margin-bottom:6px;">移動車（手当）※よく使う順</div>
+      <div style="max-height:160px;overflow-y:auto;margin-bottom:6px;">${sortByUsage(S.vehicles,'vehicles',v=>v.name).map((v)=>{const i=S.vehicles.indexOf(v);return`<div style="display:flex;align-items:center;gap:3px;margin-bottom:2px;font-size:12px;"><span style="flex:1;">${v.name}</span><input type="number" value="${v.allowance}" onchange="UV(${i},this.value)" style="width:64px;"><button class="btn btnd" onclick="DV(${i})" style="padding:1px 5px;">✕</button></div>`;}).join('')}</div>
+      <div style="border-top:1px solid var(--bd3);padding-top:6px;display:flex;flex-wrap:wrap;gap:3px;">
+        <input id="nvn" placeholder="車名" style="flex:1;min-width:70px;"><input type="number" id="nva" value="0" style="width:60px;">
+        <button class="btn btnp" onclick="AV()" style="width:100%;">追加</button>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="margin-top:8px;background:#eff6ff;border-color:#bfdbfe;">
+    <div style="font-weight:500;margin-bottom:4px;color:#1e40af;">印刷ヘッダー設定</div>
+    <div style="font-size:11px;color:#1e40af;margin-bottom:6px;">PDF・印刷の見出しに出る会社名／部署名です。</div>
+    <input value="${S.orgName||''}" placeholder="例：○○建設 工事部" onchange="SetOrg(this.value)" style="width:100%;max-width:320px;">
+  </div>
+  <div class="card" style="margin-top:8px;background:#fef9c3;border-color:#fde68a;">
+    <div style="font-weight:500;margin-bottom:4px;color:#854d0e;">データ管理</div>
+    <div style="font-size:11px;color:#854d0e;margin-bottom:8px;">このアプリはブラウザに自動保存されます。別のパソコンに移すときや、バックアップを取りたいときは下のボタンを使ってください。</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;">
+      <button class="btn" onclick="exportFile()">💾 データをファイルに書き出す</button>
+      <label class="btn" style="cursor:pointer;">📂 ファイルから読み込む<input type="file" accept=".json" onchange="importFile(this)" style="display:none;"></label>
+      <button class="btn btnd" onclick="resetAll()">🗑 全データ初期化</button>
+    </div>
+  </div>
+  <div class="card" style="margin-top:8px;background:#dbeafe;border-color:#93c5fd;">
+    <div style="font-weight:500;margin-bottom:4px;color:#1e40af;">社員共有用（GitHub Pages）</div>
+    <div style="font-size:11px;color:#1e40af;margin-bottom:8px;">社員に見せるには、下のボタンで <b>data.json</b> を書き出し、GitHubの同じフォルダに上書きアップロードしてください。社員は閲覧用URL（末尾に <b>?view=1</b>）を開くだけで最新の予定が見られます。</div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;">
+      <button class="btn btnp" onclick="exportShare()">📤 共有用 data.json を書き出す</button>
+    </div>
+  </div>`;
+}
+
+/* ===== 個別日報の一括印刷 ===== */
+function printDayLabel(dk){const dt=pd(dk);return`${dt.getMonth()+1}/${dt.getDate()}(${WD[dt.getDay()]})`;}
+function workerMonthDetail(name,monthDks){
+  // その月、その社員が出た現場を日付順に
+  const rows=[];
+  monthDks.forEach(dk=>{
+    ['昼','夜'].forEach(slot=>{
+      S.sites.forEach(s=>{
+        if(s.shift!==slot)return;
+        if(!(s.days||[]).includes(dk))return;
+        const a=(s.assigns?.[dk]||[]).find(x=>x.name===name);
+        if(!a)return;
+        const dd=(s.dayData&&s.dayData[dk])||{};
+        const rep=getReport(s,dk);const per=(rep.per&&rep.per[name])||{};
+        const ot=per.ot!==undefined?per.ot:(rep.otDefault||0);
+        rows.push({dk,slot,place:s.place||'',cancelled:dd.cancelled,alt:dd.altWork||'',
+          work:a.role||'',start:rep.start||'',end:rep.end||'',weather:rep.weather||'',
+          ot:ot||'',drive:per.drive||'',vehicle:a.vehicle||'',office:isOfficeForWorker(s,dk,name)});
+      });
+    });
+  });
+  return rows;
+}
+function onePersonPage(w,ym){
+  const monthDks=daysInMonth(ym);
+  const[y,mo]=ym.split('-').map(Number);
+  const detail=workerMonthDetail(w.name,monthDks);
+  const agg=aggWorker(w.name,monthDks);
+  const fySY=fyStartYear(ym+'-01');
+  const aggY=aggWorker(w.name,fyDays(fySY));
+  const lyP=leaveYearDays(w.hireDate,ym+'-15');
+  const leaveByHireP=lyP?countLeave(w.name,lyP.days):null;
+  const drvStr=Object.keys(agg.drive).length?Object.entries(agg.drive).map(([v,c])=>`${v}:${c}回`).join(' '):'なし';
+  const detailRows=detail.length?detail.map(r=>`<tr${r.cancelled?' style="color:#999;"':''}>
+    <td>${printDayLabel(r.dk)}</td><td>${r.slot}</td><td>${r.place}${r.cancelled?'(中止)':''}${r.alt?'/'+r.alt:''}${r.office?' [事務所]':''}</td>
+    <td>${r.work}</td><td>${r.start}${r.start||r.end?'〜':''}${r.end}</td><td>${r.weather}</td>
+    <td style="text-align:right;">${r.ot!==''?r.ot+'h':''}</td><td>${r.drive!==''?r.vehicle+' '+r.drive+'回':''}</td>
+  </tr>`).join(''):'<tr><td colspan="8" style="text-align:center;color:#999;">この月の勤務はありません</td></tr>';
+  return`<div class="pp">
+    <h2>${y}年${mo}月 個人日報 　${w.name}（${w.no}）</h2>
+    <table>
+      <thead><tr><th>日付</th><th>昼夜</th><th>現場</th><th>担当</th><th>時間</th><th>天候</th><th>残業</th><th>運転</th></tr></thead>
+      <tbody>${detailRows}</tbody>
+    </table>
+    <div class="ppsum">
+      <div>勤務日数 <b>${agg.workDays}</b>日</div>
+      <div>夜間出勤 <b>${agg.nightDays}</b>日</div>
+      <div>連荘 <b>${agg.maxRen}</b></div>
+      <div>現場回数 <b>${agg.genba}</b>回</div>
+      <div>事務所回数 <b>${agg.office}</b>回</div>
+      <div>有給 <b>${agg.leave}</b>日</div>
+      <div>残業合計 <b>${agg.ot}</b>h</div>
+      <div>休日 <b>${agg.rest}</b>日</div>
+      <div>日曜出勤 <b>${agg.sun}</b>日</div>
+      <div>祝日出勤 <b>${agg.hol}</b>日</div>
+      <div>日祝前(夜) <b>${agg.beforeHol}</b>回</div>
+      <div>運転 <b style="font-size:10px;">${drvStr}</b></div>
+    </div>
+    <div style="margin-top:6px;font-size:10px;color:#555;">【年度累計 ${fySY}/8〜${fySY+1}/7】勤務${aggY.workDays}日 ・ 残業${aggY.ot}h ・ 休日${aggY.rest}日 ・ 連荘計${aggY.maxRen}</div>
+    ${lyP?`<div style="margin-top:3px;font-size:10px;color:#86198f;">【有給（入社日起点 ${lyP.start}〜${lyP.end}）】使用 ${leaveByHireP}日</div>`:''}
+  </div>`;
+}
+/* 印刷の向きを動的に設定 */
+function setPrintOrientation(o){
+  let st=document.getElementById('dynPageStyle');
+  if(!st){st=document.createElement('style');st.id='dynPageStyle';document.head.appendChild(st);}
+  st.textContent=`@page{size:A4 ${o};margin:8mm;}`;
+}
+function printHeader(sub,range){
+  const today=new Date().toLocaleDateString('ja-JP');
+  return`<div class="pphead"><div><div class="org">${S.orgName||'工事部'}</div><div class="sub">${sub}　${range}</div></div><div class="date">作成日: ${today}</div></div>`;
+}
+/* ===== 週間予定の印刷（現在のビューをPDF化） ===== */
+function printWeekSchedule(){
+  const days=g5(pd(S.fiveBase));
+  const range=`${pd(S.fiveBase).getMonth()+1}/${pd(S.fiveBase).getDate()}〜${days[4].getMonth()+1}/${days[4].getDate()}`;
+  let body;
+  if(S.wMode==='person'){
+    setPrintOrientation('landscape');
+    const head=`<tr><th rowspan="2" style="background:#1e3a5f;color:#fff;">社員</th>${days.map(d=>{const dw=d.getDay();return`<th colspan="2" style="background:${dw===0?'#fde8e8':dw===6?'#e8f0fd':'#eee'};">${d.getMonth()+1}/${d.getDate()}(${WD[dw]})</th>`;}).join('')}</tr><tr>${days.map(()=>'<th style="font-size:9px;">昼</th><th style="font-size:9px;">夜</th>').join('')}</tr>`;
+    const rows=S.workers.filter(w=>w.group!=='office').map((w,ri)=>{
+      const isH=w.group==='helper';
+      const cells=days.flatMap(d=>{const dk=fmt(d);return['昼','夜'].map(slot=>{
+        const onLeave=S.leave&&S.leave[dk]&&S.leave[dk][w.name];
+        const items=S.sites.filter(s=>s.shift===slot&&(s.days||[]).includes(dk)).flatMap(s=>(s.assigns?.[dk]||[]).filter(a=>a.name===w.name).map(a=>({s,a})));
+        if(!items.length)return`<td style="text-align:center;color:${onLeave?'#86198f':'#ccc'};">${slot==='昼'&&onLeave?'有給':'・'}</td>`;
+        return`<td style="font-size:9px;${slot==='夜'?'background:#f4f6ff;':''}">${items.map(({s,a})=>`${s.place||''}${a.vehicle?'/'+a.vehicle:''}${a.isDriver?'🚗':''}${s.gatherTime?' '+s.gatherTime:''}`).join('<br>')}</td>`;
+      });}).join('');
+      return`<tr style="background:${ri%2?'#dbeafe':'#fff'};"><td style="font-weight:bold;white-space:nowrap;${isH?'color:#666;':''}">${w.name}</td>${cells}</tr>`;
+    }).join('');
+    body=printHeader('週間予定表（個人別）',range)+`<table>${head}${rows}</table>`;
+  }else{
+    setPrintOrientation('portrait');
+    const dayBlocks=days.map(d=>{
+      const dk=fmt(d),dw=d.getDay();
+      const active=S.sites.filter(s=>(s.days||[]).includes(dk));
+      const dayTitle=`<div style="background:${dw===0?'#fde8e8':dw===6?'#e8f0fd':'#1e3a5f'};color:${dw===0?'#991b1b':dw===6?'#1e40af':'#fff'};padding:3px 8px;font-weight:bold;font-size:12px;margin-top:6px;">${d.getMonth()+1}/${d.getDate()}(${WD[dw]})</div>`;
+      if(!active.length)return dayTitle+`<div style="padding:4px 8px;color:#999;font-size:10px;">予定なし</div>`;
+      const blocks=['昼','夜'].flatMap(slot=>active.filter(s=>s.shift===slot).map(s=>{
+        const dd=(s.dayData&&s.dayData[dk])||{};
+        const assigns=(s.assigns?.[dk]||[]).slice().sort((a,b)=>{const ia=S.workers.findIndex(w=>w.name===a.name),ib=S.workers.findIndex(w=>w.name===b.name);return(ia<0?999:ia)-(ib<0?999:ib);});
+        const mc=normMachines(s.machines);
+        const ctName=s.contact==='__manual__'?s.contactManual:s.contact;
+        const sideCol=(s.ourContact||s.leader)?`<td style="width:90px;border-left:2px solid #ccc;font-size:10px;vertical-align:top;">${s.leader?`<div>リーダー：<b style="color:#b45309;">${s.leader}</b></div>`:''}${s.ourContact?`<div>担当：<b>${s.ourContact}</b></div>`:''}</td>`:'<td style="width:80px;border-left:2px solid #ccc;"></td>';
+        return`<table style="width:100%;border:1px solid #aaa;border-left:4px solid ${slot==='夜'?'#3730a3':'#b45309'};margin:3px 0;${dd.cancelled?'opacity:0.5;':''}"><tr>
+          <td style="vertical-align:top;border:none;">
+            <div style="font-weight:bold;font-size:12px;">[${s.shift}] ${s.place||'(未入力)'}${(s.works||[]).length?' <span style="font-size:10px;color:#1e40af;font-weight:normal;">'+s.works.join('・')+'</span>':''} <span style="font-weight:normal;font-size:10px;color:#555;">計${assigns.length}名</span>${dd.cancelled?' <span style="color:#dc2626;">※中止</span>':''}</div>
+            <div style="font-size:9px;color:#555;">${[s.prime,ctName,s.gatherTime?'集合'+s.gatherTime:'',mc.length?'重機:'+mc.map(machLabel).join(','):''].filter(Boolean).join(' / ')}</div>
+            <div style="font-size:10px;margin-top:2px;">${assigns.map(a=>{const isL=a.name===s.leader;return`<span style="${isL?'font-weight:bold;color:#b45309;':''}">${a.name}${isL?'★':''}${a.role?'('+a.role+')':''}${a.vehicle?'/'+a.vehicle:''}${a.isDriver?'🚗':''}</span>`;}).join('　')||'<span style="color:#999;">未配置</span>'}</div>
+          </td>
+          ${sideCol}
+        </tr></table>`;
+      }));
+      return dayTitle+blocks.join('');
+    }).join('');
+    body=printHeader('週間予定表（現場別）',range)+dayBlocks;
+  }
+  const pa=document.getElementById('printArea');
+  pa.innerHTML=`<div class="pp">${body}</div>`;
+  setTimeout(()=>window.print(),100);
+}
+window.printWeek=printWeekSchedule;
+/* 3種セット（現場別→個人別→社員別）を1つのPDFに */
+function weekSiteHTML(days,range){
+  const dayBlocks=days.map(d=>{
+    const dk=fmt(d),dw=d.getDay();
+    const active=S.sites.filter(s=>(s.days||[]).includes(dk));
+    const dayTitle=`<div style="background:${dw===0?'#fde8e8':dw===6?'#e8f0fd':'#1e3a5f'};color:${dw===0?'#991b1b':dw===6?'#1e40af':'#fff'};padding:3px 8px;font-weight:bold;font-size:12px;margin-top:6px;">${d.getMonth()+1}/${d.getDate()}(${WD[dw]})</div>`;
+    if(!active.length)return dayTitle+`<div style="padding:4px 8px;color:#999;font-size:10px;">予定なし</div>`;
+    const blocks=['昼','夜'].flatMap(slot=>active.filter(s=>s.shift===slot).map(s=>{
+      const dd=(s.dayData&&s.dayData[dk])||{};
+      const assigns=(s.assigns?.[dk]||[]).slice().sort((a,b)=>{const ia=S.workers.findIndex(w=>w.name===a.name),ib=S.workers.findIndex(w=>w.name===b.name);return(ia<0?999:ia)-(ib<0?999:ib);});
+      const mc=normMachines(s.machines);const ctName=s.contact==='__manual__'?s.contactManual:s.contact;
+      const sideCol=(s.ourContact||s.leader)?`<td style="width:90px;border-left:2px solid #ccc;font-size:10px;vertical-align:top;">${s.leader?`<div>リーダー：<b style="color:#b45309;">${s.leader}</b></div>`:''}${s.ourContact?`<div>担当：<b>${s.ourContact}</b></div>`:''}</td>`:'';
+      return`<table style="width:100%;border:1px solid #aaa;border-left:4px solid ${slot==='夜'?'#3730a3':'#b45309'};margin:3px 0;${dd.cancelled?'opacity:0.5;':''}"><tr>
+        <td style="vertical-align:top;border:none;">
+          <div style="font-weight:bold;font-size:12px;">[${s.shift}] ${s.place||'(未入力)'}${(s.works||[]).length?' <span style="font-size:10px;color:#1e40af;font-weight:normal;">'+s.works.join('・')+'</span>':''} <span style="font-weight:normal;font-size:10px;color:#555;">計${assigns.length}名</span>${dd.cancelled?' <span style="color:#dc2626;">※中止</span>':''}</div>
+          <div style="font-size:9px;color:#555;">${[s.prime,ctName,s.gatherTime?'集合'+s.gatherTime:'',mc.length?'重機:'+mc.map(machLabel).join(','):''].filter(Boolean).join(' / ')}</div>
+          <div style="font-size:10px;margin-top:2px;">${assigns.map(a=>{const isL=a.name===s.leader;return`<span style="${isL?'font-weight:bold;color:#b45309;':''}">${a.name}${isL?'★':''}${a.role?'('+a.role+')':''}${a.vehicle?'/'+a.vehicle:''}${a.isDriver?'🚗':''}</span>`;}).join('　')||'<span style="color:#999;">未配置</span>'}</div>
+        </td>${sideCol}</tr></table>`;
+    }));
+    return dayTitle+blocks.join('');
+  }).join('');
+  return printHeader('週間予定表（現場別）',range)+dayBlocks;
+}
+function weekPersonHTML(days,range){
+  const head=`<tr><th rowspan="2" style="background:#1e3a5f;color:#fff;">社員</th>${days.map(d=>{const dw=d.getDay();return`<th colspan="2" style="background:${dw===0?'#fde8e8':dw===6?'#e8f0fd':'#eee'};">${d.getMonth()+1}/${d.getDate()}(${WD[dw]})</th>`;}).join('')}</tr><tr>${days.map(()=>'<th style="font-size:9px;">昼</th><th style="font-size:9px;">夜</th>').join('')}</tr>`;
+  const hasAnyAssign=(name)=>days.some(d=>{const dk=fmt(d);return S.sites.some(s=>(s.days||[]).includes(dk)&&(s.assigns?.[dk]||[]).some(a=>a.name===name));});
+  const rows=S.workers.filter(w=>w.group!=='office').filter(w=>w.group!=='helper'||hasAnyAssign(w.name)).map((w,ri)=>{
+    const isH=w.group==='helper';
+    const cells=days.flatMap(d=>{const dk=fmt(d);return['昼','夜'].map(slot=>{
+      const onLeave=S.leave&&S.leave[dk]&&S.leave[dk][w.name];
+      const items=S.sites.filter(s=>s.shift===slot&&(s.days||[]).includes(dk)).flatMap(s=>(s.assigns?.[dk]||[]).filter(a=>a.name===w.name).map(a=>({s,a})));
+      const bg=ri%2?'#dbeafe':'#fff';
+      if(!items.length)return`<td style="text-align:center;background:${bg};color:${onLeave?'#86198f':'#ccc'};">${slot==='昼'&&onLeave?'有給':'・'}</td>`;
+      return`<td style="font-size:9px;background:${slot==='夜'?(ri%2?'#c7d9f5':'#f4f6ff'):bg};">${items.map(({s,a})=>`${s.place||''}${a.vehicle?'/'+a.vehicle:''}${a.isDriver?'🚗':''}${s.gatherTime?' '+s.gatherTime:''}`).join('<br>')}</td>`;
+    });}).join('');
+    return`<tr><td style="font-weight:bold;white-space:nowrap;background:${ri%2?'#dbeafe':'#fff'};${isH?'color:#666;':''}">${w.name}</td>${cells}</tr>`;
+  }).join('');
+  return printHeader('週間予定表（個人別）',range)+`<table>${head}${rows}</table>`;
+}
+function weekByWorkerHTML(days,range){
+  const head=`<tr><th style="background:#1e3a5f;color:#fff;">社員</th>${days.map(d=>{const dw=d.getDay();return`<th style="background:${dw===0?'#fde8e8':dw===6?'#e8f0fd':'#eee'};">${d.getMonth()+1}/${d.getDate()}(${WD[dw]})</th>`;}).join('')}</tr>`;
+  const rows=S.workers.filter(w=>w.group!=='helper'&&w.group!=='office').map((w,ri)=>{
+    const cells=days.map(d=>{const dk=fmt(d);const my=S.sites.flatMap(s=>{if(!(s.days||[]).includes(dk))return[];return(s.assigns?.[dk]||[]).filter(a=>a.name===w.name).map(a=>({s,a}));}).sort((x,y)=>(x.s.shift==='夜'?1:0)-(y.s.shift==='夜'?1:0));const bg=ri%2?'#dbeafe':'#fff';if(!my.length)return`<td style="background:${bg};"></td>`;return`<td style="font-size:9px;background:${bg};">${my.map(({s,a})=>`<span style="color:${s.shift==='夜'?'#3730a3':'#b45309'};">[${s.shift}]</span>${s.place||''}${a.isDriver?'🚗':''}`).join('<br>')}</td>`;}).join('');
+    return`<tr><td style="font-weight:bold;white-space:nowrap;background:${ri%2?'#dbeafe':'#fff'};">${w.name}</td>${cells}</tr>`;
+  }).join('');
+  return printHeader('社員別 週間予定',range)+`<table>${head}${rows}</table>`;
+}
+window.printWeekSet=function(){
+  const days=g5(pd(S.fiveBase));
+  const range=`${pd(S.fiveBase).getMonth()+1}/${pd(S.fiveBase).getDate()}〜${days[4].getMonth()+1}/${days[4].getDate()}`;
+  setPrintOrientation('landscape');
+  const pa=document.getElementById('printArea');
+  pa.innerHTML=`<div class="pp">${weekSiteHTML(days,range)}</div><div class="pp">${weekPersonHTML(days,range)}</div><div class="pp">${weekByWorkerHTML(days,range)}</div>`;
+  setTimeout(()=>window.print(),100);
+};
+window.printAllReports=function(){
+  const ym=S.rpYM;
+  // 並び順は社員マスタ順。その月に勤務がある人だけ出す（全員出したい場合は変更可）
+  const pages=S.workers.map(w=>onePersonPage(w,ym)).join('');
+  document.getElementById('printArea').innerHTML=pages;
+  window.print();
+};
+window.printOneReport=function(){
+  if(!S.rpW){alert('社員を選択してください');return;}
+  const w=S.workers.find(x=>x.name===S.rpW);if(!w)return;
+  document.getElementById('printArea').innerHTML=onePersonPage(w,S.rpYM);
+  window.print();
+};
+/* ===== 日報メール送信（mailtoでメールソフトを開く） ===== */
+function reportMailBody(w,ym){
+  const monthDks=daysInMonth(ym);
+  const[y,mo]=ym.split('-').map(Number);
+  const agg=aggWorker(w.name,monthDks);
+  const detail=workerMonthDetail(w.name,monthDks);
+  let body=`${w.name} さん\n${y}年${mo}月の勤務日報です。\n\n`;
+  body+=`【明細】\n`;
+  if(detail.length){
+    detail.forEach(r=>{body+=`${printDayLabel(r.dk)} ${r.slot} ${r.place}${r.cancelled?'(中止)':''}${r.office?'[事務所]':''} ${r.work} ${r.start}${(r.start||r.end)?'〜':''}${r.end} ${r.ot!==''?'残業'+r.ot+'h':''} ${r.drive!==''?r.vehicle+r.drive+'回':''}\n`;});
+  }else{body+=`(勤務なし)\n`;}
+  body+=`\n【月集計】\n`;
+  body+=`勤務日数:${agg.workDays}日 / 夜間出勤:${agg.nightDays}日 / 連荘:${agg.maxRen}\n`;
+  body+=`現場回数:${agg.genba}回 / 事務所回数:${agg.office}回\n`;
+  body+=`有給:${agg.leave}日 / 残業合計:${agg.ot}h / 休日:${agg.rest}日\n`;
+  body+=`日曜出勤:${agg.sun}日 / 祝日出勤:${agg.hol}日 / 日祝前(夜):${agg.beforeHol}回\n`;
+  const drv=Object.keys(agg.drive).length?Object.entries(agg.drive).map(([v,c])=>`${v}:${c}回`).join(' '):'なし';
+  body+=`運転:${drv}\n`;
+  const ly=leaveYearDays(w.hireDate,ym+'-15');
+  if(ly){let lc=0;ly.days.forEach(dk=>{if(S.leave[dk]&&S.leave[dk][w.name])lc++;if(S.officeAtt[dk]&&S.officeAtt[dk][w.name]==='leave')lc++;});body+=`\n【有給(入社日起点 ${ly.start}〜${ly.end})】使用 ${lc}日\n`;}
+  return body;
+}
+window.mailOne=function(name){
+  const w=S.workers.find(x=>x.name===name);if(!w)return;
+  if(!w.email){alert(w.name+' さんのメールアドレスがマスタに登録されていません。');return;}
+  const[y,mo]=S.rpYM.split('-').map(Number);
+  const subj=`${y}年${mo}月 勤務日報（${w.name}）`;
+  const body=reportMailBody(w,S.rpYM);
+  location.href=`mailto:${encodeURIComponent(w.email)}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
+};
+window.mailAll=function(){
+  // メール登録があり、その月に勤務がある社員を順にmailtoで開く（複数はブラウザ制約で1通ずつ）
+  const targets=S.workers.filter(w=>w.email);
+  if(!targets.length){alert('メールアドレスが登録された社員がいません。マスタで登録してください。');return;}
+  if(!confirm(targets.length+'名にメールを作成します。メールソフトが順番に開きます（1通ずつ送信してください）。よろしいですか？'))return;
+  // ブラウザは複数mailtoを連続で開けないため、最初の1通を開き、残りは一覧表示
+  mailOne(targets[0].name);
+};
+window.showWeekMail=function(){
+  const days=g5(pd(S.fiveBase));
+  const range=`${pd(S.fiveBase).getMonth()+1}/${pd(S.fiveBase).getDate()}〜${days[4].getMonth()+1}/${days[4].getDate()}`;
+  let modal=document.getElementById('cmodal');
+  if(!modal){modal=document.createElement('div');modal.id='cmodal';document.body.appendChild(modal);}
+  const grp=(label,list)=>list.length?`<div style="margin-bottom:6px;"><div style="font-size:11px;font-weight:600;color:var(--tx2);margin-bottom:2px;">${label}</div>${list.map(w=>`<label style="display:inline-flex;align-items:center;gap:3px;margin:2px 6px 2px 0;font-size:12px;"><input type="checkbox" class="wmck" value="${w.email}" data-name="${w.name}" ${w.email?'checked':'disabled'}>${w.name}${!w.email?'<span style="font-size:9px;color:#dc2626;">(メール無)</span>':''}</label>`).join('')}</div>`:'';
+  const mW=S.workers.filter(w=>w.group==='main'),hW=S.workers.filter(w=>w.group==='helper'),oW=S.workers.filter(w=>w.group==='office');
+  modal.innerHTML=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;z-index:999;" onclick="closeCopy()">
+    <div onclick="event.stopPropagation()" style="background:var(--bg1);border-radius:10px;border:1px solid var(--bd2);padding:16px;width:420px;max-height:80vh;overflow-y:auto;">
+      <div style="font-weight:600;margin-bottom:4px;">✉ 週間予定をメール送信（${range}）</div>
+      <div style="font-size:11px;color:var(--tx2);margin-bottom:8px;">①「🖨 まず3種まとめてPDFを作る」でPDFを保存　②送る人にチェック　③「📋 宛先をコピー」でGmailに貼り付け（確実）、または「✉ メール作成」　④PDFを添付して送信</div>
+      <div style="margin-bottom:8px;"><button class="btn" onclick="printWeekSet()" style="background:#166534;color:#fff;border-color:#166534;">🖨 まず3種まとめてPDFを作る</button></div>
+      <div style="border-top:1px solid var(--bd3);padding-top:8px;">
+        ${grp('メンバー',mW)}${grp('助っ人（送らない時はチェックを外す）',hW)}${grp('事務員',oW)}
+      </div>
+      <div style="display:flex;gap:6px;margin-top:12px;justify-content:flex-end;">
+        <button class="btn" onclick="closeCopy()">閉じる</button>
+        <button class="btn" onclick="copyWeekTo()" style="background:#0369a1;color:#fff;border-color:#0369a1;">📋 宛先をコピー</button>
+        <button class="btn btnp" onclick="sendWeekMail('${range}')">✉ メール作成</button>
+      </div>
+    </div></div>`;
+};
+window.copyWeekTo=function(){
+  const cks=Array.from(document.querySelectorAll('.wmck')).filter(c=>c.checked&&c.value);
+  if(!cks.length){alert('送る人を選んでください');return;}
+  const to=cks.map(c=>c.value).join(', ');
+  const done=()=>alert('宛先アドレスをコピーしました（'+cks.length+'名）。\nGmailの宛先欄に貼り付けてください。\n\n'+to);
+  if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(to).then(done).catch(()=>{prompt('このアドレスをコピーしてください（Ctrl+C）',to);});}
+  else{prompt('このアドレスをコピーしてください（Ctrl+C）',to);}
+};
+window.sendWeekMail=function(range){
+  const cks=Array.from(document.querySelectorAll('.wmck')).filter(c=>c.checked&&c.value);
+  if(!cks.length){alert('送る人を選んでください');return;}
+  const to=cks.map(c=>c.value).join(',');
+  const subj=`週間予定表 ${range}`;
+  const body=`お疲れさまです。\n${range} の週間予定表を添付します。\nご確認ください。\n\n※PDFを添付してください。`;
+  location.href=`mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
+};
+window.showMailList=function(){
+  const[y,mo]=S.rpYM.split('-').map(Number);
+  const targets=S.workers.filter(w=>w.email);
+  const noMail=S.workers.filter(w=>!w.email);
+  let modal=document.getElementById('cmodal');
+  if(!modal){modal=document.createElement('div');modal.id='cmodal';document.body.appendChild(modal);}
+  const list=targets.length?targets.map(w=>`<div style="display:flex;align-items:center;gap:8px;padding:5px 0;border-bottom:1px solid var(--bd3);">
+    <span style="flex:1;font-size:12px;">${w.name} <span style="font-size:10px;color:var(--tx3);">${w.email}</span></span>
+    <button class="btn btnp" onclick="mailOne('${w.name}')" style="padding:2px 10px;">✉ 送信</button>
+  </div>`).join(''):'<div style="color:var(--tx3);padding:10px;">メール登録された社員がいません。マスタで登録してください。</div>';
+  modal.innerHTML=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;z-index:999;" onclick="closeCopy()">
+    <div onclick="event.stopPropagation()" style="background:var(--bg1);border-radius:10px;border:1px solid var(--bd2);padding:16px;width:380px;max-height:80vh;overflow-y:auto;">
+      <div style="font-weight:600;margin-bottom:4px;">✉ ${y}年${mo}月 日報メール送信</div>
+      <div style="font-size:11px;color:var(--tx2);margin-bottom:10px;">各社員の「送信」を押すとメールソフトが開き、宛先と日報が入ります。1通ずつ送信してください。</div>
+      ${list}
+      ${noMail.length?`<div style="margin-top:10px;font-size:10px;color:#b45309;background:#fef3c7;border-radius:6px;padding:6px;">メール未登録: ${noMail.map(w=>w.name).join('、')}</div>`:''}
+      <div style="margin-top:12px;text-align:right;"><button class="btn" onclick="closeCopy()">閉じる</button></div>
+    </div></div>`;
+};
+window.reloadWorkers=function(){
+  if(!confirm('社員マスタだけを最新版（全員の氏名・入社日・メール入り）に入れ替えます。\n現場・予定・元請担当者などの他のデータは残ります。よろしいですか？'))return;
+  S.workers=JSON.parse(JSON.stringify(IW));
+  persist();render();
+  alert('社員マスタを更新しました。');
+};
+window.resetAll=function(){
+  if(!confirm('本当に全データを初期状態に戻しますか？（書き出したファイルがあれば後で読み込めます）'))return;
+  localStorage.removeItem(LS);
+  location.reload();
+};
+
+window.showCopy=function(si,srcDk){
+  const el=document.getElementById('cmodal');if(!el)return;
+  el.innerHTML=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;z-index:999;" onclick="closeCopy()">
+    <div onclick="event.stopPropagation()" style="background:var(--bg1);border-radius:10px;border:1px solid var(--bd2);padding:16px;width:300px;">
+      <div style="font-weight:500;margin-bottom:8px;">📋 ${srcDk} の割り振りをコピー</div>
+      <div style="font-size:12px;color:var(--tx2);margin-bottom:6px;">コピー先の日付:</div>
+      <input type="date" id="cdest" style="width:100%;margin-bottom:10px;">
+      <div style="display:flex;gap:6px;"><button class="btn" onclick="closeCopy()" style="flex:1;">キャンセル</button><button class="btn btnp" onclick="execCopy(${si},'${srcDk}')" style="flex:1;">実行</button></div>
+    </div></div>`;
+};
+window.closeCopy=()=>{const el=document.getElementById('cmodal');if(el)el.innerHTML='';};
+window.execCopy=function(si,srcDk){
+  const destDk=document.getElementById('cdest')?.value;
+  if(!destDk){alert('コピー先の日付を選択してください');return;}
+  if(destDk===srcDk){alert('同じ日付にはコピーできません');return;}
+  const s=S.sites[si];s.assigns=s.assigns||{};
+  s.assigns[destDk]=dc(s.assigns[srcDk]||[]);
+  if(!s.days.includes(destDk)){s.days.push(destDk);s.days.sort();}
+  S.openDays[`${si}_${destDk}`]=true;
+  persist();closeCopy();render();
+};
+
+window.TogRepOffice=(si,dk)=>{const rep=ensureReport(si,dk);rep.officeDefault=!rep.officeDefault;persist();render();};
+window.TogPerOffice=(si,dk,name)=>{const rep=ensureReport(si,dk);rep.per[name]=rep.per[name]||{};const cur=rep.per[name].office!==undefined?rep.per[name].office:(rep.officeDefault||false);
+  // 個別トグル：現在値の反対を個別設定。共通と同じに戻したい場合もあるが、まずは明示設定
+  rep.per[name].office=!cur;persist();render();};
+window.TogRep=(key)=>{S.openDays[key]=!S.openDays[key];persist();render();};
+window.SetRep=(si,dk,k,v)=>{const rep=ensureReport(si,dk);if(k==='start'||k==='end'){rep[k]=v;}else if(k==='otDefault'){rep[k]=Number(v)||0;}else{rep[k]=v;}persist();render();};
+window.SetPer=(si,dk,name,k,v)=>{const rep=ensureReport(si,dk);rep.per[name]=rep.per[name]||{};
+  if(k==='ot'){if(v===''||v===null){delete rep.per[name].ot;}else{rep.per[name].ot=Number(v)||0;}}
+  else if(k==='drive'){rep.per[name].drive=Number(v)||0;}
+  else if(k==='excluded'){rep.per[name].excluded=v;}
+  persist();render();};
+window.CycleOffice=(dk,name)=>{S.officeAtt=S.officeAtt||{};S.officeAtt[dk]=S.officeAtt[dk]||{};const cur=S.officeAtt[dk][name]||'';const nx=cur===''?'work':cur==='work'?'leave':cur==='leave'?'off':'';if(nx==='')delete S.officeAtt[dk][name];else S.officeAtt[dk][name]=nx;persist();render();};
+window.ToggleLeave=(dk,name)=>{if(VIEW_MODE)return;S.leave=S.leave||{};S.leave[dk]=S.leave[dk]||{};if(S.leave[dk][name]){delete S.leave[dk][name];}else{S.leave[dk][name]=true;}persist();render();};
+window.MoveW=(i,dir)=>{const j=i+dir;if(j<0||j>=S.workers.length)return;const t=S.workers[i];S.workers[i]=S.workers[j];S.workers[j]=t;persist();render();};
+window.EditSite=(id)=>{S.tab='dispatch';S.foldSite=S.foldSite||{};S.foldSite[id]=false;S.showPast=true;persist();render();setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'center'});},100);};
+window.FoldSite=(id)=>{S.foldSite=S.foldSite||{};S.foldSite[id]=!S.foldSite[id];persist();render();};
+window.TogPast=()=>{S.showPast=!S.showPast;persist();render();};
+window.SetOrg=(v)=>{S.orgName=v.trim();persist();render();};
+window.TogMaster=(k)=>{S.openMaster=!S.openMaster;persist();render();};
+window.SetWF=(i,k,v)=>{if(S.workers[i])S.workers[i][k]=(k==='name'||k==='fullName'||k==='kana'||k==='email')?v.trim():v;persist();render();};
+window.SetEmail=(i,v)=>{if(S.workers[i])S.workers[i].email=v.trim();persist();render();};
+window.SetHire=(i,v)=>{if(S.workers[i])S.workers[i].hireDate=v;persist();render();};
+window.DWI=(i)=>{S.workers.splice(i,1);persist();render();};
+window.T=t=>{S.tab=t;persist();render();};
+window.WM=m=>{S.wMode=m;persist();render();};
+window.MF=n=>{S.fiveBase=n===0?fmt(toDay()):fmt(addD(pd(S.fiveBase),n));persist();render();};
+window.SF=v=>{S.fiveBase=v;persist();render();};
+window.MW=n=>{S.weekBase=fmt(addD(pd(S.weekBase),n));persist();render();};
+window.SWB=v=>{S.weekBase=fmt(monSt(pd(v)));persist();render();};
+window.TE=dk=>{if(VIEW_MODE)return;S.excl.has(dk)?S.excl.delete(dk):S.excl.add(dk);persist();render();};
+window.AS=()=>{S.sites.push({id:uid(),days:[],assigns:{},dayData:{},shift:'昼',place:'',prime:'',contact:'',contactManual:'',contactTel:'',ourContact:'',leader:'',works:[],machines:[],gatherTime:'',note:'',okiba:'',kaisou:''});persist();render();};
+window.DS=i=>{if(!confirm('削除しますか？'))return;S.sites.splice(i,1);persist();render();};
+window.US=(i,k,v)=>{S.sites[i][k]=v;persist();render();};
+window.UST=(i,k,el)=>{const v=pTime(el.value);S.sites[i][k]=v;el.value=v;persist();};
+window.AM=(si,m)=>{if(!m)return;const s=S.sites[si];s.machines=normMachines(s.machines);if(!s.machines.some(x=>x.name===m))s.machines.push({name:m,qty:1});persist();render();};
+window.SetMQ=(si,mi,v)=>{const s=S.sites[si];s.machines=normMachines(s.machines);if(s.machines[mi])s.machines[mi].qty=Math.max(1,Number(v)||1);persist();render();};
+window.SetDD=(si,dk,k,v)=>{const s=S.sites[si];s.dayData=s.dayData||{};s.dayData[dk]=s.dayData[dk]||{};
+  if(k==='worksText'){s.dayData[dk].works=v.trim()?v:undefined;}
+  else if(k==='machText'){s.dayData[dk].machines=v.trim()?v:undefined;}
+  else{s.dayData[dk][k]=v;}
+  persist();render();};
+window.SetDDTime=(si,dk,el)=>{const v=pTime(el.value);const s=S.sites[si];s.dayData=s.dayData||{};s.dayData[dk]=s.dayData[dk]||{};s.dayData[dk].gatherTime=v||undefined;el.value=v;persist();render();};
+window.ToggleCancel=(si,dk)=>{const s=S.sites[si];s.dayData=s.dayData||{};s.dayData[dk]=s.dayData[dk]||{};s.dayData[dk].cancelled=!s.dayData[dk].cancelled;persist();render();};
+window.RM=(si,mi)=>{S.sites[si].machines.splice(mi,1);persist();render();};
+window.AWK2=(si,w)=>{if(!w)return;const s=S.sites[si];s.works=s.works||[];if(!s.works.includes(w))s.works.push(w);persist();render();};
+window.RWK=(si,wi)=>{S.sites[si].works.splice(wi,1);persist();render();};
+window.TSD=(si,dk)=>{const s=S.sites[si];s.days=s.days||[];const i=s.days.indexOf(dk);if(i>=0)s.days.splice(i,1);else{s.days.push(dk);s.days.sort();}persist();render();};
+window.AP=si=>{const f=document.getElementById(`from_${si}`)?.value,t=document.getElementById(`to_${si}`)?.value;if(!f||!t)return;const s=S.sites[si];s.days=s.days||[];let c=pd(f);const e=pd(t);while(c<=e){const dk=fmt(c);if(!s.days.includes(dk))s.days.push(dk);c=addD(c,1);}s.days.sort();persist();render();};
+window.TOD=(si,dk)=>{const k=`${si}_${dk}`;S.openDays[k]=!S.openDays[k];persist();render();};
+window.AA=(si,dk)=>{const s=S.sites[si];s.assigns=s.assigns||{};s.assigns[dk]=s.assigns[dk]||[];s.assigns[dk].push({name:'',role:'',vehicle:'',isDriver:false,memo:''});S.openDays[`${si}_${dk}`]=true;persist();render();};
+window.UA=(si,dk,ai,k,v)=>{if(S.sites[si].assigns?.[dk]?.[ai])S.sites[si].assigns[dk][ai][k]=v;persist();};
+window.RA=(si,dk,ai)=>{S.sites[si].assigns[dk].splice(ai,1);persist();render();};
+window.SRW=v=>{S.rpW=v;persist();render();};
+window.FY=d=>{const cur=S.fyView!==null?S.fyView:fyStartYear(S.rpYM+'-01');S.fyView=cur+d;persist();render();};
+window.CM=d=>{const[y,m]=S.rpYM.split('-').map(Number);const nd=new Date(y,m-1+d,1);S.rpYM=`${nd.getFullYear()}-${String(nd.getMonth()+1).padStart(2,'0')}`;S.fyView=null;persist();render();};
+window.CI=d=>{const[y,m]=S.izYM.split('-').map(Number);const nd=new Date(y,m-1+d,1);S.izYM=`${nd.getFullYear()}-${String(nd.getMonth()+1).padStart(2,'0')}`;persist();render();};
+window.ACT=(k,f,v)=>{S.actuals[k]=S.actuals[k]||{};S.actuals[k][f]=v;persist();};
+window.AW=()=>{const no=document.getElementById('nwno')?.value.trim(),name=document.getElementById('nwname')?.value.trim(),group=document.getElementById('nwg')?.value||'main';if(!name)return;S.workers.push({no:no||'—',name,fullName:name,kana:'',birth:'',group,hireDate:'',email:''});persist();render();};
+window.ACT2=()=>{const n=document.getElementById('nctn')?.value.trim(),t=document.getElementById('nctt')?.value.trim();if(!n)return;S.contacts=S.contacts||[];S.contacts.push({name:n,tel:t});persist();render();};
+window.DCT=i=>{S.contacts.splice(i,1);persist();render();};
+window.AR=()=>{const v=document.getElementById('nrole')?.value.trim();if(!v)return;S.roles.push(v);persist();render();};
+window.DR=i=>{S.roles.splice(i,1);persist();render();};
+window.AWK=()=>{const v=document.getElementById('nwork')?.value.trim();if(!v)return;S.works.push(v);persist();render();};
+window.DWK=i=>{S.works.splice(i,1);persist();render();};
+window.AM2=()=>{const v=document.getElementById('nm')?.value.trim();if(!v)return;S.machines.push(v);persist();render();};
+window.DM=i=>{S.machines.splice(i,1);persist();render();};
+window.UV=(i,v)=>{S.vehicles[i].allowance=Number(v);persist();};
+window.AV=()=>{const n=document.getElementById('nvn')?.value.trim(),a=Number(document.getElementById('nva')?.value||0);if(!n)return;S.vehicles.push({name:n,allowance:a});persist();render();};
+window.DV=i=>{S.vehicles.splice(i,1);persist();render();};
+init();
+</script>
+</body>
+</html>

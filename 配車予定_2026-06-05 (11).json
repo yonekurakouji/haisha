@@ -1,0 +1,659 @@
+{
+  "sites": [
+    {
+      "id": "1",
+      "days": [
+        "2026-06-04",
+        "2026-06-05"
+      ],
+      "assigns": {
+        "2026-06-04": [
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": ""
+          },
+          {
+            "name": "近藤",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": ""
+          },
+          {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": ""
+          }
+        ],
+        "2026-06-05": [
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "近藤",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "アグン",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": ""
+          }
+        ]
+      },
+      "dayData": {},
+      "shift": "夜",
+      "place": "守谷294",
+      "prime": "常盤工業",
+      "contact": "佐藤",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "駒田",
+      "works": [
+        "コア抜き",
+        "シールコート"
+      ],
+      "machines": [],
+      "gatherTime": "19:00",
+      "note": "",
+      "okiba": "有",
+      "kaisou": "○",
+      "report": {
+        "2026-06-04": {
+          "per": {
+            "駒田": {
+              "drive": 2,
+              "office": false
+            },
+            "近藤": {
+              "drive": 2
+            }
+          },
+          "start": "21:00",
+          "end": "03:30",
+          "officeDefault": false
+        }
+      }
+    },
+    {
+      "id": "2",
+      "days": [
+        "2026-06-05"
+      ],
+      "assigns": {
+        "2026-06-05": [
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-06-05": {
+          "gatherTime": "8:00"
+        }
+      },
+      "shift": "昼",
+      "place": "事務所",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "中川",
+      "works": [
+        "片付け清掃"
+      ],
+      "machines": [],
+      "gatherTime": "",
+      "note": "",
+      "okiba": "",
+      "kaisou": ""
+    },
+    {
+      "id": "3",
+      "days": [
+        "2026-06-08",
+        "2026-06-09"
+      ],
+      "assigns": {
+        "2026-06-08": [
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "阿部",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "中川",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "大竹",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "アグン",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "関",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          }
+        ],
+        "2026-06-09": [
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "阿部",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "中川",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "大竹",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "アグン",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "関",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": ""
+          }
+        ]
+      },
+      "dayData": {},
+      "shift": "昼",
+      "place": "守谷市守谷",
+      "prime": "大夢",
+      "contact": "紺野",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "駒田",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "note": "",
+      "okiba": "",
+      "kaisou": ""
+    }
+  ],
+  "workers": [
+    {
+      "no": "002",
+      "name": "阿部",
+      "group": "main",
+      "email": "firstperman320@gmail.com",
+      "hireDate": "2014-07-10",
+      "fullName": "阿部光男",
+      "kana": "ｱﾍﾞﾐﾂｵ",
+      "birth": "1980-09-15"
+    },
+    {
+      "no": "046",
+      "name": "駒田",
+      "group": "main",
+      "fullName": "駒田拓也",
+      "kana": "ｺﾏﾀﾀｸﾔ",
+      "birth": "1989-07-19",
+      "hireDate": "2026-03-01",
+      "email": "blackblack44449090@gmail.com"
+    },
+    {
+      "no": "005",
+      "name": "小松﨑",
+      "group": "main",
+      "fullName": "小松﨑勇一",
+      "kana": "ｺﾏﾂｻﾞｷﾕｳｲﾁ",
+      "birth": "1984-11-24",
+      "hireDate": "2017-04-01",
+      "email": "yuuichi.1124@gmail.com"
+    },
+    {
+      "no": "045",
+      "name": "近藤",
+      "group": "main",
+      "fullName": "近藤竜馬",
+      "kana": "ｺﾝﾄﾞｳﾘｮｳﾏ",
+      "birth": "1990-05-20",
+      "hireDate": "2025-12-03",
+      "email": "ryooma0520@gmail.com"
+    },
+    {
+      "no": "044",
+      "name": "中川",
+      "group": "main",
+      "fullName": "中川純彰",
+      "kana": "ﾅｶｶﾞﾜﾖｼｱｷ",
+      "birth": "1980-04-12",
+      "hireDate": "2025-11-01",
+      "email": "sevenjin2017@gmail.com"
+    },
+    {
+      "no": "047",
+      "name": "大竹",
+      "group": "main",
+      "fullName": "大竹琉斗",
+      "kana": "ｵｵﾀｹﾘｭｳﾄ",
+      "birth": "2009-12-30",
+      "hireDate": "2026-03-01",
+      "email": "ryuyu.mocaau.com@icloud.com"
+    },
+    {
+      "no": "048",
+      "name": "菅沼",
+      "group": "main",
+      "fullName": "菅沼彪雅",
+      "kana": "ｽｶﾞﾇﾏﾋｭｳｶﾞ",
+      "birth": "2010-02-24",
+      "hireDate": "2026-03-01",
+      "email": "s.hyouga0524@gmail.com"
+    },
+    {
+      "no": "049",
+      "name": "佐藤",
+      "group": "main",
+      "fullName": "佐藤秀祐",
+      "kana": "ｻﾄｳｼｭｳｽｹ",
+      "email": "shusuke9549@gmail.com",
+      "birth": "2008-10-19",
+      "hireDate": "2026-06-01"
+    },
+    {
+      "no": "060",
+      "name": "アグン",
+      "group": "main",
+      "fullName": "ｱｸﾞﾝ ﾌﾟﾘﾔﾝﾄ",
+      "kana": "ｱｸﾞﾝ ﾌﾟﾘﾔﾝﾄ",
+      "birth": "2000-08-10",
+      "hireDate": "2025-12-16",
+      "email": "agungpriyanto4949@gmail.com"
+    },
+    {
+      "no": "061",
+      "name": "アリヤ",
+      "group": "main",
+      "fullName": "ｱﾃﾞｨｱ ﾄﾏ ﾅﾗﾘﾔ",
+      "kana": "ｱﾃﾞｨｱ ﾄﾏ ﾅﾗﾘﾔ",
+      "birth": "2006-06-28",
+      "hireDate": "2025-12-16",
+      "email": "yatmaad@gmail.com"
+    },
+    {
+      "no": "062",
+      "name": "アマダ",
+      "group": "main",
+      "fullName": "ﾑﾊﾝﾏﾄﾞ ｱｷﾀﾞ ﾌﾟﾄﾗ ｱﾏﾀﾞ",
+      "kana": "ﾑﾊﾝﾏﾄﾞ ｱｷﾀﾞ ﾌﾟﾄﾗ ｱﾏﾀﾞ",
+      "birth": "2002-09-06",
+      "hireDate": "2026-04-02",
+      "email": "m.amada692@gmail.com"
+    },
+    {
+      "no": "001",
+      "name": "米倉",
+      "group": "helper",
+      "email": "turbow333@gmail.com",
+      "fullName": "米倉巧",
+      "kana": "ﾖﾈｸﾗﾀｸﾐ",
+      "birth": "1971-04-02",
+      "hireDate": "1992-09-01"
+    },
+    {
+      "no": "003",
+      "name": "渋川",
+      "group": "helper",
+      "fullName": "渋川和彦",
+      "kana": "ｼﾌﾞｶﾜｶｽﾞﾋｺ",
+      "birth": "1980-05-28",
+      "hireDate": "2025-01-17",
+      "email": "maaboo0927@gmail.com"
+    },
+    {
+      "no": "050",
+      "name": "関",
+      "group": "helper",
+      "fullName": "関正樹",
+      "kana": "ｾｷﾏｻｷ",
+      "birth": "1980-06-27",
+      "hireDate": "2025-02-01",
+      "email": "masaki45fromjapan@gmail.com"
+    },
+    {
+      "no": "042",
+      "name": "樋口",
+      "group": "helper",
+      "fullName": "樋口昌彦",
+      "kana": "ﾋｸﾞﾁﾏｻﾋｺ",
+      "birth": "2002-12-04",
+      "email": "higuchi.4@icloud.com",
+      "hireDate": "2025-02-01"
+    },
+    {
+      "no": "035",
+      "name": "ハオ",
+      "group": "helper",
+      "fullName": "ﾁｪｳ ｱｲﾝ ﾊｵ",
+      "kana": "ﾁｪｳ ｱｲﾝ ﾊｵ",
+      "birth": "2005-04-23",
+      "hireDate": "2024-04-01",
+      "email": "trieuanhhao2005@gmail.com"
+    },
+    {
+      "no": "041",
+      "name": "ティ",
+      "group": "helper",
+      "email": "vanty75hue@gmail.com",
+      "fullName": "ｳﾞｫ- ｳﾞｧﾝ ﾃｨ",
+      "kana": "ｳﾞｫ- ｳﾞｧﾝ ﾃｨ",
+      "birth": "2004-01-08",
+      "hireDate": "2025-01-14"
+    },
+    {
+      "no": "043",
+      "name": "横田",
+      "group": "helper",
+      "fullName": "横田好幸",
+      "kana": "ﾖｺﾀﾖｼﾕｷ",
+      "birth": "1970-03-05",
+      "hireDate": "2025-04-01",
+      "email": "yoshi.march5.70@gmail.com"
+    },
+    {
+      "no": "093",
+      "name": "島田聖子",
+      "fullName": "島田聖子",
+      "kana": "ｼﾏﾀﾞｼｮｳｺ",
+      "birth": "1980-01-06",
+      "group": "office",
+      "hireDate": "2026-03-09",
+      "email": "butabutajintan0923@gmail.com"
+    }
+  ],
+  "roles": [
+    "作業員",
+    "ﾚｰｷﾏﾝ",
+    "ｽｺｯﾌﾟﾏﾝ",
+    "ﾌﾟﾚｰﾄ",
+    "ﾛｰﾗｰﾏﾝ",
+    "誘導員",
+    "運搬員"
+  ],
+  "works": [
+    "舗装工",
+    "路盤工",
+    "コア抜き",
+    "シールコート",
+    "片付け清掃",
+    "切削"
+  ],
+  "machines": [
+    "ﾕﾝﾎﾞ0.1",
+    "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+    "ｻｲﾄﾞﾛｰﾗｰ",
+    "ﾌﾟﾚｰﾄ",
+    "ｽﾌﾟﾚｲﾔｰ",
+    "発電機",
+    "AF14",
+    "AF30",
+    "AF45",
+    "AF60",
+    "ﾗﾝﾏ"
+  ],
+  "vehicles": [
+    {
+      "name": "3tダンプ",
+      "allowance": 0
+    },
+    {
+      "name": "4tダンプ",
+      "allowance": 0
+    },
+    {
+      "name": "ハイエース",
+      "allowance": 0
+    },
+    {
+      "name": "Wキャブ",
+      "allowance": 0
+    },
+    {
+      "name": "各自(自分の車)",
+      "allowance": 0
+    },
+    {
+      "name": "R1",
+      "allowance": 0
+    },
+    {
+      "name": "R2",
+      "allowance": 0
+    },
+    {
+      "name": "R3",
+      "allowance": 0
+    },
+    {
+      "name": "R8",
+      "allowance": 0
+    },
+    {
+      "name": "R9",
+      "allowance": 0
+    },
+    {
+      "name": "S3",
+      "allowance": 0
+    },
+    {
+      "name": "S8",
+      "allowance": 0
+    },
+    {
+      "name": "P5",
+      "allowance": 0
+    },
+    {
+      "name": "P7",
+      "allowance": 0
+    }
+  ],
+  "contacts": [
+    {
+      "name": "紺野",
+      "tel": "08061004004"
+    },
+    {
+      "name": "斉藤所長",
+      "tel": "07012590471"
+    },
+    {
+      "name": "佐藤",
+      "tel": "07012886613"
+    },
+    {
+      "name": "沖田",
+      "tel": "07012590476"
+    }
+  ],
+  "leave": {},
+  "officeAtt": {},
+  "orgName": "工事部",
+  "foldSite": {
+    "1": false
+  },
+  "actuals": {},
+  "excl": [],
+  "weekBase": "2026-06-01",
+  "fiveBase": "2026-06-04",
+  "rpYM": "2026-06",
+  "izYM": "2026-06",
+  "_savedAt": "2026/6/5 12:02:33"
+}

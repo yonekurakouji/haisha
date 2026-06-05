@@ -165,85 +165,78 @@
         "2026-06-08": [
           {
             "name": "駒田",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": ""
+            "role": "重機OP",
+            "vehicle": "レンジャー",
+            "isDriver": true,
+            "memo": "ﾕﾝﾎﾞ、ｻｲﾄﾞﾛｰﾗｰ、ｺﾝﾊﾞｲﾝﾄﾞ"
           },
           {
             "name": "小松﨑",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "作業員",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
             "memo": ""
           },
           {
             "name": "阿部",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": true,
             "memo": ""
           },
           {
             "name": "近藤",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
             "memo": ""
           },
           {
             "name": "中川",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": ""
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "現場内運搬あり"
           },
           {
             "name": "大竹",
-            "role": "",
-            "vehicle": "",
+            "role": "作業員",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": ""
           },
           {
             "name": "菅沼",
-            "role": "",
-            "vehicle": "",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": ""
           },
           {
             "name": "佐藤",
-            "role": "",
-            "vehicle": "",
+            "role": "作業員",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": ""
           },
           {
             "name": "アグン",
-            "role": "",
-            "vehicle": "",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": ""
           },
           {
             "name": "アリヤ",
-            "role": "",
-            "vehicle": "",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
             "isDriver": false,
             "memo": ""
           },
           {
             "name": "アマダ",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": ""
-          },
-          {
-            "name": "関",
-            "role": "",
-            "vehicle": "",
+            "role": "作業員",
+            "vehicle": "3tダンプ",
             "isDriver": false,
             "memo": ""
           }
@@ -251,41 +244,141 @@
         "2026-06-09": [
           {
             "name": "駒田",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": ""
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "レンジャー",
+            "isDriver": true,
+            "memo": "重機一式"
           },
           {
             "name": "小松﨑",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": ""
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "レンジャー",
+            "isDriver": true,
+            "memo": "AF"
           },
           {
             "name": "阿部",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "作業員",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
             "memo": ""
           },
           {
             "name": "近藤",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
             "memo": ""
           },
           {
             "name": "中川",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "運搬員",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
             "memo": ""
           },
           {
             "name": "大竹",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "アグン",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "米倉",
+            "role": "AFOP",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-06-09": {
+          "works": "舗装工・片付け清掃",
+          "machines": "AF45、ﾕﾝﾎﾞ、ｺﾝﾊﾞｲﾝﾄﾞ、ｻｲﾄﾞﾛｰﾗｰ、ﾌﾟﾚｰﾄ2台"
+        }
+      },
+      "shift": "昼",
+      "place": "守谷市アパート",
+      "prime": "大夢",
+      "contact": "紺野",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "駒田",
+      "works": [
+        "路盤工",
+        "乳剤散布"
+      ],
+      "machines": [
+        {
+          "name": "ﾕﾝﾎﾞ0.1",
+          "qty": 1
+        },
+        {
+          "name": "ｻｲﾄﾞﾛｰﾗｰ",
+          "qty": 1
+        },
+        {
+          "name": "ﾌﾟﾚｰﾄ",
+          "qty": 2
+        },
+        {
+          "name": "ﾗﾝﾏ",
+          "qty": 1
+        },
+        {
+          "name": "ｽﾌﾟﾚｲﾔｰ",
+          "qty": 1
+        },
+        {
+          "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+          "qty": 1
+        }
+      ],
+      "gatherTime": "6:45",
+      "note": "砂用意、養生材一式、薄ベニヤ、ﾌﾟﾗ段",
+      "okiba": "有",
+      "kaisou": ""
+    },
+    {
+      "id": "1",
+      "days": [
+        "2026-06-11"
+      ],
+      "assigns": {
+        "2026-06-11": [
+          {
+            "name": "中川",
             "role": "",
             "vehicle": "",
             "isDriver": false,
@@ -314,13 +407,6 @@
           },
           {
             "name": "アマダ",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": ""
-          },
-          {
-            "name": "関",
             "role": "",
             "vehicle": "",
             "isDriver": false,
@@ -330,17 +416,249 @@
       },
       "dayData": {},
       "shift": "昼",
-      "place": "守谷市守谷",
-      "prime": "大夢",
-      "contact": "紺野",
+      "place": "事務所",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "中川",
+      "works": [
+        "片付け清掃"
+      ],
+      "machines": [],
+      "gatherTime": "8:00",
+      "note": "",
+      "okiba": "",
+      "kaisou": ""
+    },
+    {
+      "id": "2",
+      "days": [
+        "2026-06-11"
+      ],
+      "assigns": {
+        "2026-06-11": [
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "レンジャー",
+            "isDriver": true,
+            "memo": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "重機OP",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": ""
+          },
+          {
+            "name": "近藤",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": ""
+          },
+          {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": ""
+          }
+        ]
+      },
+      "dayData": {},
+      "shift": "昼",
+      "place": "笠間",
+      "prime": "常盤工業",
+      "contact": "斉藤所長",
       "contactManual": "",
       "contactTel": "",
       "ourContact": "阿部",
       "leader": "駒田",
-      "works": [],
-      "machines": [],
+      "works": [
+        "舗装工",
+        "路盤工"
+      ],
+      "machines": [
+        {
+          "name": "ﾕﾝﾎﾞ0.1",
+          "qty": 1
+        },
+        {
+          "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+          "qty": 1
+        },
+        {
+          "name": "ｻｲﾄﾞﾛｰﾗｰ",
+          "qty": 1
+        },
+        {
+          "name": "ﾌﾟﾚｰﾄ",
+          "qty": 2
+        },
+        {
+          "name": "ｽﾌﾟﾚｲﾔｰ",
+          "qty": 1
+        },
+        {
+          "name": "ﾗﾝﾏ",
+          "qty": 1
+        }
+      ],
+      "gatherTime": "6:15",
+      "note": "乳剤、砂",
+      "okiba": "有",
+      "kaisou": "○"
+    },
+    {
+      "id": "4",
+      "days": [
+        "2026-06-12"
+      ],
+      "assigns": {
+        "2026-06-12": [
+          {
+            "name": "駒田",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "レンジャー",
+            "isDriver": true,
+            "memo": "重機回送"
+          },
+          {
+            "name": "小松﨑",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "レンジャー",
+            "isDriver": true,
+            "memo": "AF回送"
+          },
+          {
+            "name": "近藤",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": ""
+          },
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "運搬あり"
+          },
+          {
+            "name": "大竹",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "アグン",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "阿部",
+            "role": "作業員",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "米倉",
+            "role": "AFOP",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": ""
+          }
+        ]
+      },
+      "dayData": {},
+      "shift": "昼",
+      "place": "つくば真瀬",
+      "prime": "山﨑",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "駒田",
+      "works": [
+        "舗装工",
+        "乳剤散布",
+        "路盤工"
+      ],
+      "machines": [
+        {
+          "name": "ﾕﾝﾎﾞ0.1",
+          "qty": 1
+        },
+        {
+          "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+          "qty": 1
+        },
+        {
+          "name": "ｻｲﾄﾞﾛｰﾗｰ",
+          "qty": 1
+        },
+        {
+          "name": "ﾌﾟﾚｰﾄ",
+          "qty": 2
+        },
+        {
+          "name": "ﾗﾝﾏ",
+          "qty": 1
+        },
+        {
+          "name": "ｽﾌﾟﾚｲﾔｰ",
+          "qty": 1
+        },
+        {
+          "name": "AF45",
+          "qty": 1
+        }
+      ],
       "gatherTime": "",
-      "note": "",
+      "note": "砂、ドラム　養生一式、清掃道具一式、薄ベニヤ",
       "okiba": "",
       "kaisou": ""
     }
@@ -544,7 +862,9 @@
     "ﾌﾟﾚｰﾄ",
     "ﾛｰﾗｰﾏﾝ",
     "誘導員",
-    "運搬員"
+    "運搬員",
+    "AFOP",
+    "重機OP"
   ],
   "works": [
     "舗装工",
@@ -552,7 +872,8 @@
     "コア抜き",
     "シールコート",
     "片付け清掃",
-    "切削"
+    "切削",
+    "乳剤散布"
   ],
   "machines": [
     "ﾕﾝﾎﾞ0.1",
@@ -623,6 +944,14 @@
     {
       "name": "P7",
       "allowance": 0
+    },
+    {
+      "name": "レンジャー",
+      "allowance": 0
+    },
+    {
+      "name": "大型",
+      "allowance": 0
     }
   ],
   "contacts": [
@@ -652,5 +981,5 @@
   "fiveBase": "2026-06-04",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/5 12:53:59"
+  "_savedAt": "2026/6/5 14:22:59"
 }

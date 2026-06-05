@@ -66,36 +66,6 @@
             "isDriver": false,
             "memo": ""
           }
-        ],
-        "2026-06-06": [
-          {
-            "name": "駒田",
-            "role": "作業員",
-            "vehicle": "Wキャブ",
-            "isDriver": false,
-            "memo": ""
-          },
-          {
-            "name": "近藤",
-            "role": "作業員",
-            "vehicle": "Wキャブ",
-            "isDriver": true,
-            "memo": ""
-          },
-          {
-            "name": "菅沼",
-            "role": "作業員",
-            "vehicle": "Wキャブ",
-            "isDriver": false,
-            "memo": ""
-          },
-          {
-            "name": "アグン",
-            "role": "作業員",
-            "vehicle": "Wキャブ",
-            "isDriver": false,
-            "memo": ""
-          }
         ]
       },
       "dayData": {},
@@ -1014,26 +984,14 @@
       "tel": "07012590476"
     }
   ],
-  "leave": {
-    "2026-06-07": {}
-  },
-  "officeAtt": {
-    "2026-06-04": {
-      "島田聖子": "work"
-    },
-    "2026-06-05": {
-      "島田聖子": "work"
-    },
-    "2026-06-08": {
-      "島田聖子": "work"
-    }
-  },
+  "leave": {},
+  "officeAtt": {},
   "orgName": "工事部",
   "actuals": {},
   "excl": [],
   "weekBase": "2026-06-01",
-  "fiveBase": "2026-06-04",
+  "fiveBase": "2026-06-09",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/5 15:06:17"
+  "_savedAt": "2026/6/5 15:08:20"
 }

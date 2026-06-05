@@ -66,6 +66,36 @@
             "isDriver": false,
             "memo": ""
           }
+        ],
+        "2026-06-06": [
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "近藤",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": ""
+          },
+          {
+            "name": "アグン",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": ""
+          }
         ]
       },
       "dayData": {},
@@ -673,6 +703,45 @@
       "note": "砂、ドラム　養生一式、清掃道具一式、薄ベニヤ",
       "okiba": "",
       "kaisou": ""
+    },
+    {
+      "id": "1",
+      "days": [
+        "2026-06-11"
+      ],
+      "assigns": {
+        "2026-06-11": [
+          {
+            "name": "駒田",
+            "role": "運搬員",
+            "vehicle": "大型",
+            "isDriver": true,
+            "memo": ""
+          }
+        ]
+      },
+      "dayData": {},
+      "shift": "夜",
+      "place": "南葛西",
+      "prime": "機械部",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [
+        "機械部回送"
+      ],
+      "machines": [
+        {
+          "name": "AF60",
+          "qty": 1
+        }
+      ],
+      "gatherTime": "",
+      "note": "",
+      "okiba": "",
+      "kaisou": ""
     }
   ],
   "workers": [
@@ -885,7 +954,8 @@
     "シールコート",
     "片付け清掃",
     "切削",
-    "乳剤散布"
+    "乳剤散布",
+    "機械部回送"
   ],
   "machines": [
     "ﾕﾝﾎﾞ0.1",
@@ -984,14 +1054,26 @@
       "tel": "07012590476"
     }
   ],
-  "leave": {},
-  "officeAtt": {},
+  "leave": {
+    "2026-06-07": {}
+  },
+  "officeAtt": {
+    "2026-06-04": {
+      "島田聖子": "work"
+    },
+    "2026-06-05": {
+      "島田聖子": "work"
+    },
+    "2026-06-08": {
+      "島田聖子": "work"
+    }
+  },
   "orgName": "工事部",
   "actuals": {},
   "excl": [],
   "weekBase": "2026-06-01",
-  "fiveBase": "2026-06-09",
+  "fiveBase": "2026-06-04",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/5 15:08:20"
+  "_savedAt": "2026/6/5 15:51:26"
 }

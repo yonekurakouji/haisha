@@ -752,7 +752,8 @@
       "note": "",
       "okiba": "",
       "kaisou": "",
-      "enShoo": true
+      "enShoo": true,
+      "gatherType": "着"
     },
     {
       "id": "1",
@@ -795,7 +796,8 @@
       "note": "360",
       "okiba": "",
       "kaisou": "",
-      "enShoo": true
+      "enShoo": true,
+      "gatherType": "着"
     }
   ],
   "workers": [
@@ -1113,7 +1115,15 @@
     }
   ],
   "leave": {
-    "2026-06-07": {}
+    "2026-06-07": {},
+    "2026-06-09": {
+      "菅沼": {
+        "昼": {
+          "type": "講習",
+          "work": false
+        }
+      }
+    }
   },
   "officeAtt": {
     "2026-06-04": {
@@ -1133,5 +1143,5 @@
   "fiveBase": "2026-06-08",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/8 18:19:11"
+  "_savedAt": "2026/6/8 19:07:24"
 }

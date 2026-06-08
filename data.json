@@ -275,16 +275,16 @@
           {
             "name": "駒田",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "レンジャー",
+            "vehicle": "R8",
             "isDriver": true,
             "memo": "重機一式"
           },
           {
             "name": "小松﨑",
             "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "レンジャー",
+            "vehicle": "R1",
             "isDriver": true,
-            "memo": "AF"
+            "memo": "AF345"
           },
           {
             "name": "阿部",
@@ -347,7 +347,7 @@
             "role": "AFOP",
             "vehicle": "ハイエース",
             "isDriver": true,
-            "memo": ""
+            "memo": "345OP"
           }
         ]
       },
@@ -1034,6 +1034,10 @@
     {
       "name": "大型",
       "allowance": 0
+    },
+    {
+      "name": "増㌧",
+      "allowance": 0
     }
   ],
   "contacts": [
@@ -1075,5 +1079,5 @@
   "fiveBase": "2026-06-08",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/8 12:25:26"
+  "_savedAt": "2026/6/8 17:04:00"
 }

@@ -212,9 +212,12 @@ function isOfficeForWorker(site,dk,name){
   return false;
 }
 function aggWorker(workerName,dkList){
+  const todayK=fmt(toDay());
   const r={workDays:0,nightDays:0,leave:0,genba:0,office:0,maxRen:0,ot:0,sun:0,hol:0,beforeHol:0,rest:0,drive:{},enShooDay:0,enShooNight:0,enShooDrive:{}};
   const units=[];
   dkList.forEach(dk=>{
+    // 今日より未来は集計しない（今日は含める）
+    if(dk>todayK){units.push({worked:false});return;}
     const lyDay=getSlotLeave(dk,workerName,'昼');
     const lyNight=getSlotLeave(dk,workerName,'夜');
     let dayWorked=false,nightWorked=false;
@@ -284,7 +287,7 @@ function aggWorker(workerName,dkList){
 }
 function daysInMonth(ym){const[y,mo]=ym.split('-').map(Number);const last=new Date(y,mo,0).getDate();return Array.from({length:last},(_,i)=>`${ym}-${String(i+1).padStart(2,'0')}`);}
 /* 有給使用日数を、指定した日付リストで数える */
-function countLeave(name,dkList){let c=0;dkList.forEach(dk=>{const lyD=getSlotLeave(dk,name,'昼');const lyN=getSlotLeave(dk,name,'夜');const lvD=(lyD&&lyD.type==='有給'&&!lyD.work)?0.5:0;const lvN=(lyN&&lyN.type==='有給'&&!lyN.work)?0.5:0;c+=lvD+lvN;});return c;}
+function countLeave(name,dkList){const todayK=fmt(toDay());let c=0;dkList.forEach(dk=>{if(dk>todayK)return;const lyD=getSlotLeave(dk,name,'昼');const lyN=getSlotLeave(dk,name,'夜');const lvD=(lyD&&lyD.type==='有給'&&!lyD.work)?0.5:0;const lvN=(lyN&&lyN.type==='有給'&&!lyN.work)?0.5:0;c+=lvD+lvN;});return c;}
 function daysInYear(year){const arr=[];for(let m=1;m<=12;m++){const last=new Date(year,m,0).getDate();for(let d=1;d<=last;d++)arr.push(`${year}-${String(m).padStart(2,'0')}-${String(d).padStart(2,'0')}`);}return arr;}
 /* 8月始まり年度（startYear年8月1日〜翌年7月31日） */
 function fyStartYear(dk){const[y,m]=dk.split('-').map(Number);return m>=8?y:y-1;}

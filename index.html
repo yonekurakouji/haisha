@@ -937,7 +937,8 @@ function bBM(){
 function bR(){
   const [ry,rm]=S.rpYM.split('-').map(Number);
   const lastDay=new Date(ry,rm,0).getDate();
-  const mDays=Array.from({length:lastDay},(_,i)=>`${S.rpYM}-${String(i+1).padStart(2,'0')}`);
+  const todayK=fmt(toDay());
+  const mDays=Array.from({length:lastDay},(_,i)=>`${S.rpYM}-${String(i+1).padStart(2,'0')}`).filter(dk=>dk<=todayK);
   const gds=dk=>{if(!S.rpW)return[];return S.sites.flatMap(s=>{if(!(s.days||[]).includes(dk))return[];return(s.assigns?.[dk]||[]).filter(a=>a.name===S.rpW).map(a=>({s,a}));});};
   let totD=0,totA=0;const drvC={};
   mDays.forEach(dk=>{const sh=gds(dk);if(sh.length)totD++;sh.forEach(({a})=>{if(a.isDriver&&a.vehicle){totA+=S.vehicles.find(v=>v.name===a.vehicle)?.allowance||0;const KAISO_V=['R1','R2','R3','R8','R9','S3','S8','P5','P7','大型','増㌧','レンジャー'];const vKey=KAISO_V.includes(a.vehicle)?'回送':a.vehicle;drvC[vKey]=(drvC[vKey]||0)+1;}});});
@@ -1173,9 +1174,10 @@ function bMaster(){
 /* ===== 個別日報の一括印刷 ===== */
 function printDayLabel(dk){const dt=pd(dk);return`${dt.getMonth()+1}/${dt.getDate()}(${WD[dt.getDay()]})`;}
 function workerMonthDetail(name,monthDks){
-  // その月、その社員が出た現場を日付順に
+  const todayK=fmt(toDay());
+  // その月、その社員が出た現場を日付順に（今日以前のみ）
   const rows=[];
-  monthDks.forEach(dk=>{
+  monthDks.filter(dk=>dk<=todayK).forEach(dk=>{
     ['昼','夜'].forEach(slot=>{
       S.sites.forEach(s=>{
         if(s.shift!==slot)return;

@@ -539,8 +539,9 @@ function bWP(){
         const cellBg=slot==='昼'?'#fef3c7':'#dbeafe';
         const cellBar=slot==='昼'?'#f59e0b':'#3b82f6';
         return`<td style="border:1px solid var(--bd3);border-left:3px solid ${cellBar};padding:2px;vertical-align:top;background:${cellBg};">${items.map(({s,a})=>{
+          const dd=(s.dayData&&s.dayData[dk])||{};
           if(a.absent)return`<div style="background:#fef9c3;border-radius:3px;padding:1px 4px;font-size:10px;color:#92400e;font-weight:500;">📋 ${a.absent}</div>`;
-          return`<div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:${slot==='昼'?'#92400e':'#1e40af'};">${s.place||'(未入力)'}${s.enShoo?'<span style="background:#7c3aed;color:#fff;font-size:9px;padding:0 3px;border-radius:3px;margin-left:2px;">応援</span>':''}</div><div style="font-size:10px;color:var(--tx2);">${a.role||''}${a.isDriver?' <span class="bdrv">運転</span>':''}${gLabel(s,null)?` <b>${gLabel(s,null)}</b>`:''}</div></div>`;
+          return`<div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:${slot==='昼'?'#92400e':'#1e40af'};">${s.place||'(未入力)'}${s.enShoo?'<span style="background:#7c3aed;color:#fff;font-size:9px;padding:0 3px;border-radius:3px;margin-left:2px;">応援</span>':''}</div><div style="font-size:10px;color:var(--tx2);">${a.role||''}${a.isDriver?' <span class="bdrv">運転</span>':''}${gLabel(s,dd)?` <b>${gLabel(s,dd)}</b>`:''}</div></div>`;
         }).join('')}</td>`;
       });
     });
@@ -1272,7 +1273,7 @@ function printWeekSchedule(){
         const onLeave=S.leave&&S.leave[dk]&&S.leave[dk][w.name];
         const items=S.sites.filter(s=>s.shift===slot&&(s.days||[]).includes(dk)).flatMap(s=>(s.assigns?.[dk]||[]).filter(a=>a.name===w.name).map(a=>({s,a})));
         if(!items.length){const slv=getSlotLeave(dk,w.name,slot);const lv=slv?slv.type:'';return`<td style="text-align:center;color:${lv?'#86198f':'#ccc'};">${lv||'・'}</td>`;}
-        return`<td style="font-size:9px;${slot==='夜'?'background:#f4f6ff;':''}">${items.map(({s,a})=>`${s.place||''}${a.vehicle?'/'+a.vehicle:''}${a.isDriver?'🚗':''}${gLabel(s,null)?' '+gLabel(s,null):''}`).join('<br>')}</td>`;
+        return`<td style="font-size:9px;${slot==='夜'?'background:#f4f6ff;':''}">${items.map(({s,a})=>{const dd=(s.dayData&&s.dayData[dk])||{};return`${s.place||''}${a.vehicle?'/'+a.vehicle:''}${a.isDriver?'🚗':''}${gLabel(s,dd)?' '+gLabel(s,dd):''}`}).join('<br>')}</td>`;
       });}).join('');
       return`<tr style="background:${ri%2?'#dbeafe':'#fff'};"><td style="font-weight:bold;white-space:nowrap;${isH?'color:#666;':''}">${w.name}</td>${cells}</tr>`;
     }).join('');
@@ -1343,7 +1344,7 @@ function weekPersonHTML(days,range){
       const bg=ri%2?'#eef2f7':'#fff';
       if(!items.length){const slv=getSlotLeave(dk,w.name,slot);const lv=slv?slv.type:'';return`<td style="text-align:center;background:${bg};color:${lv?'#86198f':'#ccc'};">${lv||'・'}</td>`;}
       const cellBg=slot==='昼'?'#fef0c7':'#cfe0fb';
-      return`<td style="font-size:9px;background:${cellBg};border-left:2px solid ${slot==='昼'?'#f59e0b':'#3b82f6'};">${items.map(({s,a})=>`${s.place||''}${a.vehicle?'/'+a.vehicle:''}${a.isDriver?'🚗':''}${gLabel(s,null)?' '+gLabel(s,null):''}`).join('<br>')}</td>`;
+      return`<td style="font-size:9px;background:${cellBg};border-left:2px solid ${slot==='昼'?'#f59e0b':'#3b82f6'};">${items.map(({s,a})=>{const dd=(s.dayData&&s.dayData[dk])||{};return`${s.place||''}${a.vehicle?'/'+a.vehicle:''}${a.isDriver?'🚗':''}${gLabel(s,dd)?' '+gLabel(s,dd):''}`}).join('<br>')}</td>`;
     });}).join('');
     return`<tr><td style="font-weight:bold;white-space:nowrap;background:${ri%2?'#dbeafe':'#fff'};${isH?'color:#666;':''}">${w.name}</td>${cells}</tr>`;
   }).join('');

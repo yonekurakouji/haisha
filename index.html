@@ -316,6 +316,10 @@ const LS="haisha_app_data_v2";
 /* 重機: 文字列配列 or {name,qty}配列 両対応。表示用に正規化 */
 const normMachines=arr=>(arr||[]).map(m=>typeof m==='string'?{name:m,qty:1}:{name:m.name,qty:m.qty||1});
 const machLabel=m=>m.qty&&m.qty>1?`${m.name}×${m.qty}`:m.name;
+/* 日別上書き(工事内容)を配列化。旧データ(文字列)も「・/、/,」区切りで配列化。未設定はnull(=共通を使う) */
+const dayWorksArr=v=>v===undefined?null:(Array.isArray(v)?v:String(v).split(/[・、,]/).map(x=>x.trim()).filter(Boolean));
+/* 日別上書き(重機)を{name,qty}配列化。旧データ(文字列「名×数・名」)も解釈。未設定はnull(=共通を使う) */
+const dayMachArr=v=>v===undefined?null:(Array.isArray(v)?normMachines(v):String(v).split(/[・、,]/).map(x=>x.trim()).filter(Boolean).map(s=>{const m=s.match(/^(.*?)[×x*](\d+)$/);return m?{name:m[1].trim(),qty:Number(m[2])||1}:{name:s,qty:1};}));
 /* 使用回数カウント（マスタ自動並び替え用） */
 function usageCount(kind){
   const cnt={};
@@ -631,13 +635,19 @@ function bWS(){
       const dayPalette=['#b45309','#0e7490','#15803d','#9d174d','#6d28d9','#a16207'];
       const nightPalette=['#3730a3','#1e40af','#0f766e','#7e22ce','#9f1239','#b45309'];
       const accent=(isNight?nightPalette:dayPalette)[(blockIdx||0)%6];
-      const mc=normMachines(site.machines);
+      // 工事内容・重機・集合時間：その日の上書きがあればそれを、無ければ現場の共通設定を表示
+      const dwArr=dayWorksArr(dd.works);
+      const wkShow=(dwArr&&dwArr.length)?dwArr:(site.works||[]);
+      const dmArr=dayMachArr(dd.machines);
+      const mc=(dmArr&&dmArr.length)?dmArr:normMachines(site.machines);
+      const gTime=(dd.gatherTime!==undefined&&dd.gatherTime!=='')?dd.gatherTime:site.gatherTime;
+      const gType=dd.gatherType||site.gatherType||'集合';
       return`<div class="${blockCls}" style="border-left:5px solid ${accent};${isCancel?'opacity:0.55;':''}">
         <div style="display:flex;gap:8px;">
           <div style="flex:1;min-width:0;">
             <div class="sb-name">
               <span class="${isNight?'bngt':'bday'}">${site.shift}</span> ${site.place||'(未入力)'}${site.enShoo?'<span style="background:#7c3aed;color:#fff;font-size:10px;padding:0 5px;border-radius:4px;margin-left:4px;">応援</span>':''}
-              ${(site.works||[]).length?`<span style="font-size:10px;color:#065f46;background:#d1fae5;border-radius:4px;padding:0 4px;margin:0 3px;">${site.works.join('・')}</span>`:''}
+              ${wkShow.length?`<span style="font-size:10px;color:#065f46;background:#d1fae5;border-radius:4px;padding:0 4px;margin:0 3px;">${wkShow.join('・')}</span>`:''}
               <span class="bcnt" style="margin-left:2px;">計${assigns.length}名</span>
               ${isCancel?'<span style="background:#9ca3af;color:#fff;font-size:10px;padding:1px 5px;border-radius:4px;margin-left:4px;">中止</span>':''}
               ${!VIEW_MODE?`<button class="btn" onclick="EditSite('${site.id}')" style="font-size:10px;padding:0 6px;margin-left:6px;">✎ 編集</button>`:''}
@@ -646,7 +656,7 @@ function bWS(){
             <div class="sb-meta">
               ${site.prime||ctName?`<span>${site.prime||''}${ctName?` <b>${ctName}</b>${ctTel?` <span style="color:#1e40af;">${ctTel}</span>`:''}`:''}</span><br>`:''}
               ${mc.length?`<span>重機: ${mc.map(m=>`<span class="bmach">${machLabel(m)}</span>`).join('')}</span><br>`:''}
-              ${site.gatherTime?`<span>${(site.gatherType||'集合')}: <b style="color:#b45309;">${site.gatherTime}</b></span><br>`:''}
+              ${gTime?`<span>${gType}: <b style="color:#b45309;">${gTime}</b></span><br>`:''}
               ${site.okiba||site.kaisou?`<span>${site.okiba?`置場:${site.okiba} `:''}${site.kaisou?`回送:${site.kaisou}`:''}</span>`:''}
             </div>
           </div>
@@ -731,17 +741,21 @@ function bD(){
           <button class="btn btnd" onclick="RA(${si},'${dk}',${ai})" style="padding:1px 6px;margin-left:auto;">✕</button>
         </div>`;
       }).join('');
-      /* その日だけの上書き編集（工事内容・重機・集合） */
-      const dWorks=dd.works!==undefined?dd.works:null;
-      const dMach=dd.machines!==undefined?dd.machines:null;
+      /* その日だけの上書き編集（工事内容・重機・集合）：プルダウン＋手入力追加。未選択なら共通設定 */
       const dGather=dd.gatherTime!==undefined?dd.gatherTime:null;
       const dGatherType=dd.gatherType!==undefined?dd.gatherType:(site.gatherType||'集合');
+      const dwCur=dayWorksArr(dd.works)||[];
+      const dmCur=dayMachArr(dd.machines)||[];
+      const dwChips=dwCur.map((w,wi)=>`<span class="bwork">${w}<button onclick="RDWK(${si},'${dk}',${wi})">×</button></span>`).join('');
+      const dwOpts=S.works.filter(w=>!dwCur.includes(w)).map(w=>`<option value="${w}">${w}</option>`).join('');
+      const dmChips=dmCur.map((m,mi)=>`<span class="bmach">${m.name}<input type="number" min="1" value="${m.qty}" onchange="SetDMQ(${si},'${dk}',${mi},this.value)" style="width:34px;padding:1px 3px;margin:0 2px;font-size:10px;">台<button onclick="RDM(${si},'${dk}',${mi})">×</button></span>`).join('');
+      const dmOpts=S.machines.filter(m=>!dmCur.some(x=>x.name===m)).map(m=>`<option value="${m}">${m}</option>`).join('');
       const editPanel=`<div style="background:var(--bg2);border-radius:6px;padding:6px 8px;margin-bottom:6px;font-size:11px;">
-        <div style="color:var(--tx2);margin-bottom:4px;">この日の内容（空欄なら現場の共通設定を使用）</div>
-        <div style="display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
-          <label>工事内容:<input value="${dWorks!==null?dWorks:''}" placeholder="${(site.works||[]).join('・')||'共通'}" onchange="SetDD(${si},'${dk}','worksText',this.value)" style="width:130px;margin-left:3px;"></label>
-          <label>重機:<input value="${dMach!==null?dMach:''}" placeholder="${normMachines(site.machines).map(machLabel).join('・')||'共通'}" onchange="SetDD(${si},'${dk}','machText',this.value)" style="width:120px;margin-left:3px;"></label>
-          <label style="display:flex;align-items:center;gap:2px;">時間:<select onchange="SetDD(${si},'${dk}','gatherType',this.value)" style="width:50px;font-size:11px;margin-left:3px;"><option${dGatherType==='集合'?' selected':''}>集合</option><option${dGatherType==='着'?' selected':''}>着</option></select><input value="${dGather!==null?dGather:''}" placeholder="${site.gatherTime||'共通'}" onblur="SetDDTime(${si},'${dk}',this)" style="width:60px;margin-left:2px;"></label>
+        <div style="color:var(--tx2);margin-bottom:4px;">この日の内容（未選択なら現場の共通設定を使用）</div>
+        <div style="display:flex;flex-direction:column;gap:5px;">
+          <div style="display:flex;align-items:center;gap:3px;flex-wrap:wrap;"><span class="lbl">工事内容:</span>${dwChips}<select onchange="ADWK(${si},'${dk}',this.value);this.value=''" style="width:90px;"><option value="">＋ 選択</option>${dwOpts}</select><input id="dwk_${si}_${dk}" placeholder="手入力で追加" style="width:96px;" onkeydown="if(event.key==='Enter'){event.preventDefault();ADWKM(${si},'${dk}');}"><button class="btn" onclick="ADWKM(${si},'${dk}')" style="padding:1px 7px;">＋</button>${dwCur.length?'':`<span style="color:var(--tx3);">共通: ${(site.works||[]).join('・')||'なし'}</span>`}</div>
+          <div style="display:flex;align-items:center;gap:3px;flex-wrap:wrap;"><span class="lbl">使用重機:</span>${dmChips}<select onchange="ADM(${si},'${dk}',this.value);this.value=''" style="width:90px;"><option value="">＋ 選択</option>${dmOpts}</select><input id="dm_${si}_${dk}" placeholder="手入力で追加" style="width:96px;" onkeydown="if(event.key==='Enter'){event.preventDefault();ADMM(${si},'${dk}');}"><button class="btn" onclick="ADMM(${si},'${dk}')" style="padding:1px 7px;">＋</button>${dmCur.length?'':`<span style="color:var(--tx3);">共通: ${normMachines(site.machines).map(machLabel).join('・')||'なし'}</span>`}</div>
+          <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">時間:</span><select onchange="SetDD(${si},'${dk}','gatherType',this.value)" style="width:50px;font-size:11px;"><option${dGatherType==='集合'?' selected':''}>集合</option><option${dGatherType==='着'?' selected':''}>着</option></select><input value="${dGather!==null?dGather:''}" placeholder="${site.gatherTime||'共通'}" onblur="SetDDTime(${si},'${dk}',this)" onkeydown="if(event.key==='Enter')this.blur()" style="width:60px;margin-left:2px;"><span style="color:var(--tx3);margin-left:4px;">${dGather===null?'(共通)':''}</span></div>
         </div>
       </div>`;
       return`<div style="margin-top:4px;border:1px solid var(--bd3);border-radius:6px;overflow:hidden;${isCancel?'opacity:0.7;':''}">
@@ -1273,12 +1287,13 @@ function printWeekSchedule(){
       const blocks=['昼','夜'].flatMap(slot=>active.filter(s=>s.shift===slot).map(s=>{
         const dd=(s.dayData&&s.dayData[dk])||{};
         const assigns=(s.assigns?.[dk]||[]).slice().sort((a,b)=>{const ia=S.workers.findIndex(w=>w.name===a.name),ib=S.workers.findIndex(w=>w.name===b.name);return(ia<0?999:ia)-(ib<0?999:ib);});
-        const mc=normMachines(s.machines);
+        const dwArr=dayWorksArr(dd.works);const wkShow=(dwArr&&dwArr.length)?dwArr:(s.works||[]);
+        const dmArr=dayMachArr(dd.machines);const mc=(dmArr&&dmArr.length)?dmArr:normMachines(s.machines);
         const ctName=s.contact==='__manual__'?s.contactManual:s.contact;
         const sideCol=(s.ourContact||s.leader)?`<td style="width:90px;border-left:2px solid #ccc;font-size:10px;vertical-align:top;">${s.leader?`<div>リーダー：<b style="color:#b45309;">${s.leader}</b></div>`:''}${s.ourContact?`<div>担当：<b>${s.ourContact}</b></div>`:''}</td>`:'<td style="width:80px;border-left:2px solid #ccc;"></td>';
         return`<table style="width:100%;border:1px solid #aaa;border-left:4px solid ${slot==='夜'?'#3730a3':'#b45309'};margin:3px 0;${dd.cancelled?'opacity:0.5;':''}"><tr>
           <td style="vertical-align:top;border:none;">
-            <div style="font-weight:bold;font-size:12px;">[${s.shift}] ${s.place||'(未入力)'}${(s.works||[]).length?' <span style="font-size:10px;color:#1e40af;font-weight:normal;">'+s.works.join('・')+'</span>':''} <span style="font-weight:normal;font-size:10px;color:#555;">計${assigns.length}名</span>${dd.cancelled?' <span style="color:#dc2626;">※中止</span>':''}</div>
+            <div style="font-weight:bold;font-size:12px;">[${s.shift}] ${s.place||'(未入力)'}${wkShow.length?' <span style="font-size:10px;color:#1e40af;font-weight:normal;">'+wkShow.join('・')+'</span>':''} <span style="font-weight:normal;font-size:10px;color:#555;">計${assigns.length}名</span>${dd.cancelled?' <span style="color:#dc2626;">※中止</span>':''}</div>
             <div style="font-size:9px;color:#555;">${[s.prime,ctName,gLabel(s,dd)||'',mc.length?'重機:'+mc.map(machLabel).join(','):''].filter(Boolean).join(' / ')}</div>
             <div style="font-size:10px;margin-top:2px;">${assigns.map(a=>{const isL=a.name===s.leader;return`<span style="${isL?'font-weight:bold;color:#b45309;':''}">${a.name}${isL?'★':''}${a.role?'('+a.role+')':''}${a.vehicle?'/'+a.vehicle:''}${a.isDriver?'🚗':''}</span>`;}).join('　')||'<span style="color:#999;">未配置</span>'}</div>
           </td>
@@ -1304,11 +1319,11 @@ function weekSiteHTML(days,range){
     const blocks=['昼','夜'].flatMap(slot=>active.filter(s=>s.shift===slot).map(s=>{
       const dd=(s.dayData&&s.dayData[dk])||{};
       const assigns=(s.assigns?.[dk]||[]).slice().sort((a,b)=>{const ia=S.workers.findIndex(w=>w.name===a.name),ib=S.workers.findIndex(w=>w.name===b.name);return(ia<0?999:ia)-(ib<0?999:ib);});
-      const mc=normMachines(s.machines);const ctName=s.contact==='__manual__'?s.contactManual:s.contact;
+      const dwArr=dayWorksArr(dd.works);const wkShow=(dwArr&&dwArr.length)?dwArr:(s.works||[]);const dmArr=dayMachArr(dd.machines);const mc=(dmArr&&dmArr.length)?dmArr:normMachines(s.machines);const ctName=s.contact==='__manual__'?s.contactManual:s.contact;
       const sideCol=(s.ourContact||s.leader)?`<td style="width:90px;border-left:2px solid #ccc;font-size:10px;vertical-align:top;">${s.leader?`<div>リーダー：<b style="color:#b45309;">${s.leader}</b></div>`:''}${s.ourContact?`<div>担当：<b>${s.ourContact}</b></div>`:''}</td>`:'';
       return`<table style="width:100%;border:1px solid #aaa;border-left:4px solid ${slot==='夜'?'#3730a3':'#b45309'};margin:3px 0;${dd.cancelled?'opacity:0.5;':''}"><tr>
         <td style="vertical-align:top;border:none;">
-          <div style="font-weight:bold;font-size:12px;">[${s.shift}] ${s.place||'(未入力)'}${(s.works||[]).length?' <span style="font-size:10px;color:#1e40af;font-weight:normal;">'+s.works.join('・')+'</span>':''} <span style="font-weight:normal;font-size:10px;color:#555;">計${assigns.length}名</span>${dd.cancelled?' <span style="color:#dc2626;">※中止</span>':''}</div>
+          <div style="font-weight:bold;font-size:12px;">[${s.shift}] ${s.place||'(未入力)'}${wkShow.length?' <span style="font-size:10px;color:#1e40af;font-weight:normal;">'+wkShow.join('・')+'</span>':''} <span style="font-weight:normal;font-size:10px;color:#555;">計${assigns.length}名</span>${dd.cancelled?' <span style="color:#dc2626;">※中止</span>':''}</div>
           <div style="font-size:9px;color:#555;">${[s.prime,ctName,gLabel(s,dd)||'',mc.length?'重機:'+mc.map(machLabel).join(','):''].filter(Boolean).join(' / ')}</div>
           <div style="font-size:10px;margin-top:2px;">${assigns.map(a=>{const isL=a.name===s.leader;return`<span style="${isL?'font-weight:bold;color:#b45309;':''}">${a.name}${isL?'★':''}${a.role?'('+a.role+')':''}${a.vehicle?'/'+a.vehicle:''}${a.isDriver?'🚗':''}</span>`;}).join('　')||'<span style="color:#999;">未配置</span>'}</div>
         </td>${sideCol}</tr></table>`;
@@ -1617,6 +1632,15 @@ window.SetDD=(si,dk,k,v)=>{const s=S.sites[si];s.dayData=s.dayData||{};s.dayData
   else{s.dayData[dk][k]=v;}
   persist();render();};
 window.SetDDTime=(si,dk,el)=>{const v=pTime(el.value);const s=S.sites[si];s.dayData=s.dayData||{};s.dayData[dk]=s.dayData[dk]||{};s.dayData[dk].gatherTime=v||undefined;el.value=v;persist();render();};
+/* ===== 日別の工事内容・重機（プルダウン＋手入力追加。空になれば共通設定に戻す） ===== */
+function _dd(si,dk){const s=S.sites[si];s.dayData=s.dayData||{};s.dayData[dk]=s.dayData[dk]||{};return s.dayData[dk];}
+window.ADWK=(si,dk,w)=>{if(!w)return;const d=_dd(si,dk);const arr=dayWorksArr(d.works)||[];if(!arr.includes(w))arr.push(w);d.works=arr;persist();render();};
+window.ADWKM=(si,dk)=>{const el=document.getElementById(`dwk_${si}_${dk}`);const v=(el?.value||'').trim();if(!v)return;if(!S.works.includes(v))S.works.push(v);/* マスタにも登録して次回から選択可能に */const d=_dd(si,dk);const arr=dayWorksArr(d.works)||[];if(!arr.includes(v))arr.push(v);d.works=arr;persist();render();};
+window.RDWK=(si,dk,wi)=>{const d=_dd(si,dk);const arr=dayWorksArr(d.works)||[];arr.splice(wi,1);d.works=arr.length?arr:undefined;persist();render();};
+window.ADM=(si,dk,m)=>{if(!m)return;const d=_dd(si,dk);const arr=dayMachArr(d.machines)||[];if(!arr.some(x=>x.name===m))arr.push({name:m,qty:1});d.machines=arr;persist();render();};
+window.ADMM=(si,dk)=>{const el=document.getElementById(`dm_${si}_${dk}`);const v=(el?.value||'').trim();if(!v)return;if(!S.machines.includes(v))S.machines.push(v);const d=_dd(si,dk);const arr=dayMachArr(d.machines)||[];if(!arr.some(x=>x.name===v))arr.push({name:v,qty:1});d.machines=arr;persist();render();};
+window.SetDMQ=(si,dk,mi,v)=>{const d=_dd(si,dk);const arr=dayMachArr(d.machines)||[];if(arr[mi])arr[mi].qty=Math.max(1,Number(v)||1);d.machines=arr;persist();render();};
+window.RDM=(si,dk,mi)=>{const d=_dd(si,dk);const arr=dayMachArr(d.machines)||[];arr.splice(mi,1);d.machines=arr.length?arr:undefined;persist();render();};
 window.ToggleCancel=(si,dk)=>{const s=S.sites[si];s.dayData=s.dayData||{};s.dayData[dk]=s.dayData[dk]||{};s.dayData[dk].cancelled=!s.dayData[dk].cancelled;persist();render();};
 window.RM=(si,mi)=>{S.sites[si].machines.splice(mi,1);persist();render();};
 window.AWK2=(si,w)=>{if(!w)return;const s=S.sites[si];s.works=s.works||[];if(!s.works.includes(w))s.works.push(w);persist();render();};

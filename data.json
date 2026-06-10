@@ -485,6 +485,14 @@
             "absent": ""
           },
           {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
             "name": "",
             "role": "",
             "vehicle": "",
@@ -970,5 +978,5 @@
     "5_2026-06-10": false,
     "5_2026-05-12": true
   },
-  "_savedAt": "2026/6/10 17:51:06"
+  "_savedAt": "2026/6/10 17:51:11"
 }

@@ -94,6 +94,14 @@
           {
             "name": "アグン",
             "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "",
+            "role": "",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
@@ -1193,5 +1201,5 @@
   "fiveBase": "2026-06-10",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 18:55:33"
+  "_savedAt": "2026/6/10 18:55:44"
 }

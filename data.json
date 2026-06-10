@@ -15,9 +15,7 @@
       "contactTel": "",
       "ourContact": "阿部",
       "leader": "駒田",
-      "works": [
-        "舗装工"
-      ],
+      "works": [],
       "machines": [],
       "gatherTime": "",
       "gatherType": "集合",
@@ -1081,5 +1079,5 @@
     "5_2026-06-12": true,
     "6_2026-06-11": true
   },
-  "_savedAt": "2026/6/10 18:22:30"
+  "_savedAt": "2026/6/10 18:22:50"
 }

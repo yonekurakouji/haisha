@@ -3,6 +3,30 @@
     {
       "id": "1",
       "days": [
+        "2026-06-15"
+      ],
+      "assigns": {},
+      "dayData": {},
+      "shift": "昼",
+      "place": "",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "1",
+      "days": [
         "2026-06-04",
         "2026-06-05"
       ],
@@ -1594,5 +1618,5 @@
   "fiveBase": "2026-06-10",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 20:48:53"
+  "_savedAt": "2026/6/10 20:49:07"
 }

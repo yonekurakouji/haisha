@@ -38,6 +38,14 @@
           {
             "name": "小松﨑",
             "role": "作業員",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "",
+            "role": "",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
@@ -1137,5 +1145,5 @@
   "fiveBase": "2026-06-10",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 18:53:35"
+  "_savedAt": "2026/6/10 18:53:41"
 }

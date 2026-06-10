@@ -355,7 +355,16 @@
       "okiba": "",
       "kaisou": "",
       "enShoo": true,
-      "gatherType": "着"
+      "gatherType": "着",
+      "report": {
+        "2026-06-09": {
+          "per": {
+            "駒田": {
+              "drive": 2
+            }
+          }
+        }
+      }
     },
     {
       "id": "1",
@@ -399,7 +408,16 @@
       "okiba": "",
       "kaisou": "",
       "enShoo": true,
-      "gatherType": "着"
+      "gatherType": "着",
+      "report": {
+        "2026-06-09": {
+          "per": {
+            "小松﨑": {
+              "drive": 2
+            }
+          }
+        }
+      }
     },
     {
       "id": "smq7nn2247x3w",
@@ -821,9 +839,9 @@
   "orgName": "工事部",
   "actuals": {},
   "excl": [],
-  "weekBase": "2026-06-01",
+  "weekBase": "2026-06-29",
   "fiveBase": "2026-06-08",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 15:02:32"
+  "_savedAt": "2026/6/10 15:09:55"
 }

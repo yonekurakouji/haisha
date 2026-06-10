@@ -3,100 +3,6 @@
     {
       "id": "1",
       "days": [
-        "2026-06-15"
-      ],
-      "assigns": {
-        "2026-06-15": [
-          {
-            "name": "駒田",
-            "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "R8",
-            "isDriver": true,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "小松﨑",
-            "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "R1",
-            "isDriver": true,
-            "memo": "写真管理",
-            "absent": ""
-          },
-          {
-            "name": "近藤",
-            "role": "運搬員",
-            "vehicle": "3tダンプ",
-            "isDriver": true,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "中川",
-            "role": "運搬員",
-            "vehicle": "4tダンプ",
-            "isDriver": true,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          }
-        ]
-      },
-      "dayData": {
-        "2026-06-10": {
-          "leader": "近藤"
-        }
-      },
-      "shift": "昼",
-      "place": "つくば市二ノ宮",
-      "prime": "サンコー建設",
-      "contact": "サンコー鈴木",
-      "contactManual": "",
-      "contactTel": "",
-      "ourContact": "阿部",
-      "leader": "駒田",
-      "works": [
-        "捲り舗装"
-      ],
-      "machines": [
-        {
-          "name": "ﾕﾝﾎﾞ0.1",
-          "qty": 1
-        },
-        {
-          "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
-          "qty": 1
-        },
-        {
-          "name": "ｻｲﾄﾞﾛｰﾗｰ",
-          "qty": 1
-        },
-        {
-          "name": "ﾌﾟﾚｰﾄ",
-          "qty": 2
-        },
-        {
-          "name": "ｽﾌﾟﾚｲﾔｰ",
-          "qty": 1
-        }
-      ],
-      "gatherTime": "7:00",
-      "gatherType": "集合",
-      "note": "乳剤散布、砂",
-      "okiba": "無",
-      "kaisou": "○",
-      "enShoo": false
-    },
-    {
-      "id": "1",
-      "days": [
         "2026-06-09",
         "2026-06-10"
       ],
@@ -1484,5 +1390,5 @@
   "fiveBase": "2026-06-05",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 19:37:43"
+  "_savedAt": "2026/6/10 19:43:44"
 }

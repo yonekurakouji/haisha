@@ -34,7 +34,7 @@
           {
             "name": "近藤",
             "role": "",
-            "vehicle": "",
+            "vehicle": "3tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -42,7 +42,7 @@
           {
             "name": "中川",
             "role": "",
-            "vehicle": "",
+            "vehicle": "4tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -1745,5 +1745,5 @@
   "fiveBase": "2026-06-10",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 20:52:44"
+  "_savedAt": "2026/6/10 20:52:53"
 }

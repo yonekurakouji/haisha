@@ -78,6 +78,22 @@
           {
             "name": "菅沼",
             "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "",
+            "role": "",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
@@ -1227,5 +1243,5 @@
   "fiveBase": "2026-06-10",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 19:11:41"
+  "_savedAt": "2026/6/10 19:11:56"
 }

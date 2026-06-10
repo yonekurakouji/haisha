@@ -443,9 +443,7 @@
     },
     {
       "id": "1",
-      "days": [
-        "2026-06-11"
-      ],
+      "days": [],
       "assigns": {
         "2026-06-11": [
           {
@@ -513,16 +511,16 @@
           {
             "name": "駒田",
             "role": "作業員",
-            "vehicle": "レンジャー",
+            "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": ""
+            "memo": "ユンボ0.1"
           },
           {
             "name": "小松﨑",
             "role": "重機OP",
             "vehicle": "4tダンプ",
             "isDriver": true,
-            "memo": ""
+            "memo": "サイドローラー"
           },
           {
             "name": "近藤",
@@ -544,10 +542,31 @@
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": ""
+          },
+          {
+            "name": "アグン",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
-      "dayData": {},
+      "dayData": {
+        "2026-06-11": {
+          "machines": [
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1
+            },
+            {
+              "name": "ｻｲﾄﾞﾛｰﾗｰ",
+              "qty": 1
+            }
+          ]
+        }
+      },
       "shift": "昼",
       "place": "笠間",
       "prime": "常盤工業",
@@ -953,6 +972,116 @@
       "enShoo": false
     },
     {
+      "id": "smq7lnz9ynhqa",
+      "days": [],
+      "assigns": {},
+      "dayData": {},
+      "shift": "昼",
+      "place": "",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "smq7lo6k7f51n",
+      "days": [],
+      "assigns": {},
+      "dayData": {},
+      "shift": "昼",
+      "place": "",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "smq7loe93hyn1",
+      "days": [],
+      "assigns": {},
+      "dayData": {},
+      "shift": "昼",
+      "place": "",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "1",
+      "days": [],
+      "assigns": {},
+      "dayData": {},
+      "shift": "昼",
+      "place": "",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "2",
+      "days": [],
+      "assigns": {},
+      "dayData": {},
+      "shift": "昼",
+      "place": "",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
       "id": "3",
       "days": [],
       "assigns": {},
@@ -997,7 +1126,7 @@
       "enShoo": false
     },
     {
-      "id": "5",
+      "id": "1",
       "days": [],
       "assigns": {},
       "dayData": {},
@@ -1019,7 +1148,7 @@
       "enShoo": false
     },
     {
-      "id": "6",
+      "id": "1",
       "days": [],
       "assigns": {},
       "dayData": {},
@@ -1041,7 +1170,7 @@
       "enShoo": false
     },
     {
-      "id": "7",
+      "id": "2",
       "days": [],
       "assigns": {},
       "dayData": {},
@@ -1063,7 +1192,7 @@
       "enShoo": false
     },
     {
-      "id": "8",
+      "id": "smq7mgppq2h41",
       "days": [],
       "assigns": {},
       "dayData": {},
@@ -1085,7 +1214,7 @@
       "enShoo": false
     },
     {
-      "id": "9",
+      "id": "smq7mgrp7f6n9",
       "days": [],
       "assigns": {},
       "dayData": {},
@@ -1107,7 +1236,7 @@
       "enShoo": false
     },
     {
-      "id": "10",
+      "id": "smq7mguvgtzvy",
       "days": [],
       "assigns": {},
       "dayData": {},
@@ -1129,7 +1258,7 @@
       "enShoo": false
     },
     {
-      "id": "11",
+      "id": "smq7nevu210tu",
       "days": [],
       "assigns": {},
       "dayData": {},
@@ -1151,7 +1280,7 @@
       "enShoo": false
     },
     {
-      "id": "12",
+      "id": "smq7nez66kc53",
       "days": [],
       "assigns": {},
       "dayData": {},
@@ -1173,7 +1302,7 @@
       "enShoo": false
     },
     {
-      "id": "13",
+      "id": "smq7nim7rgvxl",
       "days": [],
       "assigns": {},
       "dayData": {},
@@ -1195,7 +1324,7 @@
       "enShoo": false
     },
     {
-      "id": "14",
+      "id": "smq7nlis0hwvt",
       "days": [],
       "assigns": {},
       "dayData": {},
@@ -1217,7 +1346,7 @@
       "enShoo": false
     },
     {
-      "id": "15",
+      "id": "smq7nllgq36rf",
       "days": [],
       "assigns": {},
       "dayData": {},
@@ -1230,6 +1359,120 @@
       "ourContact": "",
       "leader": "",
       "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "smq7nlne2epc9",
+      "days": [],
+      "assigns": {},
+      "dayData": {},
+      "shift": "昼",
+      "place": "",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "smq7nmjsoxk88",
+      "days": [
+        "2026-05-11"
+      ],
+      "assigns": {},
+      "dayData": {},
+      "shift": "昼",
+      "place": "",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "smq7nn2247x3w",
+      "days": [
+        "2026-06-11"
+      ],
+      "assigns": {
+        "2026-06-11": [
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-06-11": {
+          "works": [
+            "片付け清掃"
+          ],
+          "gatherTime": "8:00"
+        }
+      },
+      "shift": "昼",
+      "place": "事務所",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "中川",
+      "works": [
+        "片付け清掃"
+      ],
       "machines": [],
       "gatherTime": "",
       "gatherType": "集合",
@@ -1591,8 +1834,8 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-06-01",
-  "fiveBase": "2026-06-10",
+  "fiveBase": "2026-06-08",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 14:33:01"
+  "_savedAt": "2026/6/10 14:58:07"
 }

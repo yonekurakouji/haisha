@@ -13,8 +13,8 @@
       "contact": "サンコー鈴木",
       "contactManual": "",
       "contactTel": "",
-      "ourContact": "",
-      "leader": "",
+      "ourContact": "阿部",
+      "leader": "駒田",
       "works": [],
       "machines": [],
       "gatherTime": "",
@@ -1623,5 +1623,5 @@
   "fiveBase": "2026-06-10",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 20:51:23"
+  "_savedAt": "2026/6/10 20:51:35"
 }

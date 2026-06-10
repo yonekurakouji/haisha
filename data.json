@@ -11,7 +11,7 @@
             "name": "阿部",
             "role": "",
             "vehicle": "Wキャブ",
-            "isDriver": false,
+            "isDriver": true,
             "memo": "",
             "absent": ""
           },
@@ -19,7 +19,7 @@
             "name": "駒田",
             "role": "",
             "vehicle": "R8",
-            "isDriver": false,
+            "isDriver": true,
             "memo": "",
             "absent": ""
           },
@@ -27,7 +27,7 @@
             "name": "小松﨑",
             "role": "",
             "vehicle": "R1",
-            "isDriver": false,
+            "isDriver": true,
             "memo": "",
             "absent": ""
           },
@@ -35,7 +35,7 @@
             "name": "近藤",
             "role": "",
             "vehicle": "3tダンプ",
-            "isDriver": false,
+            "isDriver": true,
             "memo": "",
             "absent": ""
           },
@@ -43,7 +43,7 @@
             "name": "中川",
             "role": "",
             "vehicle": "4tダンプ",
-            "isDriver": false,
+            "isDriver": true,
             "memo": "",
             "absent": ""
           },
@@ -1745,5 +1745,5 @@
   "fiveBase": "2026-06-10",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 20:52:53"
+  "_savedAt": "2026/6/10 20:53:03"
 }

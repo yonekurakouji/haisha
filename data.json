@@ -527,7 +527,15 @@
             "absent": ""
           },
           {
-            "name": "",
+            "name": "近藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
             "role": "",
             "vehicle": "",
             "isDriver": false,
@@ -1018,5 +1026,5 @@
     "5_2026-05-12": true,
     "5_2026-06-12": true
   },
-  "_savedAt": "2026/6/10 17:53:02"
+  "_savedAt": "2026/6/10 17:53:10"
 }

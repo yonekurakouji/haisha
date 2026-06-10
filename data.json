@@ -540,6 +540,28 @@
       "okiba": "有",
       "kaisou": "○",
       "enShoo": false
+    },
+    {
+      "id": "1",
+      "days": [],
+      "assigns": {},
+      "dayData": {},
+      "shift": "昼",
+      "place": "",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
     }
   ],
   "workers": [
@@ -892,7 +914,7 @@
   },
   "orgName": "工事部",
   "foldSite": {
-    "1": true,
+    "1": false,
     "2": true,
     "3": false,
     "4": false,
@@ -922,5 +944,5 @@
     "6_2026-06-10": true,
     "0_2026-06-10": true
   },
-  "_savedAt": "2026/6/10 17:49:03"
+  "_savedAt": "2026/6/10 17:49:26"
 }

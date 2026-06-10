@@ -51,6 +51,32 @@
             "memo": "",
             "absent": ""
           }
+        ],
+        "2026-06-09": [
+          {
+            "name": "阿部",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "R8",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "作業員",
+            "vehicle": "3tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
         ]
       },
       "dayData": {
@@ -86,7 +112,26 @@
         "2026-06-09": {
           "works": [
             "舗装工"
-          ]
+          ],
+          "machines": [
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1
+            },
+            {
+              "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+              "qty": 1
+            },
+            {
+              "name": "ｻｲﾄﾞﾛｰﾗｰ",
+              "qty": 1
+            },
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 2
+            }
+          ],
+          "gatherTime": "8:00"
         }
       },
       "shift": "昼",
@@ -1150,5 +1195,5 @@
   "fiveBase": "2026-06-10",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 19:10:28"
+  "_savedAt": "2026/6/10 19:10:35"
 }

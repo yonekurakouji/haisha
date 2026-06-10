@@ -9,8 +9,8 @@
       "dayData": {},
       "shift": "昼",
       "place": "つくば市二ノ宮",
-      "prime": "",
-      "contact": "",
+      "prime": "サンコー建設",
+      "contact": "サンコー鈴木",
       "contactManual": "",
       "contactTel": "",
       "ourContact": "阿部",
@@ -20,8 +20,8 @@
       "gatherTime": "",
       "gatherType": "集合",
       "note": "",
-      "okiba": "",
-      "kaisou": "",
+      "okiba": "無",
+      "kaisou": "○",
       "enShoo": false
     },
     {
@@ -1414,5 +1414,5 @@
   "fiveBase": "2026-06-05",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 19:49:22"
+  "_savedAt": "2026/6/10 19:49:39"
 }

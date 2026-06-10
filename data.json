@@ -19,15 +19,23 @@
             "name": "小松﨑",
             "role": "ﾛｰﾗｰﾏﾝ",
             "vehicle": "R1",
-            "isDriver": false,
+            "isDriver": true,
             "memo": "写真管理",
             "absent": ""
           },
           {
             "name": "近藤",
             "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "",
             "vehicle": "",
-            "isDriver": false,
+            "isDriver": true,
             "memo": "",
             "absent": ""
           }
@@ -1468,5 +1476,5 @@
   "fiveBase": "2026-06-05",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 19:36:33"
+  "_savedAt": "2026/6/10 19:36:45"
 }

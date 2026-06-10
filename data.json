@@ -98,22 +98,6 @@
         ],
         "2026-06-12": [
           {
-            "name": "中川",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "菅沼",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
             "name": "佐藤",
             "role": "",
             "vehicle": "",
@@ -122,23 +106,7 @@
             "absent": ""
           },
           {
-            "name": "アグン",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
             "name": "アリヤ",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "アマダ",
             "role": "",
             "vehicle": "",
             "isDriver": false,
@@ -1592,5 +1560,5 @@
   "fiveBase": "2026-06-10",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 20:03:54"
+  "_savedAt": "2026/6/10 20:04:12"
 }

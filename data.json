@@ -21,7 +21,7 @@
       "gatherType": "集合",
       "note": "",
       "okiba": "無",
-      "kaisou": "",
+      "kaisou": "○",
       "enShoo": false
     },
     {
@@ -1413,5 +1413,5 @@
   "fiveBase": "2026-06-05",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 19:31:33"
+  "_savedAt": "2026/6/10 19:31:40"
 }

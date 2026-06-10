@@ -26,96 +26,7 @@
             "absent": ""
           }
         ],
-        "2026-06-08": [
-          {
-            "name": "駒田",
-            "role": "作業員",
-            "vehicle": "R8",
-            "isDriver": true,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "小松﨑",
-            "role": "作業員",
-            "vehicle": "3tダンプ",
-            "isDriver": true,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "阿部",
-            "role": "作業員",
-            "vehicle": "ハイエース",
-            "isDriver": true,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "近藤",
-            "role": "作業員",
-            "vehicle": "Wキャブ",
-            "isDriver": true,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "中川",
-            "role": "作業員",
-            "vehicle": "4tダンプ",
-            "isDriver": true,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "大竹",
-            "role": "作業員",
-            "vehicle": "ハイエース",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "菅沼",
-            "role": "作業員",
-            "vehicle": "Wキャブ",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "佐藤",
-            "role": "作業員",
-            "vehicle": "ハイエース",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "アグン",
-            "role": "作業員",
-            "vehicle": "4tダンプ",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "アリヤ",
-            "role": "作業員",
-            "vehicle": "Wキャブ",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "アマダ",
-            "role": "作業員",
-            "vehicle": "Wキャブ",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          }
-        ]
+        "2026-06-08": []
       },
       "dayData": {
         "2026-06-10": {
@@ -125,7 +36,7 @@
         },
         "2026-06-08": {
           "works": [
-            "路盤工"
+            "舗装工"
           ],
           "machines": [
             {
@@ -1214,5 +1125,5 @@
   "fiveBase": "2026-06-10",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 18:56:13"
+  "_savedAt": "2026/6/10 18:56:32"
 }

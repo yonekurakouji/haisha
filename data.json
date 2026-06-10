@@ -10,7 +10,7 @@
       "shift": "昼",
       "place": "つくば市二ノ宮",
       "prime": "サンコー建設",
-      "contact": "",
+      "contact": "サンコー鈴木",
       "contactManual": "",
       "contactTel": "",
       "ourContact": "",
@@ -20,8 +20,8 @@
       "gatherTime": "",
       "gatherType": "集合",
       "note": "",
-      "okiba": "",
-      "kaisou": "",
+      "okiba": "無",
+      "kaisou": "○",
       "enShoo": false
     },
     {
@@ -1622,5 +1622,5 @@
   "fiveBase": "2026-06-10",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 20:50:38"
+  "_savedAt": "2026/6/10 20:50:53"
 }

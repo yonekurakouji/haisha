@@ -46,6 +46,14 @@
             "isDriver": false,
             "memo": "",
             "absent": ""
+          },
+          {
+            "name": "",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
@@ -1484,5 +1492,5 @@
   "fiveBase": "2026-06-05",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 19:37:10"
+  "_savedAt": "2026/6/10 19:37:18"
 }

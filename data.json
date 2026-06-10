@@ -427,74 +427,6 @@
       }
     },
     {
-      "id": "smq7nn2247x3w",
-      "days": [
-        "2026-06-11"
-      ],
-      "assigns": {
-        "2026-06-11": [
-          {
-            "name": "中川",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "アリヤ",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "アマダ",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "佐藤",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          }
-        ]
-      },
-      "dayData": {
-        "2026-06-11": {
-          "works": [
-            "片付け清掃"
-          ],
-          "gatherTime": "8:00"
-        }
-      },
-      "shift": "昼",
-      "place": "事務所",
-      "prime": "",
-      "contact": "",
-      "contactManual": "",
-      "contactTel": "",
-      "ourContact": "阿部",
-      "leader": "中川",
-      "works": [
-        "片付け清掃"
-      ],
-      "machines": [],
-      "gatherTime": "",
-      "gatherType": "集合",
-      "note": "",
-      "okiba": "",
-      "kaisou": "",
-      "enShoo": false
-    },
-    {
       "id": "1",
       "days": [
         "2026-06-10"
@@ -990,5 +922,5 @@
     "6_2026-06-10": true,
     "0_2026-06-10": true
   },
-  "_savedAt": "2026/6/10 17:48:40"
+  "_savedAt": "2026/6/10 17:48:55"
 }

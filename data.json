@@ -81,7 +81,7 @@
           },
           {
             "name": "アリヤ",
-            "role": "",
+            "role": "ﾌﾟﾚｰﾄ",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
@@ -89,7 +89,7 @@
           },
           {
             "name": "アマダ",
-            "role": "",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
@@ -97,7 +97,7 @@
           },
           {
             "name": "米倉",
-            "role": "",
+            "role": "AFOP",
             "vehicle": "ハイエース",
             "isDriver": true,
             "memo": "",
@@ -1745,5 +1745,5 @@
   "fiveBase": "2026-06-10",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 20:53:46"
+  "_savedAt": "2026/6/10 20:53:55"
 }

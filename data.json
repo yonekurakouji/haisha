@@ -60,6 +60,14 @@
             "absent": ""
           },
           {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
             "name": "",
             "role": "",
             "vehicle": "",
@@ -1161,5 +1169,5 @@
   "fiveBase": "2026-06-10",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 18:54:28"
+  "_savedAt": "2026/6/10 18:54:38"
 }

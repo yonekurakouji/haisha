@@ -1,6 +1,30 @@
 {
   "sites": [
     {
+      "id": "1",
+      "days": [
+        "2026-06-10"
+      ],
+      "assigns": {},
+      "dayData": {},
+      "shift": "昼",
+      "place": "",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
       "id": "2",
       "days": [
         "2026-06-10"
@@ -1114,7 +1138,7 @@
   },
   "orgName": "工事部",
   "foldSite": {
-    "1": true,
+    "1": false,
     "2": true
   },
   "actuals": {},
@@ -1132,5 +1156,5 @@
     "5_2026-06-12": true,
     "6_2026-06-11": true
   },
-  "_savedAt": "2026/6/10 18:40:28"
+  "_savedAt": "2026/6/10 18:40:31"
 }

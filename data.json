@@ -3,30 +3,6 @@
     {
       "id": "1",
       "days": [
-        "2026-06-11"
-      ],
-      "assigns": {},
-      "dayData": {},
-      "shift": "昼",
-      "place": "",
-      "prime": "",
-      "contact": "",
-      "contactManual": "",
-      "contactTel": "",
-      "ourContact": "",
-      "leader": "",
-      "works": [],
-      "machines": [],
-      "gatherTime": "",
-      "gatherType": "集合",
-      "note": "",
-      "okiba": "",
-      "kaisou": "",
-      "enShoo": false
-    },
-    {
-      "id": "1",
-      "days": [
         "2026-06-15"
       ],
       "assigns": {
@@ -180,15 +156,7 @@
         ]
       },
       "dayData": {
-        "2026-06-15": {
-          "machines": [
-            {
-              "name": "AF45",
-              "qty": 1,
-              "carrier": "R8"
-            }
-          ]
-        }
+        "2026-06-15": {}
       },
       "shift": "昼",
       "place": "つくば市二ノ宮",
@@ -781,14 +749,14 @@
             "role": "作業員",
             "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "ユンボ0.1"
+            "memo": ""
           },
           {
             "name": "小松﨑",
             "role": "重機OP",
             "vehicle": "4tダンプ",
             "isDriver": true,
-            "memo": "サイドローラー"
+            "memo": ""
           },
           {
             "name": "近藤",
@@ -825,14 +793,18 @@
         "2026-06-11": {
           "machines": [
             {
-              "name": "ｻｲﾄﾞﾛｰﾗｰ",
-              "qty": 1
-            },
-            {
               "name": "ﾕﾝﾎﾞ0.1",
               "qty": 1,
               "carrier": "3tダンプ"
+            },
+            {
+              "name": "ｻｲﾄﾞﾛｰﾗｰ",
+              "qty": 1,
+              "carrier": "4tダンプ"
             }
+          ],
+          "supplies": [
+            "砂"
           ]
         }
       },
@@ -882,10 +854,10 @@
         "2026-06-11": {
           "per": {
             "駒田": {
-              "drive": 2
+              "drive": 0
             },
             "小松﨑": {
-              "drive": 2
+              "drive": 0
             }
           }
         }
@@ -1658,5 +1630,5 @@
   "fiveBase": "2026-06-11",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/11 7:28:46"
+  "_savedAt": "2026/6/11 8:11:21"
 }

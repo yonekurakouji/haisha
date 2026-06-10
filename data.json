@@ -34,8 +34,16 @@
           {
             "name": "中川",
             "role": "運搬員",
-            "vehicle": "",
+            "vehicle": "4tダンプ",
             "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
             "memo": "",
             "absent": ""
           }
@@ -1476,5 +1484,5 @@
   "fiveBase": "2026-06-05",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 19:36:52"
+  "_savedAt": "2026/6/10 19:36:58"
 }

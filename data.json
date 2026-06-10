@@ -18,7 +18,7 @@
           {
             "name": "駒田",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "",
+            "vehicle": "R8",
             "isDriver": true,
             "memo": "",
             "absent": ""
@@ -26,7 +26,7 @@
           {
             "name": "小松﨑",
             "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "",
+            "vehicle": "R1",
             "isDriver": true,
             "memo": "",
             "absent": ""
@@ -1528,5 +1528,5 @@
   "fiveBase": "2026-06-05",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 19:53:07"
+  "_savedAt": "2026/6/10 19:53:13"
 }

@@ -102,6 +102,14 @@
           {
             "name": "アリヤ",
             "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "作業員",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
@@ -1251,5 +1259,5 @@
   "fiveBase": "2026-06-10",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 19:12:23"
+  "_savedAt": "2026/6/10 19:12:33"
 }

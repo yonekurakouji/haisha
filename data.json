@@ -633,8 +633,8 @@
       "contact": "",
       "contactManual": "",
       "contactTel": "",
-      "ourContact": "",
-      "leader": "",
+      "ourContact": "阿部",
+      "leader": "中川",
       "works": [],
       "machines": [],
       "gatherTime": "",
@@ -1028,5 +1028,5 @@
     "5_2026-05-12": true,
     "5_2026-06-12": true
   },
-  "_savedAt": "2026/6/10 17:54:01"
+  "_savedAt": "2026/6/10 17:54:10"
 }

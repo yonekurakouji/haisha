@@ -10,7 +10,7 @@
           {
             "name": "駒田",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "R1",
+            "vehicle": "R8",
             "isDriver": true,
             "memo": "",
             "absent": ""
@@ -1456,5 +1456,5 @@
   "fiveBase": "2026-06-05",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 19:35:02"
+  "_savedAt": "2026/6/10 19:35:05"
 }

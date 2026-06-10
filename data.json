@@ -644,6 +644,22 @@
             "absent": ""
           },
           {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
             "name": "",
             "role": "",
             "vehicle": "",
@@ -1063,5 +1079,5 @@
     "5_2026-06-12": true,
     "6_2026-06-11": true
   },
-  "_savedAt": "2026/6/10 17:55:27"
+  "_savedAt": "2026/6/10 17:55:34"
 }

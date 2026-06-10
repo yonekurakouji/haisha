@@ -412,7 +412,14 @@ function fetchAndApply(url){
     document.getElementById('app').innerHTML='<div style="padding:40px;text-align:center;color:#b91c1c;">データの読み込みに失敗しました。<br>共有リンクが正しいか管理者に確認してください。<br><span style="font-size:11px;color:#94a3b8;">'+e.message+'</span></div>';
   });
 }
-const render=()=>{document.getElementById('app').innerHTML=html();};
+const render=()=>{
+  try{
+    document.getElementById('app').innerHTML=html();
+  }catch(e){
+    document.getElementById('app').innerHTML='<div style="padding:40px;text-align:center;color:#b91c1c;"><b>表示エラー</b><br><span style="font-size:12px;">'+e.message+'</span></div>';
+    console.error('render error:',e);
+  }
+};
 
 /* ===== GitHub Pages 自動更新 ===== */
 function ghCfg(){try{return JSON.parse(localStorage.getItem('haisha_gh')||'{}');}catch{return{};}}
@@ -437,23 +444,30 @@ window.publishToGitHub=async function(){
   }
   const btn=document.getElementById('pubBtn');
   if(btn){btn.textContent='⏳ 更新中...';btn.disabled=true;}
-  try{
-    const data={sites:S.sites,workers:S.workers,roles:S.roles,works:S.works,machines:S.machines,vehicles:S.vehicles,contacts:S.contacts,supplies:S.supplies,leave:S.leave,officeAtt:S.officeAtt,orgName:S.orgName,actuals:S.actuals,excl:[...S.excl],weekBase:S.weekBase,fiveBase:S.fiveBase,rpYM:S.rpYM,izYM:S.izYM,_savedAt:new Date().toLocaleString('ja-JP')};
-    const content=btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2))));
-    const api=`https://api.github.com/repos/${c.owner}/${c.repo}/contents/data.json`;
-    // 既存ファイルのSHAを取得（更新に必要）
+  /* GitHubファイルを更新する共通関数 */
+  async function ghPut(filename,contentB64,msg){
+    const api=`https://api.github.com/repos/${c.owner}/${c.repo}/contents/${filename}`;
     let sha=null;
     try{const r=await fetch(api,{headers:{Authorization:`token ${c.token}`}});if(r.ok){const j=await r.json();sha=j.sha;}}catch{}
-    const body={message:'予定更新 '+new Date().toLocaleString('ja-JP'),content};
+    const body={message:msg,content:contentB64};
     if(sha)body.sha=sha;
     const res=await fetch(api,{method:'PUT',headers:{Authorization:`token ${c.token}`,'Content-Type':'application/json'},body:JSON.stringify(body)});
-    if(res.ok){
-      if(btn){btn.textContent='✅ 更新完了！';setTimeout(()=>{btn.textContent='🚀 サイトを更新';btn.disabled=false;},2500);}
-      alert('社員向けサイトを更新しました！\n社員さんの画面に最新の予定が反映されます（数十秒後）。');
-    }else{
-      const e=await res.text();
-      throw new Error('GitHub更新失敗（'+res.status+'）'+(res.status===401?'：トークンが正しくないか期限切れです。設定し直してください。':''));
-    }
+    if(!res.ok){const e=await res.text();throw new Error(filename+'更新失敗（'+res.status+'）'+(res.status===401?'：トークンが正しくないか期限切れです。':''));}
+    return res;
+  }
+  try{
+    const now=new Date().toLocaleString('ja-JP');
+    /* ① data.json を更新 */
+    const data={sites:S.sites,workers:S.workers,roles:S.roles,works:S.works,machines:S.machines,vehicles:S.vehicles,contacts:S.contacts,supplies:S.supplies,leave:S.leave,officeAtt:S.officeAtt,orgName:S.orgName,actuals:S.actuals,excl:[...S.excl],weekBase:S.weekBase,fiveBase:S.fiveBase,rpYM:S.rpYM,izYM:S.izYM,_savedAt:now};
+    const dataB64=btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2))));
+    await ghPut('data.json',dataB64,'予定更新 '+now);
+    /* ② index.html を更新（このファイル自身を送る） */
+    if(btn)btn.textContent='⏳ アプリ更新中...';
+    const htmlSrc=document.documentElement.outerHTML;
+    const htmlB64=btoa(unescape(encodeURIComponent(htmlSrc)));
+    await ghPut('index.html',htmlB64,'アプリ更新 '+now);
+    if(btn){btn.textContent='✅ 更新完了！';setTimeout(()=>{btn.textContent='🚀 サイトを更新';btn.disabled=false;},2500);}
+    alert('社員向けサイトを更新しました！\n社員さんの画面に最新の予定が反映されます（数十秒後）。');
   }catch(err){
     alert('更新に失敗しました。\n'+err.message);
     if(btn){btn.textContent='🚀 サイトを更新';btn.disabled=false;}

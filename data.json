@@ -685,6 +685,28 @@
       "okiba": "",
       "kaisou": "",
       "enShoo": false
+    },
+    {
+      "id": "1",
+      "days": [],
+      "assigns": {},
+      "dayData": {},
+      "shift": "昼",
+      "place": "",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
     }
   ],
   "workers": [
@@ -1037,24 +1059,8 @@
   },
   "orgName": "工事部",
   "foldSite": {
-    "1": true,
-    "2": true,
-    "3": false,
-    "4": false,
-    "smq7lnz9ynhqa": false,
-    "smq7lo6k7f51n": false,
-    "smq7loe93hyn1": false,
-    "smq7mgppq2h41": false,
-    "smq7mgrp7f6n9": false,
-    "smq7mguvgtzvy": false,
-    "smq7nevu210tu": false,
-    "smq7nez66kc53": false,
-    "smq7nim7rgvxl": false,
-    "smq7nlis0hwvt": false,
-    "smq7nllgq36rf": false,
-    "smq7nlne2epc9": false,
-    "smq7nmjsoxk88": false,
-    "smq7nn2247x3w": false
+    "1": false,
+    "2": true
   },
   "actuals": {},
   "excl": [],
@@ -1071,5 +1077,5 @@
     "5_2026-06-12": true,
     "6_2026-06-11": true
   },
-  "_savedAt": "2026/6/10 18:02:26"
+  "_savedAt": "2026/6/10 18:02:41"
 }

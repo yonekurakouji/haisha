@@ -15,7 +15,9 @@
       "contactTel": "",
       "ourContact": "阿部",
       "leader": "駒田",
-      "works": [],
+      "works": [
+        "捲り舗装"
+      ],
       "machines": [],
       "gatherTime": "",
       "gatherType": "集合",
@@ -1414,5 +1416,5 @@
   "fiveBase": "2026-06-05",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 19:49:42"
+  "_savedAt": "2026/6/10 19:49:46"
 }

@@ -96,9 +96,16 @@
             "isDriver": false,
             "memo": ""
           }
-        ]
+        ],
+        "2026-06-10": []
       },
-      "dayData": {},
+      "dayData": {
+        "2026-06-10": {
+          "works": [
+            "片付け清掃"
+          ]
+        }
+      },
       "shift": "夜",
       "place": "守谷294",
       "prime": "常盤工業",
@@ -486,6 +493,121 @@
       "okiba": "",
       "kaisou": "",
       "enShoo": false
+    },
+    {
+      "id": "1",
+      "days": [
+        "2026-06-10"
+      ],
+      "assigns": {
+        "2026-06-10": [
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "R8",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "作業員",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "R8",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "作業員",
+            "vehicle": "3tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-06-10": {
+          "works": [
+            "路盤工"
+          ],
+          "machines": [
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1
+            },
+            {
+              "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+              "qty": 1
+            },
+            {
+              "name": "ﾗﾝﾏ",
+              "qty": 1
+            },
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 2
+            },
+            {
+              "name": "ｻｲﾄﾞﾛｰﾗｰ",
+              "qty": 1
+            }
+          ]
+        }
+      },
+      "shift": "昼",
+      "place": "つくば市真瀬",
+      "prime": "ザキヤマ",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "駒田",
+      "works": [
+        "舗装工",
+        "路盤工"
+      ],
+      "machines": [
+        {
+          "name": "ﾕﾝﾎﾞ0.1",
+          "qty": 1
+        },
+        {
+          "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+          "qty": 1
+        },
+        {
+          "name": "ﾗﾝﾏ",
+          "qty": 1
+        },
+        {
+          "name": "ﾌﾟﾚｰﾄ",
+          "qty": 2
+        }
+      ],
+      "gatherTime": "8:00",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "有",
+      "kaisou": "○",
+      "enShoo": false
     }
   ],
   "workers": [
@@ -837,11 +959,36 @@
     }
   },
   "orgName": "工事部",
+  "foldSite": {
+    "1": true,
+    "2": true,
+    "3": false,
+    "4": false,
+    "smq7lnz9ynhqa": false,
+    "smq7lo6k7f51n": false,
+    "smq7loe93hyn1": false,
+    "smq7mgppq2h41": false,
+    "smq7mgrp7f6n9": false,
+    "smq7mguvgtzvy": false,
+    "smq7nevu210tu": false,
+    "smq7nez66kc53": false,
+    "smq7nim7rgvxl": false,
+    "smq7nlis0hwvt": false,
+    "smq7nllgq36rf": false,
+    "smq7nlne2epc9": false,
+    "smq7nmjsoxk88": false,
+    "smq7nn2247x3w": false
+  },
   "actuals": {},
   "excl": [],
   "weekBase": "2026-06-29",
   "fiveBase": "2026-06-08",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 15:30:53"
+  "openDays": {
+    "2_2026-06-11": true,
+    "6_2026-06-10": true,
+    "0_2026-06-10": true
+  },
+  "_savedAt": "2026/6/10 17:48:40"
 }

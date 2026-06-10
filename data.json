@@ -628,7 +628,7 @@
       "assigns": {},
       "dayData": {},
       "shift": "昼",
-      "place": "",
+      "place": "事務所",
       "prime": "",
       "contact": "",
       "contactManual": "",
@@ -1028,5 +1028,5 @@
     "5_2026-05-12": true,
     "5_2026-06-12": true
   },
-  "_savedAt": "2026/6/10 17:53:44"
+  "_savedAt": "2026/6/10 17:54:01"
 }

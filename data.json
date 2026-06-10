@@ -94,6 +94,14 @@
             "isDriver": false,
             "memo": "",
             "absent": ""
+          },
+          {
+            "name": "米倉",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ],
         "2026-06-12": [
@@ -1584,5 +1592,5 @@
   "fiveBase": "2026-06-10",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 21:45:04"
+  "_savedAt": "2026/6/10 21:45:22"
 }

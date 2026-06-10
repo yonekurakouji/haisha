@@ -28,10 +28,18 @@
         ],
         "2026-06-08": [
           {
-            "name": "",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "name": "阿部",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "R8",
+            "isDriver": true,
             "memo": "",
             "absent": ""
           }
@@ -1134,5 +1142,5 @@
   "fiveBase": "2026-06-10",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 18:57:52"
+  "_savedAt": "2026/6/10 18:58:11"
 }

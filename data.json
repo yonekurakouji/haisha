@@ -34,7 +34,7 @@
           {
             "name": "近藤",
             "role": "運搬員",
-            "vehicle": "",
+            "vehicle": "3tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -1528,5 +1528,5 @@
   "fiveBase": "2026-06-05",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 19:52:00"
+  "_savedAt": "2026/6/10 19:52:04"
 }

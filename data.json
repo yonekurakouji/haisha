@@ -45,9 +45,9 @@
           },
           {
             "name": "阿部",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": true,
             "memo": "",
             "absent": ""
           }
@@ -1145,5 +1145,5 @@
   "fiveBase": "2026-06-10",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 18:53:44"
+  "_savedAt": "2026/6/10 18:53:52"
 }

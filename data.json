@@ -70,7 +70,7 @@
           {
             "name": "大竹",
             "role": "作業員",
-            "vehicle": "Wキャブ",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -78,7 +78,7 @@
           {
             "name": "菅沼",
             "role": "作業員",
-            "vehicle": "Wキャブ",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -86,7 +86,7 @@
           {
             "name": "佐藤",
             "role": "作業員",
-            "vehicle": "",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -1185,5 +1185,5 @@
   "fiveBase": "2026-06-10",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 18:55:08"
+  "_savedAt": "2026/6/10 18:55:18"
 }

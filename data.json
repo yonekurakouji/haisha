@@ -49,7 +49,7 @@
           },
           {
             "name": "大竹",
-            "role": "",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
@@ -57,7 +57,7 @@
           },
           {
             "name": "菅沼",
-            "role": "",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
@@ -65,7 +65,7 @@
           },
           {
             "name": "佐藤",
-            "role": "",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
@@ -73,7 +73,7 @@
           },
           {
             "name": "アグン",
-            "role": "",
+            "role": "ﾌﾟﾚｰﾄ",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
@@ -1745,5 +1745,5 @@
   "fiveBase": "2026-06-10",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 20:53:33"
+  "_savedAt": "2026/6/10 20:53:46"
 }

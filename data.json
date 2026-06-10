@@ -11,7 +11,7 @@
             "name": "阿部",
             "role": "作業員",
             "vehicle": "",
-            "isDriver": false,
+            "isDriver": true,
             "memo": "",
             "absent": ""
           },
@@ -19,7 +19,7 @@
             "name": "駒田",
             "role": "ﾚｰｷﾏﾝ",
             "vehicle": "",
-            "isDriver": false,
+            "isDriver": true,
             "memo": "",
             "absent": ""
           },
@@ -27,7 +27,7 @@
             "name": "小松﨑",
             "role": "ﾛｰﾗｰﾏﾝ",
             "vehicle": "",
-            "isDriver": false,
+            "isDriver": true,
             "memo": "",
             "absent": ""
           },
@@ -35,7 +35,7 @@
             "name": "近藤",
             "role": "運搬員",
             "vehicle": "3tダンプ",
-            "isDriver": false,
+            "isDriver": true,
             "memo": "",
             "absent": ""
           },
@@ -43,7 +43,7 @@
             "name": "中川",
             "role": "運搬員",
             "vehicle": "4tダンプ",
-            "isDriver": false,
+            "isDriver": true,
             "memo": "",
             "absent": ""
           },
@@ -1528,5 +1528,5 @@
   "fiveBase": "2026-06-05",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 19:52:12"
+  "_savedAt": "2026/6/10 19:52:19"
 }

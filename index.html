@@ -1,11 +1,13 @@
-<html lang="ja"><head>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>配車・予定／日報</title>
-<link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9teS5taWNyb3NvZnRwZXJzb25hbGNvbnRlbnQuY29tL3BlcnNvbmFsL2ViOWUxOGUzZDliYjBhN2UvX2xheW91dHMvMTUvZG93bmxvYWQuYXNweD9VbmlxdWVJZD00MzAxMGU0OS05ZGVjLTRjMzgtOTMwOC01MjIwNjViMDRhNzAmVHJhbnNsYXRlPWZhbHNlJnRlbXBhdXRoPXYxZS5leUp6YVhSbGFXUWlPaUl3TUdNeU9UY3haQzAxWWpNNUxUUTVaalV0WWpBMllpMWtORGMyWVdJMVpUWm1NakFpTENKaGNIQnBaQ0k2SWpBd01EQXdNREF3TFRBd01EQXRNREF3TUMwd01EQXdMVEF3TURBME9ERTNNVEJoTkNJc0ltRjFaQ0k2SWpBd01EQXdNREF6TFRBd01EQXRNR1ptTVMxalpUQXdMVEF3TURBd01EQXdNREF3TUM5dGVTNXRhV055YjNOdlpuUndaWEp6YjI1aGJHTnZiblJsYm5RdVkyOXRRRGt4T0Rnd05EQmtMVFpqTmpjdE5HTTFZaTFpTVRFeUxUTTJZVE13TkdJMk5tUmhaQ0lzSW1WNGNDSTZJakUzT0RFd09Ua3dNVGtpZlEuN1hra1FVTm5PcTZyLUFwTE44THRMY0hZMlJscTFzTHZKb01xRVFjWGhaOEFZam1nbVZmOHZBQUh5aDVlZWZlaDBndnVZRkY3NUxZZTFRcWY4dVBMdkRFd21NZVY3YWN1X3pFcnhDc21mYVFVelkzSXh0ZkpzUXFCOVJKZ1R5V2FHQ0ZxSmhJR005R2dKWlBxT2h4aFhxTlJZLUFhTDZhNXo5NUtYOXVyelptend0b0FHQW5tRG5LMUFvQ2pEdGE3cHJRbWtTRjM0ZUVDZHZTbWZ6NU9jT0dZNGJrV3FPaGgwVmpvZlhmYVdVRHU5cEhKOW80YWxmaEV6MUt0VUNnUWFYTDJkcG9RbE1WdF9KcXEyTzZreVVmZHBaZkd6SDBFZmhmbjZ3ZXN5a0NaTlFoNF9oUDg2N3lHTVIxWjROaG5sS2Vuc092WjRJUm93VE5mZml5V2gzdFVxRXpIRnlJWkVBWG9KSnVCaE9KZmJVeGNKUldJTGhDaXFYbmxlODBwdFBpY0Z5VGhmMEhxZUFUbGMtYVh1LS00eUF0MmxvQk5Ja2RtVERicWhCLU1pZmhrVkE1dDIyWnhsVGt1RVExR2JudHd2a2xrRWRva19yMldGcWtwSTR2NFllQVZudHZBYkFEZVR2M3lfbzU1SFNLdngtRHlSNXJLTzl4ZkQxeTYuQl83SWNHUFRmR2dHejRhdUlGVk5lSzdBX2NYbUdIWVhYR0c3azdORkh1ZyZBcGlWZXJzaW9uPTIuMA"><style>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=V5nbC-QD7TqmAORaS5cF8y7qHKlYhkeGy85jaOyx7O5bIVNaHdK9eBFu3MR6EHdZlIJ0g7KKcppi91i5WqeOm2nvnmSpCCqT2CbrVMORBqSUuRnNgy9oYv-ckZBvaMZAsVHBueW0vTs1JMYgsKI6bphJuDJzi0mFAgWU9EWGrk2e1m4rklCvSFKDUnVaeB3X" charset="UTF-8"></script><style>
 :root{
   --bg:#f1f5f9;--bg1:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;
   --tx:#0f172a;--tx2:#475569;--tx3:#94a3b8;
@@ -95,73 +97,7 @@ body.printLandscape @page,.printLandscape{}
 </style>
 </head>
 <body>
-<div id="app"><div class="hdr">
-    <span style="font-weight:500;font-size:14px;">配車・予定／日報</span>
-    <div style="margin-left:auto;display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
-      <span id="ghStatus" style="font-size: 10px; color: rgb(253, 230, 138);">☁️ 保存中…</span>
-      
-      <button class="hbtn" id="pubBtn" onclick="publishToGitHub()" style="background:#166534;color:#fff;border-color:#166634;" disabled="">⏳ 更新中...</button>
-      <button class="hbtn" onclick="exportFile()">💾 バックアップ</button>
-      <label class="hbtn" style="cursor:pointer;">📂 復元<input type="file" accept=".json,application/json" onchange="importFile(this)" style="display:none;"></label>
-    </div>
-  </div>
-  <div class="nav"><button class="nb on" onclick="T('weekly')">週間予定表</button><button class="nb" onclick="T('dispatch')">配車・割振</button><button class="nb" onclick="T('quarterly')">📊 3ヶ月管理</button><button class="nb" onclick="T('byworker')">社員別</button><button class="nb" onclick="T('bymachine')">機械別</button><button class="nb" onclick="T('report')">日報</button><button class="nb" onclick="T('izumi')">出面</button><button class="nb" onclick="T('master')">マスタ</button></div>
-  <div class="main">
-    <div class="savebar">☁️ 操作するたびに自動でGitHubに保存されます。複数人で使っても安心です。</div>
-    <div class="tb"><strong style="font-size:13px;">週間予定表</strong>
-  <div style="display:flex;border:1px solid var(--bd2);border-radius:6px;overflow:hidden;">
-    <button onclick="WM('person')" style="padding:4px 10px;border:none;background:#1e293b;color:#f1f5f9;cursor:pointer;font-size:11px;">個人別</button>
-    <button onclick="WM('site')" style="padding:4px 10px;border:none;background:none;color:var(--tx2);cursor:pointer;font-size:11px;">現場別</button>
-  </div>
-  
-  <button class="btn" onclick="MF(-5)">◀ 前</button><button class="btn" onclick="MF(0)">今日</button><button class="btn" onclick="MF(5)">次 ▶</button>
-  <input type="date" value="2026-06-10" onchange="SF(this.value)" style="width:140px;">
-  <button class="btn" onclick="printWeekSet()" style="background:#166534;color:#fff;border-color:#166534;">🖨 3種まとめてPDF</button><button class="btn" onclick="printWeek()">🖨 今の表だけ</button><button class="btn" onclick="showWeekMail()" style="background:#1e40af;color:#fff;border-color:#1e40af;">✉ 予定をメール</button>
-  </div>
-  
-<div style="overflow-x:auto;"><table class="tbl"><thead>
-    <tr><th colspan="2" style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#334155;color:#f1f5f9;">職員</th><th colspan="2" onclick="TE('2026-06-10')" style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#93c5fd;color:#0f172a;cursor:pointer;min-width:100px;">6/10(水) ★</th><th colspan="2" onclick="TE('2026-06-11')" style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#cbd5e1;color:#0f172a;cursor:pointer;min-width:100px;">6/11(木)</th><th colspan="2" onclick="TE('2026-06-12')" style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#cbd5e1;color:#0f172a;cursor:pointer;min-width:100px;">6/12(金)</th><th colspan="2" onclick="TE('2026-06-13')" style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#bfdbfe;color:#1e3a8a;cursor:pointer;min-width:100px;">6/13(土)</th><th colspan="2" onclick="TE('2026-06-14')" style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#fda4af;color:#881337;cursor:pointer;min-width:100px;">6/14(日)</th></tr>
-    <tr><th colspan="2" style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#475569;color:#e2e8f0;font-size:10px;">昼/夜</th><th style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#f1f5f9;color:#475569;">昼</th><th style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#f1f5f9;color:#475569;">夜</th><th style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#f1f5f9;color:#475569;">昼</th><th style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#f1f5f9;color:#475569;">夜</th><th style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#f1f5f9;color:#475569;">昼</th><th style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#f1f5f9;color:#475569;">夜</th><th style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#f1f5f9;color:#475569;">昼</th><th style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#f1f5f9;color:#475569;">夜</th><th style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#f1f5f9;color:#475569;">昼</th><th style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#f1f5f9;color:#475569;">夜</th></tr>
-  </thead><tbody><tr style="background:var(--bg1);">
-      <td class="nc" style="font-size:10px;color:var(--tx2);width:32px;">002</td>
-      <td class="nc" style="font-weight:500;width:48px;">阿部</td><td onclick="ShowAbsentMenu('2026-06-10','阿部','昼')" style="border:1px solid var(--bd3);text-align:center;background:#fef3c7;color:#92400e;font-size:10px;font-weight:500;cursor:pointer;">その他</td><td onclick="ShowAbsentMenu('2026-06-10','阿部','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-11','阿部','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-11','阿部','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','阿部','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','阿部','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','阿部','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','阿部','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','阿部','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','阿部','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td></tr><tr style="background:var(--bg2);">
-      <td class="nc" style="font-size:10px;color:var(--tx2);width:32px;">046</td>
-      <td class="nc" style="font-weight:500;width:48px;">駒田</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">つくば市真瀬</div><div style="font-size:10px;color:var(--tx2);">作業員 <span class="bdrv">運転</span> <b>集合 8:00</b></div></div></td><td onclick="ShowAbsentMenu('2026-06-10','駒田','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">笠間</div><div style="font-size:10px;color:var(--tx2);">作業員 <span class="bdrv">運転</span> <b>集合 7:15</b></div></div></td><td onclick="ShowAbsentMenu('2026-06-11','駒田','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">つくば市真瀬</div><div style="font-size:10px;color:var(--tx2);"> <b>集合 8:00</b></div></div></td><td onclick="ShowAbsentMenu('2026-06-12','駒田','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','駒田','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','駒田','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','駒田','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','駒田','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td></tr><tr style="background:var(--bg1);">
-      <td class="nc" style="font-size:10px;color:var(--tx2);width:32px;">005</td>
-      <td class="nc" style="font-weight:500;width:48px;">小松﨑</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">つくば市真瀬</div><div style="font-size:10px;color:var(--tx2);">作業員 <span class="bdrv">運転</span> <b>集合 8:00</b></div></div></td><td onclick="ShowAbsentMenu('2026-06-10','小松﨑','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">笠間</div><div style="font-size:10px;color:var(--tx2);">重機OP <span class="bdrv">運転</span> <b>集合 7:15</b></div></div></td><td onclick="ShowAbsentMenu('2026-06-11','小松﨑','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">つくば市真瀬</div><div style="font-size:10px;color:var(--tx2);"> <b>集合 8:00</b></div></div></td><td onclick="ShowAbsentMenu('2026-06-12','小松﨑','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','小松﨑','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','小松﨑','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','小松﨑','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','小松﨑','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td></tr><tr style="background:var(--bg2);">
-      <td class="nc" style="font-size:10px;color:var(--tx2);width:32px;">045</td>
-      <td class="nc" style="font-weight:500;width:48px;">近藤</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">守谷アパート</div><div style="font-size:10px;color:var(--tx2);">作業員 <span class="bdrv">運転</span></div></div></td><td onclick="ShowAbsentMenu('2026-06-10','近藤','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">笠間</div><div style="font-size:10px;color:var(--tx2);">作業員 <span class="bdrv">運転</span> <b>集合 7:15</b></div></div></td><td onclick="ShowAbsentMenu('2026-06-11','近藤','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">つくば市真瀬</div><div style="font-size:10px;color:var(--tx2);"> <b>集合 8:00</b></div></div></td><td onclick="ShowAbsentMenu('2026-06-12','近藤','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','近藤','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','近藤','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','近藤','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','近藤','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td></tr><tr style="background:var(--bg1);">
-      <td class="nc" style="font-size:10px;color:var(--tx2);width:32px;">044</td>
-      <td class="nc" style="font-weight:500;width:48px;">中川</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">つくば市真瀬</div><div style="font-size:10px;color:var(--tx2);">作業員 <span class="bdrv">運転</span> <b>集合 8:00</b></div></div></td><td onclick="ShowAbsentMenu('2026-06-10','中川','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">事務所</div><div style="font-size:10px;color:var(--tx2);"> <b>集合 8:00</b></div></div></td><td onclick="ShowAbsentMenu('2026-06-11','中川','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">つくば市真瀬</div><div style="font-size:10px;color:var(--tx2);"> <b>集合 8:00</b></div></div></td><td onclick="ShowAbsentMenu('2026-06-12','中川','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','中川','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','中川','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','中川','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','中川','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td></tr><tr style="background:var(--bg2);">
-      <td class="nc" style="font-size:10px;color:var(--tx2);width:32px;">047</td>
-      <td class="nc" style="font-weight:500;width:48px;">大竹</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">つくば市真瀬</div><div style="font-size:10px;color:var(--tx2);">作業員 <b>集合 8:00</b></div></div></td><td onclick="ShowAbsentMenu('2026-06-10','大竹','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">笠間</div><div style="font-size:10px;color:var(--tx2);">作業員 <b>集合 7:15</b></div></div></td><td onclick="ShowAbsentMenu('2026-06-11','大竹','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','大竹','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','大竹','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','大竹','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','大竹','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','大竹','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','大竹','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td></tr><tr style="background:var(--bg1);">
-      <td class="nc" style="font-size:10px;color:var(--tx2);width:32px;">048</td>
-      <td class="nc" style="font-weight:500;width:48px;">菅沼</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">守谷アパート</div><div style="font-size:10px;color:var(--tx2);">作業員</div></div></td><td onclick="ShowAbsentMenu('2026-06-10','菅沼','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">笠間</div><div style="font-size:10px;color:var(--tx2);">作業員 <b>集合 7:15</b></div></div></td><td onclick="ShowAbsentMenu('2026-06-11','菅沼','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','菅沼','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','菅沼','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','菅沼','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','菅沼','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','菅沼','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','菅沼','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td></tr><tr style="background:var(--bg2);">
-      <td class="nc" style="font-size:10px;color:var(--tx2);width:32px;">049</td>
-      <td class="nc" style="font-weight:500;width:48px;">佐藤</td><td onclick="ShowAbsentMenu('2026-06-10','佐藤','昼')" style="border:1px solid var(--bd3);text-align:center;background:#fef3c7;color:#92400e;font-size:10px;font-weight:500;cursor:pointer;">その他</td><td onclick="ShowAbsentMenu('2026-06-10','佐藤','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">事務所</div><div style="font-size:10px;color:var(--tx2);"> <b>集合 8:00</b></div></div></td><td onclick="ShowAbsentMenu('2026-06-11','佐藤','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','佐藤','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','佐藤','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','佐藤','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','佐藤','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','佐藤','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','佐藤','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td></tr><tr style="background:var(--bg1);">
-      <td class="nc" style="font-size:10px;color:var(--tx2);width:32px;">060</td>
-      <td class="nc" style="font-weight:500;width:48px;">アグン</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">つくば市真瀬</div><div style="font-size:10px;color:var(--tx2);">作業員 <b>集合 8:00</b></div></div></td><td onclick="ShowAbsentMenu('2026-06-10','アグン','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">笠間</div><div style="font-size:10px;color:var(--tx2);">作業員 <b>集合 7:15</b></div></div></td><td onclick="ShowAbsentMenu('2026-06-11','アグン','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','アグン','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','アグン','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','アグン','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','アグン','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','アグン','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','アグン','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td></tr><tr style="background:var(--bg2);">
-      <td class="nc" style="font-size:10px;color:var(--tx2);width:32px;">061</td>
-      <td class="nc" style="font-weight:500;width:48px;">アリヤ</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">守谷アパート</div><div style="font-size:10px;color:var(--tx2);">作業員</div></div></td><td onclick="ShowAbsentMenu('2026-06-10','アリヤ','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">事務所</div><div style="font-size:10px;color:var(--tx2);"> <b>集合 8:00</b></div></div></td><td onclick="ShowAbsentMenu('2026-06-11','アリヤ','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','アリヤ','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','アリヤ','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','アリヤ','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','アリヤ','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','アリヤ','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','アリヤ','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td></tr><tr style="background:var(--bg1);">
-      <td class="nc" style="font-size:10px;color:var(--tx2);width:32px;">062</td>
-      <td class="nc" style="font-weight:500;width:48px;">アマダ</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">守谷アパート</div><div style="font-size:10px;color:var(--tx2);"></div></div></td><td onclick="ShowAbsentMenu('2026-06-10','アマダ','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td style="border:1px solid var(--bd3);border-left:3px solid #f59e0b;padding:2px;vertical-align:top;background:#fef3c7;"><div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:#92400e;">事務所</div><div style="font-size:10px;color:var(--tx2);"> <b>集合 8:00</b></div></div></td><td onclick="ShowAbsentMenu('2026-06-11','アマダ','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','アマダ','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','アマダ','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','アマダ','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','アマダ','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','アマダ','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','アマダ','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td></tr><tr style="background:var(--bg2);">
-      <td class="nc" style="font-size:10px;color:var(--tx2);width:32px;">001</td>
-      <td class="nc" style="font-weight:400;width:48px;">米倉</td><td onclick="ShowAbsentMenu('2026-06-10','米倉','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-10','米倉','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-11','米倉','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-11','米倉','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','米倉','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','米倉','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','米倉','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','米倉','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','米倉','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','米倉','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td></tr><tr style="background:var(--bg1);">
-      <td class="nc" style="font-size:10px;color:var(--tx2);width:32px;">003</td>
-      <td class="nc" style="font-weight:400;width:48px;">渋川</td><td onclick="ShowAbsentMenu('2026-06-10','渋川','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-10','渋川','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-11','渋川','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-11','渋川','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','渋川','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','渋川','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','渋川','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','渋川','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','渋川','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','渋川','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td></tr><tr style="background:var(--bg2);">
-      <td class="nc" style="font-size:10px;color:var(--tx2);width:32px;">050</td>
-      <td class="nc" style="font-weight:400;width:48px;">関</td><td onclick="ShowAbsentMenu('2026-06-10','関','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-10','関','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-11','関','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-11','関','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','関','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','関','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','関','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','関','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','関','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','関','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td></tr><tr style="background:var(--bg1);">
-      <td class="nc" style="font-size:10px;color:var(--tx2);width:32px;">042</td>
-      <td class="nc" style="font-weight:400;width:48px;">樋口</td><td onclick="ShowAbsentMenu('2026-06-10','樋口','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-10','樋口','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-11','樋口','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-11','樋口','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','樋口','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','樋口','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','樋口','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','樋口','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','樋口','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','樋口','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td></tr><tr style="background:var(--bg2);">
-      <td class="nc" style="font-size:10px;color:var(--tx2);width:32px;">035</td>
-      <td class="nc" style="font-weight:400;width:48px;">ハオ</td><td onclick="ShowAbsentMenu('2026-06-10','ハオ','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-10','ハオ','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-11','ハオ','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-11','ハオ','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','ハオ','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','ハオ','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','ハオ','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','ハオ','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','ハオ','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','ハオ','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td></tr><tr style="background:var(--bg1);">
-      <td class="nc" style="font-size:10px;color:var(--tx2);width:32px;">041</td>
-      <td class="nc" style="font-weight:400;width:48px;">ティ</td><td onclick="ShowAbsentMenu('2026-06-10','ティ','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-10','ティ','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-11','ティ','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-11','ティ','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','ティ','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','ティ','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','ティ','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','ティ','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','ティ','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','ティ','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td></tr><tr style="background:var(--bg2);">
-      <td class="nc" style="font-size:10px;color:var(--tx2);width:32px;">043</td>
-      <td class="nc" style="font-weight:400;width:48px;">横田</td><td onclick="ShowAbsentMenu('2026-06-10','横田','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-10','横田','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-11','横田','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-11','横田','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','横田','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-12','横田','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','横田','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-13','横田','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','横田','昼')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#fffdf5;" title="クリックで予定入力">—</td><td onclick="ShowAbsentMenu('2026-06-14','横田','夜')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:#f5f7ff;" title="クリックで予定入力">—</td></tr><tr><td colspan="12" style="background:#fef3c7;color:#92400e;font-size:11px;font-weight:500;padding:3px 8px;border:1px solid var(--bd3);">事務員（クリックで 出勤→有給→休 を切替）</td></tr><tr style="background:#fffaf0;">
-      <td class="nc" style="font-size:10px;color:var(--tx2);width:32px;">093</td>
-      <td class="nc" style="width:48px;">島田聖子</td><td colspan="2" onclick="CycleOffice('2026-06-10','島田聖子')" style="border:1px solid var(--bd3);text-align:center;background:#dcfce7;color:#166534;font-size:11px;font-weight:500;cursor:pointer;" title="クリックで 出勤→有給→休→空">出勤</td><td colspan="2" onclick="CycleOffice('2026-06-11','島田聖子')" style="border:1px solid var(--bd3);text-align:center;background:#dcfce7;color:#166534;font-size:11px;font-weight:500;cursor:pointer;" title="クリックで 出勤→有給→休→空">出勤</td><td colspan="2" onclick="CycleOffice('2026-06-12','島田聖子')" style="border:1px solid var(--bd3);text-align:center;background:#dcfce7;color:#166534;font-size:11px;font-weight:500;cursor:pointer;" title="クリックで 出勤→有給→休→空">出勤</td><td colspan="2" onclick="CycleOffice('2026-06-13','島田聖子')" style="border:1px solid var(--bd3);text-align:center;background:var(--bg1);color:var(--tx3);font-size:11px;font-weight:500;cursor:pointer;" title="クリックで 出勤→有給→休→空">—</td><td colspan="2" onclick="CycleOffice('2026-06-14','島田聖子')" style="border:1px solid var(--bd3);text-align:center;background:var(--bg1);color:var(--tx3);font-size:11px;font-weight:500;cursor:pointer;" title="クリックで 出勤→有給→休→空">—</td></tr></tbody></table></div>
-  </div></div>
+<div id="app"></div>
 <div id="printArea"></div>
 <script>
 const IW=[
@@ -235,7 +171,7 @@ const isSunday=dk=>pd(dk).getDay()===0;
    site.report[dk] = {start,end,weather,work,otDefault, per:{社員名:{ot,drive,excluded}}}
 */
 function getReport(site,dk){return (site.report&&site.report[dk])||{};}
-function ensureReport(si,dk){const s=typeof si==="string"?S.sites.find(x=>x.id===si):S.sites[si];s.report=s.report||{};s.report[dk]=s.report[dk]||{per:{}};if(!s.report[dk].per)s.report[dk].per={};return s.report[dk];}
+function ensureReport(si,dk){const s=S.sites[si];s.report=s.report||{};s.report[dk]=s.report[dk]||{per:{}};if(!s.report[dk].per)s.report[dk].per={};return s.report[dk];}
 
 /* ある社員のある日の実績（終了報告から取得、無ければ空） */
 function workerActual(workerName,dk){
@@ -378,7 +314,7 @@ function leaveYearDays(hireDate,refDk){
 /* ===== localStorage に自動保存（このファイルを開いたブラウザに残り続ける） ===== */
 const LS="haisha_app_data_v2";
 /* 重機: 文字列配列 or {name,qty}配列 両対応。表示用に正規化 */
-const normMachines=arr=>(arr||[]).map(m=>typeof m==='string'?{name:m,qty:1}:{name:m.name,qty:m.qty||1});
+const normMachines=arr=>(arr||[]).map(m=>typeof m==='string'?{name:m,qty:1,carrier:''}:{name:m.name,qty:m.qty||1,carrier:m.carrier||''});
 const machLabel=m=>m.qty&&m.qty>1?`${m.name}×${m.qty}`:m.name;
 /* 日別上書き(工事内容)を配列化。旧データ(文字列)も「・/、/,」区切りで配列化。未設定はnull(=共通を使う) */
 const dayWorksArr=v=>v===undefined?null:(Array.isArray(v)?v:String(v).split(/[・、,]/).map(x=>x.trim()).filter(Boolean));
@@ -390,7 +326,8 @@ function usageCount(kind){
   S.sites.forEach(s=>{
     if(kind==='works')(s.works||[]).forEach(w=>cnt[w]=(cnt[w]||0)+1);
     if(kind==='machines')normMachines(s.machines).forEach(m=>cnt[m.name]=(cnt[m.name]||0)+1);
-    if(kind==='contacts'&&s.contact&&s.contact!=='__manual__')cnt[s.contact]=(cnt[s.contact]||0)+1;
+    if(kind==='supplies')(s.supplies||[]).forEach(sp=>cnt[sp]=(cnt[sp]||0)+1);
+    if(kind==='supplies')Object.values(s.dayData||{}).forEach(dd=>(dd.supplies||[]).forEach(sp=>cnt[sp]=(cnt[sp]||0)+1));
     Object.values(s.assigns||{}).forEach(arr=>arr.forEach(a=>{
       if(kind==='roles'&&a.role)cnt[a.role]=(cnt[a.role]||0)+1;
       if(kind==='vehicles'&&a.vehicle)cnt[a.vehicle]=(cnt[a.vehicle]||0)+1;
@@ -405,76 +342,20 @@ function sortByUsage(list,kind,keyFn){
 function loadStore(){try{const r=localStorage.getItem(LS);return r?JSON.parse(r):null;}catch{return null;}}
 function saveStore(o){try{localStorage.setItem(LS,JSON.stringify(o));}catch(e){console.warn(e);}}
 
-let S={tab:"weekly",wMode:"site",showPast:false,showDone:false,foldSite:{},sites:[],workers:IW,roles:IR,works:IWK,machines:IM,vehicles:IV,contacts:[],leave:{},officeAtt:{},orgName:"工事部",weekBase:fmt(monSt(toDay())),fiveBase:fmt(toDay()),excl:[],actuals:{},rpW:"",rpYM:fmt(toDay()).slice(0,7),izYM:fmt(toDay()).slice(0,7),fyView:null,openDays:{},lastSaved:""};
+let S={tab:"weekly",wMode:"site",showPast:false,showDone:false,foldSite:{},sites:[],workers:IW,roles:IR,works:IWK,machines:IM,vehicles:IV,contacts:[],supplies:[],leave:{},officeAtt:{},orgName:"工事部",weekBase:fmt(monSt(toDay())),fiveBase:fmt(toDay()),excl:[],actuals:{},rpW:"",rpYM:fmt(toDay()).slice(0,7),izYM:fmt(toDay()).slice(0,7),fyView:null,openDays:{},lastSaved:""};
 
-/* ===== GitHub自動保存（debounce：操作が止まって3秒後に送信） ===== */
-let _ghTimer=null;
-let _ghSaving=false;
-let _ghLastSha=null; // 最後に取得したSHAをキャッシュ（毎回GETしない）
-function _setStatus(msg,color){
-  const el=document.getElementById('ghStatus');
-  if(el){el.textContent=msg;el.style.color=color||'#86efac';}
-}
-async function _autoSaveGitHub(){
-  const c=ghCfg();
-  if(!c.owner||!c.repo||!c.token)return; // 未設定なら何もしない
-  if(_ghSaving)return; // 多重実行防止
-  _ghSaving=true;
-  _setStatus('☁️ 保存中…','#fde68a');
-  try{
-    const data={sites:S.sites,workers:S.workers,roles:S.roles,works:S.works,machines:S.machines,vehicles:S.vehicles,contacts:S.contacts,leave:S.leave,officeAtt:S.officeAtt,orgName:S.orgName,actuals:S.actuals,excl:[...S.excl],weekBase:S.weekBase,fiveBase:S.fiveBase,rpYM:S.rpYM,izYM:S.izYM,_savedAt:new Date().toLocaleString('ja-JP')};
-    const content=btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2))));
-    const api=`https://api.github.com/repos/${c.owner}/${c.repo}/contents/data.json`;
-    // SHAが未取得の場合だけGETする
-    if(!_ghLastSha){
-      try{const r=await fetch(api,{headers:{Authorization:`token ${c.token}`}});if(r.ok){const j=await r.json();_ghLastSha=j.sha;}}catch{}
-    }
-    const body={message:'自動保存 '+new Date().toLocaleString('ja-JP'),content};
-    if(_ghLastSha)body.sha=_ghLastSha;
-    const res=await fetch(api,{method:'PUT',headers:{Authorization:`token ${c.token}`,'Content-Type':'application/json'},body:JSON.stringify(body)});
-    if(res.ok){
-      const j=await res.json();
-      _ghLastSha=(j.content&&j.content.sha)||null; // 新しいSHAを更新
-      _setStatus('✅ 保存済み '+new Date().toLocaleTimeString('ja-JP'),'#86efac');
-    }else if(res.status===409){
-      // コンフリクト（他の人が同時に書き込んだ）→SHAをリセットして再試行
-      _ghLastSha=null;
-      _ghSaving=false;
-      setTimeout(_autoSaveGitHub,2000);
-      return;
-    }else{
-      _setStatus('⚠️ 保存失敗（'+res.status+'）','#fca5a5');
-    }
-  }catch(e){
-    _setStatus('⚠️ 保存失敗：オフライン？','#fca5a5');
-  }
-  _ghSaving=false;
-}
-const persist=()=>{
-  saveStore({...S,excl:[...S.excl]});
-  // GitHub自動保存（debounce 3秒）
-  const c=ghCfg();
-  if(c.owner&&c.repo&&c.token){
-    clearTimeout(_ghTimer);
-    _setStatus('✏️ 編集中…','#93c5fd');
-    _ghTimer=setTimeout(_autoSaveGitHub,3000);
-  }
-};
+const persist=()=>saveStore({...S,excl:[...S.excl]});
 function applyData(d){
   if(!d)return;
   S.sites=d.sites||[];S.workers=d.workers||IW;S.roles=d.roles||IR;S.works=d.works||IWK;
-  S.machines=d.machines||IM;S.vehicles=d.vehicles||IV;S.contacts=d.contacts||[];S.actuals=d.actuals||{};
+  S.machines=d.machines||IM;S.vehicles=d.vehicles||IV;S.contacts=d.contacts||[];S.supplies=d.supplies||[];S.actuals=d.actuals||{};
   S.leave=d.leave||{};
   S.officeAtt=d.officeAtt||{};
   if(d.orgName)S.orgName=d.orgName;
-  // 起動時は常に全現場を畳む（他の人の開閉状態を引き継がない）
-  const fs={};
-  S.sites.forEach(s=>{fs[s.id]=true;});
-  S.foldSite=fs;
+  S.foldSite=d.foldSite||{};
   S.excl=new Set(d.excl||[]);
   if(d.weekBase)S.weekBase=d.weekBase;if(d.fiveBase)S.fiveBase=d.fiveBase;if(d.rpYM)S.rpYM=d.rpYM;if(d.izYM)S.izYM=d.izYM;
   if(d.wMode)S.wMode=d.wMode;if(d.openDays)S.openDays=d.openDays;
-  if(d._savedAt)S._savedAt=d._savedAt;
 }
 let VIEW_MODE=false; // 社員閲覧モード（編集不可）
 function init(){
@@ -491,33 +372,37 @@ function init(){
     fetchAndApply(url);
     return;
   }
-  // まずlocalStorageのデータを適用（高速起動）
-  const cached=loadStore();
-  if(cached){applyData(cached);}else{S.excl=new Set();}
+  // ===== OneDrive共有フォルダ対応：同じフォルダのdata.jsonを自動読込 =====
+  // file://で開いた場合のみ、同フォルダのdata.jsonを自動取得
+  const isFile=location.protocol==='file:';
+  if(isFile){
+    // まずlocalStorageのデータを適用しておく（読込失敗時のフォールバック）
+    const cached=loadStore();
+    if(cached){applyData(cached);}else{S.excl=new Set();}
+    if(!S.openDays)S.openDays={};
+    // 同フォルダのdata.jsonを読みにいく
+    const dataJsonUrl='data.json'+'?_t='+Date.now();
+    fetch(dataJsonUrl).then(r=>{
+      if(!r.ok)throw new Error('data.json なし');
+      return r.json();
+    }).then(d=>{
+      applyData(d);
+      // localStorageにも反映しておく
+      const toStore={...d};
+      if(toStore.excl&&Array.isArray(toStore.excl)){}
+      localStorage.setItem(LS,JSON.stringify(toStore));
+      if(!S.openDays)S.openDays={};
+      render();
+    }).catch(()=>{
+      // data.jsonが無い場合はlocalStorageのデータで起動（初回など）
+      render();
+    });
+    return;
+  }
+  const d=loadStore();
+  if(d){applyData(d);}else{S.excl=new Set();}
   if(!S.openDays)S.openDays={};
   render();
-  // GitHub設定がある場合は起動時に最新データを取得して上書き
-  const c=ghCfg();
-  if(c.owner&&c.repo&&c.token){
-    _setStatus('☁️ 最新データ読込中\u2026','#93c5fd');
-    const api=`https://api.github.com/repos/${c.owner}/${c.repo}/contents/data.json`;
-    fetch(api,{headers:{Authorization:`token ${c.token}`,'Cache-Control':'no-cache'}})
-      .then(r=>{if(!r.ok)throw new Error('取得失敗');return r.json();})
-      .then(j=>{
-        _ghLastSha=j.sha;
-        const text=decodeURIComponent(escape(atob(j.content.replace(/\n/g,''))));
-        const d=JSON.parse(text);
-        applyData(d);
-        saveStore({...S,excl:[...S.excl]});
-        if(!S.openDays)S.openDays={};
-        render();
-        _setStatus('\u2705 読込完了 '+new Date().toLocaleTimeString('ja-JP'),'#86efac');
-      })
-      .catch(e=>{
-        _setStatus('\u26a0\ufe0f GitHub読込失敗（ローカルデータで起動）','#fca5a5');
-        console.warn('GitHub読込失敗:',e);
-      });
-  }
 }
 function fetchAndApply(url){
   document.getElementById('app').innerHTML='<div style="padding:40px;text-align:center;color:#475569;">予定データを読み込み中...</div>';
@@ -553,46 +438,43 @@ window.publishToGitHub=async function(){
   const btn=document.getElementById('pubBtn');
   if(btn){btn.textContent='⏳ 更新中...';btn.disabled=true;}
   try{
-    const savedAt=new Date().toLocaleString('ja-JP');
-    // ① data.json を更新
-    const data={sites:S.sites,workers:S.workers,roles:S.roles,works:S.works,machines:S.machines,vehicles:S.vehicles,contacts:S.contacts,leave:S.leave,officeAtt:S.officeAtt,orgName:S.orgName,actuals:S.actuals,excl:[...S.excl],weekBase:S.weekBase,fiveBase:S.fiveBase,rpYM:S.rpYM,izYM:S.izYM,_savedAt:savedAt};
-    const dataContent=btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2))));
-    const apiBase=`https://api.github.com/repos/${c.owner}/${c.repo}/contents`;
-    // data.json SHA取得
-    let dataSha=null;
-    try{const r=await fetch(`${apiBase}/data.json`,{headers:{Authorization:`token ${c.token}`}});if(r.ok){const j=await r.json();dataSha=j.sha;}}catch{}
-    const dataBody={message:'予定更新 '+savedAt,content:dataContent};
-    if(dataSha)dataBody.sha=dataSha;
-    const dataRes=await fetch(`${apiBase}/data.json`,{method:'PUT',headers:{Authorization:`token ${c.token}`,'Content-Type':'application/json'},body:JSON.stringify(dataBody)});
-    if(!dataRes.ok)throw new Error('data.json更新失敗（'+dataRes.status+'）'+(dataRes.status===401?'：トークンが期限切れです。':''));
-    // ② index.html を更新（社員閲覧ページを最新版に）
-    try{
-      const htmlContent=btoa(unescape(encodeURIComponent(document.documentElement.outerHTML)));
-      let htmlSha=null;
-      try{const r=await fetch(`${apiBase}/index.html`,{headers:{Authorization:`token ${c.token}`}});if(r.ok){const j=await r.json();htmlSha=j.sha;}}catch{}
-      const htmlBody={message:'アプリ更新 '+savedAt,content:htmlContent};
-      if(htmlSha)htmlBody.sha=htmlSha;
-      await fetch(`${apiBase}/index.html`,{method:'PUT',headers:{Authorization:`token ${c.token}`,'Content-Type':'application/json'},body:JSON.stringify(htmlBody)});
-    }catch(e){console.warn('index.html更新スキップ:',e);}
-    if(btn){btn.textContent='✅ 更新完了！';setTimeout(()=>{btn.textContent='🚀 社員に公開';btn.disabled=false;},2500);}
-    alert('社員向けサイトを更新しました！\n社員さんの画面に最新の予定が反映されます（数十秒後）。');
+    const data={sites:S.sites,workers:S.workers,roles:S.roles,works:S.works,machines:S.machines,vehicles:S.vehicles,contacts:S.contacts,supplies:S.supplies,leave:S.leave,officeAtt:S.officeAtt,orgName:S.orgName,actuals:S.actuals,excl:[...S.excl],weekBase:S.weekBase,fiveBase:S.fiveBase,rpYM:S.rpYM,izYM:S.izYM,_savedAt:new Date().toLocaleString('ja-JP')};
+    const content=btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2))));
+    const api=`https://api.github.com/repos/${c.owner}/${c.repo}/contents/data.json`;
+    // 既存ファイルのSHAを取得（更新に必要）
+    let sha=null;
+    try{const r=await fetch(api,{headers:{Authorization:`token ${c.token}`}});if(r.ok){const j=await r.json();sha=j.sha;}}catch{}
+    const body={message:'予定更新 '+new Date().toLocaleString('ja-JP'),content};
+    if(sha)body.sha=sha;
+    const res=await fetch(api,{method:'PUT',headers:{Authorization:`token ${c.token}`,'Content-Type':'application/json'},body:JSON.stringify(body)});
+    if(res.ok){
+      if(btn){btn.textContent='✅ 更新完了！';setTimeout(()=>{btn.textContent='🚀 サイトを更新';btn.disabled=false;},2500);}
+      alert('社員向けサイトを更新しました！\n社員さんの画面に最新の予定が反映されます（数十秒後）。');
+    }else{
+      const e=await res.text();
+      throw new Error('GitHub更新失敗（'+res.status+'）'+(res.status===401?'：トークンが正しくないか期限切れです。設定し直してください。':''));
+    }
   }catch(err){
     alert('更新に失敗しました。\n'+err.message);
-    if(btn){btn.textContent='🚀 社員に公開';btn.disabled=false;}
+    if(btn){btn.textContent='🚀 サイトを更新';btn.disabled=false;}
   }
 };
 window.exportShare=function(){
-  const data={sites:S.sites,workers:S.workers,roles:S.roles,works:S.works,machines:S.machines,vehicles:S.vehicles,contacts:S.contacts,leave:S.leave,officeAtt:S.officeAtt,orgName:S.orgName,foldSite:S.foldSite,actuals:S.actuals,excl:[...S.excl],weekBase:S.weekBase,fiveBase:S.fiveBase,rpYM:S.rpYM,izYM:S.izYM,_savedAt:new Date().toLocaleString('ja-JP')};
+  const data={sites:S.sites,workers:S.workers,roles:S.roles,works:S.works,machines:S.machines,vehicles:S.vehicles,contacts:S.contacts,supplies:S.supplies,leave:S.leave,officeAtt:S.officeAtt,orgName:S.orgName,foldSite:S.foldSite,actuals:S.actuals,excl:[...S.excl],weekBase:S.weekBase,fiveBase:S.fiveBase,rpYM:S.rpYM,izYM:S.izYM,_savedAt:new Date().toLocaleString('ja-JP')};
   const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='data.json';
   document.body.appendChild(a);a.click();document.body.removeChild(a);
 };
 window.exportFile=function(){
-  const data={sites:S.sites,workers:S.workers,roles:S.roles,works:S.works,machines:S.machines,vehicles:S.vehicles,contacts:S.contacts,leave:S.leave,officeAtt:S.officeAtt,orgName:S.orgName,foldSite:S.foldSite,actuals:S.actuals,excl:[...S.excl],weekBase:S.weekBase,fiveBase:S.fiveBase,rpYM:S.rpYM,izYM:S.izYM,_savedAt:new Date().toLocaleString('ja-JP')};
+  const data={sites:S.sites,workers:S.workers,roles:S.roles,works:S.works,machines:S.machines,vehicles:S.vehicles,contacts:S.contacts,supplies:S.supplies,leave:S.leave,officeAtt:S.officeAtt,orgName:S.orgName,foldSite:S.foldSite,actuals:S.actuals,excl:[...S.excl],weekBase:S.weekBase,fiveBase:S.fiveBase,rpYM:S.rpYM,izYM:S.izYM,_savedAt:new Date().toLocaleString('ja-JP')};
   const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='data.json';
   document.body.appendChild(a);a.click();document.body.removeChild(a);
   S.lastSaved=new Date().toLocaleString('ja-JP');
+  // OneDrive共有フォルダへの保存案内
+  setTimeout(()=>{
+    alert('【保存先の確認】\nダウンロードされた「data.json」を\nOneDriveの共有フォルダ（index.htmlと同じ場所）に移動してください。\n\n次回このファイルを開くと自動で最新データが読み込まれます。');
+  },300);
   render();
 };
 window.importFile=function(input){
@@ -621,27 +503,23 @@ const html=()=>{
     return`<div class="hdr">
       <span style="font-weight:500;font-size:14px;">配車・予定／日報</span>
       <span style="font-size:11px;color:#93c5fd;margin-left:8px;">閲覧モード</span>
-      ${S._savedAt?`<span style="font-size:10px;color:#86efac;margin-left:auto;">🕐 更新: ${S._savedAt}</span>`:''}
     </div>
     <div class="nav">${vtabs.map(t=>`<button class="nb${S.tab===t.id?' on':''}" onclick="T('${t.id}')">${t.l}</button>`).join('')}</div>
     <div class="main">${S.tab==='byworker'?bBW():bW()}</div>`;
   }
   const tabs=[{id:"weekly",l:"週間予定表"},{id:"dispatch",l:"配車・割振"},{id:"quarterly",l:"📊 3ヶ月管理"},{id:"byworker",l:"社員別"},{id:"bymachine",l:"機械別"},{id:"report",l:"日報"},{id:"izumi",l:"出面"},{id:"master",l:"マスタ"}];
-  const c=ghCfg();
-  const ghReady=c.owner&&c.repo&&c.token;
   return`<div class="hdr">
     <span style="font-weight:500;font-size:14px;">配車・予定／日報</span>
-    <div style="margin-left:auto;display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
-      <span id="ghStatus" style="font-size:10px;color:#86efac;">${ghReady?'✅ 自動保存中':'⚠️ GitHub未設定'}</span>
-      ${ghReady?'':'<button class="hbtn" onclick="setupGitHub()" style="background:#b45309;color:#fff;border-color:#b45309;">⚙️ GitHub設定</button>'}
-      <button class="hbtn" id="pubBtn" onclick="publishToGitHub()" style="background:#166534;color:#fff;border-color:#166634;">🚀 社員に公開</button>
-      <button class="hbtn" onclick="exportFile()">💾 バックアップ</button>
-      <label class="hbtn" style="cursor:pointer;">📂 復元<input type="file" accept=".json,application/json" onchange="importFile(this)" style="display:none;"></label>
+    <div style="margin-left:auto;display:flex;gap:6px;align-items:center;">
+      <span style="font-size:10px;color:#86efac;">自動保存ON</span>
+      <button class="hbtn" id="pubBtn" onclick="publishToGitHub()" style="background:#166534;color:#fff;border-color:#166634;">🚀 サイトを更新</button>
+      <button class="hbtn" onclick="exportFile()">💾 ファイル書出</button>
+      <label class="hbtn" style="cursor:pointer;">📂 読込<input type="file" accept=".json,application/json" onchange="importFile(this)" style="display:none;"></label>
     </div>
   </div>
   <div class="nav">${tabs.map(t=>`<button class="nb${S.tab===t.id?' on':''}" onclick="T('${t.id}')">${t.l}</button>`).join('')}</div>
   <div class="main">
-    <div class="savebar">${ghReady?'☁️ 操作するたびに自動でGitHubに保存されます。複数人で使っても安心です。':'⚠️ GitHub未設定のため、このPCにのみ保存されます。右上の「GitHub設定」を押してください。'}</div>
+    <div class="savebar">✓ このファイルは自動保存されます。開き直しても前回の続きから使えます。バックアップしたい時は「💾 ファイル書出」を押してください。</div>
     ${S.tab==='weekly'?bW():S.tab==='dispatch'?bD():S.tab==='quarterly'?bQ():S.tab==='byworker'?bBW():S.tab==='bymachine'?bBM():S.tab==='report'?bR():S.tab==='izumi'?bI():bMaster()}
   </div>`;
 };
@@ -665,9 +543,7 @@ const wNav=()=>`<div class="tb"><strong style="font-size:13px;">週間予定表<
   <button class="btn" onclick="MF(-5)">◀ 前</button><button class="btn" onclick="MF(0)">今日</button><button class="btn" onclick="MF(5)">次 ▶</button>
   <input type="date" value="${S.fiveBase}" onchange="SF(this.value)" style="width:140px;">
   <button class="btn" onclick="printWeekSet()" style="background:#166534;color:#fff;border-color:#166534;">🖨 3種まとめてPDF</button><button class="btn" onclick="printWeek()">🖨 今の表だけ</button><button class="btn" onclick="showWeekMail()" style="background:#1e40af;color:#fff;border-color:#1e40af;">✉ 予定をメール</button>`}
-  </div>
-  ${VIEW_MODE&&S._savedAt?`<div style="font-size:11px;color:#64748b;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;padding:4px 10px;margin-top:6px;">🕐 最終更新: <b>${S._savedAt}</b></div>`:''}
-`;
+  </div>`;
 
 function bW(){return S.wMode==='person'?bWP():bWS();}
 
@@ -730,7 +606,7 @@ function bWP(){
 
 /* 現場終了報告パネル（現場別ビュー内に開閉表示） */
 function repPanel(site,dk,assigns){
-  const siteId=site.id;const si=S.sites.indexOf(site);
+  const si=S.sites.indexOf(site);
   const key=`rep_${site.id}_${dk}`;
   const isOpen=S.openDays[key];
   const rep=getReport(site,dk);
@@ -747,10 +623,10 @@ function repPanel(site,dk,assigns){
     const offManual=p.office!==undefined;
     return`<div style="display:flex;align-items:center;gap:5px;padding:2px 0;border-bottom:1px dashed var(--bd3);flex-wrap:wrap;">
       <span style="width:60px;font-size:11px;${p.excluded?'text-decoration:line-through;color:var(--tx3);':''}">${a.name}</span>
-      <label style="font-size:10px;color:var(--tx2);">残業<input type="number" step="0.5" value="${otVal}" placeholder="${rep.otDefault||0}" onblur="SetPer(${siteId},'${dk}','${a.name}','ot',this.value)" style="width:48px;padding:1px 3px;${otManual?'background:#fef9c3;border-color:#facc15;':''}">h</label>
-      <label style="font-size:10px;color:var(--tx2);">運転<input type="number" min="0" value="${p.drive||''}" placeholder="0" onblur="SetPer(${siteId},'${dk}','${a.name}','drive',this.value)" style="width:40px;padding:1px 3px;">回</label>
-      <button onclick="TogPerOffice(${siteId},'${dk}','${a.name}')" style="font-size:10px;padding:1px 6px;border-radius:4px;border:1px solid ${offState?'#f59e0b':'var(--bd2)'};background:${offState?'#fef3c7':'var(--bg1)'};color:${offState?'#b45309':'var(--tx2)'};${offManual?'font-weight:600;':''}">${offState?'事務所扱い':'現場'}</button>
-      <label style="font-size:10px;color:var(--tx2);cursor:pointer;"><input type="checkbox" ${p.excluded?'checked':''} onchange="SetPer(${siteId},'${dk}','${a.name}','excluded',this.checked)">除外</label>
+      <label style="font-size:10px;color:var(--tx2);">残業<input type="number" step="0.5" value="${otVal}" placeholder="${rep.otDefault||0}" onchange="SetPer(${si},'${dk}','${a.name}','ot',this.value)" style="width:48px;padding:1px 3px;${otManual?'background:#fef9c3;border-color:#facc15;':''}">h</label>
+      <label style="font-size:10px;color:var(--tx2);">運転<input type="number" value="${p.drive||''}" placeholder="0" onchange="SetPer(${si},'${dk}','${a.name}','drive',this.value)" style="width:40px;padding:1px 3px;">回</label>
+      <button onclick="TogPerOffice(${si},'${dk}','${a.name}')" style="font-size:10px;padding:1px 6px;border-radius:4px;border:1px solid ${offState?'#f59e0b':'var(--bd2)'};background:${offState?'#fef3c7':'var(--bg1)'};color:${offState?'#b45309':'var(--tx2)'};${offManual?'font-weight:600;':''}">${offState?'事務所扱い':'現場'}</button>
+      <label style="font-size:10px;color:var(--tx2);cursor:pointer;"><input type="checkbox" ${p.excluded?'checked':''} onchange="SetPer(${si},'${dk}','${a.name}','excluded',this.checked)">除外</label>
     </div>`;
   }).join('');
   return`<div style="margin-top:5px;border:1px solid #86efac;border-radius:6px;padding:6px 8px;background:#f0fdf4;" onclick="event.stopPropagation();">
@@ -759,11 +635,11 @@ function repPanel(site,dk,assigns){
       <button class="btn" onclick="TogRep('${key}')" style="font-size:10px;padding:1px 6px;margin-left:auto;">閉じる</button>
     </div>
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:5px;">
-      <label style="font-size:10px;color:var(--tx2);">開始<input type="text" value="${rep.start||''}" placeholder="0800" onblur="SetRepTime(${siteId},'${dk}','start',this)" onkeydown="if(event.key==='Enter')this.blur()" style="width:72px;"></label>
-      <label style="font-size:10px;color:var(--tx2);">終了<input type="text" value="${rep.end||''}" placeholder="1700" onblur="SetRepTime(${siteId},'${dk}','end',this)" onkeydown="if(event.key==='Enter')this.blur()" style="width:72px;"></label>
-      <label style="font-size:10px;color:var(--tx2);">天候<input value="${rep.weather||''}" placeholder="晴" onchange="SetRep(${siteId},'${dk}','weather',this.value)" style="width:50px;"></label>
-      <label style="font-size:10px;color:var(--tx2);">残業(共通)<input type="number" step="0.5" value="${rep.otDefault||''}" placeholder="0" onchange="SetRep(${siteId},'${dk}','otDefault',this.value)" style="width:48px;">h</label>
-      <button onclick="TogRepOffice(${siteId},'${dk}')" style="font-size:10px;padding:2px 8px;border-radius:4px;border:1px solid ${rep.officeDefault?'#f59e0b':'var(--bd2)'};background:${rep.officeDefault?'#fef3c7':'var(--bg1)'};color:${rep.officeDefault?'#b45309':'var(--tx2)'};">${rep.officeDefault?'全員 事務所扱い':'全員 現場扱い'}</button>
+      <label style="font-size:10px;color:var(--tx2);">開始<input type="time" value="${rep.start||''}" onchange="SetRep(${si},'${dk}','start',this.value)" style="width:96px;"></label>
+      <label style="font-size:10px;color:var(--tx2);">終了<input type="time" value="${rep.end||''}" onchange="SetRep(${si},'${dk}','end',this.value)" style="width:96px;"></label>
+      <label style="font-size:10px;color:var(--tx2);">天候<input value="${rep.weather||''}" placeholder="晴" onchange="SetRep(${si},'${dk}','weather',this.value)" style="width:50px;"></label>
+      <label style="font-size:10px;color:var(--tx2);">残業(共通)<input type="number" step="0.5" value="${rep.otDefault||''}" placeholder="0" onchange="SetRep(${si},'${dk}','otDefault',this.value)" style="width:48px;">h</label>
+      <button onclick="TogRepOffice(${si},'${dk}')" style="font-size:10px;padding:2px 8px;border-radius:4px;border:1px solid ${rep.officeDefault?'#f59e0b':'var(--bd2)'};background:${rep.officeDefault?'#fef3c7':'var(--bg1)'};color:${rep.officeDefault?'#b45309':'var(--tx2)'};">${rep.officeDefault?'全員 事務所扱い':'全員 現場扱い'}</button>
     </div>
     <div style="font-size:10px;color:var(--tx2);margin-bottom:2px;">社員ごと（残業:空欄=共通／黄色=個別。事務所扱いボタンで現場↔事務所を個別切替）</div>
     ${rows}
@@ -815,6 +691,7 @@ function bWS(){
             <div class="sb-meta">
               ${site.prime||ctName?`<span>${site.prime||''}${ctName?` <b>${ctName}</b>${ctTel?` <span style="color:#1e40af;">${ctTel}</span>`:''}`:''}</span><br>`:''}
               ${mc.length?`<span>重機: ${mc.map(m=>`<span class="bmach">${machLabel(m)}</span>`).join('')}</span><br>`:''}
+              ${(()=>{const spArr=(dd.supplies&&dd.supplies.length)?dd.supplies:(site.supplies||[]);return spArr.length?`<span style="color:#166534;">必要品: ${spArr.map(sp=>`<span style="background:#dcfce7;border:1px solid #86efac;border-radius:3px;padding:0 4px;font-size:10px;">${sp}</span>`).join('')}</span><br>`:'';})()}
               ${gTime?`<span>${gType}: <b style="color:#b45309;">${gTime}</b></span><br>`:''}
               ${site.okiba||site.kaisou?`<span>${site.okiba?`置場:${site.okiba} `:''}${site.kaisou?`回送:${site.kaisou}`:''}</span>`:''}
             </div>
@@ -825,12 +702,14 @@ function bWS(){
           </div>`:''}
         </div>
         ${assigns.length?`<hr class="sb-divider">${assigns.map(a=>{
-          const w=S.workers.find(x=>x.name===a.name);const isH=w?.group==='helper';const _ddLeader=(site.dayData&&site.dayData[dk]&&site.dayData[dk].leader!==undefined)?site.dayData[dk].leader:site.leader;const isLeader=a.name&&a.name===_ddLeader;
+          const w=S.workers.find(x=>x.name===a.name);const isH=w?.group==='helper';const isLeader=a.name===site.leader;
+          const mc2=mc;
           return`<div class="sb-worker">
             <span style="font-weight:${isLeader?'700':isH?'400':'500'};color:${isLeader?'#b45309':isH?'var(--tx2)':'var(--tx)'};">${a.name||'(未設定)'}${isLeader?'★':''}</span>
             ${a.role?`<span style="font-size:10px;color:var(--tx2);">${a.role}</span>`:''}
             ${a.vehicle?`<span class="sb-car">${a.vehicle}</span>`:''}
             ${a.isDriver?'<span class="bdrv">運転</span>':''}
+            ${(()=>{const carriers=mc2.filter(m=>m.carrier&&m.carrier===a.vehicle).map(m=>m.name);return carriers.length?`<span style="font-size:10px;background:#fef9c3;border:1px solid #fde68a;border-radius:3px;padding:0 4px;color:#854d0e;">積載:${carriers.join('・')}</span>`:'';})()}
             ${a.memo?`<span style="font-size:10px;color:var(--tx2);">${a.memo}</span>`:''}
           </div>`;
         }).join('')}`:'<div style="font-size:10px;color:var(--tx3);">作業員未配置</div>'}
@@ -854,95 +733,85 @@ function bWS(){
 }
 
 function bD(){
-  // 工事日ボタン用：dayBtnBaseから14日分（◀▶で1週ずつ移動）
-  if(!S.dayBtnBase)S.dayBtnBase=fmt(toDay());
-  const btnStart=pd(S.dayBtnBase);
-  const btnDays=Array.from({length:14},(_,i)=>addD(btnStart,i));
-  // 割り振り表示用：showPastなら過去30日、通常は今日〜先14日
   const days=S.showPast
-    ? Array.from({length:44},(_,i)=>addD(toDay(),i-30))
-    : Array.from({length:14},(_,i)=>addD(toDay(),i));
+    ? Array.from({length:44},(_,i)=>addD(toDay(),i-30)) // 過去30日〜先14日
+    : Array.from({length:14},(_,i)=>addD(toDay(),i));    // 今日〜先14日
   const todayK=fmt(toDay());
   const dups={};
   S.sites.forEach(s=>(s.days||[]).forEach(dk=>(s.assigns?.[dk]||[]).forEach(a=>{const k=`${dk}|${s.shift}|${a.name}`;dups[k]=(dups[k]||0)+1;})));
   const dupK=Object.entries(dups).filter(([,v])=>v>1).map(([k])=>k);
   const cards=S.sites.map((site,si)=>{
-    const actDays=(site.days||[]).filter(dk=>{
-      // 工事日ボタンに表示中の日付 or showPastで過去日も含む
-      const inBtn=btnDays.some(d=>fmt(d)===dk);
-      const inPast=S.showPast&&dk<todayK;
-      return inBtn||inPast;
-    }).sort();
-    const dayBtns=btnDays.map(d=>{const dk=fmt(d),sel=(site.days||[]).includes(dk),dw=d.getDay(),isToday=dk===todayK;return`<button class="chip" onclick="TSD('${site.id}','${dk}')" style="${sel?'background:#1e293b;color:#f1f5f9;border-color:#1e293b;':isToday?'border-color:#3b82f6;font-weight:600;':''}">${(d.getMonth()+1)}/${d.getDate()}(${WD[dw]})</button>`;}).join('');
+    const actDays=(site.days||[]).filter(dk=>days.some(d=>fmt(d)===dk)).filter(dk=>S.showPast||dk>=todayK);
+    const dayBtns=days.map(d=>{const dk=fmt(d),sel=(site.days||[]).includes(dk),dw=d.getDay();return`<button class="chip" onclick="TSD(${si},'${dk}')" style="${sel?'background:#1e293b;color:#f1f5f9;border-color:#1e293b;':''}">${(d.getMonth()+1)}/${d.getDate()}(${WD[dw]})</button>`;}).join('');
     const mc=normMachines(site.machines);
-    const selM=mc.map((m,mi)=>`<span class="bmach">${m.name}<input type="number" min="1" value="${m.qty}" onchange="SetMQ('${site.id}',${mi},this.value)" style="width:34px;padding:1px 3px;margin:0 2px;font-size:10px;">台<button onclick="RM('${site.id}',${mi})">×</button></span>`).join('');
-    const sortedMachines=sortByUsage(S.machines,'machines',x=>x);
-    const machModal=`<button class="btn" onclick="showMachModal('${site.id}')" style="padding:2px 8px;font-size:11px;">＋ 重機選択</button>`;
-    const selWK=(site.works||[]).map((w,wi)=>`<span class="bwork">${w}<button onclick="RWK('${site.id}',${wi})">×</button></span>`).join('');
+    const selM=mc.map((m,mi)=>`<span class="bmach">${m.name}<input type="number" min="1" value="${m.qty}" onchange="SetMQ(${si},${mi},this.value)" style="width:34px;padding:1px 3px;margin:0 2px;font-size:10px;">台<button onclick="RM(${si},${mi})">×</button></span>`).join('');
+    const machOpts=S.machines.filter(m=>!mc.some(x=>x.name===m)).map(m=>`<option value="${m}">${m}</option>`).join('');
+    const selWK=(site.works||[]).map((w,wi)=>`<span class="bwork">${w}<button onclick="RWK(${si},${wi})">×</button></span>`).join('');
     const workOpts=S.works.filter(w=>!(site.works||[]).includes(w)).map(w=>`<option value="${w}">${w}</option>`).join('');
     const ctOpts=S.contacts.map(c=>`<option value="${c.name}"${site.contact===c.name?' selected':''}>${c.name}${c.tel?' ('+c.tel+')':''}</option>`).join('');
     const asgSecs=actDays.map(dk=>{
-      const assigns=site.assigns?.[dk]||[],isOpen=S.openDays[`${site.id}_${dk}`];
+      const assigns=site.assigns?.[dk]||[],isOpen=S.openDays[`${si}_${dk}`];
       const dd=(site.dayData&&site.dayData[dk])||{};
       const isCancel=dd.cancelled;
-      // その日のリーダー：dayDataにあればそれ、なければ現場共通のleaderを使う
-      const dayLeader=dd.leader!==undefined?dd.leader:site.leader;
       const rows=assigns.map((a,ai)=>{
         const isDup=(dups[`${dk}|${site.shift}|${a.name}`]||0)>1;
         const vA=a.isDriver&&a.vehicle?S.vehicles.find(v=>v.name===a.vehicle)?.allowance||0:0;
-        const isLeader=a.name&&a.name===dayLeader;
         return`<div class="ar" style="${isDup?'background:#fee2e2;border-radius:4px;padding:3px;':''}">
-          <select onchange="UA('${site.id}','${dk}',${ai},'name',this.value)" style="width:74px;"><option value="">社員−</option>
+          <select onchange="UA(${si},'${dk}',${ai},'name',this.value)" style="width:74px;"><option value="">社員−</option>
             <optgroup label="メンバー">${S.workers.filter(w=>w.group==='main').map(w=>`<option value="${w.name}"${a.name===w.name?' selected':''}>${w.name}</option>`).join('')}</optgroup>
             <optgroup label="助っ人">${S.workers.filter(w=>w.group==='helper').map(w=>`<option value="${w.name}"${a.name===w.name?' selected':''}>${w.name}</option>`).join('')}</optgroup>
-            ${a.name&&!S.workers.find(w=>w.name===a.name)?`<option value="${a.name}" selected>${a.name}</option>`:''}
           </select>
-          <button onclick="SetDayLeader('${site.id}','${dk}','${a.name||''}')" title="リーダーに設定" style="padding:1px 5px;font-size:11px;border-radius:4px;border:1px solid ${isLeader?'#b45309':'#d1d5db'};background:${isLeader?'#fef3c7':'#fff'};color:${isLeader?'#b45309':'#9ca3af'};cursor:pointer;">★</button>
           ${a.absent
-            ? `<select onchange="UA('${site.id}','${dk}',${ai},'absent',this.value)" style="width:90px;background:#fef3c7;border-color:#fbbf24;font-size:11px;">
+            ? `<select onchange="UA(${si},'${dk}',${ai},'absent',this.value)" style="width:90px;background:#fef3c7;border-color:#fbbf24;font-size:11px;">
                 <option value="講習"${a.absent==='講習'?' selected':''}>📚 講習</option>
                 <option value="健診"${a.absent==='健診'?' selected':''}>🏥 健診</option>
                 <option value="有給"${a.absent==='有給'?' selected':''}>🌴 有給</option>
                 <option value="その他"${a.absent==='その他'?' selected':''}>📋 その他</option>
               </select>
-              <button onclick="UA('${site.id}','${dk}',${ai},'absent','')" style="padding:1px 6px;font-size:11px;border-radius:4px;border:1px solid #fbbf24;background:#fef3c7;color:#92400e;cursor:pointer;">出勤に戻す</button>`
-            : `<select onchange="UA('${site.id}','${dk}',${ai},'role',this.value)" style="width:100px;"><option value="">内容−</option>${S.roles.map(r=>`<option${a.role===r?' selected':''}>${r}</option>`).join('')}</select>
-          <select onchange="UA('${site.id}','${dk}',${ai},'vehicle',this.value)" style="width:90px;"><option value="">車−</option>${S.vehicles.map(v=>`<option value="${v.name}"${a.vehicle===v.name?' selected':''}>${v.name}</option>`).join('')}</select>
-          <label style="display:flex;align-items:center;gap:2px;cursor:pointer;font-size:11px;"><input type="checkbox" ${a.isDriver?'checked':''} onchange="UA('${site.id}','${dk}',${ai},'isDriver',this.checked)">運転${a.isDriver?'<span class="bdrv">🚗</span>':''}${vA>0?`<span style="color:#92400e;font-size:10px;">+¥${vA}</span>`:''}</label>
-          <input value="${a.memo||''}" placeholder="摘要" onchange="UA('${site.id}','${dk}',${ai},'memo',this.value)" style="flex:1;min-width:80px;font-size:11px;">
-          <button onclick="UA('${site.id}','${dk}',${ai},'absent','講習')" style="padding:1px 6px;font-size:11px;border-radius:4px;border:1px solid #d1d5db;background:#fff;color:#374151;cursor:pointer;white-space:nowrap;">不出勤</button>`
+              <button onclick="UA(${si},'${dk}',${ai},'absent','')" style="padding:1px 6px;font-size:11px;border-radius:4px;border:1px solid #fbbf24;background:#fef3c7;color:#92400e;cursor:pointer;">出勤に戻す</button>`
+            : `<select onchange="UA(${si},'${dk}',${ai},'role',this.value)" style="width:100px;"><option value="">内容−</option>${S.roles.map(r=>`<option${a.role===r?' selected':''}>${r}</option>`).join('')}</select>
+          <select onchange="UA(${si},'${dk}',${ai},'vehicle',this.value)" style="width:90px;"><option value="">車−</option>${S.vehicles.map(v=>`<option value="${v.name}"${a.vehicle===v.name?' selected':''}>${v.name}</option>`).join('')}</select>
+          <label style="display:flex;align-items:center;gap:2px;cursor:pointer;font-size:11px;"><input type="checkbox" ${a.isDriver?'checked':''} onchange="UA(${si},'${dk}',${ai},'isDriver',this.checked)">運転${a.isDriver?'<span class="bdrv">🚗</span>':''}${vA>0?`<span style="color:#92400e;font-size:10px;">+¥${vA}</span>`:''}</label>
+          ${(()=>{const mc2=dayMachArr(dd.machines)||normMachines(site.machines);const carriers=mc2.filter(m=>m.carrier&&m.carrier===a.vehicle).map(m=>m.name);return carriers.length?`<span style="font-size:10px;background:#fef9c3;border:1px solid #fde68a;border-radius:4px;padding:0 5px;color:#854d0e;">積載:${carriers.join('・')}</span>`:'';})()}
+          <input value="${a.memo||''}" placeholder="摘要" onchange="UA(${si},'${dk}',${ai},'memo',this.value)" style="flex:1;min-width:80px;font-size:11px;">
+          <button onclick="UA(${si},'${dk}',${ai},'absent','講習')" style="padding:1px 6px;font-size:11px;border-radius:4px;border:1px solid #d1d5db;background:#fff;color:#374151;cursor:pointer;white-space:nowrap;">不出勤</button>`
           }
           ${isDup?'<span style="color:#dc2626;font-size:10px;">⚠重複</span>':''}
-          <button class="btn btnd" onclick="RA('${site.id}','${dk}',${ai})" style="padding:1px 6px;margin-left:auto;">✕</button>
+          <button class="btn btnd" onclick="RA(${si},'${dk}',${ai})" style="padding:1px 6px;margin-left:auto;">✕</button>
         </div>`;
       }).join('');
-      /* その日だけの上書き編集（工事内容・重機・集合）：プルダウン＋手入力追加。未選択なら共通設定 */
+      /* その日だけの上書き編集 */
       const dGather=dd.gatherTime!==undefined?dd.gatherTime:null;
       const dGatherType=dd.gatherType!==undefined?dd.gatherType:(site.gatherType||'集合');
       const dwCur=dayWorksArr(dd.works)||[];
       const dmCur=dayMachArr(dd.machines)||[];
-      const dwChips=dwCur.map((w,wi)=>`<span class="bwork">${w}<button onclick="RDWK('${site.id}','${dk}',${wi})">×</button></span>`).join('');
-      const dwOpts=S.works.filter(w=>!dwCur.includes(w)).map(w=>`<option value="${w}">${w}</option>`).join('');
-      const dmChips=dmCur.map((m,mi)=>`<span class="bmach">${m.name}<input type="number" min="1" value="${m.qty}" onchange="SetDMQ('${site.id}','${dk}',${mi},this.value)" style="width:34px;padding:1px 3px;margin:0 2px;font-size:10px;">台<button onclick="RDM('${site.id}','${dk}',${mi})">×</button></span>`).join('');
-      const dmOpts=S.machines.filter(m=>!dmCur.some(x=>x.name===m)).map(m=>`<option value="${m}">${m}</option>`).join('');
+      /* 必要品 */
+      const dspCur=(dd.supplies||[]);
+      /* 工事内容チップ */
+      const dwChips=dwCur.map((w,wi)=>`<span class="bwork">${w}<button onclick="RDWK(${si},'${dk}',${wi})">×</button></span>`).join('');
+      /* 使用重機チップ（運搬車付き） */
+      const dmChips=dmCur.map((m,mi)=>`<span class="bmach" style="display:inline-flex;align-items:center;gap:2px;">${m.name}<input type="number" min="1" value="${m.qty}" onchange="SetDMQ(${si},'${dk}',${mi},this.value)" style="width:34px;padding:1px 3px;margin:0 2px;font-size:10px;">台<select onchange="SetDMV(${si},'${dk}',${mi},this.value)" style="font-size:10px;padding:1px 2px;border-radius:3px;border:1px solid #94a3b8;max-width:80px;"><option value="">運搬車−</option>${S.vehicles.map(v=>`<option value="${v.name}"${(m.carrier||'')=== v.name?' selected':''}>${v.name}</option>`).join('')}</select><button onclick="RDM(${si},'${dk}',${mi})">×</button></span>`).join('');
+      /* 必要品チップ */
+      const dspChips=dspCur.map((sp,spi)=>`<span class="bmach" style="background:#dcfce7;border-color:#86efac;color:#166534;">${sp}<button onclick="RDSP(${si},'${dk}',${spi})">×</button></span>`).join('');
       const editPanel=`<div style="background:var(--bg2);border-radius:6px;padding:6px 8px;margin-bottom:6px;font-size:11px;">
         <div style="color:var(--tx2);margin-bottom:4px;">この日の内容（未選択なら現場の共通設定を使用）</div>
         <div style="display:flex;flex-direction:column;gap:5px;">
-          <div style="display:flex;align-items:center;gap:3px;flex-wrap:wrap;"><span class="lbl">工事内容:</span>${dwChips}<select onchange="ADWK('${site.id}','${dk}',this.value);this.value=''" style="width:90px;"><option value="">＋ 選択</option>${dwOpts}</select><input id="dwk_${site.id}_${dk}" placeholder="手入力で追加" style="width:96px;" onkeydown="if(event.key==='Enter'){event.preventDefault();ADWKM('${site.id}','${dk}');}"><button class="btn" onclick="ADWKM('${site.id}','${dk}')" style="padding:1px 7px;">＋</button>${dwCur.length?'':`<span style="color:var(--tx3);">共通: ${(site.works||[]).join('・')||'なし'}</span>`}</div>
-          <div style="display:flex;align-items:center;gap:3px;flex-wrap:wrap;"><span class="lbl">使用重機:</span>${dmChips}<select onchange="ADM('${site.id}','${dk}',this.value);this.value=''" style="width:90px;"><option value="">＋ 選択</option>${dmOpts}</select><input id="dm_${site.id}_${dk}" placeholder="手入力で追加" style="width:96px;" onkeydown="if(event.key==='Enter'){event.preventDefault();ADMM('${site.id}','${dk}');}"><button class="btn" onclick="ADMM('${site.id}','${dk}')" style="padding:1px 7px;">＋</button>${dmCur.length?'':`<span style="color:var(--tx3);">共通: ${normMachines(site.machines).map(machLabel).join('・')||'なし'}</span>`}</div>
-          <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">時間:</span><select onchange="SetDD('${site.id}','${dk}','gatherType',this.value)" style="width:50px;font-size:11px;"><option${dGatherType==='集合'?' selected':''}>集合</option><option${dGatherType==='着'?' selected':''}>着</option></select><input value="${dGather!==null?dGather:''}" placeholder="${site.gatherTime||'共通'}" onblur="SetDDTime('${site.id}','${dk}',this)" onkeydown="if(event.key==='Enter')this.blur()" style="width:60px;margin-left:2px;"><span style="color:var(--tx3);margin-left:4px;">${dGather===null?'(共通)':''}</span></div>
+          <div style="display:flex;align-items:center;gap:3px;flex-wrap:wrap;"><span class="lbl">工事内容:</span>${dwChips}<button class="btn" onclick="showCheckModal(${si},'${dk}','works')" style="padding:1px 8px;">☑ 選択</button>${dwCur.length?'':`<span style="color:var(--tx3);">共通: ${(site.works||[]).join('・')||'なし'}</span>`}</div>
+          <div style="display:flex;align-items:center;gap:3px;flex-wrap:wrap;"><span class="lbl">使用重機:</span>${dmChips}<button class="btn" onclick="showCheckModal(${si},'${dk}','machines')" style="padding:1px 8px;">☑ 選択</button>${dmCur.length?'':`<span style="color:var(--tx3);">共通: ${normMachines(site.machines).map(machLabel).join('・')||'なし'}</span>`}</div>
+          <div style="display:flex;align-items:center;gap:3px;flex-wrap:wrap;"><span class="lbl" style="color:#166534;">必要品:</span>${dspChips}<button class="btn" onclick="showCheckModal(${si},'${dk}','supplies')" style="padding:1px 8px;background:#bbf7d0;border-color:#86efac;color:#166534;">☑ 選択</button></div>
+          <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">時間:</span><select onchange="SetDD(${si},'${dk}','gatherType',this.value)" style="width:50px;font-size:11px;"><option${dGatherType==='集合'?' selected':''}>集合</option><option${dGatherType==='着'?' selected':''}>着</option></select><input value="${dGather!==null?dGather:''}" placeholder="${site.gatherTime||'共通'}" onblur="SetDDTime(${si},'${dk}',this)" onkeydown="if(event.key==='Enter')this.blur()" style="width:60px;margin-left:2px;"><span style="color:var(--tx3);margin-left:4px;">${dGather===null?'(共通)':''}</span></div>
         </div>
       </div>`;
       return`<div style="margin-top:4px;border:1px solid var(--bd3);border-radius:6px;overflow:hidden;${isCancel?'opacity:0.7;':''}">
         <div style="display:flex;align-items:center;gap:6px;padding:4px 8px;background:var(--bg2);flex-wrap:wrap;">
-          <span style="font-size:11px;font-weight:500;cursor:pointer;" onclick="TOD('${site.id}','${dk}')">${dk} ${isOpen?'▲':'▼'}</span>
+          <span style="font-size:11px;font-weight:500;cursor:pointer;" onclick="TOD(${si},'${dk}')">${dk} ${isOpen?'▲':'▼'}</span>
           <span class="bcnt">${assigns.length}名配置</span>
           ${isCancel?'<span style="background:#9ca3af;color:#fff;font-size:10px;padding:1px 6px;border-radius:4px;">中止</span>':''}
-          <button class="btn btncopy" onclick="event.stopPropagation();showCopy('${site.id}','${dk}')" style="padding:1px 6px;font-size:11px;">📋 コピー</button>
-          <button class="btn" onclick="ToggleCancel('${site.id}','${dk}')" style="padding:1px 6px;font-size:11px;${isCancel?'background:#9ca3af;color:#fff;border-color:#9ca3af;':'color:#b91c1c;border-color:#fca5a5;'}">${isCancel?'中止解除':'現場中止'}</button>
-          <input value="${dd.altWork||''}" placeholder="別作業（手入力）" onchange="SetDD('${site.id}','${dk}','altWork',this.value)" style="width:130px;font-size:11px;">
+          <button class="btn btncopy" onclick="event.stopPropagation();showCopy(${si},'${dk}')" style="padding:1px 6px;font-size:11px;">📋 コピー</button>
+          <button class="btn" onclick="ToggleCancel(${si},'${dk}')" style="padding:1px 6px;font-size:11px;${isCancel?'background:#9ca3af;color:#fff;border-color:#9ca3af;':'color:#b91c1c;border-color:#fca5a5;'}">${isCancel?'中止解除':'現場中止'}</button>
+          <input value="${dd.altWork||''}" placeholder="別作業（手入力）" onchange="SetDD(${si},'${dk}','altWork',this.value)" style="width:130px;font-size:11px;">
         </div>
-        ${isOpen?`<div style="padding:6px 8px;">${editPanel}${rows}<button class="btn" onclick="AA('${site.id}','${dk}')" style="margin-top:4px;font-size:11px;">＋ 社員追加</button></div>`:''}
+        ${isOpen?`<div style="padding:6px 8px;">${editPanel}${rows}<button class="btn" onclick="AA(${si},'${dk}')" style="margin-top:4px;font-size:11px;">＋ 社員追加</button></div>`:''}
       </div>`;
     }).join('');
     const folded=S.foldSite[site.id]!==false; // falseのときだけ開く（undefined/trueは畳む）
@@ -960,37 +829,32 @@ function bD(){
     return`<div class="card" id="site_${site.id}">
       <div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="btn" onclick="FoldSite('${site.id}')" style="padding:1px 10px;background:#f0fdf4;border-color:#86efac;color:#166534;font-size:11px;">▲ 畳む（終わった現場）</button></div>
       <div class="row1">
-        <select onchange="US('${site.id}','shift',this.value)" style="width:60px;font-weight:500;"><option${site.shift==='昼'?' selected':''}>昼</option><option${site.shift==='夜'?' selected':''}>夜</option></select>
-        <input value="${site.place||''}" placeholder="場所（必須）" onchange="US('${site.id}','place',this.value)" style="flex:1;min-width:120px;font-weight:500;">
-        <input value="${site.prime||''}" placeholder="元請名" onchange="US('${site.id}','prime',this.value)" style="flex:1;min-width:90px;">
+        <select onchange="US(${si},'shift',this.value)" style="width:60px;font-weight:500;"><option${site.shift==='昼'?' selected':''}>昼</option><option${site.shift==='夜'?' selected':''}>夜</option></select>
+        <input value="${site.place||''}" placeholder="場所（必須）" onchange="US(${si},'place',this.value)" style="flex:1;min-width:120px;font-weight:500;">
+        <input value="${site.prime||''}" placeholder="元請名" onchange="US(${si},'prime',this.value)" style="flex:1;min-width:90px;">
         <div style="display:flex;align-items:center;gap:2px;">
           <span class="lbl">担当:</span>
-          <select onchange="US('${site.id}','contact',this.value)" style="width:92px;"><option value="">選択−</option>${ctOpts}<option value="__manual__"${site.contact==='__manual__'?' selected':''}>手入力</option></select>
-          ${site.contact==='__manual__'?`<input value="${site.contactManual||''}" placeholder="担当者名" onchange="US('${site.id}','contactManual',this.value)" style="width:80px;"><input value="${site.contactTel||''}" placeholder="電話番号" onchange="US('${site.id}','contactTel',this.value)" style="width:100px;">`:site.contact?`<span style="font-size:10px;color:var(--tx2);">${(S.contacts.find(c=>c.name===site.contact)||{}).tel||''}</span>`:''}
+          <select onchange="US(${si},'contact',this.value)" style="width:92px;"><option value="">選択−</option>${ctOpts}<option value="__manual__"${site.contact==='__manual__'?' selected':''}>手入力</option></select>
+          ${site.contact==='__manual__'?`<input value="${site.contactManual||''}" placeholder="担当者名" onchange="US(${si},'contactManual',this.value)" style="width:80px;"><input value="${site.contactTel||''}" placeholder="電話番号" onchange="US(${si},'contactTel',this.value)" style="width:100px;">`:site.contact?`<span style="font-size:10px;color:var(--tx2);">${(S.contacts.find(c=>c.name===site.contact)||{}).tel||''}</span>`:''}
         </div>
-        <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">置場:</span><select onchange="US('${site.id}','okiba',this.value)" style="width:56px;"><option value="">−</option><option${site.okiba==='有'?' selected':''}>有</option><option${site.okiba==='無'?' selected':''}>無</option></select></div>
-        <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">回送車:</span><select onchange="US('${site.id}','kaisou',this.value)" style="width:56px;"><option value="">−</option><option${site.kaisou==='○'?' selected':''}>○</option><option${site.kaisou==='×'?' selected':''}>×</option></select></div>
-        <button onclick="US('${site.id}','enShoo',${!site.enShoo})" style="padding:2px 8px;font-size:11px;border-radius:4px;border:1px solid ${site.enShoo?'#7c3aed':'#d1d5db'};background:${site.enShoo?'#7c3aed':'#fff'};color:${site.enShoo?'#fff':'#374151'};cursor:pointer;white-space:nowrap;">他部署応援${site.enShoo?'✔':''}</button>
-        <button class="btn btnd" onclick="DS('${site.id}')" style="padding:2px 8px;margin-left:auto;">✕</button>
+        <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">置場:</span><select onchange="US(${si},'okiba',this.value)" style="width:56px;"><option value="">−</option><option${site.okiba==='有'?' selected':''}>有</option><option${site.okiba==='無'?' selected':''}>無</option></select></div>
+        <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">回送車:</span><select onchange="US(${si},'kaisou',this.value)" style="width:56px;"><option value="">−</option><option${site.kaisou==='○'?' selected':''}>○</option><option${site.kaisou==='×'?' selected':''}>×</option></select></div>
+        <button onclick="US(${si},'enShoo',${!site.enShoo})" style="padding:2px 8px;font-size:11px;border-radius:4px;border:1px solid ${site.enShoo?'#7c3aed':'#d1d5db'};background:${site.enShoo?'#7c3aed':'#fff'};color:${site.enShoo?'#fff':'#374151'};cursor:pointer;white-space:nowrap;">他部署応援${site.enShoo?'✔':''}</button>
+        <button class="btn btnd" onclick="DS(${si})" style="padding:2px 8px;margin-left:auto;">✕</button>
       </div>
       <div class="row2">
-        <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">弊社担当:</span><select onchange="US('${site.id}','ourContact',this.value)" style="width:84px;"><option value="">選択−</option>${S.workers.filter(w=>w.group==='main').map(w=>`<option value="${w.name}"${site.ourContact===w.name?' selected':''}>${w.name}</option>`).join('')}</select></div>
-        <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">リーダー:</span><select onchange="US('${site.id}','leader',this.value)" style="width:84px;"><option value="">選択−</option>${S.workers.map(w=>`<option value="${w.name}"${site.leader===w.name?' selected':''}>${w.name}</option>`).join('')}</select></div>
-        <div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl">工事内容:</span>${selWK}<select onchange="AWK2('${site.id}',this.value);this.value=''" style="width:88px;"><option value="">＋ 追加</option>${workOpts}</select></div>
-        <div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl">使用重機:</span>${selM}${machModal}</div>
-        <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">時間:</span><select onchange="US('${site.id}','gatherType',this.value)" style="width:52px;font-size:11px;"><option${(site.gatherType||'集合')==='集合'?' selected':''}>集合</option><option${site.gatherType==='着'?' selected':''}>着</option></select><input value="${site.gatherTime||''}" placeholder="900" onblur="UST('${site.id}','gatherTime',this)" onkeydown="if(event.key==='Enter'){UST('${site.id}','gatherTime',this);}" style="width:60px;"></div>
-        <input value="${site.note||''}" placeholder="摘要・備考" onchange="US('${site.id}','note',this.value)" style="flex:1;min-width:90px;">
+        <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">弊社担当:</span><select onchange="US(${si},'ourContact',this.value)" style="width:84px;"><option value="">選択−</option>${S.workers.filter(w=>w.group==='main').map(w=>`<option value="${w.name}"${site.ourContact===w.name?' selected':''}>${w.name}</option>`).join('')}</select></div>
+        <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">リーダー:</span><select onchange="US(${si},'leader',this.value)" style="width:84px;"><option value="">選択−</option>${S.workers.map(w=>`<option value="${w.name}"${site.leader===w.name?' selected':''}>${w.name}</option>`).join('')}</select></div>
+        <div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl">工事内容:</span>${selWK}<select onchange="AWK2(${si},this.value);this.value=''" style="width:88px;"><option value="">＋ 追加</option>${workOpts}</select></div>
+        <div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl">使用重機:</span>${selM}<select onchange="AM(${si},this.value);this.value=''" style="width:80px;"><option value="">＋ 追加</option>${machOpts}</select></div>
+        <div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl" style="color:#166534;">必要品:</span>${(site.supplies||[]).map((sp,spi)=>`<span class="bmach" style="background:#dcfce7;border-color:#86efac;color:#166534;">${sp}<button onclick="RSP(${si},${spi})">×</button></span>`).join('')}<select onchange="ASP2(${si},this.value);this.value=''" style="width:90px;"><option value="">＋ 選択</option>${sortByUsage(S.supplies,'supplies',x=>x).filter(sp=>!(site.supplies||[]).includes(sp)).map(sp=>`<option value="${sp}">${sp}</option>`).join('')}</select></div>
+        <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">時間:</span><select onchange="US(${si},'gatherType',this.value)" style="width:52px;font-size:11px;"><option${(site.gatherType||'集合')==='集合'?' selected':''}>集合</option><option${site.gatherType==='着'?' selected':''}>着</option></select><input value="${site.gatherTime||''}" placeholder="900" onblur="UST(${si},'gatherTime',this)" onkeydown="if(event.key==='Enter'){UST(${si},'gatherTime',this);}" style="width:60px;"></div>
+        <input value="${site.note||''}" placeholder="摘要・備考" onchange="US(${si},'note',this.value)" style="flex:1;min-width:90px;">
       </div>
       <div style="margin-bottom:5px;">
-        <div style="display:flex;align-items:center;gap:4px;margin-bottom:4px;">
-          <span class="hint">工事日</span>
-          <button class="btn" onclick="ShiftDayBtn(-7)" style="padding:1px 8px;font-size:11px;">◀</button>
-          <button class="btn" onclick="ShiftDayBtn(0)" style="padding:1px 8px;font-size:11px;">今日</button>
-          <button class="btn" onclick="ShiftDayBtn(7)" style="padding:1px 8px;font-size:11px;">▶</button>
-          <span style="font-size:11px;color:var(--tx2);">${(btnStart.getMonth()+1)}/${btnStart.getDate()} 〜 ${(btnDays[13].getMonth()+1)}/${btnDays[13].getDate()}</span>
-        </div>
+        <div class="hint" style="margin-bottom:3px;">工事日</div>
         <div style="display:flex;flex-wrap:wrap;gap:2px;margin-bottom:3px;">${dayBtns}</div>
-        <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;"><input type="date" id="from_${site.id}" style="width:140px;"><span class="hint">〜</span><input type="date" id="to_${site.id}" style="width:140px;"><button class="btn" onclick="AP('${site.id}')">期間追加</button>${site.days?.length?`<span class="hint">計${site.days.length}日</span>`:''}</div>
+        <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;"><input type="date" id="from_${si}" style="width:140px;"><span class="hint">〜</span><input type="date" id="to_${si}" style="width:140px;"><button class="btn" onclick="AP(${si})">期間追加</button>${site.days?.length?`<span class="hint">計${site.days.length}日</span>`:''}</div>
       </div>
       ${actDays.length?`<div><div class="hint" style="margin-bottom:3px;">割り振り（今週分）</div>${asgSecs}</div>`:''}
     </div>`;
@@ -999,8 +863,8 @@ function bD(){
   // アクティブ（今後予定あり）と完了済みに分離
   const todayStr=fmt(toDay());
   const siteCards=S.sites.map((site,si)=>({site,si,card:cardsArr[si]||'',lastDay:(site.days||[]).slice().sort().reverse()[0]||''}));
-  // 今日以降の工事日がある → アクティブ（配列の順番を維持＝追加した順、日付ソートはしない）
-  const activeCards=siteCards.filter(({site})=>(site.days||[]).some(dk=>dk>=todayStr));
+  // 今日以降の工事日がある → アクティブ
+  const activeCards=siteCards.filter(({site})=>(site.days||[]).some(dk=>dk>=todayStr)).sort((a,b)=>b.lastDay.localeCompare(a.lastDay));
   // 全工事日が過去 or 工事日なし → 完了済み
   const doneCards=siteCards.filter(({site})=>!(site.days||[]).some(dk=>dk>=todayStr)).sort((a,b)=>b.lastDay.localeCompare(a.lastDay));
   const activeHtml=activeCards.map(({card})=>card).join('');
@@ -1012,7 +876,7 @@ function bD(){
       </div>
       ${S.showDone?doneCards.map(({card})=>card).join(''):''}
     </div>`:'';
-  return`<div class="tb"><strong style="font-size:13px;">配車・割振</strong><span style="font-size:11px;color:var(--tx3);">今日から2週間分</span><button class="btn" onclick="TogPast()" style="${S.showPast?'background:#fef3c7;border-color:#fde68a;color:#92400e;':''}">${S.showPast?'◀ 過去も表示中':'◀ 過去も見る'}</button><button class="btn btnp" onclick="AS()" style="margin-left:auto;">＋ 現場追加</button></div>
+  return`<div class="tb"><strong style="font-size:13px;">配車・割振</strong><span style="font-size:11px;color:var(--tx3);">今日から2週間分</span><button class="btn" onclick="TogPast()" style="${S.showPast?'background:#fef3c7;border-color:#fde68a;color:#92400e;':''}">${S.showPast?'過去も表示中':'今日以降のみ'}</button><button class="btn btnp" onclick="AS()" style="margin-left:auto;">＋ 現場追加</button></div>
   ${dupK.length?`<div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:6px;padding:5px 10px;margin-bottom:8px;font-size:11px;color:#991b1b;">⚠ 重複: ${dupK.map(k=>k.split('|').join(' ')).join(' / ')}</div>`:''}
   ${!S.sites.length?'<div style="text-align:center;color:var(--tx3);padding:32px;">「＋ 現場追加」で現場を登録</div>':activeHtml+doneHtml}
   <div id="cmodal"></div>`;
@@ -1069,7 +933,7 @@ function bQ(){
           <span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span>
           <span style="font-weight:600;font-size:13px;">${s.place||'(未入力)'}</span>
           ${isMultiMonth?'<span style="background:#fef3c7;color:#92400e;font-size:10px;padding:1px 5px;border-radius:4px;">月またぎ</span>':''}
-          <button onclick="TogInvoiced('${site.id}','${ym}')" style="margin-left:auto;padding:2px 10px;font-size:11px;border-radius:4px;border:1px solid ${inv?'#22c55e':'#d1d5db'};background:${inv?'#22c55e':'#fff'};color:${inv?'#fff':'#374151'};cursor:pointer;white-space:nowrap;">${inv?'✅ 請求済':'請求済にする'}</button>
+          <button onclick="TogInvoiced(${si},'${ym}')" style="margin-left:auto;padding:2px 10px;font-size:11px;border-radius:4px;border:1px solid ${inv?'#22c55e':'#d1d5db'};background:${inv?'#22c55e':'#fff'};color:${inv?'#fff':'#374151'};cursor:pointer;white-space:nowrap;">${inv?'✅ 請求済':'請求済にする'}</button>
         </div>
         <div style="font-size:11px;color:#64748b;display:flex;gap:12px;flex-wrap:wrap;margin-bottom:4px;">
           ${s.prime?`<span>元請: <b>${s.prime}</b></span>`:''}
@@ -1077,7 +941,7 @@ function bQ(){
           <span>延べ人数: <b>${personCount}人</b></span>
         </div>
         <div style="display:flex;gap:6px;align-items:center;">
-          <input value="${memo}" placeholder="備考メモ" onchange="SetQMemo('${site.id}','${ym}',this.value)" style="flex:1;font-size:11px;border:1px solid #e2e8f0;border-radius:4px;padding:3px 6px;">
+          <input value="${memo}" placeholder="備考メモ" onchange="SetQMemo(${si},'${ym}',this.value)" style="flex:1;font-size:11px;border:1px solid #e2e8f0;border-radius:4px;padding:3px 6px;">
           <button class="btn" onclick="EditSite('${s.id}')" style="font-size:10px;padding:1px 6px;">✎ 編集</button>
         </div>
       </div>`;
@@ -1329,10 +1193,11 @@ function bMaster(){
     </div>`:''}
   </div>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:8px;">
-    ${msec('元請担当者 ※よく使う順',sortByUsage(S.contacts||[],'contacts',x=>x.name).map((c)=>{const i=(S.contacts||[]).indexOf(c);return`<div style="display:flex;align-items:center;gap:3px;margin-bottom:3px;font-size:12px;"><span style="width:80px;font-weight:500;">${c.name}</span><input value="${c.tel||''}" placeholder="電話番号" onchange="SetCT(${i},'tel',this.value)" style="flex:1;font-size:11px;padding:1px 4px;"><button class="btn btnd" onclick="DCT(${i})" style="padding:1px 5px;">✕</button></div>`;}).join(''),`<div style="display:flex;flex-wrap:wrap;gap:3px;"><input id="nctn" placeholder="担当者名" style="flex:1;min-width:80px;"><input id="nctt" placeholder="電話番号" style="flex:1;min-width:90px;"><button class="btn btnp" onclick="ACT2()" style="width:100%;">追加</button></div>`)}
+    ${msec('元請担当者',(S.contacts||[]).map((c,i)=>`<div style="display:flex;align-items:center;gap:3px;margin-bottom:2px;font-size:12px;"><span style="flex:1;">${c.name}</span><span style="font-size:11px;color:var(--tx2);">${c.tel||''}</span><button class="btn btnd" onclick="DCT(${i})" style="padding:1px 5px;">✕</button></div>`).join(''),`<div style="display:flex;flex-wrap:wrap;gap:3px;"><input id="nctn" placeholder="担当者名" style="flex:1;min-width:80px;"><input id="nctt" placeholder="電話番号" style="flex:1;min-width:90px;"><button class="btn btnp" onclick="ACT2()" style="width:100%;">追加</button></div>`)}
     ${msec('担当内容（役割）※よく使う順',sortByUsage(S.roles,'roles',x=>x).map((r)=>{const i=S.roles.indexOf(r);return`<div style="display:flex;align-items:center;gap:3px;margin-bottom:2px;font-size:12px;"><span style="flex:1;">${r}</span><button class="btn btnd" onclick="DR(${i})" style="padding:1px 5px;">✕</button></div>`;}).join(''),`<div style="display:flex;gap:3px;"><input id="nrole" placeholder="役割名" style="flex:1;"><button class="btn btnp" onclick="AR()">追加</button></div>`)}
     ${msec('工事内容 ※よく使う順',sortByUsage(S.works,'works',x=>x).map((w)=>{const i=S.works.indexOf(w);return`<div style="display:flex;align-items:center;gap:3px;margin-bottom:2px;font-size:12px;"><span style="flex:1;">${w}</span><button class="btn btnd" onclick="DWK(${i})" style="padding:1px 5px;">✕</button></div>`;}).join(''),`<div style="display:flex;gap:3px;"><input id="nwork" placeholder="工事内容名" style="flex:1;"><button class="btn btnp" onclick="AWK()">追加</button></div>`)}
     ${msec('重機 ※よく使う順',sortByUsage(S.machines,'machines',x=>x).map((m)=>{const i=S.machines.indexOf(m);return`<div style="display:flex;align-items:center;gap:3px;margin-bottom:2px;font-size:12px;"><span style="flex:1;font-family:monospace;">${m}</span><button class="btn btnd" onclick="DM(${i})" style="padding:1px 5px;">✕</button></div>`;}).join(''),`<div style="display:flex;gap:3px;"><input id="nm" placeholder="重機コード" style="flex:1;"><button class="btn btnp" onclick="AM2()">追加</button></div>`)}
+    ${msec('必要品 ※よく使う順',sortByUsage(S.supplies,'supplies',x=>x).map((sp)=>{const i=S.supplies.indexOf(sp);return`<div style="display:flex;align-items:center;gap:3px;margin-bottom:2px;font-size:12px;"><span style="flex:1;">${sp}</span><button class="btn btnd" onclick="DSP(${i})" style="padding:1px 5px;">✕</button></div>`;}).join(''),`<div style="display:flex;gap:3px;"><input id="nsp" placeholder="必要品名" style="flex:1;"><button class="btn btnp" onclick="ASP()">追加</button></div>`)}
     <div class="card"><div style="font-weight:500;margin-bottom:6px;">移動車（手当）※よく使う順</div>
       <div style="max-height:160px;overflow-y:auto;margin-bottom:6px;">${sortByUsage(S.vehicles,'vehicles',v=>v.name).map((v)=>{const i=S.vehicles.indexOf(v);return`<div style="display:flex;align-items:center;gap:3px;margin-bottom:2px;font-size:12px;"><span style="flex:1;">${v.name}</span><input type="number" value="${v.allowance}" onchange="UV(${i},this.value)" style="width:64px;"><button class="btn btnd" onclick="DV(${i})" style="padding:1px 5px;">✕</button></div>`;}).join('')}</div>
       <div style="border-top:1px solid var(--bd3);padding-top:6px;display:flex;flex-wrap:wrap;gap:3px;">
@@ -1677,34 +1542,33 @@ window.resetAll=function(){
   location.reload();
 };
 
-window.showCopy=function(siteId,srcDk){
+window.showCopy=function(si,srcDk){
   const el=document.getElementById('cmodal');if(!el)return;
   el.innerHTML=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;z-index:999;" onclick="closeCopy()">
     <div onclick="event.stopPropagation()" style="background:var(--bg1);border-radius:10px;border:1px solid var(--bd2);padding:16px;width:300px;">
       <div style="font-weight:500;margin-bottom:8px;">📋 ${srcDk} の割り振りをコピー</div>
       <div style="font-size:12px;color:var(--tx2);margin-bottom:6px;">コピー先の日付:</div>
       <input type="date" id="cdest" style="width:100%;margin-bottom:10px;">
-      <div style="display:flex;gap:6px;"><button class="btn" onclick="closeCopy()" style="flex:1;">キャンセル</button><button class="btn btnp" onclick="execCopy('${siteId}','${srcDk}')" style="flex:1;">実行</button></div>
+      <div style="display:flex;gap:6px;"><button class="btn" onclick="closeCopy()" style="flex:1;">キャンセル</button><button class="btn btnp" onclick="execCopy(${si},'${srcDk}')" style="flex:1;">実行</button></div>
     </div></div>`;
 };
 window.closeCopy=()=>{const el=document.getElementById('cmodal');if(el)el.innerHTML='';};
-window.execCopy=function(siteId,srcDk){
+window.execCopy=function(si,srcDk){
   const destDk=document.getElementById('cdest')?.value;
   if(!destDk){alert('コピー先の日付を選択してください');return;}
   if(destDk===srcDk){alert('同じ日付にはコピーできません');return;}
-  const s=S.sites.find(x=>String(x.id)===String(siteId));
-  if(!s){alert('現場が見つかりません');return;}
-  s.assigns=s.assigns||{};
-  // コピー元の社員割り振りをコピー先へ（コピー元は変更しない）
+  const s=S.sites[si];s.assigns=s.assigns||{};
+  // 社員の割り振り（誰・役割・車・運転・摘要）を丸ごとコピー
   s.assigns[destDk]=dc(s.assigns[srcDk]||[]);
+  // その日の上書き内容（工事内容・重機・集合・別作業など）もコピー
   s.dayData=s.dayData||{};
   if(s.dayData[srcDk]){
     const src=dc(s.dayData[srcDk]);
-    delete src.cancelled;
+    delete src.cancelled; // 中止状態はコピーしない（新しい日は通常稼働として開始）
     s.dayData[destDk]={...(s.dayData[destDk]||{}),...src};
   }
   if(!s.days.includes(destDk)){s.days.push(destDk);s.days.sort();}
-  S.openDays[`${siteId}_${destDk}`]=true;
+  S.openDays[`${si}_${destDk}`]=true;
   persist();closeCopy();render();
 };
 
@@ -1714,13 +1578,11 @@ window.TogPerOffice=(si,dk,name)=>{const rep=ensureReport(si,dk);rep.per[name]=r
   rep.per[name].office=!cur;persist();render();};
 window.TogRep=(key)=>{S.openDays[key]=!S.openDays[key];persist();render();};
 window.SetRep=(si,dk,k,v)=>{const rep=ensureReport(si,dk);if(k==='start'||k==='end'){rep[k]=v;}else if(k==='otDefault'){rep[k]=Number(v)||0;}else{rep[k]=v;}persist();render();};
-window.SetRepTime=(si,dk,k,el)=>{const v=pTime(el.value);el.value=v;const rep=ensureReport(si,dk);rep[k]=v;persist();};
-window.SetDayLeader=(id,dk,name)=>{const s=S.sites.find(x=>String(x.id)===String(id));if(!s)return;s.dayData=s.dayData||{};s.dayData[dk]=s.dayData[dk]||{};const cur=s.dayData[dk].leader;s.dayData[dk].leader=cur===name?undefined:name;persist();render();};
 window.SetPer=(si,dk,name,k,v)=>{const rep=ensureReport(si,dk);rep.per[name]=rep.per[name]||{};
-  if(k==='ot'){if(v===''||v===null){delete rep.per[name].ot;}else{rep.per[name].ot=Number(v)||0;}persist();}
-  else if(k==='drive'){rep.per[name].drive=Number(v)||0;persist();}
-  else if(k==='excluded'){rep.per[name].excluded=v;persist();render();}
-  else{persist();render();}};
+  if(k==='ot'){if(v===''||v===null){delete rep.per[name].ot;}else{rep.per[name].ot=Number(v)||0;}}
+  else if(k==='drive'){rep.per[name].drive=Number(v)||0;}
+  else if(k==='excluded'){rep.per[name].excluded=v;}
+  persist();render();};
 window.CycleOffice=(dk,name)=>{S.officeAtt=S.officeAtt||{};S.officeAtt[dk]=S.officeAtt[dk]||{};const cur=S.officeAtt[dk][name]||'';const nx=cur===''?'work':cur==='work'?'leave':cur==='leave'?'off':'';if(nx==='')delete S.officeAtt[dk][name];else S.officeAtt[dk][name]=nx;persist();render();};
 window.ToggleLeave=(dk,name)=>{if(VIEW_MODE)return;ShowAbsentMenu(dk,name,'昼');};
 window.ShowAbsentMenu=(dk,name,slot)=>{
@@ -1779,65 +1641,18 @@ window.SetAbsent=(dk,name,val)=>{
   document.querySelectorAll('.am-modal').forEach(el=>el.remove());
 };
 window.MoveW=(i,dir)=>{const j=i+dir;if(j<0||j>=S.workers.length)return;const t=S.workers[i];S.workers[i]=S.workers[j];S.workers[j]=t;persist();render();};
-window.EditSite=(id)=>{
-  S.tab='dispatch';S.foldSite={};S.sites.forEach(s=>{S.foldSite[s.id]=true;});S.foldSite[id]=false;S.showPast=true;
-  const site=S.sites.find(s=>String(s.id)===String(id));
-  if(site)(site.days||[]).forEach(dk=>{S.openDays[`${id}_${dk}`]=true;});
-  persist();render();setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},100);
-};
+window.EditSite=(id)=>{S.tab='dispatch';S.foldSite=S.foldSite||{};S.sites.forEach(s=>{S.foldSite[s.id]=true;});S.foldSite[id]=false;S.showPast=true;persist();render();setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},100);};
 window.FoldSite=(id)=>{
-  const willOpen=S.foldSite[id]!==false;
-  if(willOpen){
-    S.foldSite={};S.sites.forEach(s=>{S.foldSite[s.id]=true;});S.foldSite[id]=false;
-    // 現場を開いたとき、その現場の工事日を全部自動展開
-    const site=S.sites.find(s=>String(s.id)===String(id));
-    if(site)(site.days||[]).forEach(dk=>{S.openDays[`${id}_${dk}`]=true;});
-  }
+  const willOpen=S.foldSite[id]!==false; // false以外（undefined/true）→開く操作
+  if(willOpen){S.sites.forEach(s=>{S.foldSite[s.id]=true;});S.foldSite[id]=false;}
   else{S.foldSite[id]=true;}
   persist();render();
   if(willOpen)setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},80);
 };
 window.TogPast=()=>{S.showPast=!S.showPast;persist();render();};
-window.ShiftDayBtn=n=>{if(!S.dayBtnBase)S.dayBtnBase=fmt(toDay());S.dayBtnBase=n===0?fmt(toDay()):fmt(addD(pd(S.dayBtnBase),n));persist();render();};
-window.showMachModal=function(siteId){
-  const site=S.sites.find(x=>String(x.id)===String(siteId));if(!site)return;
-  const mc=normMachines(site.machines);
-  const sorted=sortByUsage(S.machines,'machines',x=>x);
-  const rows=sorted.map(m=>{
-    const cur=mc.find(x=>x.name===m);
-    return`<div style="display:flex;align-items:center;gap:8px;padding:5px 6px;border-radius:6px;background:${cur?'#f0fdf4':'var(--bg1)'};border:1px solid ${cur?'#86efac':'transparent'};margin-bottom:2px;">
-      <input type="checkbox" ${cur?'checked':''} value="${m}" class="mck" style="width:16px;height:16px;cursor:pointer;">
-      <span style="flex:1;font-size:13px;">${m}</span>
-      ${cur?`<input type="number" min="1" value="${cur.qty}" class="mqt" data-name="${m}" style="width:48px;font-size:12px;text-align:center;">台`:'<span style="width:54px;font-size:11px;color:var(--tx3);">1台</span>'}
-    </div>`;
-  }).join('');
-  let modal=document.getElementById('cmodal');
-  if(!modal){modal=document.createElement('div');modal.id='cmodal';document.body.appendChild(modal);}
-  modal.innerHTML=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.45);display:flex;align-items:flex-end;justify-content:center;z-index:999;" onclick="closeCopy()">
-  <div onclick="event.stopPropagation()" style="background:var(--bg1);border-radius:12px 12px 0 0;width:100%;max-width:420px;max-height:85vh;display:flex;flex-direction:column;">
-    <div style="padding:14px 16px 8px;border-bottom:1px solid var(--bd3);flex-shrink:0;font-weight:600;font-size:13px;">重機選択　<span style="font-size:10px;color:var(--tx3);font-weight:400;">${site.place||''}</span></div>
-    <div style="flex:1;overflow-y:auto;padding:10px 16px;">${rows}</div>
-    <div style="padding:10px 16px;border-top:1px solid var(--bd3);display:flex;gap:8px;flex-shrink:0;background:var(--bg1);">
-      <button class="btn" onclick="closeCopy()" style="flex:1;padding:10px;font-size:13px;">キャンセル</button>
-      <button class="btn btnp" onclick="execMachModal('${siteId}')" style="flex:2;padding:10px;font-size:13px;">確定</button>
-    </div>
-  </div></div>`;
-};
-window.execMachModal=function(siteId){
-  const site=S.sites.find(x=>String(x.id)===String(siteId));if(!site)return;
-  const newMachines=[];
-  document.querySelectorAll('.mck:checked').forEach(ck=>{
-    const qty=parseInt(document.querySelector(`.mqt[data-name="${ck.value}"]`)?.value||'1')||1;
-    newMachines.push({name:ck.value,qty});
-  });
-  site.machines=newMachines;
-  persist();
-  const cm=document.getElementById('cmodal');if(cm)cm.innerHTML='';
-  render();
-};
 window.TogDone=()=>{S.showDone=!S.showDone;persist();render();};
-window.TogInvoiced=(id,ym)=>{const s=S.sites.find(x=>String(x.id)===String(id))||S.sites[id];s.invoiced=s.invoiced||{};s.invoiced[ym]=!s.invoiced[ym];persist();render();};
-window.SetQMemo=(id,ym,v)=>{const s=S.sites.find(x=>String(x.id)===String(id))||S.sites[id];s.qMemo=s.qMemo||{};s.qMemo[ym]=v;persist();};
+window.TogInvoiced=(si,ym)=>{const s=S.sites[si];s.invoiced=s.invoiced||{};s.invoiced[ym]=!s.invoiced[ym];persist();render();};
+window.SetQMemo=(si,ym,v)=>{const s=S.sites[si];s.qMemo=s.qMemo||{};s.qMemo[ym]=v;persist();};
 window.SetOrg=(v)=>{S.orgName=v.trim();persist();render();};
 window.TogMaster=(k)=>{S.openMaster=!S.openMaster;persist();render();};
 window.SetWF=(i,k,v)=>{if(S.workers[i])S.workers[i][k]=(k==='name'||k==='fullName'||k==='kana'||k==='email')?v.trim():v;persist();render();};
@@ -1851,255 +1666,211 @@ window.SF=v=>{S.fiveBase=v;persist();render();};
 window.MW=n=>{S.weekBase=fmt(addD(pd(S.weekBase),n));persist();render();};
 window.SWB=v=>{S.weekBase=fmt(monSt(pd(v)));persist();render();};
 window.TE=dk=>{if(VIEW_MODE)return;S.excl.has(dk)?S.excl.delete(dk):S.excl.add(dk);persist();render();};
-window.AS=()=>{
-  // モーダルで「新規」か「既存コピー」を選ばせる
-  let modal=document.getElementById('cmodal');
-  if(!modal){modal=document.createElement('div');modal.id='cmodal';document.body.appendChild(modal);}
-  const siteOpts=S.sites.map((s,i)=>`<option value="${i}">${s.place||'(未入力)'} (${(s.days||[]).length}日間)</option>`).join('');
-  modal.innerHTML=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;z-index:999;" onclick="closeCopy()">
-  <div onclick="event.stopPropagation()" style="background:var(--bg1);border-radius:12px;border:1px solid var(--bd2);padding:18px;width:340px;max-height:90vh;overflow-y:auto;">
-    <div style="font-weight:600;font-size:14px;margin-bottom:12px;">＋ 現場追加</div>
-
-    <div style="margin-bottom:14px;">
-      <div style="font-size:11px;font-weight:600;color:var(--tx2);margin-bottom:6px;">① 追加方法を選んでください</div>
-      <div style="display:flex;gap:8px;">
-        <label style="flex:1;border:2px solid #1e293b;border-radius:8px;padding:8px 6px;text-align:center;cursor:pointer;background:#1e293b;color:#fff;font-size:12px;">
-          <input type="radio" name="asMode" value="new" checked style="display:none;" onchange="document.getElementById('asCopyRow').style.display='none';document.getElementById('asDateLabel').textContent='工事日（最初の1日）';">
-          📄 新規で作成
-        </label>
-        <label id="asCopyLabel" style="flex:1;border:2px solid var(--bd2);border-radius:8px;padding:8px 6px;text-align:center;cursor:pointer;background:var(--bg1);color:var(--tx);font-size:12px;">
-          <input type="radio" name="asMode" value="copy" style="display:none;" onchange="document.getElementById('asCopyRow').style.display='block';document.getElementById('asDateLabel').textContent='新しい工事日';">
-          📋 既存からコピー
-        </label>
-      </div>
-    </div>
-
-    <div id="asCopyRow" style="display:none;margin-bottom:10px;">
-      <div style="font-size:11px;font-weight:600;color:var(--tx2);margin-bottom:4px;">コピー元の現場</div>
-      ${S.sites.length?`<select id="asSrcSi" style="width:100%;font-size:12px;"><option value="">選択してください</option>${siteOpts}</select>`:'<div style="font-size:11px;color:#b45309;">現場がまだ登録されていません</div>'}
-      <div style="font-size:10px;color:var(--tx3);margin-top:3px;">場所・元請・担当・置場・回送車をそのままコピーします</div>
-    </div>
-
-    <div style="margin-bottom:14px;">
-      <div id="asDateLabel" style="font-size:11px;font-weight:600;color:var(--tx2);margin-bottom:4px;">工事日（最初の1日）</div>
-      <input type="date" id="asDate" style="width:100%;font-size:12px;" value="${fmt(toDay())}">
-      <div style="font-size:10px;color:var(--tx3);margin-top:2px;">日付は後から追加・変更できます</div>
-    </div>
-
-    <div style="display:flex;gap:8px;margin-top:4px;">
-      <button class="btn" onclick="closeCopy()" style="flex:1;">キャンセル</button>
-      <button class="btn btnp" onclick="execAddSite()" style="flex:1;font-size:13px;">追加する</button>
-    </div>
-  </div></div>`;
-  // ラジオボタンのビジュアル切り替え
-  modal.querySelectorAll('input[name="asMode"]').forEach(r=>{
-    r.addEventListener('change',()=>{
-      const isNew=r.value==='new';
-      modal.querySelector('label[style*="1e293b"]:nth-of-type(1)');
-      modal.querySelectorAll('label').forEach(l=>{
-        const inp=l.querySelector('input[name="asMode"]');
-        if(!inp)return;
-        if(inp.value==='new'){l.style.background=isNew?'#1e293b':'var(--bg1)';l.style.color=isNew?'#fff':'var(--tx)';l.style.borderColor=isNew?'#1e293b':'var(--bd2)';}
-        else{l.style.background=isNew?'var(--bg1)':'#1e293b';l.style.color=isNew?'var(--tx)':'#fff';l.style.borderColor=isNew?'var(--bd2)':'#1e293b';}
-      });
-    });
-  });
-};
-window.execAddSite=function(){
-  const mode=document.querySelector('input[name="asMode"]:checked')?.value||'new';
-  const dateVal=document.getElementById('asDate')?.value;
-  if(!dateVal){alert('工事日を選択してください');return;}
-  const id=uid();
-  let newSite;
-  if(mode==='copy'){
-    const srcSi=document.getElementById('asSrcSi')?.value;
-    if(srcSi===''||srcSi===undefined||srcSi===null){alert('コピー元の現場を選択してください');return;}
-    const src=S.sites[Number(srcSi)];
-    // 場所・元請・担当・置場・回送車・昼夜・弊社担当・リーダー・工事内容・重機・集合時間だけコピー。日付・割り振り・日報はリセット
-    newSite={
-      id,
-      shift:src.shift,
-      place:src.place,
-      prime:src.prime,
-      contact:src.contact,
-      contactManual:src.contactManual||'',
-      contactTel:src.contactTel||'',
-      ourContact:src.ourContact||'',
-      leader:src.leader||'',
-      works:dc(src.works||[]),
-      machines:dc(normMachines(src.machines)),
-      gatherTime:src.gatherTime||'',
-      gatherType:src.gatherType||'集合',
-      note:'',
-      okiba:src.okiba||'',
-      kaisou:src.kaisou||'',
-      enShoo:src.enShoo||false,
-      days:[dateVal],
-      assigns:{},
-      dayData:{},
-    };
-  } else {
-    newSite={id,days:[dateVal],assigns:{},dayData:{},shift:'昼',place:'',prime:'',contact:'',contactManual:'',contactTel:'',ourContact:'',leader:'',works:[],machines:[],gatherTime:'',gatherType:'集合',note:'',okiba:'',kaisou:'',enShoo:false};
-  }
-  S.sites.unshift(newSite);
-  S.foldSite={};
-  S.sites.forEach(s=>{S.foldSite[s.id]=true;});
-  S.foldSite[id]=false;
-  // 新規現場の工事日を自動展開
-  (newSite.days||[]).forEach(dk=>{S.openDays[`${id}_${dk}`]=true;});
-  persist();
-  // モーダルを先に消してからrender（renderがcmodalを含むDOMを再生成するため）
-  document.querySelectorAll('[style*="position:fixed"]').forEach(el=>el.remove());
-  const cm=document.getElementById('cmodal');if(cm)cm.innerHTML='';
-  render();
-  setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},80);
-};
-window.DS=id=>{if(!confirm('削除しますか？'))return;const i=S.sites.findIndex(s=>String(s.id)===String(id));if(i>=0)S.sites.splice(i,1);persist();render();};
-window.US=(id,k,v)=>{const s=S.sites.find(x=>String(x.id)===String(id));if(s)s[k]=v;persist();render();};
-window.UST=(id,k,el)=>{const v=pTime(el.value);const s=S.sites.find(x=>String(x.id)===String(id));if(s){s[k]=v;el.value=v;}persist();};
-window.AM=(id,m)=>{if(!m)return;const s=S.sites.find(x=>String(x.id)===String(id));if(!s)return;s.machines=normMachines(s.machines);if(!s.machines.some(x=>x.name===m))s.machines.push({name:m,qty:1});persist();render();};
-window.SetMQ=(id,mi,v)=>{const s=S.sites.find(x=>String(x.id)===String(id));if(!s)return;s.machines=normMachines(s.machines);if(s.machines[mi])s.machines[mi].qty=Math.max(1,Number(v)||1);persist();render();};
-window.SetDD=(id,dk,k,v)=>{const s=S.sites.find(x=>String(x.id)===String(id));if(!s)return;s.dayData=s.dayData||{};s.dayData[dk]=s.dayData[dk]||{};
+window.AS=()=>{const id=uid();S.sites.push({id,days:[],assigns:{},dayData:{},shift:'昼',place:'',prime:'',contact:'',contactManual:'',contactTel:'',ourContact:'',leader:'',works:[],machines:[],gatherTime:'',gatherType:'集合',note:'',okiba:'',kaisou:'',enShoo:false});S.foldSite=S.foldSite||{};S.sites.forEach(s=>{S.foldSite[s.id]=true;});S.foldSite[id]=false;persist();render();setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},80);};
+window.DS=i=>{if(!confirm('削除しますか？'))return;S.sites.splice(i,1);persist();render();};
+window.US=(i,k,v)=>{S.sites[i][k]=v;persist();render();};
+window.UST=(i,k,el)=>{const v=pTime(el.value);S.sites[i][k]=v;el.value=v;persist();};
+window.AM=(si,m)=>{if(!m)return;const s=S.sites[si];s.machines=normMachines(s.machines);if(!s.machines.some(x=>x.name===m))s.machines.push({name:m,qty:1});persist();render();};
+window.SetMQ=(si,mi,v)=>{const s=S.sites[si];s.machines=normMachines(s.machines);if(s.machines[mi])s.machines[mi].qty=Math.max(1,Number(v)||1);persist();render();};
+window.SetDD=(si,dk,k,v)=>{const s=S.sites[si];s.dayData=s.dayData||{};s.dayData[dk]=s.dayData[dk]||{};
   if(k==='worksText'){s.dayData[dk].works=v.trim()?v:undefined;}
   else if(k==='machText'){s.dayData[dk].machines=v.trim()?v:undefined;}
   else{s.dayData[dk][k]=v;}
   persist();render();};
-window.SetDDTime=(id,dk,el)=>{const v=pTime(el.value);const s=S.sites.find(x=>String(x.id)===String(id));if(!s)return;s.dayData=s.dayData||{};s.dayData[dk]=s.dayData[dk]||{};s.dayData[dk].gatherTime=v||undefined;el.value=v;persist();render();};
+window.SetDDTime=(si,dk,el)=>{const v=pTime(el.value);const s=S.sites[si];s.dayData=s.dayData||{};s.dayData[dk]=s.dayData[dk]||{};s.dayData[dk].gatherTime=v||undefined;el.value=v;persist();render();};
 /* ===== 日別の工事内容・重機（プルダウン＋手入力追加。空になれば共通設定に戻す） ===== */
-function _dd(id,dk){const s=S.sites.find(x=>String(x.id)===String(id));if(!s)return{};s.dayData=s.dayData||{};s.dayData[dk]=s.dayData[dk]||{};return s.dayData[dk];}
-window.ADWK=(id,dk,w)=>{if(!w)return;const d=_dd(id,dk);const arr=dayWorksArr(d.works)||[];if(!arr.includes(w))arr.push(w);d.works=arr;persist();render();};
-window.ADWKM=(id,dk)=>{const el=document.getElementById(`dwk_${id}_${dk}`);const v=(el?.value||'').trim();if(!v)return;if(!S.works.includes(v))S.works.push(v);const d=_dd(id,dk);const arr=dayWorksArr(d.works)||[];if(!arr.includes(v))arr.push(v);d.works=arr;persist();render();};
-window.RDWK=(id,dk,wi)=>{const d=_dd(id,dk);const arr=dayWorksArr(d.works)||[];arr.splice(wi,1);d.works=arr.length?arr:undefined;persist();render();};
-window.ADM=(id,dk,m)=>{if(!m)return;const d=_dd(id,dk);const arr=dayMachArr(d.machines)||[];if(!arr.some(x=>x.name===m))arr.push({name:m,qty:1});d.machines=arr;persist();render();};
-window.ADMM=(id,dk)=>{const el=document.getElementById(`dm_${id}_${dk}`);const v=(el?.value||'').trim();if(!v)return;if(!S.machines.includes(v))S.machines.push(v);const d=_dd(id,dk);const arr=dayMachArr(d.machines)||[];if(!arr.some(x=>x.name===v))arr.push({name:v,qty:1});d.machines=arr;persist();render();};
-window.SetDMQ=(id,dk,mi,v)=>{const d=_dd(id,dk);const arr=dayMachArr(d.machines)||[];if(arr[mi])arr[mi].qty=Math.max(1,Number(v)||1);d.machines=arr;persist();render();};
-window.RDM=(id,dk,mi)=>{const d=_dd(id,dk);const arr=dayMachArr(d.machines)||[];arr.splice(mi,1);d.machines=arr.length?arr:undefined;persist();render();};
-window.ToggleCancel=(id,dk)=>{const s=S.sites.find(x=>String(x.id)===String(id));if(!s)return;s.dayData=s.dayData||{};s.dayData[dk]=s.dayData[dk]||{};s.dayData[dk].cancelled=!s.dayData[dk].cancelled;persist();render();};
-window.RM=(id,mi)=>{const s=S.sites.find(x=>String(x.id)===String(id));if(s)s.machines.splice(mi,1);persist();render();};
-window.AWK2=(id,w)=>{if(!w)return;const s=S.sites.find(x=>String(x.id)===String(id));if(!s)return;s.works=s.works||[];if(!s.works.includes(w))s.works.push(w);persist();render();};
-window.RWK=(id,wi)=>{const s=S.sites.find(x=>String(x.id)===String(id));if(s)s.works.splice(wi,1);persist();render();};
-window.TSD=(id,dk)=>{const s=S.sites.find(x=>String(x.id)===String(id));if(!s)return;s.days=s.days||[];const i=s.days.indexOf(dk);if(i>=0)s.days.splice(i,1);else{s.days.push(dk);s.days.sort();}persist();render();};
-window.AP=id=>{const s=S.sites.find(x=>String(x.id)===String(id));if(!s)return;const f=document.getElementById(`from_${id}`)?.value,t=document.getElementById(`to_${id}`)?.value;if(!f||!t)return;s.days=s.days||[];let c=pd(f);const e=pd(t);while(c<=e){const dk=fmt(c);if(!s.days.includes(dk))s.days.push(dk);c=addD(c,1);}s.days.sort();persist();render();};
-window.TOD=(id,dk)=>{const k=`${id}_${dk}`;S.openDays[k]=!S.openDays[k];persist();render();};
-window.AA=(id,dk)=>{
-  const thisSite=S.sites.find(x=>String(x.id)===String(id));
-  if(!thisSite)return;
-  const shift=thisSite.shift;
-  const alreadyElsewhere=new Set();
-  S.sites.forEach(s=>{
-    if(s.id===id)return;
-    if(s.shift!==shift)return;
-    (s.assigns?.[dk]||[]).forEach(a=>{if(a.name)alreadyElsewhere.add(a.name);});
-  });
-  const alreadyHere=new Set((thisSite.assigns?.[dk]||[]).map(a=>a.name).filter(Boolean));
-  const mainW=S.workers.filter(w=>w.group==='main');
-  const helperW=S.workers.filter(w=>w.group==='helper');
-  const wRows=mainW.map(w=>{
-    const elsewhere=alreadyElsewhere.has(w.name);
-    const here=alreadyHere.has(w.name);
-    return`<label style="display:flex;align-items:center;gap:6px;padding:4px 6px;border-radius:6px;cursor:${here?'default':'pointer'};background:${here?'#f0fdf4':elsewhere?'#f8fafc':'var(--bg1)'};border:1px solid ${here?'#86efac':elsewhere?'#e2e8f0':'transparent'};margin-bottom:2px;">
-      <input type="checkbox" ${here?'checked disabled':''} value="${w.name}" class="wsel-ck" style="cursor:${here?'default':'pointer'};">
-      <span style="font-size:12px;${elsewhere?'color:#94a3b8;':here?'color:#166534;font-weight:500;':''}">${w.name}</span>
-      ${here?'<span style="font-size:10px;color:#166534;margin-left:auto;">配置済</span>':elsewhere?'<span style="font-size:10px;color:#94a3b8;margin-left:auto;">他現場</span>':''}
-    </label>`;
-  }).join('');
-  const helperRows=helperW.map(w=>{
-    const here=alreadyHere.has(w.name);
-    return`<label style="display:flex;align-items:center;gap:6px;padding:4px 6px;border-radius:6px;cursor:${here?'default':'pointer'};background:${here?'#f0fdf4':'var(--bg1)'};border:1px solid ${here?'#86efac':'transparent'};margin-bottom:2px;">
-      <input type="checkbox" ${here?'checked disabled':''} value="${w.name}" class="hsel-ck" style="cursor:${here?'default':'pointer'};">
-      <span style="font-size:12px;${here?'color:#166534;font-weight:500;':''}">${w.name}</span>
-      ${here?'<span style="font-size:10px;color:#166534;margin-left:auto;">配置済</span>':''}
-    </label>`;
-  }).join('');
-  let modal=document.getElementById('cmodal');
-  if(!modal){modal=document.createElement('div');modal.id='cmodal';document.body.appendChild(modal);}
-  modal.innerHTML=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.45);display:flex;align-items:flex-end;justify-content:center;z-index:999;" onclick="closeCopy()">
-  <div onclick="event.stopPropagation()" style="background:var(--bg1);border-radius:12px 12px 0 0;border:1px solid var(--bd2);padding:0;width:100%;max-width:420px;max-height:90vh;display:flex;flex-direction:column;">
-    <div style="padding:14px 16px 8px;border-bottom:1px solid var(--bd3);flex-shrink:0;">
-      <div style="font-weight:600;font-size:13px;">＋ 社員追加　<span style="font-size:10px;color:var(--tx3);font-weight:400;">${dk} ${thisSite.place||''}</span></div>
-    </div>
-    <div style="flex:1;overflow-y:auto;padding:10px 16px;">
-      <div style="font-size:10px;font-weight:600;color:var(--tx2);margin-bottom:6px;">メンバー（チェックで選択）</div>
-      ${wRows}
-      <div style="margin-top:12px;border-top:1px solid var(--bd3);padding-top:10px;">
-        <div style="font-size:10px;font-weight:600;color:var(--tx2);margin-bottom:6px;">追加で入れる種別</div>
-        <div style="display:flex;gap:6px;margin-bottom:10px;">
-          <button id="aaTab_helper" onclick="aaTabSwitch('helper')" style="flex:1;padding:6px;font-size:12px;border-radius:6px;border:2px solid #1e293b;background:#1e293b;color:#fff;cursor:pointer;">助っ人</button>
-          <button id="aaTab_gaichuu" onclick="aaTabSwitch('gaichuu')" style="flex:1;padding:6px;font-size:12px;border-radius:6px;border:2px solid var(--bd2);background:var(--bg1);color:var(--tx);cursor:pointer;">外注</button>
-          <button id="aaTab_manual" onclick="aaTabSwitch('manual')" style="flex:1;padding:6px;font-size:12px;border-radius:6px;border:2px solid var(--bd2);background:var(--bg1);color:var(--tx);cursor:pointer;">手入力</button>
-        </div>
-        <div id="aaPane_helper">
-          ${helperRows||'<div style="font-size:11px;color:var(--tx3);">マスタに助っ人が登録されていません</div>'}
-        </div>
-        <div id="aaPane_gaichuu" style="display:none;">
-          <div style="font-size:11px;color:var(--tx2);margin-bottom:6px;">外注の人数を入力してください</div>
-          <div style="display:flex;align-items:center;gap:8px;">
-            <input id="aaGaichuuCount" type="number" min="1" value="1" style="width:70px;font-size:16px;text-align:center;padding:4px;">
-            <span style="font-size:13px;">名</span>
-          </div>
-        </div>
-        <div id="aaPane_manual" style="display:none;">
-          <div style="font-size:11px;color:var(--tx2);margin-bottom:4px;">名前を入力</div>
-          <input id="aaManualName" placeholder="名前を入力" style="width:100%;font-size:13px;padding:6px;">
-        </div>
-      </div>
-    </div>
-    <div style="padding:10px 16px;border-top:1px solid var(--bd3);display:flex;gap:8px;flex-shrink:0;background:var(--bg1);border-radius:0 0 0 0;">
-      <button class="btn" onclick="closeCopy()" style="flex:1;padding:10px;font-size:13px;">キャンセル</button>
-      <button class="btn btnp" onclick="execAA('${id}','${dk}')" style="flex:2;padding:10px;font-size:13px;">追加する</button>
-    </div>
-  </div></div>`;
-  S.openDays[`${id}_${dk}`]=true;
-};
-window.aaTabSwitch=function(tab){
-  ['helper','gaichuu','manual'].forEach(t=>{
-    const btn=document.getElementById('aaTab_'+t);
-    const pane=document.getElementById('aaPane_'+t);
-    const on=t===tab;
-    if(btn){btn.style.background=on?'#1e293b':'var(--bg1)';btn.style.color=on?'#fff':'var(--tx)';btn.style.borderColor=on?'#1e293b':'var(--bd2)';}
-    if(pane)pane.style.display=on?'block':'none';
-  });
-};
-window.execAA=(id,dk)=>{
-  const s=S.sites.find(x=>String(x.id)===String(id));
-  if(!s){alert('現場が見つかりません。\nID:'+id+'\n登録済みID:'+S.sites.map(x=>x.id).join(','));return;}
-  s.assigns=s.assigns||{};s.assigns[dk]=s.assigns[dk]||[];
-  const alreadyHere=new Set(s.assigns[dk].map(a=>a.name).filter(Boolean));
-  // モーダルを閉じる前に全データを収集
-  const checkedMain=Array.from(document.querySelectorAll('.wsel-ck:checked:not(:disabled)')).map(c=>c.value);
-  const checkedHelper=Array.from(document.querySelectorAll('.hsel-ck:checked:not(:disabled)')).map(c=>c.value);
-  const gaichuuPane=document.getElementById('aaPane_gaichuu');
-  const gaichuuOpen=gaichuuPane&&gaichuuPane.style.display!=='none';
-  const gaichuuCnt=parseInt(document.getElementById('aaGaichuuCount')?.value||'0');
-  const manualName=(document.getElementById('aaManualName')?.value||'').trim();
-  // メンバー追加
-  checkedMain.forEach(name=>{
-    if(!alreadyHere.has(name)){s.assigns[dk].push({name,role:'',vehicle:'',isDriver:false,memo:'',absent:''});alreadyHere.add(name);}
-  });
-  // 助っ人追加
-  checkedHelper.forEach(name=>{
-    if(!alreadyHere.has(name)){s.assigns[dk].push({name,role:'',vehicle:'',isDriver:false,memo:'',absent:''});alreadyHere.add(name);}
-  });
-  // 外注追加
-  if(gaichuuOpen&&gaichuuCnt>0){
-    for(let i=0;i<gaichuuCnt;i++)s.assigns[dk].push({name:'外注',role:'',vehicle:'',isDriver:false,memo:'',absent:''});
+function _dd(si,dk){const s=S.sites[si];s.dayData=s.dayData||{};s.dayData[dk]=s.dayData[dk]||{};return s.dayData[dk];}
+window.ADWK=(si,dk,w)=>{if(!w)return;const d=_dd(si,dk);const arr=dayWorksArr(d.works)||[];if(!arr.includes(w))arr.push(w);d.works=arr;persist();render();};
+window.ADWKM=(si,dk)=>{const el=document.getElementById(`dwk_${si}_${dk}`);const v=(el?.value||'').trim();if(!v)return;if(!S.works.includes(v))S.works.push(v);/* マスタにも登録して次回から選択可能に */const d=_dd(si,dk);const arr=dayWorksArr(d.works)||[];if(!arr.includes(v))arr.push(v);d.works=arr;persist();render();};
+window.RDWK=(si,dk,wi)=>{const d=_dd(si,dk);const arr=dayWorksArr(d.works)||[];arr.splice(wi,1);d.works=arr.length?arr:undefined;persist();render();};
+window.ADM=(si,dk,m)=>{if(!m)return;const d=_dd(si,dk);const arr=dayMachArr(d.machines)||[];if(!arr.some(x=>x.name===m))arr.push({name:m,qty:1});d.machines=arr;persist();render();};
+window.ADMM=(si,dk)=>{const el=document.getElementById(`dm_${si}_${dk}`);const v=(el?.value||'').trim();if(!v)return;if(!S.machines.includes(v))S.machines.push(v);const d=_dd(si,dk);const arr=dayMachArr(d.machines)||[];if(!arr.some(x=>x.name===v))arr.push({name:v,qty:1});d.machines=arr;persist();render();};
+window.SetDMQ=(si,dk,mi,v)=>{const d=_dd(si,dk);const arr=dayMachArr(d.machines)||[];if(arr[mi])arr[mi].qty=Math.max(1,Number(v)||1);d.machines=arr;persist();};
+window.RDM=(si,dk,mi)=>{const d=_dd(si,dk);const arr=dayMachArr(d.machines)||[];arr.splice(mi,1);d.machines=arr.length?arr:undefined;persist();render();};
+window.ADSP=(si,dk,sp)=>{if(!sp)return;const d=_dd(si,dk);const arr=[...(d.supplies||[])];if(!arr.includes(sp))arr.push(sp);d.supplies=arr;persist();render();};
+window.ADSPM=(si,dk)=>{const el=document.getElementById(`dsp_${si}_${dk}`);const v=(el?.value||'').trim();if(!v)return;if(!S.supplies.includes(v))S.supplies.push(v);const d=_dd(si,dk);const arr=[...(d.supplies||[])];if(!arr.includes(v))arr.push(v);d.supplies=arr;persist();render();};
+window.RDSP=(si,dk,spi)=>{const d=_dd(si,dk);const arr=[...(d.supplies||[])];arr.splice(spi,1);d.supplies=arr.length?arr:undefined;persist();render();};
+window.ASP=()=>{const v=(document.getElementById('nsp')?.value||'').trim();if(!v)return;if(!S.supplies.includes(v))S.supplies.push(v);document.getElementById('nsp').value='';persist();render();};
+window.ASP2=(si,sp)=>{if(!sp)return;const s=S.sites[si];s.supplies=s.supplies||[];if(!s.supplies.includes(sp))s.supplies.push(sp);persist();render();};
+window.RSP=(si,spi)=>{const s=S.sites[si];s.supplies=s.supplies||[];s.supplies.splice(spi,1);persist();render();};
+window.DSP=(i)=>{S.supplies.splice(i,1);persist();render();};
+/* ===== チェックリストモーダル（工事内容・使用重機・必要品） ===== */
+window.showCheckModal=function(si,dk,kind){
+  const site=S.sites[si];
+  const d=_dd(si,dk);
+  const titles={works:'工事内容',machines:'使用重機',supplies:'必要品'};
+  const title=titles[kind]||kind;
+
+  /* 既存モーダルを除去 */
+  const old=document.getElementById('ckOverlay');if(old)old.remove();
+
+  /* オーバーレイ */
+  const overlay=document.createElement('div');
+  overlay.id='ckOverlay';
+  overlay.style.cssText='position:fixed;inset:0;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;z-index:2000;';
+
+  /* パネル */
+  const panel=document.createElement('div');
+  panel.style.cssText='background:#fff;border-radius:12px;padding:16px;box-shadow:0 8px 32px rgba(0,0,0,0.25);width:340px;max-width:95vw;max-height:85vh;display:flex;flex-direction:column;';
+
+  /* タイトル */
+  const ttl=document.createElement('div');
+  ttl.style.cssText='font-weight:600;font-size:14px;margin-bottom:10px;flex-shrink:0;';
+  ttl.textContent=title+'を選択';
+
+  /* スクロール本体 */
+  const scroller=document.createElement('div');
+  scroller.style.cssText='overflow-y:auto;flex:1;';
+
+  /* 閉じるボタン */
+  const closeBtn=document.createElement('button');
+  closeBtn.textContent='閉じる';
+  closeBtn.style.cssText='margin-top:10px;padding:6px 20px;border-radius:6px;border:1px solid #d1d5db;background:#f8fafc;font-size:13px;cursor:pointer;align-self:flex-end;flex-shrink:0;';
+  closeBtn.onclick=function(){overlay.remove();render();};
+
+  function buildItems(){
+    scroller.innerHTML='';
+    if(kind==='works'){
+      const cur=dayWorksArr(d.works)||[];
+      sortByUsage(S.works,'works',x=>x).forEach(w=>{
+        const row=document.createElement('label');
+        const chk=cur.includes(w);
+        row.style.cssText=`display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:6px;background:${chk?'#dbeafe':'#f8fafc'};margin-bottom:3px;cursor:pointer;font-size:13px;`;
+        const cb=document.createElement('input');cb.type='checkbox';cb.checked=chk;cb.style.cssText='width:16px;height:16px;';
+        cb.onchange=function(){CKW(si,dk,w,this.checked);buildItems();};
+        const lbl=document.createElement('span');lbl.textContent=w;
+        row.appendChild(cb);row.appendChild(lbl);scroller.appendChild(row);
+      });
+      /* 手入力 */
+      const addRow=document.createElement('div');addRow.style.cssText='display:flex;gap:4px;margin-top:8px;';
+      const inp=document.createElement('input');inp.placeholder='手入力で追加';inp.style.cssText='flex:1;font-size:12px;border:1px solid #d1d5db;border-radius:4px;padding:2px 6px;';
+      const addBtn=document.createElement('button');addBtn.textContent='＋追加';addBtn.className='btn btnp';addBtn.style.fontSize='12px';
+      addBtn.onclick=function(){const v=inp.value.trim();if(!v)return;if(!S.works.includes(v))S.works.push(v);const arr=dayWorksArr(d.works)||[];if(!arr.includes(v))arr.push(v);d.works=arr;inp.value='';persist();render();buildItems();};
+      addRow.appendChild(inp);addRow.appendChild(addBtn);scroller.appendChild(addRow);
+    }
+    if(kind==='machines'){
+      sortByUsage(S.machines,'machines',x=>x).forEach(m=>{
+        /* buildItems()呼び出しのたびに最新データを取得 */
+        const cur=dayMachArr(d.machines)||[];
+        const ex=cur.find(x=>x.name===m);const chk=!!ex;
+        const wrap=document.createElement('div');
+        wrap.style.cssText=`border-radius:6px;background:${chk?'#dbeafe':'#f8fafc'};margin-bottom:4px;padding:6px 8px;`;
+        /* 重機行 */
+        const row=document.createElement('div');row.style.cssText='display:flex;align-items:center;gap:6px;';
+        const cb=document.createElement('input');cb.type='checkbox';cb.checked=chk;cb.style.cssText='width:16px;height:16px;';
+        cb.onchange=function(){CKM(si,dk,m,this.checked);buildItems();};
+        const lbl=document.createElement('span');lbl.style.cssText='flex:1;font-family:monospace;font-weight:500;font-size:13px;';lbl.textContent=m;
+        row.appendChild(cb);row.appendChild(lbl);
+        if(chk){
+          const qinp=document.createElement('input');qinp.type='number';qinp.min='1';qinp.value=ex.qty||1;
+          qinp.style.cssText='width:44px;font-size:11px;border:1px solid #d1d5db;border-radius:4px;padding:1px 3px;';
+          qinp.onchange=function(){CKMQty(si,dk,m,this.value);};
+          const qt=document.createElement('span');qt.textContent='台';qt.style.fontSize='11px';
+          row.appendChild(qinp);row.appendChild(qt);
+        }
+        wrap.appendChild(row);
+        /* 運搬車ボタン */
+        if(chk&&S.vehicles.length){
+          const vrow=document.createElement('div');vrow.style.cssText='display:flex;flex-wrap:wrap;gap:4px;margin-top:5px;padding-left:22px;align-items:center;';
+          const vlbl=document.createElement('span');vlbl.textContent='運搬車:';vlbl.style.cssText='font-size:10px;color:#64748b;';
+          vrow.appendChild(vlbl);
+          S.vehicles.forEach(function(v){
+            const vn=v.name||v;
+            const sel=(ex.carrier||'')===vn;
+            const vbtn=document.createElement('button');
+            vbtn.textContent=vn;
+            vbtn.style.cssText='padding:2px 8px;font-size:11px;border-radius:4px;border:2px solid '+(sel?'#1d4ed8':'#d1d5db')+';background:'+(sel?'#dbeafe':'#fff')+';color:'+(sel?'#1d4ed8':'#374151')+';cursor:pointer;white-space:nowrap;';
+            vbtn.onclick=function(){
+              const arr=dayMachArr(d.machines)||[];
+              const x=arr.find(a=>a.name===m);
+              if(x){
+                /* 押した時点で現在の値を確認してトグル */
+                x.carrier=(x.carrier===vn)?'':vn;
+              }
+              d.machines=arr;
+              persist();
+              buildItems();
+            };
+            vrow.appendChild(vbtn);
+          });
+          wrap.appendChild(vrow);
+        }
+        scroller.appendChild(wrap);
+      });
+      /* 手入力 */
+      const addRow=document.createElement('div');addRow.style.cssText='display:flex;gap:4px;margin-top:8px;';
+      const inp=document.createElement('input');inp.placeholder='手入力で追加';inp.style.cssText='flex:1;font-size:12px;border:1px solid #d1d5db;border-radius:4px;padding:2px 6px;';
+      const addBtn=document.createElement('button');addBtn.textContent='＋追加';addBtn.className='btn btnp';addBtn.style.fontSize='12px';
+      addBtn.onclick=function(){const v=inp.value.trim();if(!v)return;if(!S.machines.includes(v))S.machines.push(v);const arr=dayMachArr(d.machines)||[];if(!arr.some(x=>x.name===v))arr.push({name:v,qty:1,carrier:''});d.machines=arr;inp.value='';persist();render();buildItems();};
+      addRow.appendChild(inp);addRow.appendChild(addBtn);scroller.appendChild(addRow);
+    }
+    if(kind==='supplies'){
+      const cur=d.supplies||[];
+      sortByUsage(S.supplies,'supplies',x=>x).forEach(sp=>{
+        const row=document.createElement('label');
+        const chk=cur.includes(sp);
+        row.style.cssText=`display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:6px;background:${chk?'#dcfce7':'#f8fafc'};margin-bottom:3px;cursor:pointer;font-size:13px;`;
+        const cb=document.createElement('input');cb.type='checkbox';cb.checked=chk;cb.style.cssText='width:16px;height:16px;';
+        cb.onchange=function(){CKSP(si,dk,sp,this.checked);buildItems();};
+        const lbl=document.createElement('span');lbl.textContent=sp;
+        row.appendChild(cb);row.appendChild(lbl);scroller.appendChild(row);
+      });
+      /* 手入力 */
+      const addRow=document.createElement('div');addRow.style.cssText='display:flex;gap:4px;margin-top:8px;';
+      const inp=document.createElement('input');inp.placeholder='手入力で追加';inp.style.cssText='flex:1;font-size:12px;border:1px solid #d1d5db;border-radius:4px;padding:2px 6px;';
+      const addBtn=document.createElement('button');addBtn.textContent='＋追加';addBtn.className='btn btnp';addBtn.style.fontSize='12px';
+      addBtn.onclick=function(){const v=inp.value.trim();if(!v)return;if(!S.supplies.includes(v))S.supplies.push(v);const arr=[...(d.supplies||[])];if(!arr.includes(v))arr.push(v);d.supplies=arr;inp.value='';persist();render();buildItems();};
+      addRow.appendChild(inp);addRow.appendChild(addBtn);scroller.appendChild(addRow);
+    }
   }
-  // 手入力追加
-  if(manualName)s.assigns[dk].push({name:manualName,role:'',vehicle:'',isDriver:false,memo:'',absent:''});
-  S.openDays[`${id}_${dk}`]=true;
+
+  buildItems();
+  panel.appendChild(ttl);panel.appendChild(scroller);panel.appendChild(closeBtn);
+  overlay.appendChild(panel);
+  document.body.appendChild(overlay);
+  /* 背景クリックで閉じる */
+  overlay.addEventListener('mousedown',function(e){if(e.target===overlay){overlay.remove();render();}});
+};
+/* チェック操作：工事内容 */
+window.CKW=(si,dk,w,chk)=>{const d=_dd(si,dk);const arr=dayWorksArr(d.works)||[];if(chk){if(!arr.includes(w))arr.push(w);}else{const i=arr.indexOf(w);if(i>=0)arr.splice(i,1);}d.works=arr.length?arr:undefined;persist();};
+window.CKWAdd=(si,dk)=>{const el=document.getElementById(`ckwAdd_${si}_${dk}`);const v=(el?.value||'').trim();if(!v)return;if(!S.works.includes(v))S.works.push(v);const d=_dd(si,dk);const arr=dayWorksArr(d.works)||[];if(!arr.includes(v))arr.push(v);d.works=arr;el.value='';persist();render();if(window._ckCtx)window._ckCtx.rebuild();};
+/* チェック操作：使用重機 */
+window.CKM=(si,dk,m,chk)=>{const d=_dd(si,dk);const arr=dayMachArr(d.machines)||[];if(chk){if(!arr.some(x=>x.name===m))arr.push({name:m,qty:1,carrier:''});}else{const i=arr.findIndex(x=>x.name===m);if(i>=0)arr.splice(i,1);}d.machines=arr.length?arr:undefined;persist();};
+window.CKMQty=(si,dk,m,v)=>{const d=_dd(si,dk);const arr=dayMachArr(d.machines)||[];const x=arr.find(a=>a.name===m);if(x)x.qty=Math.max(1,Number(v)||1);d.machines=arr;persist();/* render不要 */};
+window.CKMCarrier=(si,dk,m,v)=>{
+  const d=_dd(si,dk);
+  const arr=dayMachArr(d.machines)||[];
+  const x=arr.find(a=>a.name===m);
+  if(x)x.carrier=v;
+  d.machines=arr;
   persist();
-  // モーダルを閉じてから再描画
-  const cm=document.getElementById('cmodal');if(cm)cm.innerHTML='';
-  render();
+  /* ボタンの見た目だけ更新（rebuildなし） */
+  const body=document.getElementById('ckModalBody');
+  if(!body)return;
+  body.querySelectorAll('button[data-mname]').forEach(btn=>{
+    const isSel=btn.dataset.mname===m&&btn.dataset.vname===v;
+    btn.style.background=isSel?'#dbeafe':'#fff';
+    btn.style.borderColor=isSel?'#1d4ed8':'#d1d5db';
+    btn.style.color=isSel?'#1d4ed8':'#374151';
+  });
 };
-window.UA=(id,dk,ai,k,v)=>{const s=S.sites.find(x=>String(x.id)===String(id));if(s?.assigns?.[dk]?.[ai])s.assigns[dk][ai][k]=v;persist();};
-window.RA=(id,dk,ai)=>{
-  const s=S.sites.find(x=>String(x.id)===String(id));
-  if(!s){alert('現場が見つかりません。ID:'+id);return;}
-  if(!s.assigns||!s.assigns[dk]){alert('その日の配置データがありません');return;}
-  s.assigns[dk].splice(ai,1);
-  persist();render();
-};
+window.CKMAdd=(si,dk)=>{const el=document.getElementById(`ckmAdd_${si}_${dk}`);const v=(el?.value||'').trim();if(!v)return;if(!S.machines.includes(v))S.machines.push(v);const d=_dd(si,dk);const arr=dayMachArr(d.machines)||[];if(!arr.some(x=>x.name===v))arr.push({name:v,qty:1,carrier:''});d.machines=arr;el.value='';persist();render();if(window._ckCtx)window._ckCtx.rebuild();};
+/* チェック操作：必要品 */
+window.CKSP=(si,dk,sp,chk)=>{const d=_dd(si,dk);const arr=[...(d.supplies||[])];if(chk){if(!arr.includes(sp))arr.push(sp);}else{const i=arr.indexOf(sp);if(i>=0)arr.splice(i,1);}d.supplies=arr.length?arr:undefined;persist();};
+window.CKSPAdd=(si,dk)=>{const el=document.getElementById(`ckspAdd_${si}_${dk}`);const v=(el?.value||'').trim();if(!v)return;if(!S.supplies.includes(v))S.supplies.push(v);const d=_dd(si,dk);const arr=[...(d.supplies||[])];if(!arr.includes(v))arr.push(v);d.supplies=arr;el.value='';persist();render();if(window._ckCtx)window._ckCtx.rebuild();};
+/* 重機チップの運搬車を直接変更 */
+window.SetDMV=(si,dk,mi,v)=>{const d=_dd(si,dk);const arr=dayMachArr(d.machines)||[];if(arr[mi])arr[mi].carrier=v;d.machines=arr;persist();};
+window.closeCkModal=()=>{const el=document.getElementById('cmodal');if(el)el.innerHTML='';};
+window.ToggleCancel=(si,dk)=>{const s=S.sites[si];s.dayData=s.dayData||{};s.dayData[dk]=s.dayData[dk]||{};s.dayData[dk].cancelled=!s.dayData[dk].cancelled;persist();render();};
+window.RM=(si,mi)=>{S.sites[si].machines.splice(mi,1);persist();render();};
+window.AWK2=(si,w)=>{if(!w)return;const s=S.sites[si];s.works=s.works||[];if(!s.works.includes(w))s.works.push(w);persist();render();};
+window.RWK=(si,wi)=>{S.sites[si].works.splice(wi,1);persist();render();};
+window.TSD=(si,dk)=>{const s=S.sites[si];s.days=s.days||[];const i=s.days.indexOf(dk);if(i>=0)s.days.splice(i,1);else{s.days.push(dk);s.days.sort();}persist();render();};
+window.AP=si=>{const f=document.getElementById(`from_${si}`)?.value,t=document.getElementById(`to_${si}`)?.value;if(!f||!t)return;const s=S.sites[si];s.days=s.days||[];let c=pd(f);const e=pd(t);while(c<=e){const dk=fmt(c);if(!s.days.includes(dk))s.days.push(dk);c=addD(c,1);}s.days.sort();persist();render();};
+window.TOD=(si,dk)=>{const k=`${si}_${dk}`;S.openDays[k]=!S.openDays[k];persist();render();};
+window.AA=(si,dk)=>{const s=S.sites[si];s.assigns=s.assigns||{};s.assigns[dk]=s.assigns[dk]||[];s.assigns[dk].push({name:'',role:'',vehicle:'',isDriver:false,memo:'',absent:''});S.openDays[`${si}_${dk}`]=true;persist();render();};
+window.UA=(si,dk,ai,k,v)=>{if(S.sites[si].assigns?.[dk]?.[ai])S.sites[si].assigns[dk][ai][k]=v;persist();};
+window.RA=(si,dk,ai)=>{S.sites[si].assigns[dk].splice(ai,1);persist();render();};
 window.SRW=v=>{S.rpW=v;persist();render();};
 window.FY=d=>{const cur=S.fyView!==null?S.fyView:fyStartYear(S.rpYM+'-01');S.fyView=cur+d;persist();render();};
 window.CM=d=>{const[y,m]=S.rpYM.split('-').map(Number);const nd=new Date(y,m-1+d,1);S.rpYM=`${nd.getFullYear()}-${String(nd.getMonth()+1).padStart(2,'0')}`;S.fyView=null;persist();render();};
@@ -2108,7 +1879,6 @@ window.ACT=(k,f,v)=>{S.actuals[k]=S.actuals[k]||{};S.actuals[k][f]=v;persist();}
 window.AW=()=>{const no=document.getElementById('nwno')?.value.trim(),name=document.getElementById('nwname')?.value.trim(),group=document.getElementById('nwg')?.value||'main';if(!name)return;S.workers.push({no:no||'—',name,fullName:name,kana:'',birth:'',group,hireDate:'',email:''});persist();render();};
 window.ACT2=()=>{const n=document.getElementById('nctn')?.value.trim(),t=document.getElementById('nctt')?.value.trim();if(!n)return;S.contacts=S.contacts||[];S.contacts.push({name:n,tel:t});persist();render();};
 window.DCT=i=>{S.contacts.splice(i,1);persist();render();};
-window.SetCT=(i,k,v)=>{if(S.contacts[i])S.contacts[i][k]=v;persist();};
 window.AR=()=>{const v=document.getElementById('nrole')?.value.trim();if(!v)return;S.roles.push(v);persist();render();};
 window.DR=i=>{S.roles.splice(i,1);persist();render();};
 window.AWK=()=>{const v=document.getElementById('nwork')?.value.trim();if(!v)return;S.works.push(v);persist();render();};
@@ -2120,6 +1890,5 @@ window.AV=()=>{const n=document.getElementById('nvn')?.value.trim(),a=Number(doc
 window.DV=i=>{S.vehicles.splice(i,1);persist();render();};
 init();
 </script>
-
-
-</body></html>
+</body>
+</html>

@@ -13,15 +13,15 @@
       "contact": "紺野",
       "contactManual": "",
       "contactTel": "",
-      "ourContact": "",
-      "leader": "",
+      "ourContact": "阿部",
+      "leader": "駒田",
       "works": [],
       "machines": [],
       "gatherTime": "",
       "gatherType": "集合",
       "note": "",
       "okiba": "無",
-      "kaisou": "",
+      "kaisou": "○",
       "enShoo": false
     },
     {
@@ -1079,5 +1079,5 @@
     "5_2026-06-12": true,
     "6_2026-06-11": true
   },
-  "_savedAt": "2026/6/10 18:22:17"
+  "_savedAt": "2026/6/10 18:22:26"
 }

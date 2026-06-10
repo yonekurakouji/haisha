@@ -13,7 +13,7 @@
       "contact": "",
       "contactManual": "",
       "contactTel": "",
-      "ourContact": "",
+      "ourContact": "阿部",
       "leader": "",
       "works": [],
       "machines": [],
@@ -1414,5 +1414,5 @@
   "fiveBase": "2026-06-05",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 19:48:47"
+  "_savedAt": "2026/6/10 19:48:54"
 }

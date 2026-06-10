@@ -22,6 +22,14 @@
             "isDriver": false,
             "memo": "写真管理",
             "absent": ""
+          },
+          {
+            "name": "",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
@@ -1456,5 +1464,5 @@
   "fiveBase": "2026-06-05",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 19:35:05"
+  "_savedAt": "2026/6/10 19:35:55"
 }

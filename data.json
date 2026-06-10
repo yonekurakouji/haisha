@@ -8,7 +8,7 @@
       "assigns": {},
       "dayData": {},
       "shift": "昼",
-      "place": "",
+      "place": "守谷アパート",
       "prime": "",
       "contact": "",
       "contactManual": "",
@@ -1079,5 +1079,5 @@
     "5_2026-06-12": true,
     "6_2026-06-11": true
   },
-  "_savedAt": "2026/6/10 18:21:34"
+  "_savedAt": "2026/6/10 18:21:59"
 }

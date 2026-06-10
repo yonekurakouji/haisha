@@ -33,7 +33,7 @@
           },
           {
             "name": "近藤",
-            "role": "",
+            "role": "ﾚｰｷﾏﾝ",
             "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "",
@@ -41,7 +41,7 @@
           },
           {
             "name": "中川",
-            "role": "",
+            "role": "運搬員",
             "vehicle": "4tダンプ",
             "isDriver": true,
             "memo": "",
@@ -1745,5 +1745,5 @@
   "fiveBase": "2026-06-10",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 20:53:20"
+  "_savedAt": "2026/6/10 20:53:26"
 }

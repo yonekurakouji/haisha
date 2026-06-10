@@ -10,8 +10,8 @@
           {
             "name": "駒田",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "",
-            "isDriver": false,
+            "vehicle": "レンジャー",
+            "isDriver": true,
             "memo": "",
             "absent": ""
           }
@@ -1448,5 +1448,5 @@
   "fiveBase": "2026-06-05",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/10 19:34:05"
+  "_savedAt": "2026/6/10 19:34:12"
 }

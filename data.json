@@ -10,7 +10,7 @@
       "shift": "昼",
       "place": "守谷アパート",
       "prime": "大夢",
-      "contact": "",
+      "contact": "紺野",
       "contactManual": "",
       "contactTel": "",
       "ourContact": "",
@@ -20,7 +20,7 @@
       "gatherTime": "",
       "gatherType": "集合",
       "note": "",
-      "okiba": "",
+      "okiba": "無",
       "kaisou": "",
       "enShoo": false
     },
@@ -1079,5 +1079,5 @@
     "5_2026-06-12": true,
     "6_2026-06-11": true
   },
-  "_savedAt": "2026/6/10 18:22:10"
+  "_savedAt": "2026/6/10 18:22:17"
 }

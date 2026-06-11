@@ -406,10 +406,16 @@ function init(){
 }
 function fetchAndApply(url){
   document.getElementById('app').innerHTML='<div style="padding:40px;text-align:center;color:#475569;">予定データを読み込み中...</div>';
-  fetch(url).then(r=>{if(!r.ok)throw new Error('取得失敗');return r.json();}).then(d=>{
-    applyData(d);if(!S.openDays)S.openDays={};render();
+  fetch(url).then(r=>{if(!r.ok)throw new Error('取得失敗 '+r.status);return r.json();}).then(d=>{
+    try{
+      applyData(d);
+      if(!S.openDays)S.openDays={};
+      render();
+    }catch(e2){
+      document.getElementById('app').innerHTML='<div style="padding:40px;text-align:center;color:#b91c1c;"><b>表示エラー</b><br><span style="font-size:12px;">'+e2.message+'</span><br><span style="font-size:10px;color:#94a3b8;">'+String(e2.stack||'').slice(0,200)+'</span></div>';
+    }
   }).catch(e=>{
-    document.getElementById('app').innerHTML='<div style="padding:40px;text-align:center;color:#b91c1c;">データの読み込みに失敗しました。<br>共有リンクが正しいか管理者に確認してください。<br><span style="font-size:11px;color:#94a3b8;">'+e.message+'</span></div>';
+    document.getElementById('app').innerHTML='<div style="padding:40px;text-align:center;color:#b91c1c;">データの読み込みに失敗しました。<br><span style="font-size:11px;color:#94a3b8;">'+e.message+'</span></div>';
   });
 }
 const render=()=>{

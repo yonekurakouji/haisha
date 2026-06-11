@@ -1,11 +1,13 @@
-<html lang="ja"><head>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="0">
 <title>配車・予定／日報</title>
-<link rel="stylesheet" crossorigin="anonymous" href="https://gc.kis.v2.scr.kaspersky-labs.com/E3E8934C-235A-4B0E-825A-35A08381A191/abn/main.css?attr=aHR0cHM6Ly9teS5taWNyb3NvZnRwZXJzb25hbGNvbnRlbnQuY29tL3BlcnNvbmFsL2ViOWUxOGUzZDliYjBhN2UvX2xheW91dHMvMTUvZG93bmxvYWQuYXNweD9VbmlxdWVJZD1lNjc2ZGVlOS1kYTlmLTRmMWMtOTAxNy1mYTBhMDQ2MDA1ZWImVHJhbnNsYXRlPWZhbHNlJnRlbXBhdXRoPXYxZS5leUp6YVhSbGFXUWlPaUl3TUdNeU9UY3haQzAxWWpNNUxUUTVaalV0WWpBMllpMWtORGMyWVdJMVpUWm1NakFpTENKaGNIQnBaQ0k2SWpBd01EQXdNREF3TFRBd01EQXRNREF3TUMwd01EQXdMVEF3TURBME9ERTNNVEJoTkNJc0ltRjFaQ0k2SWpBd01EQXdNREF6TFRBd01EQXRNR1ptTVMxalpUQXdMVEF3TURBd01EQXdNREF3TUM5dGVTNXRhV055YjNOdlpuUndaWEp6YjI1aGJHTnZiblJsYm5RdVkyOXRRRGt4T0Rnd05EQmtMVFpqTmpjdE5HTTFZaTFpTVRFeUxUTTJZVE13TkdJMk5tUmhaQ0lzSW1WNGNDSTZJakUzT0RFeE16ZzVPRElpZlEuOG0zXy1qQ09ZaGlOb0R5YlhZXzhIX3Z4VXhsWDJrMmlvUzltRHpKRVVERmF2ZzFvVUJjNFBnRW43dks1T0hTRUYzejNvUF9xa1F1M2M0eGZYaFZnZ05LZF9fRENIVU10dm45VE1qRlZsUC1fREdNa2lYb1ZwTlhfS05VTjZCTmRfUEZkWXBDVlI5b2lteGNGQzJPSUtMUm5lMHU1clhKZGliYmx2b2xBWW1fd1RieG1NMFk5bjUyMjdaemREQVdSaXdmQ1FhNFFWZ1JBaFVNbm1qbmcwYjFsRU1hTEczaWhJdk5TQTJpV1h5QVNRdVhweHhVQktFZHZjVjRwQ3dScEk4bWlDUXFBRUluV1VaVEJ2a3h2QVc5dER5OW5YRERZM2lZckVQRDk2eGxQRzRuTnpZeXVVazl5LVlHWVdSVU12NTN5UnJFZnVTMzcyVnM3Y3lULS1fSW1leW1fbF9uSWhhOU4zZHJuWTFkMExqbGRWLVJ2bDhWM3dkeU9sSDFiSGgxMm5XU01ua0E0cUVkSF9GcFR2bkRNNDFJQUdnd0VQajBxOWJpaTZaREJrRktlY012V2N4T3diSTktclRNMEZiSVU5a3IxeXc2eURCVjlPVjN6U21kdEFpUWJ4aDRyenExVkxYdnc5QzdvOVZWU3lmX0U2dWw3cDNnOEwwTHIubnBuM2d2TXBsZUM1bTNBN3pXM2FyM3dweU9LcUhhSWk5WWZMY1lNczM2ZyZBcGlWZXJzaW9uPTIuMA"><style>
+<script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=V5nbC-QD7TqmAORaS5cF8y7qHKlYhkeGy85jaOyx7O5bIVNaHdK9eBFu3MR6EHdZlIJ0g7KKcppi91i5WqeOm2nvnmSpCCqT2CbrVMORBqSUuRnNgy9oYv-ckZBvaMZAsVHBueW0vTs1JMYgsKI6bphJuDJzi0mFAgWU9EWGrk2e1m4rklCvSFKDUnVaeB3X" charset="UTF-8"></script><style>
 :root{
   --bg:#f1f5f9;--bg1:#ffffff;--bg2:#f8fafc;--bg3:#f1f5f9;
   --tx:#0f172a;--tx2:#475569;--tx3:#94a3b8;
@@ -95,347 +97,7 @@ body.printLandscape @page,.printLandscape{}
 </style>
 </head>
 <body>
-<div id="app"><div class="hdr">
-    <span style="font-weight:500;font-size:14px;">配車・予定／日報</span>
-    <div style="margin-left:auto;display:flex;gap:6px;align-items:center;">
-      <span style="font-size:10px;color:#86efac;">自動保存ON</span>
-      <button class="hbtn" id="pubBtn" onclick="publishToGitHub()" style="background:#166534;color:#fff;border-color:#166634;" disabled="">⏳ アプリ更新中...</button>
-      <button class="hbtn" onclick="exportFile()">💾 ファイル書出</button>
-      <label class="hbtn" style="cursor:pointer;">📂 読込<input type="file" accept=".json,application/json" onchange="importFile(this)" style="display:none;"></label>
-    </div>
-  </div>
-  <div class="nav"><button class="nb on" onclick="T('weekly')">週間予定表</button><button class="nb" onclick="T('dispatch')">配車・割振</button><button class="nb" onclick="T('quarterly')">📊 3ヶ月管理</button><button class="nb" onclick="T('byworker')">社員別</button><button class="nb" onclick="T('bymachine')">機械別</button><button class="nb" onclick="T('report')">日報</button><button class="nb" onclick="T('izumi')">出面</button><button class="nb" onclick="T('master')">マスタ</button></div>
-  <div class="main">
-    <div class="savebar">✓ このファイルは自動保存されます。開き直しても前回の続きから使えます。バックアップしたい時は「💾 ファイル書出」を押してください。</div>
-    <div class="tb"><strong style="font-size:13px;">週間予定表</strong>
-  <div style="display:flex;border:1px solid var(--bd2);border-radius:6px;overflow:hidden;">
-    <button onclick="WM('person')" style="padding:4px 10px;border:none;background:none;color:var(--tx2);cursor:pointer;font-size:11px;">個人別</button>
-    <button onclick="WM('site')" style="padding:4px 10px;border:none;background:#1e293b;color:#f1f5f9;cursor:pointer;font-size:11px;">現場別</button>
-  </div>
-  
-  <button class="btn" onclick="MF(-5)">◀ 前</button><button class="btn" onclick="MF(0)">今日</button><button class="btn" onclick="MF(5)">次 ▶</button>
-  <input type="date" value="2026-06-11" onchange="SF(this.value)" style="width:140px;">
-  <button class="btn" onclick="printWeekSet()" style="background:#166534;color:#fff;border-color:#166534;">🖨 3種まとめてPDF</button><button class="btn" onclick="printWeek()">🖨 今の表だけ</button><button class="btn" onclick="showWeekMail()" style="background:#1e40af;color:#fff;border-color:#1e40af;">✉ 予定をメール</button>
-  </div><div style="overflow-x:auto;"><table class="tbl" style="width:100%;">
-    <thead><tr><th style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#334155;color:#f1f5f9;width:64px;">日付</th><th style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#334155;color:#f1f5f9;">現場・作業員</th></tr></thead>
-    <tbody><tr>
-      <th onclick="TE('2026-06-11')" style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#93c5fd;color:#0f172a;cursor:pointer;text-align:center;padding:8px 6px;white-space:nowrap;vertical-align:top;">6/11<br>(木)<br>★</th>
-      <td style="border:1px solid var(--bd3);padding:5px;vertical-align:top;background:var(--bg1);">
-          
-          <div class="site-block site-block-day" style="border-left:5px solid #b45309;">
-        <div style="display:flex;gap:8px;">
-          <div style="flex:1;min-width:0;">
-            <div class="sb-name">
-              <span class="bday">昼</span> 笠間
-              <span style="font-size:10px;color:#065f46;background:#d1fae5;border-radius:4px;padding:0 4px;margin:0 3px;">舗装工・路盤工</span>
-              <span class="bcnt" style="margin-left:2px;">計6名</span>
-              
-              <button class="btn" onclick="EditSite('2')" style="font-size:10px;padding:0 6px;margin-left:6px;">✎ 編集</button>
-            </div>
-            
-            <div class="sb-meta">
-              <span>常盤工業 <b>斉藤所長</b> <span style="color:#1e40af;">07012590471</span></span><br>
-              <span>重機: <span class="bmach">ﾕﾝﾎﾞ0.1</span><span class="bmach">ｻｲﾄﾞﾛｰﾗｰ</span></span><br>
-              <span style="color:#166534;">必要品: <span style="background:#dcfce7;border:1px solid #86efac;border-radius:3px;padding:0 4px;font-size:10px;">砂</span></span><br>
-              <span>集合: <b style="color:#b45309;">7:15</b></span><br>
-              <span>置場:有 回送:○</span>
-            </div>
-          </div>
-          <div style="width:96px;flex-shrink:0;border-left:2px solid #fde68a;padding-left:6px;font-size:11px;">
-            <div style="margin-bottom:3px;"><span style="color:var(--tx2);">リーダー：</span><b style="color:#b45309;">駒田</b></div>
-            <div><span style="color:var(--tx2);">担当：</span><b>阿部</b></div>
-          </div>
-        </div>
-        <hr class="sb-divider"><div class="sb-worker">
-            <span style="font-weight:700;color:#b45309;">駒田★</span>
-            <span style="font-size:10px;color:var(--tx2);">作業員</span>
-            <span class="sb-car">3tダンプ</span>
-            <span class="bdrv">運転</span>
-            <span style="font-size:10px;background:#fef9c3;border:1px solid #fde68a;border-radius:3px;padding:0 4px;color:#854d0e;">積載:ﾕﾝﾎﾞ0.1</span>
-            
-          </div><div class="sb-worker">
-            <span style="font-weight:500;color:var(--tx);">小松﨑</span>
-            <span style="font-size:10px;color:var(--tx2);">重機OP</span>
-            <span class="sb-car">4tダンプ</span>
-            <span class="bdrv">運転</span>
-            <span style="font-size:10px;background:#fef9c3;border:1px solid #fde68a;border-radius:3px;padding:0 4px;color:#854d0e;">積載:ｻｲﾄﾞﾛｰﾗｰ</span>
-            
-          </div><div class="sb-worker">
-            <span style="font-weight:500;color:var(--tx);">近藤</span>
-            <span style="font-size:10px;color:var(--tx2);">作業員</span>
-            <span class="sb-car">Wキャブ</span>
-            <span class="bdrv">運転</span>
-            
-            
-          </div><div class="sb-worker">
-            <span style="font-weight:500;color:var(--tx);">大竹</span>
-            <span style="font-size:10px;color:var(--tx2);">作業員</span>
-            <span class="sb-car">Wキャブ</span>
-            
-            
-            
-          </div><div class="sb-worker">
-            <span style="font-weight:500;color:var(--tx);">菅沼</span>
-            <span style="font-size:10px;color:var(--tx2);">作業員</span>
-            <span class="sb-car">Wキャブ</span>
-            
-            
-            
-          </div><div class="sb-worker">
-            <span style="font-weight:500;color:var(--tx);">アグン</span>
-            <span style="font-size:10px;color:var(--tx2);">作業員</span>
-            <span class="sb-car">Wキャブ</span>
-            
-            
-            
-          </div>
-        <div style="margin-top:4px;text-align:right;"><button class="btn" onclick="event.stopPropagation();TogRep('rep_2_2026-06-11')" style="font-size:11px;padding:2px 8px;color:#0369a1;border-color:#7dd3fc;">📝 終了報告</button></div>
-      </div><div class="site-block site-block-day" style="border-left:5px solid #0e7490;">
-        <div style="display:flex;gap:8px;">
-          <div style="flex:1;min-width:0;">
-            <div class="sb-name">
-              <span class="bday">昼</span> 事務所
-              <span style="font-size:10px;color:#065f46;background:#d1fae5;border-radius:4px;padding:0 4px;margin:0 3px;">片付け清掃</span>
-              <span class="bcnt" style="margin-left:2px;">計4名</span>
-              
-              <button class="btn" onclick="EditSite('1')" style="font-size:10px;padding:0 6px;margin-left:6px;">✎ 編集</button>
-            </div>
-            
-            <div class="sb-meta">
-              
-              
-              
-              <span>集合: <b style="color:#b45309;">8:00</b></span><br>
-              
-            </div>
-          </div>
-          <div style="width:96px;flex-shrink:0;border-left:2px solid #fde68a;padding-left:6px;font-size:11px;">
-            <div style="margin-bottom:3px;"><span style="color:var(--tx2);">リーダー：</span><b style="color:#b45309;">中川</b></div>
-            <div><span style="color:var(--tx2);">担当：</span><b>阿部</b></div>
-          </div>
-        </div>
-        <hr class="sb-divider"><div class="sb-worker">
-            <span style="font-weight:700;color:#b45309;">中川★</span>
-            
-            
-            
-            
-            
-          </div><div class="sb-worker">
-            <span style="font-weight:500;color:var(--tx);">佐藤</span>
-            
-            
-            
-            
-            
-          </div><div class="sb-worker">
-            <span style="font-weight:500;color:var(--tx);">アリヤ</span>
-            
-            
-            
-            
-            
-          </div><div class="sb-worker">
-            <span style="font-weight:500;color:var(--tx);">アマダ</span>
-            
-            
-            
-            
-            
-          </div>
-        <div style="margin-top:4px;text-align:right;"><button class="btn" onclick="event.stopPropagation();TogRep('rep_1_2026-06-11')" style="font-size:11px;padding:2px 8px;color:#0369a1;border-color:#7dd3fc;">📝 終了報告</button></div>
-      </div>
-        </td>
-    </tr><tr>
-      <th onclick="TE('2026-06-12')" style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#cbd5e1;color:#0f172a;cursor:pointer;text-align:center;padding:8px 6px;white-space:nowrap;vertical-align:top;">6/12<br>(金)</th>
-      <td style="border:1px solid var(--bd3);padding:5px;vertical-align:top;background:var(--bg1);">
-          
-          <div class="site-block site-block-day" style="border-left:5px solid #b45309;">
-        <div style="display:flex;gap:8px;">
-          <div style="flex:1;min-width:0;">
-            <div class="sb-name">
-              <span class="bday">昼</span> つくば市真瀬
-              <span style="font-size:10px;color:#065f46;background:#d1fae5;border-radius:4px;padding:0 4px;margin:0 3px;">舗装工</span>
-              <span class="bcnt" style="margin-left:2px;">計4名</span>
-              
-              <button class="btn" onclick="EditSite('1')" style="font-size:10px;padding:0 6px;margin-left:6px;">✎ 編集</button>
-            </div>
-            
-            <div class="sb-meta">
-              <span>ザキヤマ</span><br>
-              <span>重機: <span class="bmach">ﾕﾝﾎﾞ0.1</span><span class="bmach">ｺﾝﾊﾞｲﾝﾄﾞ2.5</span><span class="bmach">ﾗﾝﾏ</span><span class="bmach">ﾌﾟﾚｰﾄ×2</span></span><br>
-              
-              <span>集合: <b style="color:#b45309;">8:00</b></span><br>
-              <span>置場:有 回送:○</span>
-            </div>
-          </div>
-          <div style="width:96px;flex-shrink:0;border-left:2px solid #fde68a;padding-left:6px;font-size:11px;">
-            <div style="margin-bottom:3px;"><span style="color:var(--tx2);">リーダー：</span><b style="color:#b45309;">駒田</b></div>
-            <div><span style="color:var(--tx2);">担当：</span><b>阿部</b></div>
-          </div>
-        </div>
-        <hr class="sb-divider"><div class="sb-worker">
-            <span style="font-weight:700;color:#b45309;">駒田★</span>
-            
-            
-            
-            
-            
-          </div><div class="sb-worker">
-            <span style="font-weight:500;color:var(--tx);">小松﨑</span>
-            
-            
-            
-            
-            
-          </div><div class="sb-worker">
-            <span style="font-weight:500;color:var(--tx);">近藤</span>
-            
-            
-            
-            
-            
-          </div><div class="sb-worker">
-            <span style="font-weight:500;color:var(--tx);">中川</span>
-            
-            
-            
-            
-            
-          </div>
-        <div style="margin-top:4px;text-align:right;"><button class="btn" onclick="event.stopPropagation();TogRep('rep_1_2026-06-12')" style="font-size:11px;padding:2px 8px;color:#0369a1;border-color:#7dd3fc;">📝 終了報告</button></div>
-      </div>
-        </td>
-    </tr><tr>
-      <th onclick="TE('2026-06-13')" style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#bfdbfe;color:#1e3a8a;cursor:pointer;text-align:center;padding:8px 6px;white-space:nowrap;vertical-align:top;">6/13<br>(土)</th>
-      <td style="border:1px solid var(--bd3);padding:5px;vertical-align:top;background:var(--bg1);">
-          <div style="color:var(--tx3);font-size:11px;padding:8px;">予定なし</div>
-          
-        </td>
-    </tr><tr>
-      <th onclick="TE('2026-06-14')" style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#fda4af;color:#881337;cursor:pointer;text-align:center;padding:8px 6px;white-space:nowrap;vertical-align:top;">6/14<br>(日)</th>
-      <td style="border:1px solid var(--bd3);padding:5px;vertical-align:top;background:var(--bg1);">
-          <div style="color:var(--tx3);font-size:11px;padding:8px;">予定なし</div>
-          
-        </td>
-    </tr><tr>
-      <th onclick="TE('2026-06-15')" style="border:1px solid #94a3b8;padding:4px 3px;font-size:11px;font-weight:500;text-align:center;white-space:nowrap;background:#cbd5e1;color:#0f172a;cursor:pointer;text-align:center;padding:8px 6px;white-space:nowrap;vertical-align:top;">6/15<br>(月)</th>
-      <td style="border:1px solid var(--bd3);padding:5px;vertical-align:top;background:var(--bg1);">
-          
-          <div class="site-block site-block-day" style="border-left:5px solid #b45309;">
-        <div style="display:flex;gap:8px;">
-          <div style="flex:1;min-width:0;">
-            <div class="sb-name">
-              <span class="bday">昼</span> つくば市二ノ宮
-              <span style="font-size:10px;color:#065f46;background:#d1fae5;border-radius:4px;padding:0 4px;margin:0 3px;">捲り舗装</span>
-              <span class="bcnt" style="margin-left:2px;">計12名</span>
-              
-              <button class="btn" onclick="EditSite('1')" style="font-size:10px;padding:0 6px;margin-left:6px;">✎ 編集</button>
-            </div>
-            
-            <div class="sb-meta">
-              <span>サンコー建設 <b>サンコー鈴木</b> <span style="color:#1e40af;">09057738583</span></span><br>
-              <span>重機: <span class="bmach">ﾕﾝﾎﾞ0.1</span><span class="bmach">ｺﾝﾊﾞｲﾝﾄﾞ2.5</span><span class="bmach">ｻｲﾄﾞﾛｰﾗｰ</span><span class="bmach">ﾌﾟﾚｰﾄ×2</span><span class="bmach">ｽﾌﾟﾚｲﾔｰ</span></span><br>
-              <span style="color:#166534;">必要品: <span style="background:#dcfce7;border:1px solid #86efac;border-radius:3px;padding:0 4px;font-size:10px;">乳剤</span><span style="background:#dcfce7;border:1px solid #86efac;border-radius:3px;padding:0 4px;font-size:10px;">砂</span></span><br>
-              <span>集合: <b style="color:#b45309;">7:00</b></span><br>
-              <span>置場:無 回送:○</span>
-            </div>
-          </div>
-          <div style="width:96px;flex-shrink:0;border-left:2px solid #fde68a;padding-left:6px;font-size:11px;">
-            <div style="margin-bottom:3px;"><span style="color:var(--tx2);">リーダー：</span><b style="color:#b45309;">駒田</b></div>
-            <div><span style="color:var(--tx2);">担当：</span><b>阿部</b></div>
-          </div>
-        </div>
-        <hr class="sb-divider"><div class="sb-worker">
-            <span style="font-weight:500;color:var(--tx);">阿部</span>
-            <span style="font-size:10px;color:var(--tx2);">作業員</span>
-            <span class="sb-car">Wキャブ</span>
-            <span class="bdrv">運転</span>
-            
-            
-          </div><div class="sb-worker">
-            <span style="font-weight:700;color:#b45309;">駒田★</span>
-            <span style="font-size:10px;color:var(--tx2);">ﾚｰｷﾏﾝ</span>
-            <span class="sb-car">R8</span>
-            <span class="bdrv">運転</span>
-            
-            
-          </div><div class="sb-worker">
-            <span style="font-weight:500;color:var(--tx);">小松﨑</span>
-            <span style="font-size:10px;color:var(--tx2);">ﾛｰﾗｰﾏﾝ</span>
-            <span class="sb-car">R1</span>
-            <span class="bdrv">運転</span>
-            
-            
-          </div><div class="sb-worker">
-            <span style="font-weight:500;color:var(--tx);">近藤</span>
-            <span style="font-size:10px;color:var(--tx2);">運搬員</span>
-            <span class="sb-car">3tダンプ</span>
-            <span class="bdrv">運転</span>
-            
-            
-          </div><div class="sb-worker">
-            <span style="font-weight:500;color:var(--tx);">中川</span>
-            <span style="font-size:10px;color:var(--tx2);">運搬員</span>
-            <span class="sb-car">4tダンプ</span>
-            <span class="bdrv">運転</span>
-            
-            
-          </div><div class="sb-worker">
-            <span style="font-weight:500;color:var(--tx);">大竹</span>
-            <span style="font-size:10px;color:var(--tx2);">ｽｺｯﾌﾟﾏﾝ</span>
-            <span class="sb-car">Wキャブ</span>
-            
-            
-            
-          </div><div class="sb-worker">
-            <span style="font-weight:500;color:var(--tx);">菅沼</span>
-            <span style="font-size:10px;color:var(--tx2);">ｽｺｯﾌﾟﾏﾝ</span>
-            <span class="sb-car">3tダンプ</span>
-            
-            
-            
-          </div><div class="sb-worker">
-            <span style="font-weight:500;color:var(--tx);">佐藤</span>
-            <span style="font-size:10px;color:var(--tx2);">ｽｺｯﾌﾟﾏﾝ</span>
-            <span class="sb-car">4tダンプ</span>
-            
-            
-            
-          </div><div class="sb-worker">
-            <span style="font-weight:500;color:var(--tx);">アグン</span>
-            <span style="font-size:10px;color:var(--tx2);">ﾌﾟﾚｰﾄ</span>
-            <span class="sb-car">R1</span>
-            
-            
-            
-          </div><div class="sb-worker">
-            <span style="font-weight:500;color:var(--tx);">アリヤ</span>
-            <span style="font-size:10px;color:var(--tx2);">ﾌﾟﾚｰﾄ</span>
-            <span class="sb-car">R8</span>
-            
-            
-            
-          </div><div class="sb-worker">
-            <span style="font-weight:500;color:var(--tx);">アマダ</span>
-            <span style="font-size:10px;color:var(--tx2);">ｽｺｯﾌﾟﾏﾝ</span>
-            <span class="sb-car">Wキャブ</span>
-            
-            
-            
-          </div><div class="sb-worker">
-            <span style="font-weight:400;color:var(--tx2);">米倉</span>
-            <span style="font-size:10px;color:var(--tx2);">AFOP</span>
-            <span class="sb-car">ハイエース</span>
-            
-            
-            
-          </div>
-        <div style="margin-top:4px;text-align:right;"><button class="btn" onclick="event.stopPropagation();TogRep('rep_1_2026-06-15')" style="font-size:11px;padding:2px 8px;color:#0369a1;border-color:#7dd3fc;">📝 終了報告</button></div>
-      </div>
-        </td>
-    </tr></tbody></table></div>
-  </div></div>
+<div id="app"></div>
 <div id="printArea"></div>
 <script>
 const IW=[
@@ -782,30 +444,21 @@ window.publishToGitHub=async function(){
   }
   const btn=document.getElementById('pubBtn');
   if(btn){btn.textContent='⏳ 更新中...';btn.disabled=true;}
-  /* GitHubファイルを更新する共通関数 */
-  async function ghPut(filename,contentB64,msg){
-    const api=`https://api.github.com/repos/${c.owner}/${c.repo}/contents/${filename}`;
+  try{
+    const data={sites:S.sites,workers:S.workers,roles:S.roles,works:S.works,machines:S.machines,vehicles:S.vehicles,contacts:S.contacts,supplies:S.supplies,leave:S.leave,officeAtt:S.officeAtt,orgName:S.orgName,actuals:S.actuals,excl:[...S.excl],weekBase:S.weekBase,fiveBase:S.fiveBase,rpYM:S.rpYM,izYM:S.izYM,_savedAt:new Date().toLocaleString('ja-JP')};
+    const content=btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2))));
+    const api=`https://api.github.com/repos/${c.owner}/${c.repo}/contents/data.json`;
     let sha=null;
     try{const r=await fetch(api,{headers:{Authorization:`token ${c.token}`}});if(r.ok){const j=await r.json();sha=j.sha;}}catch{}
-    const body={message:msg,content:contentB64};
+    const body={message:'予定更新 '+new Date().toLocaleString('ja-JP'),content};
     if(sha)body.sha=sha;
     const res=await fetch(api,{method:'PUT',headers:{Authorization:`token ${c.token}`,'Content-Type':'application/json'},body:JSON.stringify(body)});
-    if(!res.ok){const e=await res.text();throw new Error(filename+'更新失敗（'+res.status+'）'+(res.status===401?'：トークンが正しくないか期限切れです。':''));}
-    return res;
-  }
-  try{
-    const now=new Date().toLocaleString('ja-JP');
-    /* ① data.json を更新 */
-    const data={sites:S.sites,workers:S.workers,roles:S.roles,works:S.works,machines:S.machines,vehicles:S.vehicles,contacts:S.contacts,supplies:S.supplies,leave:S.leave,officeAtt:S.officeAtt,orgName:S.orgName,actuals:S.actuals,excl:[...S.excl],weekBase:S.weekBase,fiveBase:S.fiveBase,rpYM:S.rpYM,izYM:S.izYM,_savedAt:now};
-    const dataB64=btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2))));
-    await ghPut('data.json',dataB64,'予定更新 '+now);
-    /* ② index.html を更新（このファイル自身を送る） */
-    if(btn)btn.textContent='⏳ アプリ更新中...';
-    const htmlSrc=document.documentElement.outerHTML;
-    const htmlB64=btoa(unescape(encodeURIComponent(htmlSrc)));
-    await ghPut('index.html',htmlB64,'アプリ更新 '+now);
-    if(btn){btn.textContent='✅ 更新完了！';setTimeout(()=>{btn.textContent='🚀 サイトを更新';btn.disabled=false;},2500);}
-    alert('社員向けサイトを更新しました！\n社員さんの画面に最新の予定が反映されます（数十秒後）。');
+    if(res.ok){
+      if(btn){btn.textContent='✅ 更新完了！';setTimeout(()=>{btn.textContent='🚀 サイトを更新';btn.disabled=false;},2500);}
+      alert('社員向けサイトを更新しました！\n社員さんの画面に最新の予定が反映されます（数十秒後）。');
+    }else{
+      throw new Error('GitHub更新失敗（'+res.status+'）'+(res.status===401?'：トークンが正しくないか期限切れです。設定し直してください。':''));
+    }
   }catch(err){
     alert('更新に失敗しました。\n'+err.message);
     if(btn){btn.textContent='🚀 サイトを更新';btn.disabled=false;}
@@ -2242,6 +1895,5 @@ window.AV=()=>{const n=document.getElementById('nvn')?.value.trim(),a=Number(doc
 window.DV=i=>{S.vehicles.splice(i,1);persist();render();};
 init();
 </script>
-
-
-</body></html>
+</body>
+</html>

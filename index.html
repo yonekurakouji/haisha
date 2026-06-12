@@ -453,7 +453,7 @@ window.publishToGitHub=async function(){
   const btn=document.getElementById('pubBtn');
   if(btn){btn.textContent='⏳ 更新中...';btn.disabled=true;}
   try{
-    const data={sites:S.sites,workers:S.workers,roles:S.roles,works:S.works,machines:S.machines,vehicles:S.vehicles,contacts:S.contacts,supplies:S.supplies,leave:S.leave,officeAtt:S.officeAtt,orgName:S.orgName,actuals:S.actuals,excl:[...S.excl],weekBase:S.weekBase,fiveBase:S.fiveBase,rpYM:S.rpYM,izYM:S.izYM,_savedAt:new Date().toLocaleString('ja-JP')};
+    const data={sites:S.sites,workers:S.workers,roles:S.roles,works:S.works,machines:S.machines,vehicles:S.vehicles,contacts:S.contacts,supplies:S.supplies,leave:S.leave,officeAtt:S.officeAtt,orgName:S.orgName,actuals:S.actuals,excl:[...S.excl],weekBase:S.weekBase,fiveBase:S.fiveBase,rpYM:S.rpYM,izYM:S.izYM,lastSaved:new Date().toLocaleString('ja-JP'),_savedAt:new Date().toLocaleString('ja-JP')};
     const content=btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2))));
     const api=`https://api.github.com/repos/${c.owner}/${c.repo}/contents/data.json`;
     let sha=null;
@@ -473,6 +473,8 @@ window.publishToGitHub=async function(){
       }catch{}
       if(btn){btn.textContent='✅ 更新完了！';setTimeout(()=>{btn.textContent='🚀 サイトを更新';btn.disabled=false;},2500);}
       alert('社員向けサイトを更新しました！\n社員さんの画面に最新の予定が反映されます（数十秒後）。');
+      S.lastSaved=new Date().toLocaleString('ja-JP');
+      persist();render();
     }else{
       throw new Error('GitHub更新失敗（'+res.status+'）'+(res.status===401?'：トークンが正しくないか期限切れです。設定し直してください。':''));
     }

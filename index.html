@@ -358,6 +358,7 @@ function applyData(d){
   S.excl=new Set(d.excl||[]);
   if(d.weekBase)S.weekBase=d.weekBase;if(d.fiveBase)S.fiveBase=d.fiveBase;if(d.rpYM)S.rpYM=d.rpYM;if(d.izYM)S.izYM=d.izYM;
   if(d.wMode)S.wMode=d.wMode;if(d.openDays)S.openDays=d.openDays;
+  if(d.lastSaved)S.lastSaved=d.lastSaved;
 }
 let VIEW_MODE=false; // 社員閲覧モード（編集不可）
 function init(){

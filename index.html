@@ -710,11 +710,13 @@ function repPanel(site,dk,assigns){
       <label style="font-size:10px;color:var(--tx2);">運転<input type="number" value="${p.drive||''}" placeholder="0" onchange="SetPer(${si},'${dk}','${a.name}','drive',this.value)" style="width:40px;padding:1px 3px;">回</label>
       <button onclick="TogPerOffice(${si},'${dk}','${a.name}')" style="font-size:10px;padding:1px 6px;border-radius:4px;border:1px solid ${offState?'#f59e0b':'var(--bd2)'};background:${offState?'#fef3c7':'var(--bg1)'};color:${offState?'#b45309':'var(--tx2)'};${offManual?'font-weight:600;':''}">${offState?'事務所扱い':'現場'}</button>
       <label style="font-size:10px;color:var(--tx2);cursor:pointer;"><input type="checkbox" ${p.excluded?'checked':''} onchange="SetPer(${si},'${dk}','${a.name}','excluded',this.checked)">除外</label>
+      <label style="font-size:10px;color:var(--tx2);flex:1;min-width:80px;">備考<input value="${p.memo||''}" placeholder="" onchange="SetPer(${si},'${dk}','${a.name}','memo',this.value)" style="width:100%;min-width:60px;padding:1px 3px;"></label>
     </div>`;
   }).join('');
   return`<div style="margin-top:5px;border:1px solid #86efac;border-radius:6px;padding:6px 8px;background:#f0fdf4;" onclick="event.stopPropagation();">
     <div style="display:flex;align-items:center;gap:5px;margin-bottom:5px;flex-wrap:wrap;">
       <b style="font-size:11px;color:#166534;">終了報告</b>
+      <button class="btn" onclick="printReport(${si},'${dk}')" style="font-size:10px;padding:1px 6px;color:#1e40af;border-color:#93c5fd;">🖨 印刷</button>
       <button class="btn" onclick="TogRep('${key}')" style="font-size:10px;padding:1px 6px;margin-left:auto;">閉じる</button>
     </div>
     <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:5px;">
@@ -1398,6 +1400,78 @@ function printHeader(sub,range){
   const today=new Date().toLocaleDateString('ja-JP');
   return`<div class="pphead"><div><div class="org">${S.orgName||'工事部'}</div><div class="sub">${sub}　${range}</div></div><div class="date">作成日: ${today}</div></div>`;
 }
+/* ===== 終了報告の印刷 ===== */
+window.printReport=function(si,dk){
+  const site=S.sites[si];
+  const rep=getReport(site,dk);
+  const per=rep.per||{};
+  const assigns=site.assigns?.[dk]||[];
+  const dt=pd(dk),dw=dt.getDay();
+  const mc=normMachines(site.machines);
+  const ctName=site.contact==='__manual__'?site.contactManual:site.contact;
+  const ctTel=site.contact==='__manual__'?site.contactTel:(S.contacts.find(c=>c.name===site.contact)||{}).tel||'';
+  const rows=assigns.map(a=>{
+    const p=per[a.name]||{};
+    return`<tr${p.excluded?' style="color:#999;text-decoration:line-through;"':''}>
+      <td style="border:1px solid #bbb;padding:5px 8px;font-weight:500;">${a.name}</td>
+      <td style="border:1px solid #bbb;padding:5px 8px;">${a.role||''}</td>
+      <td style="border:1px solid #bbb;padding:5px 8px;">${a.vehicle||''}${a.isDriver?' 🚗':''}</td>
+      <td style="border:1px solid #bbb;padding:5px 8px;width:50px;"></td>
+      <td style="border:1px solid #bbb;padding:5px 8px;width:40px;"></td>
+      <td style="border:1px solid #bbb;padding:5px 8px;width:30px;">${p.excluded?'✓':''}</td>
+      <td style="border:1px solid #bbb;padding:5px 8px;min-width:140px;">${p.memo||''}</td>
+    </tr>`;
+  }).join('');
+  setPrintOrientation('portrait');
+  const html=`<div style="font-family:'Hiragino Kaku Gothic ProN','Meiryo',sans-serif;padding:10px;">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;">
+      <div><div style="font-size:18px;font-weight:700;margin-bottom:4px;">${S.orgName||'工事部'} 終了報告書</div></div>
+      <div style="display:flex;gap:12px;">
+        <div style="text-align:center;">
+          <div style="font-size:9px;color:#666;margin-bottom:2px;">リーダー</div>
+          <div style="width:70px;height:70px;border:2px solid #333;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+            <div style="font-size:8px;color:#999;border-bottom:1px solid #ccc;width:50px;text-align:center;padding-bottom:1px;">　/　/　</div>
+            <div style="height:30px;"></div>
+          </div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:9px;color:#666;margin-bottom:2px;">管理者</div>
+          <div style="width:70px;height:70px;border:2px solid #333;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+            <div style="font-size:8px;color:#999;border-bottom:1px solid #ccc;width:50px;text-align:center;padding-bottom:1px;">　/　/　</div>
+            <div style="height:30px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table style="width:100%;border-collapse:collapse;margin-bottom:12px;font-size:12px;">
+      <tr><td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;width:80px;">日付</td><td style="border:1px solid #bbb;padding:5px 8px;">${dt.getFullYear()}年${dt.getMonth()+1}月${dt.getDate()}日（${WD[dw]}）</td>
+          <td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;width:60px;">昼/夜</td><td style="border:1px solid #bbb;padding:5px 8px;">${site.shift}</td></tr>
+      <tr><td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;">現場名</td><td style="border:1px solid #bbb;padding:5px 8px;" colspan="3">${site.place||''}${site.prime?' ／ '+site.prime:''}</td></tr>
+      <tr><td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;">工事内容</td><td style="border:1px solid #bbb;padding:5px 8px;" colspan="3">${(site.works||[]).join('、')||''}</td></tr>
+      <tr><td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;">使用重機</td><td style="border:1px solid #bbb;padding:5px 8px;" colspan="3">${mc.map(m=>machLabel(m)).join('、')||''}</td></tr>
+      <tr><td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;">開始〜終了</td><td style="border:1px solid #bbb;padding:5px 8px;">　　：　　〜　　：　　</td>
+          <td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;">天候</td><td style="border:1px solid #bbb;padding:5px 8px;"></td></tr>
+      ${ctName?`<tr><td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;">元請担当</td><td style="border:1px solid #bbb;padding:5px 8px;" colspan="3">${ctName}${ctTel?' '+ctTel:''}</td></tr>`:''}
+      ${site.leader?`<tr><td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;">リーダー</td><td style="border:1px solid #bbb;padding:5px 8px;" colspan="3">${site.leader}</td></tr>`:''}
+    </table>
+    <table style="width:100%;border-collapse:collapse;font-size:11px;">
+      <thead><tr style="background:#e5e7eb;">
+        <th style="border:1px solid #bbb;padding:5px;">社員名</th>
+        <th style="border:1px solid #bbb;padding:5px;">役割</th>
+        <th style="border:1px solid #bbb;padding:5px;">車両</th>
+        <th style="border:1px solid #bbb;padding:5px;">残業</th>
+        <th style="border:1px solid #bbb;padding:5px;">運転</th>
+        <th style="border:1px solid #bbb;padding:5px;">除外</th>
+        <th style="border:1px solid #bbb;padding:5px;min-width:140px;">備考</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+  </div>`;
+  const w=window.open('','_blank');
+  w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>終了報告 ${site.place} ${dk}</title></head><body>${html}</body></html>`);
+  w.document.close();
+  w.print();
+};
 /* ===== 週間予定の印刷（現在のビューをPDF化） ===== */
 function printWeekSchedule(){
   const days=g5(pd(S.fiveBase));
@@ -1676,6 +1750,7 @@ window.SetPer=(si,dk,name,k,v)=>{const rep=ensureReport(si,dk);rep.per[name]=rep
   if(k==='ot'){if(v===''||v===null){delete rep.per[name].ot;}else{rep.per[name].ot=Number(v)||0;}}
   else if(k==='drive'){rep.per[name].drive=Number(v)||0;}
   else if(k==='excluded'){rep.per[name].excluded=v;}
+  else if(k==='memo'){rep.per[name].memo=v||'';}
   persist();render();};
 window.CycleOffice=(dk,name)=>{S.officeAtt=S.officeAtt||{};S.officeAtt[dk]=S.officeAtt[dk]||{};const cur=S.officeAtt[dk][name]||'';const nx=cur===''?'work':cur==='work'?'leave':cur==='leave'?'off':'';if(nx==='')delete S.officeAtt[dk][name];else S.officeAtt[dk][name]=nx;persist();render();};
 window.ToggleLeave=(dk,name)=>{if(VIEW_MODE)return;ShowAbsentMenu(dk,name,'昼');};

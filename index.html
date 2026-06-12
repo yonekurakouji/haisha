@@ -342,7 +342,7 @@ function sortByUsage(list,kind,keyFn){
 function loadStore(){try{const r=localStorage.getItem(LS);return r?JSON.parse(r):null;}catch{return null;}}
 function saveStore(o){try{localStorage.setItem(LS,JSON.stringify(o));}catch(e){console.warn(e);}}
 
-let S={tab:"weekly",wMode:"site",showPast:false,showDone:false,foldSite:{},sites:[],workers:IW,roles:IR,works:IWK,machines:IM,vehicles:IV,contacts:[],supplies:[],leave:{},officeAtt:{},orgName:"工事部",weekBase:fmt(monSt(toDay())),fiveBase:fmt(toDay()),excl:[],actuals:{},rpW:"",rpYM:fmt(toDay()).slice(0,7),izYM:fmt(toDay()).slice(0,7),fyView:null,openDays:{},lastSaved:""};
+let S={tab:"weekly",wMode:"site",showPast:false,showDone:false,foldSite:{},dispBase:0,sites:[],workers:IW,roles:IR,works:IWK,machines:IM,vehicles:IV,contacts:[],supplies:[],leave:{},officeAtt:{},orgName:"工事部",weekBase:fmt(monSt(toDay())),fiveBase:fmt(toDay()),excl:[],actuals:{},rpW:"",rpYM:fmt(toDay()).slice(0,7),izYM:fmt(toDay()).slice(0,7),fyView:null,openDays:{},lastSaved:""};
 
 const persist=()=>saveStore({...S,excl:[...S.excl]});
 function applyData(d){
@@ -372,16 +372,16 @@ function init(){
     fetchAndApply(url);
     return;
   }
-  // ===== OneDrive共有フォルダ対応：同じフォルダのdata.jsonを自動読込 =====
-  // file://で開いた場合のみ、同フォルダのdata.jsonを自動取得
+  // ===== file:// または GitHub Pages(https://) でdata.jsonを自動読込 =====
   const isFile=location.protocol==='file:';
-  if(isFile){
+  const isGhPages=location.protocol==='https:'&&location.hostname.endsWith('.github.io');
+  if(isFile||isGhPages){
     // まずlocalStorageのデータを適用しておく（読込失敗時のフォールバック）
     const cached=loadStore();
     if(cached){applyData(cached);}else{S.excl=new Set();}
     if(!S.openDays)S.openDays={};
-    // 同フォルダのdata.jsonを読みにいく
-    const dataJsonUrl='data.json'+'?_t='+Date.now();
+    // data.jsonを読みにいく（キャッシュ回避のため時刻パラメータ付き）
+    const dataJsonUrl=(isGhPages?'data.json':'data.json')+'?_t='+Date.now();
     fetch(dataJsonUrl).then(r=>{
       if(!r.ok)throw new Error('data.json なし');
       return r.json();
@@ -460,6 +460,15 @@ window.publishToGitHub=async function(){
     if(sha)body.sha=sha;
     const res=await fetch(api,{method:'PUT',headers:{Authorization:`token ${c.token}`,'Content-Type':'application/json'},body:JSON.stringify(body)});
     if(res.ok){
+      // バックアップも保存（data_backup.json）
+      try{
+        const bkApi=`https://api.github.com/repos/${c.owner}/${c.repo}/contents/data_backup.json`;
+        let bkSha=null;
+        try{const br=await fetch(bkApi,{headers:{Authorization:`token ${c.token}`}});if(br.ok){const bj=await br.json();bkSha=bj.sha;}}catch{}
+        const bkBody={message:'バックアップ '+new Date().toLocaleString('ja-JP'),content};
+        if(bkSha)bkBody.sha=bkSha;
+        await fetch(bkApi,{method:'PUT',headers:{Authorization:`token ${c.token}`,'Content-Type':'application/json'},body:JSON.stringify(bkBody)});
+      }catch{}
       if(btn){btn.textContent='✅ 更新完了！';setTimeout(()=>{btn.textContent='🚀 サイトを更新';btn.disabled=false;},2500);}
       alert('社員向けサイトを更新しました！\n社員さんの画面に最新の予定が反映されます（数十秒後）。');
     }else{
@@ -476,6 +485,24 @@ window.exportShare=function(){
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='data.json';
   document.body.appendChild(a);a.click();document.body.removeChild(a);
 };
+window.restoreBackup=async function(){
+  const c=ghCfg();
+  if(!c.owner||!c.repo||!c.token){alert('GitHub設定が必要です。');return;}
+  if(!confirm('バックアップ（前回「🚀 サイトを更新」を押したときのデータ）から復元します。\n現在のデータは上書きされます。よろしいですか？'))return;
+  try{
+    const api=`https://api.github.com/repos/${c.owner}/${c.repo}/contents/data_backup.json`;
+    const r=await fetch(api,{headers:{Authorization:`token ${c.token}`}});
+    if(!r.ok)throw new Error('バックアップが見つかりません（まだ一度も「🚀 サイトを更新」を押していない場合は保存されていません）');
+    const j=await r.json();
+    const text=decodeURIComponent(escape(atob(j.content.replace(/\n/g,''))));
+    const d=JSON.parse(text);
+    applyData(d);
+    persist();render();
+    alert('復元しました！\n保存日時：'+(d._savedAt||'不明'));
+  }catch(err){
+    alert('復元に失敗しました。\n'+err.message);
+  }
+};
 window.exportFile=function(){
   const data={sites:S.sites,workers:S.workers,roles:S.roles,works:S.works,machines:S.machines,vehicles:S.vehicles,contacts:S.contacts,supplies:S.supplies,leave:S.leave,officeAtt:S.officeAtt,orgName:S.orgName,foldSite:S.foldSite,actuals:S.actuals,excl:[...S.excl],weekBase:S.weekBase,fiveBase:S.fiveBase,rpYM:S.rpYM,izYM:S.izYM,_savedAt:new Date().toLocaleString('ja-JP')};
   const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
@@ -487,6 +514,49 @@ window.exportFile=function(){
     alert('【保存先の確認】\nダウンロードされた「data.json」を\nOneDriveの共有フォルダ（index.htmlと同じ場所）に移動してください。\n\n次回このファイルを開くと自動で最新データが読み込まれます。');
   },300);
   render();
+};
+window.showOneDriveGuide=function(){
+  let modal=document.getElementById('cmodal');
+  if(!modal){modal=document.createElement('div');modal.id='cmodal';document.body.appendChild(modal);}
+  modal.innerHTML=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:300;display:flex;align-items:center;justify-content:center;padding:12px;" onclick="if(event.target===this)this.remove()">
+  <div style="background:#fff;border-radius:14px;padding:20px;width:100%;max-width:500px;max-height:90vh;overflow-y:auto;font-size:13px;">
+    <div style="font-size:16px;font-weight:700;margin-bottom:14px;color:#0078d4;">☁ OneDrive共有フォルダで使う手順</div>
+
+    <div style="background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:12px;margin-bottom:14px;">
+      <b style="color:#0369a1;">📁 最初の準備（1回だけ）</b>
+      <ol style="margin:8px 0 0 16px;line-height:2;">
+        <li>OneDriveに共有フォルダを作る<br><span style="font-size:11px;color:#64748b;">例：「配車管理」というフォルダ</span></li>
+        <li>そのフォルダに <b>index.html</b>（このファイル）を入れる</li>
+        <li>社員全員とそのフォルダを共有設定する</li>
+        <li>各自のパソコンでOneDriveを同期させる</li>
+      </ol>
+    </div>
+
+    <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:12px;margin-bottom:14px;">
+      <b style="color:#166534;">✏️ 自分が編集した後（毎回）</b>
+      <ol style="margin:8px 0 0 16px;line-height:2;">
+        <li>「<b>💾 保存してOneDriveへ</b>」ボタンを押す</li>
+        <li><b>data.json</b> がダウンロードされる</li>
+        <li>そのファイルを <b>OneDriveの共有フォルダ</b>（index.htmlと同じ場所）に<b>上書き保存</b></li>
+        <li style="color:#166534;font-weight:500;">✅ 社員のパソコンに自動で同期される</li>
+      </ol>
+    </div>
+
+    <div style="background:#fefce8;border:1px solid #fde68a;border-radius:8px;padding:12px;margin-bottom:14px;">
+      <b style="color:#92400e;">👷 社員側の操作（毎回）</b>
+      <ol style="margin:8px 0 0 16px;line-height:2;">
+        <li>OneDriveの共有フォルダにある <b>index.html</b> をダブルクリックで開く</li>
+        <li>→ 最新データが自動で読み込まれる</li>
+        <li style="color:#64748b;font-size:11px;">※ もし古い場合は「📂 データ読込」でdata.jsonを手動で選択</li>
+      </ol>
+    </div>
+
+    <div style="background:#fef2f2;border:1px solid #fca5a5;border-radius:8px;padding:10px;margin-bottom:16px;font-size:11px;color:#7f1d1d;">
+      ⚠️ <b>注意：</b>同時に2人が編集すると片方のデータが消えます。編集は1人ずつ行い、終わったら必ず「保存してOneDriveへ」を押してください。
+    </div>
+
+    <button onclick="document.getElementById('cmodal').innerHTML=''" style="width:100%;background:#1e293b;color:#fff;border:none;border-radius:8px;padding:10px;font-size:14px;cursor:pointer;">閉じる</button>
+  </div></div>`;
 };
 window.importFile=function(input){
   const file=input.files&&input.files[0];if(!file)return;
@@ -521,9 +591,9 @@ const html=()=>{
   const tabs=[{id:"weekly",l:"週間予定表"},{id:"dispatch",l:"配車・割振"},{id:"quarterly",l:"📊 3ヶ月管理"},{id:"byworker",l:"社員別"},{id:"bymachine",l:"機械別"},{id:"report",l:"日報"},{id:"izumi",l:"出面"},{id:"master",l:"マスタ"}];
   return`<div class="hdr">
     <span style="font-weight:500;font-size:14px;">配車・予定／日報</span>
-    <div style="margin-left:auto;display:flex;gap:6px;align-items:center;">
+    <div style="margin-left:auto;display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
       <span style="font-size:10px;color:#86efac;">自動保存ON</span>
-      <button class="hbtn" id="pubBtn" onclick="publishToGitHub()" style="background:#166534;color:#fff;border-color:#166634;">🚀 サイトを更新</button>
+      <button class="hbtn" id="pubBtn" onclick="publishToGitHub()" style="background:#166534;color:#fff;border-color:#14532d;">🚀 サイトを更新</button>
       <button class="hbtn" onclick="exportFile()">💾 ファイル書出</button>
       <label class="hbtn" style="cursor:pointer;">📂 読込<input type="file" accept=".json,application/json" onchange="importFile(this)" style="display:none;"></label>
     </div>
@@ -744,9 +814,11 @@ function bWS(){
 }
 
 function bD(){
+  const dispOff=S.dispBase||0; // 工事日表示オフセット（日単位）
+  const baseStart=-3+dispOff; // 3日前起点
   const days=S.showPast
-    ? Array.from({length:44},(_,i)=>addD(toDay(),i-30)) // 過去30日〜先14日
-    : Array.from({length:14},(_,i)=>addD(toDay(),i));    // 今日〜先14日
+    ? Array.from({length:44},(_,i)=>addD(toDay(),i-30))
+    : Array.from({length:17},(_,i)=>addD(toDay(),i+baseStart));
   const todayK=fmt(toDay());
   const dups={};
   S.sites.forEach(s=>(s.days||[]).forEach(dk=>(s.assigns?.[dk]||[]).forEach(a=>{const k=`${dk}|${s.shift}|${a.name}`;dups[k]=(dups[k]||0)+1;})));
@@ -863,7 +935,7 @@ function bD(){
         <input value="${site.note||''}" placeholder="摘要・備考" onchange="US(${si},'note',this.value)" style="flex:1;min-width:90px;">
       </div>
       <div style="margin-bottom:5px;">
-        <div class="hint" style="margin-bottom:3px;">工事日</div>
+        <div class="hint" style="margin-bottom:3px;">工事日 <button class="btn" onclick="event.stopPropagation();S.dispBase=(S.dispBase||0)-7;persist();render();" style="padding:0 6px;font-size:11px;">◀ 前週</button><button class="btn" onclick="event.stopPropagation();S.dispBase=0;persist();render();" style="padding:0 6px;font-size:11px;${dispOff!==0?'background:#fef3c7;border-color:#fbbf24;':''}">今週</button><button class="btn" onclick="event.stopPropagation();S.dispBase=(S.dispBase||0)+7;persist();render();" style="padding:0 6px;font-size:11px;">次週 ▶</button></div>
         <div style="display:flex;flex-wrap:wrap;gap:2px;margin-bottom:3px;">${dayBtns}</div>
         <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;"><input type="date" id="from_${si}" style="width:140px;"><span class="hint">〜</span><input type="date" id="to_${si}" style="width:140px;"><button class="btn" onclick="AP(${si})">期間追加</button>${site.days?.length?`<span class="hint">計${site.days.length}日</span>`:''}</div>
       </div>
@@ -874,10 +946,10 @@ function bD(){
   // アクティブ（今後予定あり）と完了済みに分離
   const todayStr=fmt(toDay());
   const siteCards=S.sites.map((site,si)=>({site,si,card:cardsArr[si]||'',lastDay:(site.days||[]).slice().sort().reverse()[0]||''}));
-  // 今日以降の工事日がある → アクティブ
-  const activeCards=siteCards.filter(({site})=>(site.days||[]).some(dk=>dk>=todayStr)).sort((a,b)=>b.lastDay.localeCompare(a.lastDay));
-  // 全工事日が過去 or 工事日なし → 完了済み
-  const doneCards=siteCards.filter(({site})=>!(site.days||[]).some(dk=>dk>=todayStr)).sort((a,b)=>b.lastDay.localeCompare(a.lastDay));
+  // 今日以降の工事日がある or 工事日なし（新規）→ アクティブ
+  const activeCards=siteCards.filter(({site})=>(site.days||[]).length===0||(site.days||[]).some(dk=>dk>=todayStr)).sort((a,b)=>{if(!a.lastDay&&!b.lastDay)return 0;if(!a.lastDay)return -1;if(!b.lastDay)return 1;return b.lastDay.localeCompare(a.lastDay);});
+  // 工事日が全て過去 → 完了済み
+  const doneCards=siteCards.filter(({site})=>(site.days||[]).length>0&&!(site.days||[]).some(dk=>dk>=todayStr)).sort((a,b)=>b.lastDay.localeCompare(a.lastDay));
   const activeHtml=activeCards.map(({card})=>card).join('');
   const doneHtml=doneCards.length?`
     <div style="margin-top:16px;border-top:2px dashed #d1d5db;padding-top:10px;">
@@ -1238,6 +1310,7 @@ function bMaster(){
       <button class="btn" onclick="setupGitHub()" style="background:#1e40af;color:#fff;border-color:#1e40af;">⚙ GitHub設定（初回）</button>
       <button class="btn btnp" onclick="publishToGitHub()">🚀 サイトを更新</button>
       <button class="btn" onclick="exportShare()">📤 data.json手動書き出し</button>
+      <button class="btn" onclick="restoreBackup()" style="background:#7c3aed;color:#fff;border-color:#7c3aed;">🔄 バックアップから復元</button>
     </div>
   </div>`;
 }
@@ -1652,7 +1725,7 @@ window.SetAbsent=(dk,name,val)=>{
   document.querySelectorAll('.am-modal').forEach(el=>el.remove());
 };
 window.MoveW=(i,dir)=>{const j=i+dir;if(j<0||j>=S.workers.length)return;const t=S.workers[i];S.workers[i]=S.workers[j];S.workers[j]=t;persist();render();};
-window.EditSite=(id)=>{S.tab='dispatch';S.foldSite=S.foldSite||{};S.sites.forEach(s=>{S.foldSite[s.id]=true;});S.foldSite[id]=false;S.showPast=true;persist();render();setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},100);};
+window.EditSite=(id)=>{S.tab='dispatch';S.foldSite=S.foldSite||{};S.sites.forEach(s=>{S.foldSite[s.id]=true;});S.foldSite[id]=false;S.showPast=true;S.showDone=true;S.dispBase=0;persist();render();setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},100);};
 window.FoldSite=(id)=>{
   const willOpen=S.foldSite[id]!==false; // false以外（undefined/true）→開く操作
   if(willOpen){S.sites.forEach(s=>{S.foldSite[s.id]=true;});S.foldSite[id]=false;}
@@ -1677,7 +1750,7 @@ window.SF=v=>{S.fiveBase=v;persist();render();};
 window.MW=n=>{S.weekBase=fmt(addD(pd(S.weekBase),n));persist();render();};
 window.SWB=v=>{S.weekBase=fmt(monSt(pd(v)));persist();render();};
 window.TE=dk=>{if(VIEW_MODE)return;S.excl.has(dk)?S.excl.delete(dk):S.excl.add(dk);persist();render();};
-window.AS=()=>{const id=uid();S.sites.push({id,days:[],assigns:{},dayData:{},shift:'昼',place:'',prime:'',contact:'',contactManual:'',contactTel:'',ourContact:'',leader:'',works:[],machines:[],gatherTime:'',gatherType:'集合',note:'',okiba:'',kaisou:'',enShoo:false});S.foldSite=S.foldSite||{};S.sites.forEach(s=>{S.foldSite[s.id]=true;});S.foldSite[id]=false;persist();render();setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},80);};
+window.AS=()=>{const id=uid();const newSite={id,days:[],assigns:{},dayData:{},shift:'昼',place:'',prime:'',contact:'',contactManual:'',contactTel:'',ourContact:'',leader:'',works:[],machines:[],gatherTime:'',gatherType:'集合',note:'',okiba:'',kaisou:'',enShoo:false};S.sites.unshift(newSite);S.foldSite=S.foldSite||{};S.sites.forEach(s=>{if(s.id!==id)S.foldSite[s.id]=true;});S.foldSite[id]=false;persist();render();setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},80);};
 window.DS=i=>{if(!confirm('削除しますか？'))return;S.sites.splice(i,1);persist();render();};
 window.US=(i,k,v)=>{S.sites[i][k]=v;persist();render();};
 window.UST=(i,k,el)=>{const v=pTime(el.value);S.sites[i][k]=v;el.value=v;persist();};
@@ -1879,7 +1952,41 @@ window.RWK=(si,wi)=>{S.sites[si].works.splice(wi,1);persist();render();};
 window.TSD=(si,dk)=>{const s=S.sites[si];s.days=s.days||[];const i=s.days.indexOf(dk);if(i>=0)s.days.splice(i,1);else{s.days.push(dk);s.days.sort();}persist();render();};
 window.AP=si=>{const f=document.getElementById(`from_${si}`)?.value,t=document.getElementById(`to_${si}`)?.value;if(!f||!t)return;const s=S.sites[si];s.days=s.days||[];let c=pd(f);const e=pd(t);while(c<=e){const dk=fmt(c);if(!s.days.includes(dk))s.days.push(dk);c=addD(c,1);}s.days.sort();persist();render();};
 window.TOD=(si,dk)=>{const k=`${si}_${dk}`;S.openDays[k]=!S.openDays[k];persist();render();};
-window.AA=(si,dk)=>{const s=S.sites[si];s.assigns=s.assigns||{};s.assigns[dk]=s.assigns[dk]||[];s.assigns[dk].push({name:'',role:'',vehicle:'',isDriver:false,memo:'',absent:''});S.openDays[`${si}_${dk}`]=true;persist();render();};
+window.AA=(si,dk)=>{
+  const site=S.sites[si];if(!site)return;
+  const shift=site.shift;
+  const alreadyHere=new Set((site.assigns?.[dk]||[]).map(a=>a.name).filter(Boolean));
+  const alreadyElsewhere=new Set();
+  S.sites.forEach((s,i)=>{if(i===si||s.shift!==shift)return;(s.assigns?.[dk]||[]).forEach(a=>{if(a.name)alreadyElsewhere.add(a.name);});});
+  const mainW=S.workers.filter(w=>w.group==='main');
+  const helperW=S.workers.filter(w=>w.group==='helper');
+  const mkRow=(w,cls)=>{const here=alreadyHere.has(w.name),ew=alreadyElsewhere.has(w.name);
+    return`<label style="display:flex;align-items:center;gap:6px;padding:4px 6px;border-radius:6px;cursor:${here?'default':'pointer'};background:${here?'#f0fdf4':ew?'#f8fafc':'var(--bg1)'};border:1px solid ${here?'#86efac':ew?'#e2e8f0':'transparent'};margin-bottom:2px;"><input type="checkbox" class="${cls}" value="${w.name}" ${here?'checked disabled':''} style="width:16px;height:16px;cursor:${here?'default':'pointer'};"><span style="font-size:12px;${here?'color:#166534;font-weight:600;':''}${ew&&!here?'color:#94a3b8;':''}">${w.name}${here?' ✅':''}${ew&&!here?' (他現場)':''}</span></label>`;};
+  let modal=document.getElementById('cmodal');
+  if(!modal){modal=document.createElement('div');modal.id='cmodal';document.body.appendChild(modal);}
+  modal.innerHTML=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);z-index:200;display:flex;align-items:flex-end;justify-content:center;" onclick="if(event.target===this)closeCopy()"><div style="background:var(--bg1);border-radius:12px 12px 0 0;padding:16px;width:100%;max-width:480px;max-height:80vh;overflow-y:auto;"><div style="font-weight:600;font-size:14px;margin-bottom:10px;">社員追加</div><div style="margin-bottom:8px;"><div style="font-size:11px;font-weight:600;color:var(--tx2);margin-bottom:4px;">メンバー</div>${mainW.map(w=>mkRow(w,'wsel-ck')).join('')}</div><div style="margin-bottom:8px;"><div style="font-size:11px;font-weight:600;color:var(--tx2);margin-bottom:4px;">助っ人</div>${helperW.map(w=>mkRow(w,'hsel-ck')).join('')}</div><div style="margin-bottom:12px;padding:8px;background:var(--bg2);border-radius:6px;"><div style="font-size:11px;color:var(--tx2);margin-bottom:4px;">外注・手入力</div><div style="display:flex;gap:6px;margin-bottom:6px;"><select id="aaAddType" onchange="(()=>{const t=this.value;document.getElementById('aaManualWrap').style.display=t==='manual'?'flex':'none';document.getElementById('aaGaichuuWrap').style.display=t==='gaichuu'?'flex':'none';})()" style="width:80px;font-size:12px;"><option value="manual">手入力</option><option value="gaichuu">外注</option></select><div id="aaManualWrap" style="display:flex;flex:1;gap:4px;"><input id="aaManualName" placeholder="名前を入力" style="flex:1;font-size:12px;"></div><div id="aaGaichuuWrap" style="display:none;flex:1;align-items:center;gap:4px;"><input id="aaGaichuuCount" type="number" min="1" value="1" style="width:60px;font-size:12px;">人</div></div></div><div style="display:flex;gap:6px;"><button class="btn" onclick="closeCopy()" style="flex:1;">キャンセル</button><button class="btn btnp" onclick="execAA(${si},'${dk}')" style="flex:1;">追加する</button></div></div></div>`;
+  S.openDays[`${si}_${dk}`]=true;
+};
+window.execAA=(si,dk)=>{
+  const s=S.sites[si];if(!s)return;
+  s.assigns=s.assigns||{};s.assigns[dk]=s.assigns[dk]||[];
+  const alreadyHere=new Set(s.assigns[dk].map(a=>a.name).filter(Boolean));
+  document.querySelectorAll('.wsel-ck:checked:not(:disabled),.hsel-ck:checked:not(:disabled)').forEach(ck=>{
+    if(!alreadyHere.has(ck.value)){s.assigns[dk].push({name:ck.value,role:'',vehicle:'',isDriver:false,memo:'',absent:''});alreadyHere.add(ck.value);}
+  });
+  const addType=document.getElementById('aaAddType')?.value;
+  if(addType==='gaichuu'){
+    const cnt=parseInt(document.getElementById('aaGaichuuCount')?.value||'1');
+    for(let i=0;i<cnt;i++)s.assigns[dk].push({name:'外注',role:'',vehicle:'',isDriver:false,memo:'',absent:''});
+  } else {
+    const mn=(document.getElementById('aaManualName')?.value||'').trim();
+    if(mn)s.assigns[dk].push({name:mn,role:'',vehicle:'',isDriver:false,memo:'',absent:''});
+  }
+  S.openDays[`${si}_${dk}`]=true;
+  persist();
+  const cm=document.getElementById('cmodal');if(cm)cm.innerHTML='';
+  render();
+};
 window.UA=(si,dk,ai,k,v)=>{if(S.sites[si].assigns?.[dk]?.[ai])S.sites[si].assigns[dk][ai][k]=v;persist();};
 window.RA=(si,dk,ai)=>{S.sites[si].assigns[dk].splice(ai,1);persist();render();};
 window.SRW=v=>{S.rpW=v;persist();render();};

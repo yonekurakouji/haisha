@@ -213,14 +213,14 @@ function isOfficeForWorker(site,dk,name){
 }
 function aggWorker(workerName,dkList){
   const todayK=fmt(toDay());
-  const r={workDays:0,nightDays:0,leave:0,genba:0,office:0,maxRen:0,ot:0,sun:0,hol:0,beforeHol:0,rest:0,drive:{},enShooDay:0,enShooNight:0,enShooDrive:{},enShooDriveDay:{},enShooDriveNight:{}};
+  const r={workDays:0,jitsudo:0,nightDays:0,leave:0,genba:0,office:0,maxRen:0,ot:0,sun:0,hol:0,beforeHol:0,rest:0,drive:{},enShooDay:0,enShooNight:0,enShooDrive:{},enShooDriveDay:{},enShooDriveNight:{}};
   const units=[];
   dkList.forEach(dk=>{
     // 今日より未来は集計しない（今日は含める）
     if(dk>todayK){units.push({worked:false});return;}
     const lyDay=getSlotLeave(dk,workerName,'昼');
     const lyNight=getSlotLeave(dk,workerName,'夜');
-    let dayWorked=false,nightWorked=false;
+    let dayWorked=false,nightWorked=false,daySlotWorked=false;
     ['昼','夜'].forEach(slot=>{
       let worked=false,genba=false,office=false;
       for(const s of S.sites){
@@ -251,11 +251,13 @@ function aggWorker(workerName,dkList){
       if(!worked&&slotLeave&&slotLeave.work){
         worked=true; // 出勤扱いの講習等
         dayWorked=true;
+        if(slot==='昼')daySlotWorked=true;
         if(slot==='夜')nightWorked=true;
       }
       units.push({worked});
       if(worked){
         dayWorked=true;
+        if(slot==='昼')daySlotWorked=true;
         if(slot==='夜')nightWorked=true;
         if(office&&!genba)r.office++;else if(genba)r.genba++;
         if(isSunday(dk))r.sun++;
@@ -273,6 +275,7 @@ function aggWorker(workerName,dkList){
     if(lvTotal>0)r.leave+=lvTotal;
     if(dayWorked)r.workDays++;
     else if(lvTotal===0&&!lyDay&&!lyNight)r.rest++; // どの予定もない日のみ休日
+    r.jitsudo+=(daySlotWorked?1:0)+(nightWorked?1:0);
     if(nightWorked)r.nightDays++;
   });
   let cur=0,renSum=0;
@@ -1167,7 +1170,7 @@ function bR(){
   const sumCard=(title,agg,extra,head,foot)=>`<div class="card" style="margin-top:10px;${extra||''}">
     <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;"><div style="font-weight:600;font-size:13px;">${title}</div>${head||''}</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:6px;">
-      ${[['勤務日数',agg.workDays+'日'],['夜間出勤',agg.nightDays+'日'],['連荘',agg.maxRen],['現場回数',agg.genba+'回'],['事務所回数',agg.office+'回'],['有給使用',agg.leave+'日'],['残業合計',agg.ot+'h'],['日曜出勤',agg.sun+'日'],['祝日出勤',agg.hol+'日'],['日祝前(夜)',agg.beforeHol+'回'],['休日',agg.rest+'日']].map(([l,v])=>`<div style="background:var(--bg2);border-radius:6px;padding:6px 8px;"><div style="font-size:10px;color:var(--tx2);">${l}</div><div style="font-size:15px;font-weight:600;">${v}</div></div>`).join('')}
+      ${[['出勤日数',agg.workDays+'日'],['実働',agg.jitsudo+'回'],['夜間出勤',agg.nightDays+'日'],['連荘',agg.maxRen],['現場回数',agg.genba+'回'],['事務所回数',agg.office+'回'],['有給使用',agg.leave+'日'],['残業合計',agg.ot+'h'],['日曜出勤',agg.sun+'日'],['祝日出勤',agg.hol+'日'],['日祝前(夜)',agg.beforeHol+'回'],['休日',agg.rest+'日']].map(([l,v])=>`<div style="background:var(--bg2);border-radius:6px;padding:6px 8px;"><div style="font-size:10px;color:var(--tx2);">${l}</div><div style="font-size:15px;font-weight:600;">${v}</div></div>`).join('')}
     </div>
     <div style="margin-top:8px;background:var(--bg2);border-radius:6px;padding:6px 8px;"><div style="font-size:10px;color:var(--tx2);margin-bottom:2px;">現場運転集計（車種別）</div><div style="font-size:12px;">${driveRows(agg)}</div></div>
     ${enShooRows(agg)}
@@ -1367,7 +1370,8 @@ function onePersonPage(w,ym){
       <tbody>${detailRows}</tbody>
     </table>
     <div class="ppsum">
-      <div>勤務日数 <b>${agg.workDays}</b>日</div>
+      <div>出勤日数 <b>${agg.workDays}</b>日</div>
+      <div>実働 <b>${agg.jitsudo}</b>回</div>
       <div>夜間出勤 <b>${agg.nightDays}</b>日</div>
       <div>連荘 <b>${agg.maxRen}</b></div>
       <div>現場回数 <b>${agg.genba}</b>回</div>
@@ -1380,7 +1384,7 @@ function onePersonPage(w,ym){
       <div>日祝前(夜) <b>${agg.beforeHol}</b>回</div>
       <div>運転 <b style="font-size:10px;">${drvStr}</b></div>
     </div>
-    <div style="margin-top:6px;font-size:10px;color:#555;">【年度累計 ${fySY}/8〜${fySY+1}/7】勤務${aggY.workDays}日 ・ 残業${aggY.ot}h ・ 休日${aggY.rest}日 ・ 連荘計${aggY.maxRen}</div>
+    <div style="margin-top:6px;font-size:10px;color:#555;">【年度累計 ${fySY}/8〜${fySY+1}/7】勤務${aggY.workDays}日 ・ 実働${aggY.jitsudo}回 ・ 残業${aggY.ot}h ・ 休日${aggY.rest}日 ・ 連荘計${aggY.maxRen}</div>
     ${lyP?`<div style="margin-top:3px;font-size:10px;color:#86198f;">【有給（入社日起点 ${lyP.start}〜${lyP.end}）】使用 ${leaveByHireP}日</div>`:''}
   </div>`;
 }

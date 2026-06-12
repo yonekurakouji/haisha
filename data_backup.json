@@ -10,7 +10,7 @@
           {
             "name": "阿部",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "Wキャブ",
+            "vehicle": "ハイエース",
             "isDriver": true,
             "memo": "",
             "absent": ""
@@ -26,7 +26,7 @@
           {
             "name": "小松﨑",
             "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "R1",
+            "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "",
             "absent": ""
@@ -34,7 +34,7 @@
           {
             "name": "近藤",
             "role": "運搬員",
-            "vehicle": "3tダンプ",
+            "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "",
             "absent": ""
@@ -94,20 +94,34 @@
             "isDriver": false,
             "memo": "",
             "absent": ""
-          },
-          {
-            "name": "米倉",
-            "role": "AFOP",
-            "vehicle": "ハイエース",
-            "isDriver": true,
-            "memo": "",
-            "absent": ""
           }
         ]
       },
       "dayData": {
         "2026-06-15": {
-          "gatherTime": "7:15"
+          "gatherTime": "7:15",
+          "machines": [
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": "R8"
+            },
+            {
+              "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+              "qty": 1,
+              "carrier": "R8"
+            },
+            {
+              "name": "ｻｲﾄﾞﾛｰﾗｰ",
+              "qty": 1,
+              "carrier": "R8"
+            },
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 2,
+              "carrier": "Wキャブ"
+            }
+          ]
         }
       },
       "shift": "昼",
@@ -1420,5 +1434,5 @@
   "fiveBase": "2026-06-12",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/12 16:06:17"
+  "_savedAt": "2026/6/12 16:19:48"
 }

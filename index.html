@@ -618,6 +618,7 @@ const dayHds=(days,cs)=>{
   }).join('');
 };
 const wNav=()=>`<div class="tb"><strong style="font-size:13px;">週間予定表</strong>
+  ${S.lastSaved?`<span style="font-size:10px;color:var(--tx3);background:var(--bg2);border-radius:4px;padding:1px 6px;margin-left:4px;">🔄 更新: ${S.lastSaved}</span>`:''}
   <div style="display:flex;border:1px solid var(--bd2);border-radius:6px;overflow:hidden;">
     <button onclick="WM('person')" style="padding:4px 10px;border:none;background:${S.wMode==='person'?'#1e293b':'none'};color:${S.wMode==='person'?'#f1f5f9':'var(--tx2)'};cursor:pointer;font-size:11px;">個人別</button>
     <button onclick="WM('site')" style="padding:4px 10px;border:none;background:${S.wMode==='site'?'#1e293b':'none'};color:${S.wMode==='site'?'#f1f5f9':'var(--tx2)'};cursor:pointer;font-size:11px;">現場別</button>

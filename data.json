@@ -3,6 +3,107 @@
     {
       "id": "1",
       "days": [
+        "2026-06-16"
+      ],
+      "assigns": {
+        "2026-06-16": [
+          {
+            "name": "阿部",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "駒田",
+            "role": "重機OP",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "運搬員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {},
+      "shift": "昼",
+      "place": "事務所",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "駒田",
+      "works": [
+        "捲り舗装"
+      ],
+      "machines": [],
+      "gatherTime": "8:00",
+      "gatherType": "集合",
+      "note": "事務所入り口舗装",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "1",
+      "days": [
         "2026-06-15"
       ],
       "assigns": {
@@ -1431,8 +1532,8 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-06-08",
-  "fiveBase": "2026-06-12",
+  "fiveBase": "2026-06-16",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "_savedAt": "2026/6/12 17:28:58"
+  "_savedAt": "2026/6/12 17:38:02"
 }

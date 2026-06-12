@@ -589,6 +589,7 @@ const html=()=>{
     return`<div class="hdr">
       <span style="font-weight:500;font-size:14px;">配車・予定／日報</span>
       <span style="font-size:11px;color:#93c5fd;margin-left:8px;">閲覧モード</span>
+      ${S.lastSaved?`<span style="font-size:10px;color:#86efac;margin-left:auto;">🔄 更新: ${S.lastSaved}</span>`:''}
     </div>
     <div class="nav">${vtabs.map(t=>`<button class="nb${S.tab===t.id?' on':''}" onclick="T('${t.id}')">${t.l}</button>`).join('')}</div>
     <div class="main">${S.tab==='byworker'?bBW():bW()}</div>`;

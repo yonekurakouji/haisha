@@ -213,7 +213,7 @@ function isOfficeForWorker(site,dk,name){
 }
 function aggWorker(workerName,dkList){
   const todayK=fmt(toDay());
-  const r={workDays:0,nightDays:0,leave:0,genba:0,office:0,maxRen:0,ot:0,sun:0,hol:0,beforeHol:0,rest:0,drive:{},enShooDay:0,enShooNight:0,enShooDrive:{}};
+  const r={workDays:0,nightDays:0,leave:0,genba:0,office:0,maxRen:0,ot:0,sun:0,hol:0,beforeHol:0,rest:0,drive:{},enShooDay:0,enShooNight:0,enShooDrive:{},enShooDriveDay:{},enShooDriveNight:{}};
   const units=[];
   dkList.forEach(dk=>{
     // 今日より未来は集計しない（今日は含める）
@@ -236,9 +236,8 @@ function aggWorker(workerName,dkList){
         worked=true;
         const KAISO_V=['R1','R2','R3','R8','R9','S3','S8','P5','P7','大型','増㌧','レンジャー'];
         if(s.enShoo){
-          // 他部署応援：応援カウント＋応援時の回送カウント
-          if(slot==='昼')r.enShooDay++;else r.enShooNight++;
-          if((per.drive||0)>0&&a.vehicle){const vKey=KAISO_V.includes(a.vehicle)?'回送':a.vehicle;r.enShooDrive[vKey]=(r.enShooDrive[vKey]||0)+per.drive;}
+          // 他部署応援：応援カウント＋応援時の回送カウント（昼夜別）
+          if(slot==='昼'){r.enShooDay++;if((per.drive||0)>0&&a.vehicle){const vKey=KAISO_V.includes(a.vehicle)?'回送':a.vehicle;r.enShooDrive[vKey]=(r.enShooDrive[vKey]||0)+per.drive;r.enShooDriveDay[vKey]=(r.enShooDriveDay[vKey]||0)+per.drive;}}else{r.enShooNight++;if((per.drive||0)>0&&a.vehicle){const vKey=KAISO_V.includes(a.vehicle)?'回送':a.vehicle;r.enShooDrive[vKey]=(r.enShooDrive[vKey]||0)+per.drive;r.enShooDriveNight[vKey]=(r.enShooDriveNight[vKey]||0)+per.drive;}}
         } else {
           // 通常現場
           if(isOfficeForWorker(s,dk,workerName))office=true;else genba=true;
@@ -1141,13 +1140,18 @@ function bR(){
   const driveRows=agg=>{
     const ks=Object.keys(agg.drive);
     if(!ks.length)return'<span style="color:var(--tx3);">なし</span>';
-    return ks.map(v=>`${v}: <b>${agg.drive[v]}</b>回`).join(' / ');
+    const totalKaiso=Object.values(agg.drive).reduce((s,v)=>s+v,0);
+    return ks.map(v=>`${v}: <b>${agg.drive[v]}</b>回`).join(' / ')+`<span style="margin-left:8px;background:#e2e8f0;border-radius:4px;padding:1px 6px;font-size:10px;">合計: <b>${totalKaiso}</b>回</span><span style="font-size:9px;color:var(--tx3);margin-left:4px;">※他部署応援の回送は含まず</span>`;
   };
   const enShooRows=agg=>{
     const total=agg.enShooDay+agg.enShooNight;
     if(!total)return'';
     const driveKs=Object.keys(agg.enShooDrive);
     const driveStr=driveKs.length?driveKs.map(v=>`${v}: <b>${agg.enShooDrive[v]}</b>回`).join(' / '):'なし';
+    const driveDayKs=Object.keys(agg.enShooDriveDay||{});
+    const driveNightKs=Object.keys(agg.enShooDriveNight||{});
+    const driveDayStr=driveDayKs.length?driveDayKs.map(v=>`${v}: <b>${agg.enShooDriveDay[v]}</b>回`).join(' / '):'なし';
+    const driveNightStr=driveNightKs.length?driveNightKs.map(v=>`${v}: <b>${agg.enShooDriveNight[v]}</b>回`).join(' / '):'なし';
     return`<div style="margin-top:8px;background:#f5f3ff;border:1px solid #c4b5fd;border-radius:6px;padding:8px;">
       <div style="font-size:10px;color:#6d28d9;font-weight:600;margin-bottom:6px;">🏢 他部署応援</div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:4px;margin-bottom:6px;">
@@ -1155,7 +1159,9 @@ function bR(){
         <div style="background:#ede9fe;border-radius:5px;padding:5px 7px;"><div style="font-size:10px;color:#6d28d9;">応援（夜）</div><div style="font-size:15px;font-weight:600;">${agg.enShooNight}回</div></div>
         <div style="background:#ede9fe;border-radius:5px;padding:5px 7px;"><div style="font-size:10px;color:#6d28d9;">応援計</div><div style="font-size:15px;font-weight:600;">${total}回</div></div>
       </div>
-      <div style="font-size:11px;color:#5b21b6;">応援時の回送: ${driveStr}</div>
+      <div style="font-size:11px;color:#5b21b6;margin-bottom:3px;">応援時の回送（合計）: ${driveStr}</div>
+      <div style="font-size:11px;color:#5b21b6;margin-bottom:2px;">　昼: ${driveDayStr}</div>
+      <div style="font-size:11px;color:#5b21b6;">　夜: ${driveNightStr}</div>
     </div>`;
   };
   const sumCard=(title,agg,extra,head,foot)=>`<div class="card" style="margin-top:10px;${extra||''}">

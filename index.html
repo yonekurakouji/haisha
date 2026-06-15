@@ -168,7 +168,7 @@ const isHoliday=dk=>!!holidaysOf(Number(dk.slice(0,4)))[dk];
 const isSunday=dk=>pd(dk).getDay()===0;
 
 /* ===== 現場終了報告データ =====
-   site.report[dk] = {start,end,weather,work,otDefault, per:{社員名:{ot,drive,excluded}}}
+   site.report[dk] = {start,end,weather,work,otDefault, per:{社員名:{ot,drive,excluded,returnVehicle,returnDrive}}}
 */
 function getReport(site,dk){return (site.report&&site.report[dk])||{};}
 function ensureReport(si,dk){const s=S.sites[si];s.report=s.report||{};s.report[dk]=s.report[dk]||{per:{}};if(!s.report[dk].per)s.report[dk].per={};return s.report[dk];}
@@ -237,11 +237,12 @@ function aggWorker(workerName,dkList){
         const KAISO_V=['R1','R2','R3','R8','R9','S3','S8','P5','P7','大型','増㌧','レンジャー'];
         if(s.enShoo){
           // 他部署応援：応援カウント＋応援時の回送カウント（昼夜別）
-          if(slot==='昼'){r.enShooDay++;if((per.drive||0)>0&&a.vehicle){const vKey=KAISO_V.includes(a.vehicle)?'回送':a.vehicle;r.enShooDrive[vKey]=(r.enShooDrive[vKey]||0)+per.drive;r.enShooDriveDay[vKey]=(r.enShooDriveDay[vKey]||0)+per.drive;}}else{r.enShooNight++;if((per.drive||0)>0&&a.vehicle){const vKey=KAISO_V.includes(a.vehicle)?'回送':a.vehicle;r.enShooDrive[vKey]=(r.enShooDrive[vKey]||0)+per.drive;r.enShooDriveNight[vKey]=(r.enShooDriveNight[vKey]||0)+per.drive;}}
+          if(slot==='昼'){r.enShooDay++;if((per.drive||0)>0&&a.vehicle){const vKey=KAISO_V.includes(a.vehicle)?'回送':a.vehicle;r.enShooDrive[vKey]=(r.enShooDrive[vKey]||0)+per.drive;r.enShooDriveDay[vKey]=(r.enShooDriveDay[vKey]||0)+per.drive;}if((per.returnDrive||0)>0){const rv=per.returnVehicle||a.vehicle;if(rv){const rvKey=KAISO_V.includes(rv)?'回送':rv;r.enShooDrive[rvKey]=(r.enShooDrive[rvKey]||0)+per.returnDrive;r.enShooDriveDay[rvKey]=(r.enShooDriveDay[rvKey]||0)+per.returnDrive;}}}else{r.enShooNight++;if((per.drive||0)>0&&a.vehicle){const vKey=KAISO_V.includes(a.vehicle)?'回送':a.vehicle;r.enShooDrive[vKey]=(r.enShooDrive[vKey]||0)+per.drive;r.enShooDriveNight[vKey]=(r.enShooDriveNight[vKey]||0)+per.drive;}if((per.returnDrive||0)>0){const rv=per.returnVehicle||a.vehicle;if(rv){const rvKey=KAISO_V.includes(rv)?'回送':rv;r.enShooDrive[rvKey]=(r.enShooDrive[rvKey]||0)+per.returnDrive;r.enShooDriveNight[rvKey]=(r.enShooDriveNight[rvKey]||0)+per.returnDrive;}}}
         } else {
           // 通常現場
           if(isOfficeForWorker(s,dk,workerName))office=true;else genba=true;
           if((per.drive||0)>0&&a.vehicle){const vKey=KAISO_V.includes(a.vehicle)?'回送':a.vehicle;r.drive[vKey]=(r.drive[vKey]||0)+per.drive;}
+          if((per.returnDrive||0)>0){const rv=per.returnVehicle||a.vehicle;if(rv){const rvKey=KAISO_V.includes(rv)?'回送':rv;r.drive[rvKey]=(r.drive[rvKey]||0)+per.returnDrive;}}
         }
         const ot=per.ot!==undefined?per.ot:(rep.otDefault||0);
         r.ot+=Number(ot)||0;
@@ -709,13 +710,31 @@ function repPanel(site,dk,assigns){
     const otManual=p.ot!==undefined;
     const offState=p.office!==undefined?p.office:(rep.officeDefault||false);
     const offManual=p.office!==undefined;
-    return`<div style="display:flex;align-items:center;gap:5px;padding:2px 0;border-bottom:1px dashed var(--bd3);flex-wrap:wrap;">
+    const retV=p.returnVehicle||a.vehicle||'';
+    const isDiffRet=p.returnVehicle&&p.returnVehicle!==a.vehicle;
+    const hasDrive=(p.drive||0)>0||(p.returnDrive||0)>0;
+    const hasFee=(p.tollFee||0)>0||(p.parkingFee||0)>0;
+    return`<div style="padding:2px 0;border-bottom:1px dashed var(--bd3);">
+      <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap;">
       <span style="width:60px;font-size:11px;${p.excluded?'text-decoration:line-through;color:var(--tx3);':''}">${a.name}</span>
       <label style="font-size:10px;color:var(--tx2);">残業<input type="number" step="0.5" value="${otVal}" placeholder="${rep.otDefault||0}" onchange="SetPer(${si},'${dk}','${a.name}','ot',this.value)" style="width:48px;padding:1px 3px;${otManual?'background:#fef9c3;border-color:#facc15;':''}">h</label>
-      <label style="font-size:10px;color:var(--tx2);">運転<input type="number" value="${p.drive||''}" placeholder="0" onchange="SetPer(${si},'${dk}','${a.name}','drive',this.value)" style="width:40px;padding:1px 3px;">回</label>
+      <span style="display:inline-flex;align-items:center;gap:2px;background:#fffbeb;border:1px solid #fde68a;border-radius:4px;padding:1px 4px;">
+        <label style="font-size:10px;color:#92400e;">行き<input type="number" value="${p.drive||''}" placeholder="0" onchange="SetPer(${si},'${dk}','${a.name}','drive',this.value)" style="width:34px;padding:1px 3px;">回</label>
+        <span style="font-size:9px;color:#b45309;">${a.vehicle||''}</span>
+      </span>
+      <span style="display:inline-flex;align-items:center;gap:2px;background:${isDiffRet?'#f5f3ff':'#fffbeb'};border:1px solid ${isDiffRet?'#c4b5fd':'#fde68a'};border-radius:4px;padding:1px 4px;">
+        <label style="font-size:10px;color:${isDiffRet?'#7c3aed':'#92400e'};">帰り<input type="number" value="${p.returnDrive||''}" placeholder="0" onchange="SetPer(${si},'${dk}','${a.name}','returnDrive',this.value)" style="width:34px;padding:1px 3px;">回</label>
+        <select onchange="SetPer(${si},'${dk}','${a.name}','returnVehicle',this.value)" style="font-size:10px;padding:1px 2px;max-width:80px;${isDiffRet?'color:#7c3aed;font-weight:600;':''}"><option value="">同じ車</option>${S.vehicles.map(v=>`<option value="${v.name}"${p.returnVehicle===v.name?' selected':''}>${v.name}</option>`).join('')}</select>
+      </span>
       <button onclick="TogPerOffice(${si},'${dk}','${a.name}')" style="font-size:10px;padding:1px 6px;border-radius:4px;border:1px solid ${offState?'#f59e0b':'var(--bd2)'};background:${offState?'#fef3c7':'var(--bg1)'};color:${offState?'#b45309':'var(--tx2)'};${offManual?'font-weight:600;':''}">${offState?'事務所扱い':'現場'}</button>
       <label style="font-size:10px;color:var(--tx2);cursor:pointer;"><input type="checkbox" ${p.excluded?'checked':''} onchange="SetPer(${si},'${dk}','${a.name}','excluded',this.checked)">除外</label>
       <label style="font-size:10px;color:var(--tx2);flex:1;min-width:80px;">備考<input value="${p.memo||''}" placeholder="" onchange="SetPer(${si},'${dk}','${a.name}','memo',this.value)" style="width:100%;min-width:60px;padding:1px 3px;"></label>
+      </div>
+      ${hasDrive||hasFee?`<div style="display:flex;align-items:center;gap:4px;margin:1px 0 1px 65px;flex-wrap:wrap;">
+        <label style="font-size:10px;color:#0369a1;">🛣<input type="number" value="${p.tollFee||''}" placeholder="高速" onchange="SetPer(${si},'${dk}','${a.name}','tollFee',this.value)" style="width:56px;padding:1px 3px;">円</label>
+        <label style="font-size:10px;color:#0369a1;">🅿<input type="number" value="${p.parkingFee||''}" placeholder="駐車" onchange="SetPer(${si},'${dk}','${a.name}','parkingFee',this.value)" style="width:56px;padding:1px 3px;">円</label>
+        ${hasFee?`<span style="font-size:9px;color:#0369a1;">小計¥${((p.tollFee||0)+(p.parkingFee||0)).toLocaleString()}</span>`:''}
+      </div>`:''}
     </div>`;
   }).join('');
   return`<div style="margin-top:5px;border:1px solid #86efac;border-radius:6px;padding:6px 8px;background:#f0fdf4;" onclick="event.stopPropagation();">
@@ -731,8 +750,13 @@ function repPanel(site,dk,assigns){
       <label style="font-size:10px;color:var(--tx2);">残業(共通)<input type="number" step="0.5" value="${rep.otDefault||''}" placeholder="0" onchange="SetRep(${si},'${dk}','otDefault',this.value)" style="width:48px;">h</label>
       <button onclick="TogRepOffice(${si},'${dk}')" style="font-size:10px;padding:2px 8px;border-radius:4px;border:1px solid ${rep.officeDefault?'#f59e0b':'var(--bd2)'};background:${rep.officeDefault?'#fef3c7':'var(--bg1)'};color:${rep.officeDefault?'#b45309':'var(--tx2)'};">${rep.officeDefault?'全員 事務所扱い':'全員 現場扱い'}</button>
     </div>
-    <div style="font-size:10px;color:var(--tx2);margin-bottom:2px;">社員ごと（残業:空欄=共通／黄色=個別。事務所扱いボタンで現場↔事務所を個別切替）</div>
+    <div style="font-size:10px;color:var(--tx2);margin-bottom:2px;">社員ごと（残業:空欄=共通／黄色=個別。同じ車で往復なら行きに2でOK。帰りの車が違う場合はセレクトで変更。運転者は高速・駐車代を入力）</div>
     ${rows}
+    ${(()=>{const perFees=assigns.reduce((s,a)=>{const p=(rep.per||{})[a.name]||{};return s+(Number(p.tollFee)||0)+(Number(p.parkingFee)||0);},0);const otherF=Number(rep.otherFee)||0;const total=perFees+otherF;return`<div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:5px;padding-top:5px;border-top:1px solid #86efac;align-items:center;">
+      <label style="font-size:10px;color:#0369a1;">💰 その他経費<input type="number" value="${rep.otherFee||''}" placeholder="0" onchange="SetRep(${si},'${dk}','otherFee',this.value)" style="width:64px;padding:1px 3px;">円</label>
+      <label style="font-size:10px;color:#0369a1;flex:1;min-width:80px;">経費備考<input value="${rep.feeNote||''}" placeholder="" onchange="SetRep(${si},'${dk}','feeNote',this.value)" style="width:100%;min-width:60px;padding:1px 3px;"></label>
+      ${total?`<span style="font-size:11px;font-weight:600;color:#0369a1;background:#eff6ff;border:1px solid #bfdbfe;border-radius:4px;padding:2px 8px;">現場合計 ¥${total.toLocaleString()}</span>`:''}
+    </div>`;})()}
   </div>`;
 }
 function bWS(){
@@ -1092,7 +1116,7 @@ function bR(){
   const mDays=Array.from({length:lastDay},(_,i)=>`${S.rpYM}-${String(i+1).padStart(2,'0')}`).filter(dk=>dk<=todayK);
   const gds=dk=>{if(!S.rpW)return[];return S.sites.flatMap(s=>{if(!(s.days||[]).includes(dk))return[];return(s.assigns?.[dk]||[]).filter(a=>a.name===S.rpW).map(a=>({s,a}));});};
   let totD=0,totA=0;const drvC={};
-  mDays.forEach(dk=>{const sh=gds(dk);if(sh.length)totD++;sh.forEach(({a})=>{if(a.isDriver&&a.vehicle){totA+=S.vehicles.find(v=>v.name===a.vehicle)?.allowance||0;const KAISO_V=['R1','R2','R3','R8','R9','S3','S8','P5','P7','大型','増㌧','レンジャー'];const vKey=KAISO_V.includes(a.vehicle)?'回送':a.vehicle;drvC[vKey]=(drvC[vKey]||0)+1;}});});
+  mDays.forEach(dk=>{const sh=gds(dk);if(sh.length)totD++;sh.forEach(({s,a})=>{if(a.isDriver&&a.vehicle){totA+=S.vehicles.find(v=>v.name===a.vehicle)?.allowance||0;const KAISO_V=['R1','R2','R3','R8','R9','S3','S8','P5','P7','大型','増㌧','レンジャー'];const vKey=KAISO_V.includes(a.vehicle)?'回送':a.vehicle;drvC[vKey]=(drvC[vKey]||0)+1;}const rep=getReport(s,dk);const rper=(rep.per&&rep.per[a.name])||{};if(rper.returnDrive>0){const rv=rper.returnVehicle||a.vehicle;totA+=S.vehicles.find(v=>v.name===rv)?.allowance||0;const KAISO_V2=['R1','R2','R3','R8','R9','S3','S8','P5','P7','大型','増㌧','レンジャー'];const rvKey=KAISO_V2.includes(rv)?'回送':rv;drvC[rvKey]=(drvC[rvKey]||0)+rper.returnDrive;}});});
   const rows=mDays.map(dk=>{
     const dt=pd(dk),dw=dt.getDay();const isSun=dw===0,isSat=dw===6;
     const ds=gds(dk),has=ds.length>0;
@@ -1105,6 +1129,10 @@ function bR(){
         const dd=(s.dayData&&s.dayData[dk])||{};
         const isCancel=dd.cancelled;
         const vA=a.isDriver&&a.vehicle?S.vehicles.find(v=>v.name===a.vehicle)?.allowance||0:0;
+        const rep=getReport(s,dk);const rper=(rep.per&&rep.per[a.name])||{};
+        const hasRet=rper.returnDrive>0;
+        const retVName=rper.returnVehicle||a.vehicle||'';
+        const retVA=hasRet?S.vehicles.find(v=>v.name===retVName)?.allowance||0:0;
         const ctName=s.contact==='__manual__'?s.contactManual:s.contact;
         const ctTel=s.contact==='__manual__'?s.contactTel:(S.contacts.find(c=>c.name===s.contact)||{}).tel||'';
         const mc=normMachines(s.machines);
@@ -1116,6 +1144,7 @@ function bR(){
             ${s.prime?`<span style="font-size:10px;color:var(--tx2);">${s.prime}</span>`:''}
             ${(s.works||[]).map(w=>`<span class="bwork">${w}</span>`).join('')}${mc.map(m=>`<span class="bmach">${machLabel(m)}</span>`).join('')}
             ${a.isDriver?`<span class="bdrv">運転 ${a.vehicle}</span>`:''}${vA>0?`<span style="color:#92400e;font-size:10px;font-weight:500;">+¥${vA}</span>`:''}
+            ${hasRet?`<span style="background:${rper.returnVehicle&&rper.returnVehicle!==a.vehicle?'#f5f3ff':'#fffbeb'};color:${rper.returnVehicle&&rper.returnVehicle!==a.vehicle?'#7c3aed':'#92400e'};font-size:10px;padding:1px 6px;border-radius:4px;border:1px solid ${rper.returnVehicle&&rper.returnVehicle!==a.vehicle?'#c4b5fd':'#fde68a'};">帰り ${retVName} ${rper.returnDrive}回</span>`:''}${retVA>0?`<span style="color:#7c3aed;font-size:10px;font-weight:500;">+¥${retVA}</span>`:''}
           </div>
           <div style="font-size:10px;color:var(--tx2);margin-bottom:3px;display:flex;gap:8px;flex-wrap:wrap;">
             <span>担当:${a.role||'—'}</span><span>${gLabel(s,null)||'—'}</span><span>車:${a.vehicle||'—'}</span>
@@ -1132,6 +1161,7 @@ function bR(){
             <label style="display:flex;align-items:center;gap:2px;font-size:11px;color:var(--tx2);flex:1;min-width:120px;">作業<input value="${act.work||''}" onchange="ACT('${ak}','work',this.value)" style="flex:1;min-width:55px;"></label>
             <label style="display:flex;align-items:center;gap:2px;font-size:11px;color:var(--tx2);flex:1;min-width:90px;">備考<input value="${act.memo||''}" onchange="ACT('${ak}','memo',this.value)" style="flex:1;min-width:50px;"></label>
           </div>
+          ${(()=>{const allPer=rep.per||{};const siteFees=(s.assigns?.[dk]||[]).reduce((t,aa)=>{const pp=allPer[aa.name]||{};return t+(pp.tollFee||0)+(pp.parkingFee||0);},0)+(rep.otherFee||0);const myFee=(rper.tollFee||0)+(rper.parkingFee||0);return(myFee||siteFees)?`<div style="font-size:10px;color:#0369a1;margin-top:2px;display:flex;gap:8px;flex-wrap:wrap;">${rper.tollFee?`<span>🛣高速 ¥${Number(rper.tollFee).toLocaleString()}</span>`:''}${rper.parkingFee?`<span>🅿駐車 ¥${Number(rper.parkingFee).toLocaleString()}</span>`:''}${rep.otherFee?`<span>💰他 ¥${Number(rep.otherFee).toLocaleString()}</span>`:''}${siteFees?`<span style="background:#eff6ff;border-radius:3px;padding:0 4px;">現場合計 ¥${siteFees.toLocaleString()}</span>`:''}</div>`:'';})()}
         </div>`;
       }).join('');
     }).join(''):'';
@@ -1147,6 +1177,8 @@ function bR(){
   const fyDkList=fyDays(fySY);
   const aggM=S.rpW?aggWorker(S.rpW,monthDks):null;
   const aggY=S.rpW?aggWorker(S.rpW,fyDkList):null;
+  const feeTotalM=S.rpW?workerMonthDetail(S.rpW,monthDks).reduce((s,r)=>s+(r.tollFee||0)+(r.parkingFee||0)+(r.otherFee||0),0):0;
+  const feeTotalY=S.rpW?(()=>{let t=0;fyDkList.forEach(dk=>{S.sites.forEach(s=>{if(!(s.days||[]).includes(dk))return;if(!(s.assigns?.[dk]||[]).some(a=>a.name===S.rpW))return;const rep=getReport(s,dk);const pp=(rep.per&&rep.per[S.rpW])||{};t+=(pp.tollFee||0)+(pp.parkingFee||0)+(rep.otherFee||0);});});return t;})():0;
   const driveRows=agg=>{
     const ks=Object.keys(agg.drive);
     if(!ks.length)return'<span style="color:var(--tx3);">なし</span>';
@@ -1174,12 +1206,13 @@ function bR(){
       <div style="font-size:11px;color:#5b21b6;">　夜: ${driveNightStr}</div>
     </div>`;
   };
-  const sumCard=(title,agg,extra,head,foot)=>`<div class="card" style="margin-top:10px;${extra||''}">
+  const sumCard=(title,agg,extra,head,foot,feeT)=>`<div class="card" style="margin-top:10px;${extra||''}">
     <div style="display:flex;align-items:center;gap:6px;margin-bottom:8px;"><div style="font-weight:600;font-size:13px;">${title}</div>${head||''}</div>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:6px;">
       ${[['出勤日数',agg.workDays+'日'],['実働',agg.jitsudo+'回'],['夜間出勤',agg.nightDays+'日'],['連荘',agg.maxRen],['現場回数',agg.genba+'回'],['事務所回数',agg.office+'回'],['有給使用',agg.leave+'日'],['残業合計',agg.ot+'h'],['日曜出勤',agg.sun+'日'],['祝日出勤',agg.hol+'日'],['日祝前(夜)',agg.beforeHol+'回'],['休日',agg.rest+'日']].map(([l,v])=>`<div style="background:var(--bg2);border-radius:6px;padding:6px 8px;"><div style="font-size:10px;color:var(--tx2);">${l}</div><div style="font-size:15px;font-weight:600;">${v}</div></div>`).join('')}
     </div>
     <div style="margin-top:8px;background:var(--bg2);border-radius:6px;padding:6px 8px;"><div style="font-size:10px;color:var(--tx2);margin-bottom:2px;">現場運転集計（車種別）</div><div style="font-size:12px;">${driveRows(agg)}</div></div>
+    ${feeT?`<div style="margin-top:6px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:6px;padding:6px 8px;"><div style="font-size:10px;color:#0369a1;margin-bottom:2px;">経費合計（有料道路・パーキング等）</div><div style="font-size:15px;font-weight:600;color:#0369a1;">¥${feeT.toLocaleString()}</div></div>`:''}
     ${enShooRows(agg)}
     ${foot||''}
   </div>`;
@@ -1189,7 +1222,7 @@ function bR(){
   const leaveByHire=ly?countLeave(S.rpW,ly.days):null;
   const fyHead=`<div style="margin-left:auto;display:flex;align-items:center;gap:4px;"><button class="btn" onclick="FY(-1)" style="padding:1px 8px;">◀</button><span style="font-size:11px;">${fySY}/8〜${fySY+1}/7</span><button class="btn" onclick="FY(1)" style="padding:1px 8px;">▶</button></div>`;
   const leaveNote=ly?`<div style="margin-top:8px;background:#fae8ff;border:1px solid #e9d5ff;border-radius:6px;padding:6px 8px;font-size:11px;color:#86198f;">有給は入社日起点で集計：<b>${ly.start}〜${ly.end}</b> の使用 <b style="font-size:14px;">${leaveByHire}日</b><span style="color:#a78bfa;">（※上の「有給使用」は会社年度の参考値）</span></div>`:`<div style="margin-top:8px;font-size:10px;color:var(--tx3);">※入社日をマスタに登録すると、有給は入社日起点の1年で集計されます。</div>`;
-  const drvTbl=S.rpW?(sumCard(`${ry}年${rm}月 集計`,aggM,'border-color:#1e40af;')+sumCard(`年度集計`,aggY,'border-color:#86198f;',fyHead,leaveNote)):'';
+  const drvTbl=S.rpW?(sumCard(`${ry}年${rm}月 集計`,aggM,'border-color:#1e40af;',null,null,feeTotalM)+sumCard(`年度集計`,aggY,'border-color:#86198f;',fyHead,leaveNote,feeTotalY)):'';
   const mW=S.workers.filter(w=>w.group==='main'),hW=S.workers.filter(w=>w.group==='helper'),oW=S.workers.filter(w=>w.group==='office');
   return`<div class="tb" style="flex-wrap:wrap;"><strong style="font-size:13px;">日報</strong>
     <select onchange="SRW(this.value)" style="width:90px;"><option value="">— 社員 —</option>
@@ -1349,7 +1382,9 @@ function workerMonthDetail(name,monthDks){
         const ot=per.ot!==undefined?per.ot:(rep.otDefault||0);
         rows.push({dk,slot,place:s.place||'',cancelled:dd.cancelled,alt:dd.altWork||'',
           work:a.role||'',start:rep.start||'',end:rep.end||'',weather:rep.weather||'',
-          ot:ot||'',drive:per.drive||'',vehicle:a.vehicle||'',office:isOfficeForWorker(s,dk,name)});
+          ot:ot||'',drive:per.drive||'',vehicle:a.vehicle||'',returnVehicle:per.returnVehicle||'',returnDrive:per.returnDrive||'',
+          tollFee:per.tollFee||0,parkingFee:per.parkingFee||0,otherFee:rep.otherFee||0,feeNote:rep.feeNote||'',
+          office:isOfficeForWorker(s,dk,name)});
       });
     });
   });
@@ -1365,15 +1400,17 @@ function onePersonPage(w,ym){
   const lyP=leaveYearDays(w.hireDate,ym+'-15');
   const leaveByHireP=lyP?countLeave(w.name,lyP.days):null;
   const drvStr=Object.keys(agg.drive).length?Object.entries(agg.drive).map(([v,c])=>`${v}:${c}回`).join(' '):'なし';
-  const detailRows=detail.length?detail.map(r=>`<tr${r.cancelled?' style="color:#999;"':''}>
+  const feeTotal=detail.reduce((s,r)=>s+(r.tollFee||0)+(r.parkingFee||0)+(r.otherFee||0),0);
+  const detailRows=detail.length?detail.map(r=>{const fee=(r.tollFee||0)+(r.parkingFee||0)+(r.otherFee||0);return`<tr${r.cancelled?' style="color:#999;"':''}>
     <td>${printDayLabel(r.dk)}</td><td>${r.slot}</td><td>${r.place}${r.cancelled?'(中止)':''}${r.alt?'/'+r.alt:''}${r.office?' [事務所]':''}</td>
     <td>${r.work}</td><td>${r.start}${r.start||r.end?'〜':''}${r.end}</td><td>${r.weather}</td>
-    <td style="text-align:right;">${r.ot!==''?r.ot+'h':''}</td><td>${r.drive!==''?r.vehicle+' '+r.drive+'回':''}</td>
-  </tr>`).join(''):'<tr><td colspan="8" style="text-align:center;color:#999;">この月の勤務はありません</td></tr>';
+    <td style="text-align:right;">${r.ot!==''?r.ot+'h':''}</td><td>${r.drive!==''?'行)'+r.vehicle+' '+r.drive+'回':''}${r.returnDrive?`<br><span style="color:${r.returnVehicle&&r.returnVehicle!==r.vehicle?'#7c3aed':'inherit'};">帰)${r.returnVehicle||r.vehicle} ${r.returnDrive}回</span>`:''}</td>
+    <td style="text-align:right;font-size:10px;">${fee?'¥'+fee.toLocaleString():''}</td>
+  </tr>`}).join(''):'<tr><td colspan="9" style="text-align:center;color:#999;">この月の勤務はありません</td></tr>';
   return`<div class="pp">
     <h2>${y}年${mo}月 個人日報 　${w.name}（${w.no}）</h2>
     <table>
-      <thead><tr><th>日付</th><th>昼夜</th><th>現場</th><th>担当</th><th>時間</th><th>天候</th><th>残業</th><th>運転</th></tr></thead>
+      <thead><tr><th>日付</th><th>昼夜</th><th>現場</th><th>担当</th><th>時間</th><th>天候</th><th>残業</th><th>運転</th><th>経費</th></tr></thead>
       <tbody>${detailRows}</tbody>
     </table>
     <div class="ppsum">
@@ -1390,6 +1427,7 @@ function onePersonPage(w,ym){
       <div>祝日出勤 <b>${agg.hol}</b>日</div>
       <div>日祝前(夜) <b>${agg.beforeHol}</b>回</div>
       <div>運転 <b style="font-size:10px;">${drvStr}</b></div>
+      ${feeTotal?`<div>経費合計 <b style="color:#0369a1;">¥${feeTotal.toLocaleString()}</b></div>`:''}
     </div>
     <div style="margin-top:6px;font-size:10px;color:#555;">【年度累計 ${fySY}/8〜${fySY+1}/7】勤務${aggY.workDays}日 ・ 実働${aggY.jitsudo}回 ・ 残業${aggY.ot}h ・ 休日${aggY.rest}日 ・ 連荘計${aggY.maxRen}</div>
     ${lyP?`<div style="margin-top:3px;font-size:10px;color:#86198f;">【有給（入社日起点 ${lyP.start}〜${lyP.end}）】使用 ${leaveByHireP}日</div>`:''}
@@ -1417,12 +1455,15 @@ window.printReport=function(si,dk){
   const ctTel=site.contact==='__manual__'?site.contactTel:(S.contacts.find(c=>c.name===site.contact)||{}).tel||'';
   const rows=assigns.map(a=>{
     const p=per[a.name]||{};
+    const hasRet=p.returnDrive>0;
+    const retVName=p.returnVehicle||a.vehicle||'';
+    const isDiffRet=p.returnVehicle&&p.returnVehicle!==a.vehicle;
     return`<tr${p.excluded?' style="color:#999;text-decoration:line-through;"':''}>
       <td style="border:1px solid #bbb;padding:5px 8px;font-weight:500;">${a.name}</td>
       <td style="border:1px solid #bbb;padding:5px 8px;">${a.role||''}</td>
-      <td style="border:1px solid #bbb;padding:5px 8px;">${a.vehicle||''}${a.isDriver?' 🚗':''}</td>
+      <td style="border:1px solid #bbb;padding:5px 8px;">${a.vehicle||''}${a.isDriver?' 🚗':''}${hasRet&&isDiffRet?'<br><span style="color:#7c3aed;font-size:10px;">帰り: '+retVName+'</span>':''}</td>
       <td style="border:1px solid #bbb;padding:5px 8px;width:50px;"></td>
-      <td style="border:1px solid #bbb;padding:5px 8px;width:40px;"></td>
+      <td style="border:1px solid #bbb;padding:5px 8px;width:40px;font-size:10px;">${p.drive?'行'+p.drive:''}${hasRet?(p.drive?'/':'')+'帰'+p.returnDrive:''}</td>
       <td style="border:1px solid #bbb;padding:5px 8px;width:30px;">${p.excluded?'✓':''}</td>
       <td style="border:1px solid #bbb;padding:5px 8px;min-width:140px;">${p.memo||''}</td>
     </tr>`;
@@ -1458,6 +1499,7 @@ window.printReport=function(si,dk){
           <td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;">天候</td><td style="border:1px solid #bbb;padding:5px 8px;"></td></tr>
       ${ctName?`<tr><td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;">元請担当</td><td style="border:1px solid #bbb;padding:5px 8px;" colspan="3">${ctName}${ctTel?' '+ctTel:''}</td></tr>`:''}
       ${site.leader?`<tr><td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;">リーダー</td><td style="border:1px solid #bbb;padding:5px 8px;" colspan="3">${site.leader}</td></tr>`:''}
+      ${(()=>{const perFees=assigns.reduce((t,aa)=>{const pp=per[aa.name]||{};return t+(pp.tollFee||0)+(pp.parkingFee||0);},0);const otherF=rep.otherFee||0;const total=perFees+otherF;const details=assigns.filter(aa=>{const pp=per[aa.name]||{};return(pp.tollFee||0)+(pp.parkingFee||0)>0;}).map(aa=>{const pp=per[aa.name]||{};const parts=[];if(pp.tollFee)parts.push('高速¥'+Number(pp.tollFee).toLocaleString());if(pp.parkingFee)parts.push('駐車¥'+Number(pp.parkingFee).toLocaleString());return aa.name+'('+parts.join(' ')+')';}).join('　');return total?`<tr><td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;">経費</td><td style="border:1px solid #bbb;padding:5px 8px;" colspan="3">${details}${otherF?' その他¥'+otherF.toLocaleString():''}${rep.feeNote?' ('+rep.feeNote+')':''}<b style="margin-left:8px;">合計 ¥${total.toLocaleString()}</b></td></tr>`:'';})()}
     </table>
     <table style="width:100%;border-collapse:collapse;font-size:11px;">
       <thead><tr style="background:#e5e7eb;">
@@ -1606,8 +1648,9 @@ function reportMailBody(w,ym){
   let body=`${w.name} さん\n${y}年${mo}月の勤務日報です。\n\n`;
   body+=`【明細】\n`;
   if(detail.length){
-    detail.forEach(r=>{body+=`${printDayLabel(r.dk)} ${r.slot} ${r.place}${r.cancelled?'(中止)':''}${r.office?'[事務所]':''} ${r.work} ${r.start}${(r.start||r.end)?'〜':''}${r.end} ${r.ot!==''?'残業'+r.ot+'h':''} ${r.drive!==''?r.vehicle+r.drive+'回':''}\n`;});
+    detail.forEach(r=>{const fee=(r.tollFee||0)+(r.parkingFee||0)+(r.otherFee||0);body+=`${printDayLabel(r.dk)} ${r.slot} ${r.place}${r.cancelled?'(中止)':''}${r.office?'[事務所]':''} ${r.work} ${r.start}${(r.start||r.end)?'〜':''}${r.end} ${r.ot!==''?'残業'+r.ot+'h':''} ${r.drive!==''?'行き'+r.vehicle+r.drive+'回':''}${r.returnDrive?' 帰り'+(r.returnVehicle||r.vehicle)+r.returnDrive+'回':''}${fee?' 経費¥'+fee:''}\n`;});
   }else{body+=`(勤務なし)\n`;}
+  const feeTotal=detail.reduce((s,r)=>s+(r.tollFee||0)+(r.parkingFee||0)+(r.otherFee||0),0);
   body+=`\n【月集計】\n`;
   body+=`勤務日数:${agg.workDays}日 / 夜間出勤:${agg.nightDays}日 / 連荘:${agg.maxRen}\n`;
   body+=`現場回数:${agg.genba}回 / 事務所回数:${agg.office}回\n`;
@@ -1615,6 +1658,7 @@ function reportMailBody(w,ym){
   body+=`日曜出勤:${agg.sun}日 / 祝日出勤:${agg.hol}日 / 日祝前(夜):${agg.beforeHol}回\n`;
   const drv=Object.keys(agg.drive).length?Object.entries(agg.drive).map(([v,c])=>`${v}:${c}回`).join(' '):'なし';
   body+=`運転:${drv}\n`;
+  if(feeTotal)body+=`経費合計:¥${feeTotal.toLocaleString()}\n`;
   const ly=leaveYearDays(w.hireDate,ym+'-15');
   if(ly){let lc=0;ly.days.forEach(dk=>{if(S.leave[dk]&&S.leave[dk][w.name])lc++;if(S.officeAtt[dk]&&S.officeAtt[dk][w.name]==='leave')lc++;});body+=`\n【有給(入社日起点 ${ly.start}〜${ly.end})】使用 ${lc}日\n`;}
   return body;
@@ -1750,10 +1794,14 @@ window.TogPerOffice=(si,dk,name)=>{const rep=ensureReport(si,dk);rep.per[name]=r
   // 個別トグル：現在値の反対を個別設定。共通と同じに戻したい場合もあるが、まずは明示設定
   rep.per[name].office=!cur;persist();render();};
 window.TogRep=(key)=>{S.openDays[key]=!S.openDays[key];persist();render();};
-window.SetRep=(si,dk,k,v)=>{const rep=ensureReport(si,dk);if(k==='start'||k==='end'){rep[k]=v;}else if(k==='otDefault'){rep[k]=Number(v)||0;}else{rep[k]=v;}persist();render();};
+window.SetRep=(si,dk,k,v)=>{const rep=ensureReport(si,dk);if(k==='start'||k==='end'){rep[k]=v;}else if(k==='otDefault'||k==='tollFee'||k==='parkingFee'||k==='otherFee'){rep[k]=Number(v)||0;}else{rep[k]=v;}persist();render();};
 window.SetPer=(si,dk,name,k,v)=>{const rep=ensureReport(si,dk);rep.per[name]=rep.per[name]||{};
   if(k==='ot'){if(v===''||v===null){delete rep.per[name].ot;}else{rep.per[name].ot=Number(v)||0;}}
   else if(k==='drive'){rep.per[name].drive=Number(v)||0;}
+  else if(k==='returnVehicle'){rep.per[name].returnVehicle=v||'';}
+  else if(k==='returnDrive'){rep.per[name].returnDrive=Number(v)||0;}
+  else if(k==='tollFee'){rep.per[name].tollFee=Number(v)||0;}
+  else if(k==='parkingFee'){rep.per[name].parkingFee=Number(v)||0;}
   else if(k==='excluded'){rep.per[name].excluded=v;}
   else if(k==='memo'){rep.per[name].memo=v||'';}
   persist();render();};

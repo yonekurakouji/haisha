@@ -1461,7 +1461,7 @@ window.printReport=function(si,dk){
     return`<tr${p.excluded?' style="color:#999;text-decoration:line-through;"':''}>
       <td style="border:1px solid #bbb;padding:5px 8px;font-weight:500;">${a.name}</td>
       <td style="border:1px solid #bbb;padding:5px 8px;">${a.role||''}</td>
-      <td style="border:1px solid #bbb;padding:5px 8px;">${a.vehicle||''}${a.isDriver?' 🚗':''}${hasRet&&isDiffRet?'<br><span style="color:#7c3aed;font-size:10px;">帰り: '+retVName+'</span>':''}</td>
+      <td style="border:1px solid #bbb;padding:5px 8px;">${a.vehicle||''}${a.isDriver?' [運転]':''}${hasRet&&isDiffRet?'<br><span style="font-size:10px;">帰り: '+retVName+'</span>':''}</td>
       <td style="border:1px solid #bbb;padding:5px 8px;width:50px;"></td>
       <td style="border:1px solid #bbb;padding:5px 8px;width:40px;font-size:10px;">${p.drive?'行'+p.drive:''}${hasRet?(p.drive?'/':'')+'帰'+p.returnDrive:''}</td>
       <td style="border:1px solid #bbb;padding:5px 8px;width:30px;">${p.excluded?'✓':''}</td>

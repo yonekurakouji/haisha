@@ -2,9 +2,7 @@
   "sites": [
     {
       "id": "1",
-      "days": [
-        "2026-06-16"
-      ],
+      "days": [],
       "assigns": {
         "2026-06-16": [
           {
@@ -111,7 +109,7 @@
           {
             "name": "阿部",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "ハイエース",
+            "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "",
             "absent": ""
@@ -127,7 +125,7 @@
           {
             "name": "小松﨑",
             "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "3tダンプ",
+            "vehicle": "R1",
             "isDriver": true,
             "memo": "",
             "absent": ""
@@ -195,6 +193,14 @@
             "isDriver": false,
             "memo": "",
             "absent": ""
+          },
+          {
+            "name": "米倉",
+            "role": "AFOP",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
@@ -221,6 +227,11 @@
               "name": "ﾌﾟﾚｰﾄ",
               "qty": 2,
               "carrier": "Wキャブ"
+            },
+            {
+              "name": "AF30",
+              "qty": 1,
+              "carrier": "R1"
             }
           ]
         }
@@ -239,22 +250,31 @@
       "machines": [
         {
           "name": "ﾕﾝﾎﾞ0.1",
-          "qty": 1
+          "qty": 1,
+          "carrier": ""
         },
         {
           "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
-          "qty": 1
+          "qty": 1,
+          "carrier": ""
         },
         {
           "name": "ｻｲﾄﾞﾛｰﾗｰ",
-          "qty": 1
+          "qty": 1,
+          "carrier": ""
         },
         {
           "name": "ﾌﾟﾚｰﾄ",
-          "qty": 1
+          "qty": 1,
+          "carrier": ""
         },
         {
           "name": "ｽﾌﾟﾚｲﾔｰ",
+          "qty": 1,
+          "carrier": ""
+        },
+        {
+          "name": "AF30",
           "qty": 1
         }
       ],
@@ -1637,6 +1657,6 @@
   "fiveBase": "2026-06-15",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/6/15 5:40:35",
-  "_savedAt": "2026/6/15 5:40:35"
+  "lastSaved": "2026/6/15 11:03:10",
+  "_savedAt": "2026/6/15 11:03:10"
 }

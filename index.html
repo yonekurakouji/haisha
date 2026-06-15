@@ -1515,7 +1515,7 @@ window.printReport=function(si,dk){
     </table>
   </div>`;
   const w=window.open('','_blank');
-  w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>終了報告 ${site.place} ${dk}</title></head><body>${html}</body></html>`);
+  w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>終了報告 ${site.place} ${dk}</title><style>@media print{*{color:#000!important;background:#fff!important;border-color:#999!important;-webkit-print-color-adjust:exact;}span,b,div{color:#000!important;}}</style></head><body>${html}</body></html>`);
   w.document.close();
   w.print();
 };

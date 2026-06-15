@@ -3,8 +3,7 @@
     {
       "id": "1",
       "days": [
-        "2026-06-16",
-        "2026-06-17"
+        "2026-06-16"
       ],
       "assigns": {
         "2026-06-16": [
@@ -80,106 +79,9 @@
             "memo": "",
             "absent": ""
           }
-        ],
-        "2026-06-17": [
-          {
-            "name": "阿部",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "駒田",
-            "role": "重機OP",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "小松﨑",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "近藤",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "中川",
-            "role": "運搬員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "大竹",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "菅沼",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "佐藤",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "アマダ",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "アグン",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "アリヤ",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          }
         ]
       },
-      "dayData": {
-        "2026-06-16": {
-          "supplies": [
-            "ニシオ舗装カッター"
-          ]
-        },
-        "2026-06-17": {}
-      },
+      "dayData": {},
       "shift": "昼",
       "place": "事務所",
       "prime": "",
@@ -211,7 +113,7 @@
             "role": "ﾚｰｷﾏﾝ",
             "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "帰R1",
+            "memo": "",
             "absent": ""
           },
           {
@@ -227,7 +129,7 @@
             "role": "ﾛｰﾗｰﾏﾝ",
             "vehicle": "R1",
             "isDriver": true,
-            "memo": "帰Wキャブ",
+            "memo": "",
             "absent": ""
           },
           {
@@ -235,7 +137,7 @@
             "role": "運搬員",
             "vehicle": "Wキャブ",
             "isDriver": true,
-            "memo": "帰3T",
+            "memo": "",
             "absent": ""
           },
           {
@@ -327,15 +229,7 @@
               "name": "ﾌﾟﾚｰﾄ",
               "qty": 2,
               "carrier": "Wキャブ"
-            },
-            {
-              "name": "AF30",
-              "qty": 1,
-              "carrier": "R1"
             }
-          ],
-          "works": [
-            "路盤工"
           ]
         }
       },
@@ -353,31 +247,22 @@
       "machines": [
         {
           "name": "ﾕﾝﾎﾞ0.1",
-          "qty": 1,
-          "carrier": ""
+          "qty": 1
         },
         {
           "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
-          "qty": 1,
-          "carrier": ""
+          "qty": 1
         },
         {
           "name": "ｻｲﾄﾞﾛｰﾗｰ",
-          "qty": 1,
-          "carrier": ""
+          "qty": 1
         },
         {
           "name": "ﾌﾟﾚｰﾄ",
-          "qty": 1,
-          "carrier": ""
+          "qty": 1
         },
         {
           "name": "ｽﾌﾟﾚｲﾔｰ",
-          "qty": 1,
-          "carrier": ""
-        },
-        {
-          "name": "AF30",
           "qty": 1
         }
       ],
@@ -391,25 +276,32 @@
         "2026-06-15": {
           "per": {
             "阿部": {
-              "drive": 2,
-              "memo": "帰りR1"
+              "drive": 1,
+              "returnVehicle": "R1",
+              "returnDrive": 1
             },
             "駒田": {
-              "drive": 2
+              "drive": 2,
+              "returnDrive": 0
             },
             "小松﨑": {
-              "drive": 2,
-              "memo": "帰りダブルキャブ"
+              "drive": 1,
+              "returnVehicle": "Wキャブ",
+              "returnDrive": 1
             },
             "近藤": {
-              "drive": 2,
-              "memo": "帰り３tダンプ"
+              "drive": 1,
+              "returnDrive": 1,
+              "returnVehicle": "3tダンプ"
             },
             "中川": {
-              "drive": 2
+              "drive": 2,
+              "returnDrive": 0
             },
             "米倉": {
-              "drive": 2
+              "returnDrive": 0,
+              "drive": 2,
+              "tollFee": 0
             }
           },
           "start": "08:30",
@@ -1747,9 +1639,7 @@
       "tel": ""
     }
   ],
-  "supplies": [
-    "ニシオ舗装カッター"
-  ],
+  "supplies": [],
   "leave": {
     "2026-06-07": {},
     "2026-06-10": {
@@ -1791,6 +1681,6 @@
   "fiveBase": "2026-06-15",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/6/15 17:06:02",
-  "_savedAt": "2026/6/15 17:06:02"
+  "lastSaved": "2026/6/15 18:10:12",
+  "_savedAt": "2026/6/15 18:10:12"
 }

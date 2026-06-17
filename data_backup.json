@@ -65,7 +65,7 @@
             "role": "作業員",
             "vehicle": "ハイエース",
             "isDriver": false,
-            "memo": "",
+            "memo": "測量手元",
             "absent": ""
           }
         ]
@@ -110,7 +110,7 @@
             "role": "作業員",
             "vehicle": "ハイエース",
             "isDriver": false,
-            "memo": "",
+            "memo": "測量手元",
             "absent": ""
           }
         ]
@@ -2025,6 +2025,6 @@
   "fiveBase": "2026-06-17",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/6/17 17:00:56",
-  "_savedAt": "2026/6/17 17:00:56"
+  "lastSaved": "2026/6/17 17:02:00",
+  "_savedAt": "2026/6/17 17:02:00"
 }

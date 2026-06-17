@@ -16,31 +16,7 @@
             "absent": ""
           },
           {
-            "name": "小松﨑",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "近藤",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
             "name": "中川",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "大竹",
             "role": "作業員",
             "vehicle": "",
             "isDriver": false,
@@ -62,34 +38,14 @@
             "isDriver": false,
             "memo": "",
             "absent": ""
-          },
-          {
-            "name": "アグン",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "アリヤ",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "アマダ",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
           }
         ]
       },
-      "dayData": {},
+      "dayData": {
+        "2026-06-18": {
+          "cancelled": false
+        }
+      },
       "shift": "昼",
       "place": "事務所",
       "prime": "",
@@ -1949,9 +1905,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-06-08",
-  "fiveBase": "2026-06-16",
+  "fiveBase": "2026-06-17",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/6/17 16:25:39",
-  "_savedAt": "2026/6/17 16:25:39"
+  "lastSaved": "2026/6/17 16:30:24",
+  "_savedAt": "2026/6/17 16:30:24"
 }

@@ -205,30 +205,6 @@
       "enShoo": false
     },
     {
-      "id": "2",
-      "days": [
-        "2026-06-19"
-      ],
-      "assigns": {},
-      "dayData": {},
-      "shift": "昼",
-      "place": "",
-      "prime": "",
-      "contact": "",
-      "contactManual": "",
-      "contactTel": "",
-      "ourContact": "",
-      "leader": "",
-      "works": [],
-      "machines": [],
-      "gatherTime": "",
-      "gatherType": "集合",
-      "note": "",
-      "okiba": "",
-      "kaisou": "",
-      "enShoo": false
-    },
-    {
       "id": "1",
       "days": [
         "2026-06-17"
@@ -2049,6 +2025,6 @@
   "fiveBase": "2026-06-17",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/6/17 16:40:42",
-  "_savedAt": "2026/6/17 16:40:42"
+  "lastSaved": "2026/6/17 16:55:46",
+  "_savedAt": "2026/6/17 16:55:46"
 }

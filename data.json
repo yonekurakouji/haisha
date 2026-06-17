@@ -67,6 +67,14 @@
             "isDriver": false,
             "memo": "測量手元",
             "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
@@ -2025,6 +2033,6 @@
   "fiveBase": "2026-06-17",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/6/17 17:02:59",
-  "_savedAt": "2026/6/17 17:02:59"
+  "lastSaved": "2026/6/17 17:05:38",
+  "_savedAt": "2026/6/17 17:05:38"
 }

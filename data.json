@@ -3,6 +3,141 @@
     {
       "id": "3",
       "days": [
+        "2026-06-20"
+      ],
+      "assigns": {
+        "2026-06-20": [
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "現場指示のもと作業",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "運転手要員",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {},
+      "shift": "昼",
+      "place": "市川",
+      "prime": "幸和道路",
+      "contact": "__manual__",
+      "contactManual": "嘉山",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "駒田",
+      "works": [
+        "舗装工"
+      ],
+      "machines": [],
+      "gatherTime": "5:30",
+      "gatherType": "集合",
+      "note": "幸和事務所7:00厳守",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "2",
+      "days": [
+        "2026-06-19"
+      ],
+      "assigns": {
+        "2026-06-19": [
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {},
+      "shift": "昼",
+      "place": "河内",
+      "prime": "常盤茨",
+      "contact": "斉藤所長",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "駒田",
+      "works": [
+        "雑工"
+      ],
+      "machines": [],
+      "gatherTime": "7:45",
+      "gatherType": "集合",
+      "note": "測量・9:00現場厳守",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "1",
+      "days": [
+        "2026-06-18"
+      ],
+      "assigns": {
+        "2026-06-18": [
+          {
+            "name": "近藤",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {},
+      "shift": "昼",
+      "place": "河内",
+      "prime": "常盤茨",
+      "contact": "斉藤所長",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "近藤",
+      "works": [
+        "雑工"
+      ],
+      "machines": [],
+      "gatherTime": "7:45",
+      "gatherType": "集合",
+      "note": "測量・9:00現場厳守",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "3",
+      "days": [
         "2026-06-18"
       ],
       "assigns": {
@@ -13,6 +148,14 @@
             "vehicle": "",
             "isDriver": false,
             "memo": "13：３０～牛久斎場現調",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
             "absent": ""
           },
           {
@@ -41,11 +184,7 @@
           }
         ]
       },
-      "dayData": {
-        "2026-06-18": {
-          "cancelled": false
-        }
-      },
+      "dayData": {},
       "shift": "昼",
       "place": "事務所",
       "prime": "",
@@ -67,7 +206,9 @@
     },
     {
       "id": "2",
-      "days": [],
+      "days": [
+        "2026-06-19"
+      ],
       "assigns": {},
       "dayData": {},
       "shift": "昼",
@@ -1908,6 +2049,6 @@
   "fiveBase": "2026-06-17",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/6/17 16:30:24",
-  "_savedAt": "2026/6/17 16:30:24"
+  "lastSaved": "2026/6/17 16:40:42",
+  "_savedAt": "2026/6/17 16:40:42"
 }

@@ -123,7 +123,11 @@
           }
         ]
       },
-      "dayData": {},
+      "dayData": {
+        "2026-06-18": {
+          "cancelled": true
+        }
+      },
       "shift": "昼",
       "place": "河内",
       "prime": "常盤茨",
@@ -159,14 +163,6 @@
             "absent": ""
           },
           {
-            "name": "小松﨑",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
             "name": "中川",
             "role": "作業員",
             "vehicle": "",
@@ -185,6 +181,22 @@
           {
             "name": "佐藤",
             "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
@@ -2030,9 +2042,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-06-08",
-  "fiveBase": "2026-06-17",
+  "fiveBase": "2026-06-18",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/6/17 17:06:34",
-  "_savedAt": "2026/6/17 17:06:34"
+  "lastSaved": "2026/6/18 12:08:48",
+  "_savedAt": "2026/6/18 12:08:48"
 }

@@ -1,7 +1,7 @@
 {
   "sites": [
     {
-      "id": "2",
+      "id": "1",
       "days": [
         "2026-06-22"
       ],
@@ -9,18 +9,55 @@
         "2026-06-22": [
           {
             "name": "阿部",
-            "role": "AFOP",
-            "vehicle": "ハイエース",
+            "role": "作業員",
+            "vehicle": "各自(自分の車)",
             "isDriver": true,
             "memo": "",
             "absent": ""
           },
           {
+            "name": "アマダ",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {},
+      "shift": "昼",
+      "place": "",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "阿部",
+      "works": [
+        "雑工"
+      ],
+      "machines": [],
+      "gatherTime": "7:45",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "2",
+      "days": [
+        "2026-06-22"
+      ],
+      "assigns": {
+        "2026-06-22": [
+          {
             "name": "駒田",
             "role": "ﾚｰｷﾏﾝ",
             "vehicle": "レンジャー",
             "isDriver": true,
-            "memo": "",
+            "memo": "180㎡打替え　透水",
             "absent": ""
           },
           {
@@ -28,7 +65,7 @@
             "role": "ﾚｰｷﾏﾝ",
             "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "",
+            "memo": "ローラー補助",
             "absent": ""
           },
           {
@@ -36,7 +73,7 @@
             "role": "運搬員",
             "vehicle": "Wキャブ",
             "isDriver": true,
-            "memo": "",
+            "memo": "3ｔ運搬　2t積みで　サンテク",
             "absent": ""
           },
           {
@@ -44,7 +81,7 @@
             "role": "運搬員",
             "vehicle": "4tダンプ",
             "isDriver": true,
-            "memo": "",
+            "memo": "サンテク　アスガラ・透水",
             "absent": ""
           },
           {
@@ -57,7 +94,7 @@
           },
           {
             "name": "菅沼",
-            "role": "作業員",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -88,10 +125,10 @@
             "absent": ""
           },
           {
-            "name": "アマダ",
-            "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "Wキャブ",
-            "isDriver": false,
+            "name": "米倉",
+            "role": "AFOP",
+            "vehicle": "ハイエース",
+            "isDriver": true,
             "memo": "",
             "absent": ""
           }
@@ -144,7 +181,7 @@
           "qty": 1
         }
       ],
-      "gatherTime": "6:30",
+      "gatherTime": "6:15",
       "gatherType": "集合",
       "note": "",
       "okiba": "無",
@@ -1981,6 +2018,6 @@
   "fiveBase": "2026-06-18",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/6/18 14:32:47",
-  "_savedAt": "2026/6/18 14:32:47"
+  "lastSaved": "2026/6/18 14:46:25",
+  "_savedAt": "2026/6/18 14:46:25"
 }

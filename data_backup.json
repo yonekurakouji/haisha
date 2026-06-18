@@ -27,9 +27,9 @@
       },
       "dayData": {},
       "shift": "昼",
-      "place": "",
-      "prime": "",
-      "contact": "",
+      "place": "河内",
+      "prime": "常盤茨",
+      "contact": "斉藤所長",
       "contactManual": "",
       "contactTel": "",
       "ourContact": "阿部",
@@ -2018,6 +2018,6 @@
   "fiveBase": "2026-06-18",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/6/18 14:46:25",
-  "_savedAt": "2026/6/18 14:46:25"
+  "lastSaved": "2026/6/18 14:47:21",
+  "_savedAt": "2026/6/18 14:47:21"
 }

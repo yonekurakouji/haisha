@@ -293,6 +293,14 @@
             "isDriver": false,
             "memo": "",
             "absent": ""
+          },
+          {
+            "name": "阿部",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
@@ -429,8 +437,8 @@
           {
             "name": "阿部",
             "role": "作業員",
-            "vehicle": "各自(自分の車)",
-            "isDriver": true,
+            "vehicle": "",
+            "isDriver": false,
             "memo": "",
             "absent": ""
           },
@@ -441,22 +449,30 @@
             "isDriver": false,
             "memo": "",
             "absent": ""
+          },
+          {
+            "name": "関",
+            "role": "",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
           }
         ],
         "2026-06-23": [
           {
-            "name": "阿部",
-            "role": "",
+            "name": "アマダ",
+            "role": "作業員",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
             "absent": ""
           },
           {
-            "name": "アマダ",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "name": "関",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": true,
             "memo": "",
             "absent": ""
           }
@@ -2447,6 +2463,6 @@
   "fiveBase": "2026-06-22",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/6/22 14:17:25",
-  "_savedAt": "2026/6/22 14:17:25"
+  "lastSaved": "2026/6/22 17:33:28",
+  "_savedAt": "2026/6/22 17:33:28"
 }

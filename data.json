@@ -1,6 +1,120 @@
 {
   "sites": [
     {
+      "id": "1",
+      "days": [
+        "2026-06-26"
+      ],
+      "assigns": {
+        "2026-06-26": [
+          {
+            "name": "阿部",
+            "role": "AFOP",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "駒田",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "レンジャー",
+            "isDriver": true,
+            "memo": "密粒・じょーぎ、仕様重機は先方用意",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "運搬員",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "2t・トーセキ",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "運搬員",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "トーセキ",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "ふるい",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "4tダンプ",
+            "isDriver": false,
+            "memo": "ふるい",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {},
+      "shift": "昼",
+      "place": "柏",
+      "prime": "工藤建設工業",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "駒田",
+      "works": [
+        "舗装工"
+      ],
+      "machines": [
+        {
+          "name": "AF45",
+          "qty": 1
+        }
+      ],
+      "gatherTime": "6:15",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "有",
+      "kaisou": "○",
+      "enShoo": false
+    },
+    {
       "id": "2",
       "days": [
         "2026-06-23"
@@ -18,7 +132,7 @@
           {
             "name": "小松﨑",
             "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "R3",
+            "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "写真・レーキ指導・転圧全般",
             "absent": ""
@@ -48,14 +162,6 @@
             "absent": ""
           },
           {
-            "name": "菅沼",
-            "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "4tダンプ",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
             "name": "佐藤",
             "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "Wキャブ",
@@ -65,7 +171,7 @@
           },
           {
             "name": "アグン",
-            "role": "ﾌﾟﾚｰﾄ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -310,14 +416,6 @@
             "name": "大竹",
             "role": "ﾚｰｷﾏﾝ",
             "vehicle": "ハイエース",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "菅沼",
-            "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -2237,9 +2335,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-06-08",
-  "fiveBase": "2026-06-19",
+  "fiveBase": "2026-06-22",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/6/19 17:33:47",
-  "_savedAt": "2026/6/19 17:33:47"
+  "lastSaved": "2026/6/22 14:10:23",
+  "_savedAt": "2026/6/22 14:10:23"
 }

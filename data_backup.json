@@ -1,6 +1,115 @@
 {
   "sites": [
     {
+      "id": "2",
+      "days": [
+        "2026-06-24"
+      ],
+      "assigns": {
+        "2026-06-24": [
+          {
+            "name": "阿部",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "牛久測量",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "砕石置場",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "測量手元",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "残土手元",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "裏の残土馴らし",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "砕石置場手元",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "砕石置場手元",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "車内清掃",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "車内清掃",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {},
+      "shift": "昼",
+      "place": "事務所",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "駒田",
+      "works": [
+        "雑工"
+      ],
+      "machines": [],
+      "gatherTime": "8:00",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
       "id": "1",
       "days": [
         "2026-06-26"
@@ -2338,6 +2447,6 @@
   "fiveBase": "2026-06-22",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/6/22 14:10:23",
-  "_savedAt": "2026/6/22 14:10:23"
+  "lastSaved": "2026/6/22 14:16:42",
+  "_savedAt": "2026/6/22 14:16:42"
 }

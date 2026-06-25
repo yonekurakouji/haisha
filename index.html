@@ -345,7 +345,7 @@ function sortByUsage(list,kind,keyFn){
 function loadStore(){try{const r=localStorage.getItem(LS);return r?JSON.parse(r):null;}catch{return null;}}
 function saveStore(o){try{localStorage.setItem(LS,JSON.stringify(o));}catch(e){console.warn(e);}}
 
-let S={tab:"weekly",wMode:"site",showPast:false,showDone:false,foldSite:{},dispBase:0,sites:[],workers:IW,roles:IR,works:IWK,machines:IM,vehicles:IV,contacts:[],supplies:[],leave:{},officeAtt:{},orgName:"工事部",leaveTypes:["有給","講習","健診","その他"],weekBase:fmt(monSt(toDay())),fiveBase:fmt(toDay()),excl:[],actuals:{},rpW:"",rpYM:fmt(toDay()).slice(0,7),izYM:fmt(toDay()).slice(0,7),fyView:null,openDays:{},lastSaved:""};
+let S={tab:"weekly",wMode:"site",showPast:false,showDone:false,foldSite:{},dispBase:0,sites:[],workers:IW,roles:IR,works:IWK,machines:IM,vehicles:IV,contacts:[],supplies:[],leave:{},officeAtt:{},orgName:"工事部",leaveTypes:["有給","講習","健診","その他"],weekBase:fmt(monSt(toDay())),fiveBase:fmt(toDay()),excl:[],actuals:{},rpW:"",rpYM:fmt(toDay()).slice(0,7),izYM:fmt(toDay()).slice(0,7),fyView:null,openDays:{},dispDay:{},lastSaved:""};
 
 const persist=()=>saveStore({...S,excl:[...S.excl]});
 function applyData(d){
@@ -358,7 +358,7 @@ function applyData(d){
   S.foldSite=d.foldSite||{};
   S.excl=new Set(d.excl||[]);
   if(d.weekBase)S.weekBase=d.weekBase;if(d.fiveBase)S.fiveBase=d.fiveBase;if(d.rpYM)S.rpYM=d.rpYM;if(d.izYM)S.izYM=d.izYM;
-  if(d.wMode)S.wMode=d.wMode;if(d.openDays)S.openDays=d.openDays;
+  if(d.wMode)S.wMode=d.wMode;if(d.openDays)S.openDays=d.openDays;if(d.dispDay)S.dispDay=d.dispDay;
   if(d.lastSaved)S.lastSaved=d.lastSaved;
   if(d.leaveTypes&&Array.isArray(d.leaveTypes))S.leaveTypes=d.leaveTypes;
   // 数字のみのIDを持つ現場はユニークIDに変換（重複防止）
@@ -819,7 +819,7 @@ function bWS(){
               ${wkShow.length?`<span style="font-size:10px;color:#065f46;background:#d1fae5;border-radius:4px;padding:0 4px;margin:0 3px;">${wkShow.join('・')}</span>`:''}
               <span class="bcnt" style="margin-left:2px;">計${assigns.length}名</span>
               ${isCancel?'<span style="background:#9ca3af;color:#fff;font-size:10px;padding:1px 5px;border-radius:4px;margin-left:4px;">中止</span>':''}
-              ${!VIEW_MODE?`<button class="btn" onclick="EditSite('${site.id}')" style="font-size:10px;padding:0 6px;margin-left:6px;">✎ 編集</button>`:''}
+              ${!VIEW_MODE?`<button class="btn" onclick="EditSite('${site.id}','${dk}')" style="font-size:10px;padding:0 6px;margin-left:6px;">✎ 編集</button>`:''}
             </div>
             ${altWork?`<div style="font-size:11px;color:#b45309;background:#fef3c7;border-radius:4px;padding:1px 5px;margin-bottom:3px;">別作業: ${altWork}</div>`:''}
             <div class="sb-meta">
@@ -876,14 +876,18 @@ function bD(){
   const dupK=Object.entries(dups).filter(([,v])=>v>1).map(([k])=>k);
   const cards=S.sites.map((site,si)=>{
     const actDays=(site.days||[]).slice().sort(); // 全工事日（過去含む）
-    const dayBtns=days.map(d=>{const dk=fmt(d),sel=(site.days||[]).includes(dk),dw=d.getDay();const ss=sel?'background:#1e293b;color:#f1f5f9;border-color:#1e293b;':'';return`<button class="chip" onclick="TSD(${si},'${dk}')" style="${ss}">${(d.getMonth()+1)}/${d.getDate()}(${WD[dw]})</button>`;}).join('');
+    const selDk=S.dispDay[site.id]||(actDays.length?actDays[actDays.length-1]:null);
+    const dayBtns=days.map(d=>{const dk=fmt(d),sel=(site.days||[]).includes(dk),isSel=sel&&dk===selDk,dw=d.getDay();
+      if(sel){const ss=isSel?'background:#1e293b;color:#f1f5f9;border-color:#1e293b;':'background:#e2e8f0;color:#334155;border-color:#94a3b8;';
+        return`<span style="display:inline-flex;align-items:center;gap:0;border-radius:6px;overflow:hidden;border:1px solid ${isSel?'#1e293b':'#94a3b8'};"><button class="chip" onclick="SelDay('${site.id}','${dk}')" style="${ss}border:none;border-radius:0;">${(d.getMonth()+1)}/${d.getDate()}(${WD[dw]})</button><button onclick="TSD(${si},'${dk}')" style="padding:0 5px;font-size:11px;background:${isSel?'#374155':'#cbd5e1'};color:${isSel?'#fca5a5':'#64748b'};border:none;cursor:pointer;line-height:1.8;" title="この日を工事日から外す">×</button></span>`;}
+      return`<button class="chip" onclick="TSD(${si},'${dk}');SelDay('${site.id}','${dk}')" style="border-style:dashed;color:#64748b;">${(d.getMonth()+1)}/${d.getDate()}(${WD[dw]})</button>`;}).join('');
     const mc=normMachines(site.machines);
     const selM=mc.map((m,mi)=>`<span class="bmach">${m.name}<input type="number" min="1" value="${m.qty}" onchange="SetMQ(${si},${mi},this.value)" style="width:34px;padding:1px 3px;margin:0 2px;font-size:10px;">台<button onclick="RM(${si},${mi})">×</button></span>`).join('');
     const machOpts=S.machines.filter(m=>!mc.some(x=>x.name===m)).map(m=>`<option value="${m}">${m}</option>`).join('');
     const selWK=(site.works||[]).map((w,wi)=>`<span class="bwork">${w}<button onclick="RWK(${si},${wi})">×</button></span>`).join('');
     const workOpts=S.works.filter(w=>!(site.works||[]).includes(w)).map(w=>`<option value="${w}">${w}</option>`).join('');
     const ctOpts=S.contacts.map(c=>`<option value="${c.name}"${site.contact===c.name?' selected':''}>${c.name}${c.tel?' ('+c.tel+')':''}</option>`).join('');
-    const asgSecs=actDays.map(dk=>{
+    const asgSecs=(selDk&&actDays.includes(selDk)?[selDk]:actDays.slice(-1)).map(dk=>{
       const assigns=site.assigns?.[dk]||[],isOpen=S.openDays[`${si}_${dk}`]||assigns.length>0;
       const dd=(site.dayData&&site.dayData[dk])||{};
       const isCancel=dd.cancelled;
@@ -934,6 +938,10 @@ function bD(){
           <div style="display:flex;align-items:center;gap:3px;flex-wrap:wrap;"><span class="lbl">使用重機:</span>${dmChips}<button class="btn" onclick="showCheckModal(${si},'${dk}','machines')" style="padding:1px 8px;">☑ 選択</button>${dmCur.length?'':`<span style="color:var(--tx3);">共通: ${normMachines(site.machines).map(machLabel).join('・')||'なし'}</span>`}</div>
           <div style="display:flex;align-items:center;gap:3px;flex-wrap:wrap;"><span class="lbl" style="color:#166534;">必要品:</span>${dspChips}<button class="btn" onclick="showCheckModal(${si},'${dk}','supplies')" style="padding:1px 8px;background:#bbf7d0;border-color:#86efac;color:#166534;">☑ 選択</button></div>
           <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">時間:</span><select onchange="SetDD(${si},'${dk}','gatherType',this.value)" style="width:50px;font-size:11px;"><option${dGatherType==='集合'?' selected':''}>集合</option><option${dGatherType==='着'?' selected':''}>着</option></select><input value="${dGather!==null?dGather:''}" placeholder="${site.gatherTime||'共通'}" onblur="SetDDTime(${si},'${dk}',this)" onkeydown="if(event.key==='Enter')this.blur()" style="width:60px;margin-left:2px;"><span style="color:var(--tx3);margin-left:4px;">${dGather===null?'(共通)':''}</span></div>
+          <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+            <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">置場:</span><select onchange="SetDD(${si},'${dk}','okiba',this.value)" style="width:56px;font-size:11px;"><option value="">${dd.okiba?'':'(共通: '+(site.okiba||'−')+')'}</option><option value="有"${dd.okiba==='有'?' selected':''}>有</option><option value="無"${dd.okiba==='無'?' selected':''}>無</option></select>${dd.okiba?`<button onclick="SetDD(${si},'${dk}','okiba','')" style="font-size:10px;color:#94a3b8;border:none;background:none;cursor:pointer;">共通に戻す</button>`:''}</div>
+            <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">回送車:</span><select onchange="SetDD(${si},'${dk}','kaisou',this.value)" style="width:56px;font-size:11px;"><option value="">${dd.kaisou?'':'(共通: '+(site.kaisou||'−')+')'}</option><option value="○"${dd.kaisou==='○'?' selected':''}>○</option><option value="×"${dd.kaisou==='×'?' selected':''}>×</option></select>${dd.kaisou?`<button onclick="SetDD(${si},'${dk}','kaisou','')" style="font-size:10px;color:#94a3b8;border:none;background:none;cursor:pointer;">共通に戻す</button>`:''}</div>
+          </div>
         </div>
       </div>`;
       return`<div style="margin-top:4px;border:1px solid var(--bd3);border-radius:6px;overflow:hidden;${isCancel?'opacity:0.7;':''}">
@@ -945,7 +953,7 @@ function bD(){
           <button class="btn" onclick="ToggleCancel(${si},'${dk}')" style="padding:1px 6px;font-size:11px;${isCancel?'background:#9ca3af;color:#fff;border-color:#9ca3af;':'color:#b91c1c;border-color:#fca5a5;'}">${isCancel?'中止解除':'現場中止'}</button>
           <input value="${dd.altWork||''}" placeholder="別作業（手入力）" onchange="SetDD(${si},'${dk}','altWork',this.value)" style="width:130px;font-size:11px;">
         </div>
-        ${isOpen?`<div style="padding:6px 8px;">${editPanel}${rows}<button class="btn" onclick="AA(${si},'${dk}')" style="margin-top:4px;font-size:11px;">＋ 社員追加</button></div>`:''}
+        ${isOpen?`<div style="padding:6px 8px;">${editPanel}${rows}<div style="display:flex;gap:6px;margin-top:4px;"><button class="btn" onclick="AA(${si},'${dk}')" style="font-size:11px;">＋ 社員追加</button><button class="btn btnd" onclick="DeleteDay(${si},'${dk}')" style="font-size:11px;margin-left:auto;">🗑 この日を削除</button></div></div>`:''}
       </div>`;
     }).join('');
     const folded=S.foldSite[site.id]!==false; // falseのときだけ開く（undefined/trueは畳む）
@@ -991,7 +999,7 @@ function bD(){
         <div style="display:flex;flex-wrap:wrap;gap:2px;margin-bottom:3px;">${dayBtns}</div>
         <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;"><input type="date" id="from_${si}" style="width:140px;"><span class="hint">〜</span><input type="date" id="to_${si}" style="width:140px;"><button class="btn" onclick="AP(${si})">期間追加</button>${site.days?.length?`<span class="hint">計${site.days.length}日</span>`:''}</div>
       </div>
-      ${actDays.length?`<div><div class="hint" style="margin-bottom:3px;">割り振り（今週分）</div>${asgSecs}</div>`:''}
+      ${actDays.length?`<div><div class="hint" style="margin-bottom:3px;">割り振り <span style="font-weight:600;color:#1e293b;">${selDk&&actDays.includes(selDk)?selDk:actDays[actDays.length-1]||''}</span> <span style="color:var(--tx3);font-size:10px;">← 上の日付ボタンで切替</span></div>${asgSecs}</div>`:''}
     </div>`;
   }).join('§§§'); // 一時区切り文字で分割可能にする
   const cardsArr=cards.split('§§§');
@@ -1077,7 +1085,7 @@ function bQ(){
         </div>
         <div style="display:flex;gap:6px;align-items:center;">
           <input value="${memo}" placeholder="備考メモ" onchange="SetQMemo(${si},'${ym}',this.value)" style="flex:1;font-size:11px;border:1px solid #e2e8f0;border-radius:4px;padding:3px 6px;">
-          <button class="btn" onclick="EditSite('${s.id}')" style="font-size:10px;padding:1px 6px;">✎ 編集</button>
+          <button class="btn" onclick="EditSite('${s.id}',null)" style="font-size:10px;padding:1px 6px;">✎ 編集</button>
         </div>
       </div>`;
     }).join(''):`<div style="color:#94a3b8;text-align:center;padding:16px;font-size:12px;">この月の工事なし</div>`;
@@ -1109,7 +1117,7 @@ function bBW(){
   const rows=S.workers.filter(w=>w.group!=='helper').map((w,ri)=>{
     if(w.group==='office'){
       // 事務員は出勤状況を表示
-      const cells=days.map(d=>{const dk=fmt(d);const st=(S.officeAtt[dk]&&S.officeAtt[dk][w.name])||'';const disp=st==='work'?{t:'出勤',bg:'#dcfce7',co:'#166534'}:st==='leave'?{t:'有給',bg:'#fae8ff',co:'#86198f'}:st==='off'?{t:'休',bg:'#f1f5f9',co:'#94a3b8'}:{t:'',bg:'',co:''};return`<td style="border:1px solid var(--bd3);text-align:center;${disp.bg?`background:${disp.bg};color:${disp.co};font-size:10px;font-weight:500;`:''}">${disp.t}</td>`;}).join('');
+      const cells=days.map(d=>{const dk=fmt(d);const st=(S.officeAtt[dk]&&S.officeAtt[dk][w.name])||'';const disp=st==='work'?{t:'出勤',bg:'#dcfce7',co:'#166534'}:st==='leave'?{t:'有給',bg:'#fae8ff',co:'#86198f'}:st==='off'?{t:'休',bg:'#f1f5f9',co:'#94a3b8'}:{t:'—',bg:'',co:'#94a3b8'};return`<td onclick="CycleOffice('${dk}','${w.name}')" style="border:1px solid var(--bd3);text-align:center;cursor:pointer;${disp.bg?'background:'+disp.bg+';color:'+disp.co+';font-size:10px;font-weight:500;':'color:#94a3b8;font-size:10px;'}" title="クリックで 出勤→有給→休 切替">${disp.t}</td>`;}).join('');
       return`<tr style="background:#fffaf0;"><td class="nc" style="width:58px;">${w.name}<br><span style="font-size:9px;color:#b45309;">事務</span></td>${cells}</tr>`;
     }
     const cells=days.map(d=>{const dk=fmt(d);const my=S.sites.flatMap(s=>{if(!(s.days||[]).includes(dk))return[];return(s.assigns?.[dk]||[]).filter(a=>a.name===w.name).map(a=>({s,a}));}).sort((x,y)=>(x.s.shift==='夜'?1:0)-(y.s.shift==='夜'?1:0));if(!my.length){const slv=getSlotLeave(dk,w.name,'昼');const lc=slv?.type?getLeaveColor(slv.type):{color:'',bg:''};return`<td onclick="ShowAbsentMenu('${dk}','${w.name}','昼')" style="border:1px solid var(--bd3);text-align:center;cursor:pointer;${slv?.type?'background:'+lc.bg+';color:'+lc.color+';font-size:10px;font-weight:600;':''}" title="クリックで休暇入力">${slv?.type||''}</td>`;}const slv2=getSlotLeave(dk,w.name,'昼');const lc2=slv2?.type?getLeaveColor(slv2.type):{color:'',bg:''};return`<td onclick="ShowAbsentMenu('${dk}','${w.name}','昼')" style="border:1px solid var(--bd3);padding:2px;cursor:pointer;" title="クリックで休暇入力">${slv2?.type?'<div style="font-size:10px;font-weight:600;color:'+lc2.color+';background:'+lc2.bg+';border-radius:3px;padding:0 3px;margin-bottom:1px;">'+slv2.type+'</div>':''}${my.map(({s,a})=>`<div style="padding:1px 3px;border-radius:3px;background:${s.shift==='夜'?'#eef2ff':'#fffbeb'};margin-bottom:1px;"><span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span> <b style="font-size:11px;">${s.place||'(未設定)'}</b>${a.isDriver?'<span class="bdrv">運転</span>':''}${a.memo?`<span style="font-size:10px;color:var(--tx2);"> ${a.memo}</span>`:''}</div>`).join('')}</td>`;}).join('');
@@ -1880,7 +1888,7 @@ window.SetAbsent=(dk,name,val)=>{
 window.MoveW=(i,dir)=>{const j=i+dir;if(j<0||j>=S.workers.length)return;const t=S.workers[i];S.workers[i]=S.workers[j];S.workers[j]=t;persist();render();};
 window.ALT=()=>{const v=(document.getElementById('nltname')?.value||'').trim();if(!v)return;S.leaveTypes=S.leaveTypes||[];if(!S.leaveTypes.includes(v))S.leaveTypes.push(v);persist();render();};
 window.DLT=(i)=>{if(!confirm('削除しますか？'))return;S.leaveTypes.splice(i,1);persist();render();};
-window.EditSite=(id)=>{
+window.EditSite=(id,initDk)=>{
   const si=S.sites.findIndex(s=>s.id===id);
   if(si<0)return;
   const site=S.sites[si];
@@ -1889,6 +1897,8 @@ window.EditSite=(id)=>{
   const days=Array.from({length:3},(_,i)=>addD(toDay(),i+dispOff)); // 今日から3日分
   const todayK=fmt(toDay());
   const actDays=(site.days||[]).slice().sort(); // 全工事日（過去含む）
+  if(initDk&&actDays.includes(initDk)){S.dispDay=S.dispDay||{};S.dispDay[id]=initDk;}
+  const selDk=S.dispDay[id]||(actDays.length?actDays[actDays.length-1]:null);
   const mc=normMachines(site.machines);
   const selM=mc.map((m,mi)=>'<span class="bmach">'+m.name+'<input type="number" min="1" value="'+m.qty+'" onchange="SetMQ('+si+','+mi+',this.value)" style="width:34px;padding:1px 3px;margin:0 2px;font-size:10px;">台<button onclick="RM('+si+','+mi+')">×</button></span>').join('');
   const machOpts=S.machines.filter(m=>!mc.some(x=>x.name===m)).map(m=>'<option value="'+m+'">'+m+'</option>').join('');
@@ -1896,11 +1906,17 @@ window.EditSite=(id)=>{
   const workOpts=S.works.filter(w=>!(site.works||[]).includes(w)).map(w=>'<option value="'+w+'">'+w+'</option>').join('');
   const ctOpts=S.contacts.map(c=>'<option value="'+c.name+'"'+(site.contact===c.name?' selected':'')+'>'+c.name+(c.tel?' ('+c.tel+')':'')+'</option>').join('');
   const dayBtns=days.map(d=>{
-    const dk=fmt(d),sel=(site.days||[]).includes(dk),dw=d.getDay();
-    const selStyle=sel?'background:#1e293b;color:#f1f5f9;border-color:#1e293b;':'';
-    return '<button class="chip" onclick="TSD('+si+',\''+dk+'\')" style="'+selStyle+'">'+(d.getMonth()+1)+'/'+d.getDate()+'('+WD[dw]+')</button>';
+    const dk=fmt(d),sel=(site.days||[]).includes(dk),isSel=sel&&dk===selDk,dw=d.getDay();
+    if(sel){
+      const ss=isSel?'background:#1e293b;color:#f1f5f9;border-color:#1e293b;':'background:#e2e8f0;color:#334155;border-color:#94a3b8;';
+      return '<span style="display:inline-flex;align-items:center;gap:0;border-radius:6px;overflow:hidden;border:1px solid '+(isSel?'#1e293b':'#94a3b8')+';">'
+        +'<button class="chip" onclick="SelDay(\''+id+'\',\''+dk+'\');EditSite(\''+id+'\')" style="'+ss+'border:none;border-radius:0;">'+(d.getMonth()+1)+'/'+d.getDate()+'('+WD[dw]+')</button>'
+        +'<button onclick="TSD('+si+',\''+dk+'\');EditSite(\''+id+'\')" style="padding:0 5px;font-size:11px;background:'+(isSel?'#374155':'#cbd5e1')+';color:'+(isSel?'#fca5a5':'#64748b')+';border:none;cursor:pointer;line-height:1.8;" title="この日を工事日から外す">×</button>'
+        +'</span>';
+    }
+    return '<button class="chip" onclick="TSD('+si+',\''+dk+'\');SelDay(\''+id+'\',\''+dk+'\');EditSite(\''+id+'\')" style="border-style:dashed;color:#64748b;">'+(d.getMonth()+1)+'/'+d.getDate()+'('+WD[dw]+')</button>';
   }).join('');
-  const asgSecs=actDays.map(dk=>{
+  const asgSecs=(selDk&&actDays.includes(selDk)?[selDk]:actDays.slice(-1)).map(dk=>{
     const assigns=site.assigns?.[dk]||[],isOpen=S.openDays[si+'_'+dk]||assigns.length>0;
     const dd=(site.dayData&&site.dayData[dk])||{};
     const isCancel=dd.cancelled;
@@ -1961,7 +1977,7 @@ window.EditSite=(id)=>{
       +'<button class="btn" onclick="ToggleCancel('+si+',\''+dk+'\')" style="padding:1px 6px;font-size:11px;'+(isCancel?'background:#9ca3af;color:#fff;border-color:#9ca3af;':'color:#b91c1c;border-color:#fca5a5;')+'">'+(isCancel?'中止解除':'現場中止')+'</button>'
       +'<input value="'+(dd.altWork||'')+'" placeholder="別作業（手入力）" onchange="SetDD('+si+',\''+dk+'\',\'altWork\',this.value)" style="width:130px;font-size:11px;">'
       +'</div>'
-      +(isOpen?'<div style="padding:6px 8px;">'+editPanel+rows+'<button class="btn" onclick="AA('+si+',\''+dk+'\')" style="margin-top:4px;font-size:11px;">＋ 社員追加</button></div>':'')
+      +(isOpen?'<div style="padding:6px 8px;">'+editPanel+rows+'<div style="display:flex;gap:6px;margin-top:4px;"><button class="btn" onclick="AA('+si+',\''+dk+'\')" style="font-size:11px;">＋ 社員追加</button><button class="btn btnd" onclick="DeleteDay('+si+',\''+dk+'\')" style="font-size:11px;margin-left:auto;">🗑 この日を削除</button></div></div>':'')
       +'</div>';
   }).join('');
   // モーダルHTMLを組み立て
@@ -2005,7 +2021,7 @@ window.EditSite=(id)=>{
     +'<div style="display:flex;flex-wrap:wrap;gap:2px;margin-bottom:3px;">'+dayBtns+'</div>'
     +'<div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;"><input type="date" id="from_'+si+'" style="width:140px;"><span class="hint">〜</span><input type="date" id="to_'+si+'" style="width:140px;"><button class="btn" onclick="AP('+si+')">期間追加</button>'+(site.days&&site.days.length?'<span class="hint">計'+site.days.length+'日</span>':'')+'</div>'
     +'</div>'
-    +(actDays.length?'<div><div class="hint" style="margin-bottom:3px;">割り振り（今週分）</div>'+asgSecs+'</div>':'')
+    +(actDays.length?'<div><div class="hint" style="margin-bottom:3px;">割り振り <span style="font-weight:600;color:#1e293b;">'+(selDk||'')+'</span> <span style="color:#94a3b8;font-size:10px;">← 日付ボタンで切替</span></div>'+asgSecs+'</div>':'')
     +'<div style="margin-top:12px;text-align:right;">'
     +'<button onclick="closeEditModal()" style="padding:6px 20px;border-radius:8px;border:none;background:#1e293b;color:#fff;font-size:14px;cursor:pointer;">完了</button>'
     +'</div>'
@@ -2294,6 +2310,8 @@ window.RM=(si,mi)=>{S.sites[si].machines.splice(mi,1);persist();_reloadModal();}
 window.AWK2=(si,w)=>{if(!w)return;const s=S.sites[si];s.works=s.works||[];if(!s.works.includes(w))s.works.push(w);persist();_reloadModal();};
 window.RWK=(si,wi)=>{S.sites[si].works.splice(wi,1);persist();_reloadModal();};
 window.TSD=(si,dk)=>{const s=S.sites[si];s.days=s.days||[];const i=s.days.indexOf(dk);if(i>=0)s.days.splice(i,1);else{s.days.push(dk);s.days.sort();}persist();_reloadModal();};
+window.SelDay=(siteId,dk)=>{S.dispDay=S.dispDay||{};S.dispDay[siteId]=dk;persist();_reloadModal();};
+window.DeleteDay=(si,dk)=>{if(!confirm(dk+' のデータ（割り振り・日別設定）をすべて削除しますか？'))return;const s=S.sites[si];s.days=(s.days||[]).filter(d=>d!==dk);if(s.assigns)delete s.assigns[dk];if(s.dayData)delete s.dayData[dk];delete S.openDays[si+'_'+dk];if(S.dispDay&&S.dispDay[s.id]===dk)delete S.dispDay[s.id];persist();_reloadModal();};
 window.AP=si=>{const f=document.getElementById(`from_${si}`)?.value,t=document.getElementById(`to_${si}`)?.value;if(!f||!t)return;const s=S.sites[si];s.days=s.days||[];let c=pd(f);const e=pd(t);while(c<=e){const dk=fmt(c);if(!s.days.includes(dk))s.days.push(dk);c=addD(c,1);}s.days.sort();persist();_reloadModal();};
 window.TOD=(si,dk)=>{const k=`${si}_${dk}`;S.openDays[k]=!S.openDays[k];persist();_reloadModal();};
 window.AA=(si,dk)=>{

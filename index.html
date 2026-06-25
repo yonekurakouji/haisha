@@ -819,6 +819,7 @@ function bWS(){
               ${(()=>{const spArr=(dd.supplies&&dd.supplies.length)?dd.supplies:(site.supplies||[]);return spArr.length?`<span style="color:#166534;">必要品: ${spArr.map(sp=>`<span style="background:#dcfce7;border:1px solid #86efac;border-radius:3px;padding:0 4px;font-size:10px;">${sp}</span>`).join('')}</span><br>`:'';})()}
               ${gTime?`<span>${gType}: <b style="color:#b45309;">${gTime}</b></span><br>`:''}
               ${site.okiba||site.kaisou?`<span>${site.okiba?`置場:${site.okiba} `:''}${site.kaisou?`回送:${site.kaisou}`:''}</span>`:''}
+              ${site.note?`<span style="color:#7c3aed;background:#f5f3ff;border-radius:3px;padding:0 4px;">${site.note}</span>`:''}
             </div>
           </div>
           ${(site.ourContact||site.leader)?`<div style="width:96px;flex-shrink:0;border-left:2px solid ${isNight?'#c7d2fe':'#fde68a'};padding-left:6px;font-size:11px;">
@@ -968,7 +969,7 @@ function bD(){
         <button class="btn btnd" onclick="DS(${si})" style="padding:2px 8px;margin-left:auto;">✕</button>
       </div>
       <div class="row2">
-        <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">弊社担当:</span><select onchange="US(${si},'ourContact',this.value)" style="width:84px;"><option value="">選択−</option>${S.workers.filter(w=>w.group==='main').map(w=>`<option value="${w.name}"${site.ourContact===w.name?' selected':''}>${w.name}</option>`).join('')}</select></div>
+        <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">弊社担当:</span><select onchange="US(${si},'ourContact',this.value)" style="width:84px;"><option value="">選択−</option><optgroup label="メンバー">${S.workers.filter(w=>w.group==='main').map(w=>`<option value="${w.name}"${site.ourContact===w.name?' selected':''}>${w.name}</option>`).join('')}</optgroup><optgroup label="助っ人">${S.workers.filter(w=>w.group==='helper').map(w=>`<option value="${w.name}"${site.ourContact===w.name?' selected':''}>${w.name}</option>`).join('')}</optgroup></select></div>
         <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">リーダー:</span><select onchange="US(${si},'leader',this.value)" style="width:84px;"><option value="">選択−</option>${S.workers.map(w=>`<option value="${w.name}"${site.leader===w.name?' selected':''}>${w.name}</option>`).join('')}</select></div>
         <div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl">工事内容:</span>${selWK}<select onchange="AWK2(${si},this.value);this.value=''" style="width:88px;"><option value="">＋ 追加</option>${workOpts}</select></div>
         <div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl">使用重機:</span>${selM}<button class="btn" onclick="showMachModal(${si})" style="padding:1px 8px;">☑ 選択</button></div>
@@ -1980,7 +1981,7 @@ window.EditSite=(id)=>{
     +'<button onclick="US('+si+',\'enShoo\','+(!site.enShoo)+');EditSite(\''+id+'\')" style="padding:2px 8px;font-size:11px;border-radius:4px;border:1px solid '+(site.enShoo?'#7c3aed':'#d1d5db')+';background:'+(site.enShoo?'#7c3aed':'#fff')+';color:'+(site.enShoo?'#fff':'#374151')+';cursor:pointer;white-space:nowrap;">他部署応援'+(site.enShoo?'✔':'')+'</button>'
     +'</div>'
     +'<div class="row2">'
-    +'<div style="display:flex;align-items:center;gap:2px;"><span class="lbl">弊社担当:</span><select onchange="US('+si+',\'ourContact\',this.value)" style="width:84px;"><option value="">選択−</option>'+S.workers.filter(w=>w.group==='main').map(w=>'<option value="'+w.name+'"'+(site.ourContact===w.name?' selected':'')+'>'+w.name+'</option>').join('')+'</select></div>'
+    +'<div style="display:flex;align-items:center;gap:2px;"><span class="lbl">弊社担当:</span><select onchange="US('+si+',\'ourContact\',this.value)" style="width:84px;"><option value="">選択−</option><optgroup label="メンバー">'+S.workers.filter(w=>w.group==='main').map(w=>'<option value="'+w.name+'"'+(site.ourContact===w.name?' selected':'')+'>'+w.name+'</option>').join('')+'</optgroup><optgroup label="助っ人">'+S.workers.filter(w=>w.group==='helper').map(w=>'<option value="'+w.name+'"'+(site.ourContact===w.name?' selected':'')+'>'+w.name+'</option>').join('')+'</optgroup></select></div>'
     +'<div style="display:flex;align-items:center;gap:2px;"><span class="lbl">リーダー:</span><select onchange="US('+si+',\'leader\',this.value)" style="width:84px;"><option value="">選択−</option>'+S.workers.map(w=>'<option value="'+w.name+'"'+(site.leader===w.name?' selected':'')+'>'+w.name+'</option>').join('')+'</select></div>'
     +'<div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl">工事内容:</span>'+selWK+'<select onchange="AWK2('+si+',this.value);this.value=\'\'" style="width:88px;"><option value="">＋ 追加</option>'+workOpts+'</select></div>'
     +'<div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl">使用重機:</span>'+selM+'<button class="btn" onclick="showMachModal('+si+')" style="padding:1px 8px;">☑ 選択</button></div>'

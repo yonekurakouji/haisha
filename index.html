@@ -960,7 +960,7 @@ function bD(){
           <button class="btn" onclick="ToggleCancel(${si},'${dk}')" style="padding:1px 6px;font-size:11px;${isCancel?'background:#9ca3af;color:#fff;border-color:#9ca3af;':'color:#b91c1c;border-color:#fca5a5;'}">${isCancel?'中止解除':'現場中止'}</button>
           <input value="${dd.altWork||''}" placeholder="別作業（手入力）" onchange="SetDD(${si},'${dk}','altWork',this.value)" style="width:130px;font-size:11px;">
         </div>
-        ${isOpen?`<div style="padding:6px 8px;">${editPanel}${rows}<div style="display:flex;gap:6px;margin-top:4px;"><button class="btn" onclick="AA(${si},'${dk}')" style="font-size:11px;">＋ 社員追加</button><button class="btn btnd" onclick="DeleteDay(${si},'${dk}')" style="font-size:11px;margin-left:auto;">🗑 この日を削除</button></div></div>`:''}
+        ${isOpen?`<div style="padding:6px 8px;">${editPanel}${rows}<div style="display:flex;gap:6px;margin-top:4px;"><button class="btn" onclick="AA(${si},'${dk}')" style="font-size:11px;">＋ 社員追加</button><button onclick="DeleteDay(${si},'${dk}')" style="font-size:10px;margin-left:auto;color:#94a3b8;border:1px solid #e2e8f0;border-radius:4px;padding:1px 8px;background:none;cursor:pointer;">🗑 この日を削除</button></div></div>`:''}
       </div>`;
     }).join('');
     const folded=S.foldSite[site.id]!==false; // falseのときだけ開く（undefined/trueは畳む）
@@ -1828,6 +1828,8 @@ window.execCopy=function(si,srcDk){
   }
   if(!s.days.includes(destDk)){s.days.push(destDk);s.days.sort();}
   S.openDays[`${si}_${destDk}`]=true;
+  // コピー後は自動的にコピー先の日を選択表示する
+  S.dispDay=S.dispDay||{};S.dispDay[s.id]=destDk;
   persist();closeCopy();_reloadModal();
 };
 
@@ -1991,7 +1993,7 @@ window.EditSite=(id,initDk)=>{
       +'<button class="btn" onclick="ToggleCancel('+si+',\''+dk+'\')" style="padding:1px 6px;font-size:11px;'+(isCancel?'background:#9ca3af;color:#fff;border-color:#9ca3af;':'color:#b91c1c;border-color:#fca5a5;')+'">'+(isCancel?'中止解除':'現場中止')+'</button>'
       +'<input value="'+(dd.altWork||'')+'" placeholder="別作業（手入力）" onchange="SetDD('+si+',\''+dk+'\',\'altWork\',this.value)" style="width:130px;font-size:11px;">'
       +'</div>'
-      +(isOpen?'<div style="padding:6px 8px;">'+editPanel+rows+'<div style="display:flex;gap:6px;margin-top:4px;"><button class="btn" onclick="AA('+si+',\''+dk+'\')" style="font-size:11px;">＋ 社員追加</button><button class="btn btnd" onclick="DeleteDay('+si+',\''+dk+'\')" style="font-size:11px;margin-left:auto;">🗑 この日を削除</button></div></div>':'')
+      +(isOpen?'<div style="padding:6px 8px;">'+editPanel+rows+'<div style="display:flex;gap:6px;margin-top:4px;"><button class="btn" onclick="AA('+si+',\''+dk+'\')" style="font-size:11px;">＋ 社員追加</button><button onclick="DeleteDay('+si+',\''+dk+'\')" style="font-size:10px;margin-left:auto;color:#94a3b8;border:1px solid #e2e8f0;border-radius:4px;padding:1px 8px;background:none;cursor:pointer;">🗑 この日を削除</button></div></div>':'')
       +'</div>';
   }).join('');
   // モーダルHTMLを組み立て

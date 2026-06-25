@@ -345,13 +345,13 @@ function sortByUsage(list,kind,keyFn){
 function loadStore(){try{const r=localStorage.getItem(LS);return r?JSON.parse(r):null;}catch{return null;}}
 function saveStore(o){try{localStorage.setItem(LS,JSON.stringify(o));}catch(e){console.warn(e);}}
 
-let S={tab:"weekly",wMode:"site",showPast:false,showDone:false,foldSite:{},dispBase:0,sites:[],workers:IW,roles:IR,works:IWK,machines:IM,vehicles:IV,contacts:[],supplies:[],leave:{},officeAtt:{},orgName:"工事部",leaveTypes:["有給","講習","健診","その他"],weekBase:fmt(monSt(toDay())),fiveBase:fmt(toDay()),excl:[],actuals:{},rpW:"",rpYM:fmt(toDay()).slice(0,7),izYM:fmt(toDay()).slice(0,7),fyView:null,openDays:{},dispDay:{},lastSaved:""};
+let S={tab:"weekly",wMode:"site",showPast:false,showDone:false,foldSite:{},dispBase:0,sites:[],workers:IW,roles:IR,works:IWK,machines:IM,vehicles:IV,contacts:[],supplies:[],materials:[],leave:{},officeAtt:{},orgName:"工事部",leaveTypes:["有給","講習","健診","その他"],weekBase:fmt(monSt(toDay())),fiveBase:fmt(toDay()),excl:[],actuals:{},rpW:"",rpYM:fmt(toDay()).slice(0,7),izYM:fmt(toDay()).slice(0,7),fyView:null,openDays:{},dispDay:{},lastSaved:""};
 
 const persist=()=>saveStore({...S,excl:[...S.excl]});
 function applyData(d){
   if(!d)return;
   S.sites=d.sites||[];S.workers=d.workers||IW;S.roles=d.roles||IR;S.works=d.works||IWK;
-  S.machines=d.machines||IM;S.vehicles=d.vehicles||IV;S.contacts=d.contacts||[];S.supplies=d.supplies||[];S.actuals=d.actuals||{};
+  S.machines=d.machines||IM;S.vehicles=d.vehicles||IV;S.contacts=d.contacts||[];S.supplies=d.supplies||[];S.materials=d.materials||[];S.actuals=d.actuals||{};
   S.leave=d.leave||{};
   S.officeAtt=d.officeAtt||{};
   if(d.orgName)S.orgName=d.orgName;
@@ -476,7 +476,7 @@ window.publishToGitHub=async function(){
   const btn=document.getElementById('pubBtn');
   if(btn){btn.textContent='⏳ 更新中...';btn.disabled=true;}
   try{
-    const data={sites:S.sites,workers:S.workers,roles:S.roles,works:S.works,machines:S.machines,vehicles:S.vehicles,contacts:S.contacts,supplies:S.supplies,leave:S.leave,officeAtt:S.officeAtt,orgName:S.orgName,actuals:S.actuals,leaveTypes:S.leaveTypes,excl:[...S.excl],weekBase:S.weekBase,fiveBase:S.fiveBase,rpYM:S.rpYM,izYM:S.izYM,lastSaved:new Date().toLocaleString('ja-JP'),_savedAt:new Date().toLocaleString('ja-JP')};
+    const data={sites:S.sites,workers:S.workers,roles:S.roles,works:S.works,machines:S.machines,vehicles:S.vehicles,contacts:S.contacts,supplies:S.supplies,materials:S.materials,leave:S.leave,officeAtt:S.officeAtt,orgName:S.orgName,actuals:S.actuals,leaveTypes:S.leaveTypes,excl:[...S.excl],weekBase:S.weekBase,fiveBase:S.fiveBase,rpYM:S.rpYM,izYM:S.izYM,lastSaved:new Date().toLocaleString('ja-JP'),_savedAt:new Date().toLocaleString('ja-JP')};
     const content=btoa(unescape(encodeURIComponent(JSON.stringify(data,null,2))));
     const api=`https://api.github.com/repos/${c.owner}/${c.repo}/contents/data.json`;
     let sha=null;
@@ -507,7 +507,7 @@ window.publishToGitHub=async function(){
   }
 };
 window.exportShare=function(){
-  const data={sites:S.sites,workers:S.workers,roles:S.roles,works:S.works,machines:S.machines,vehicles:S.vehicles,contacts:S.contacts,supplies:S.supplies,leave:S.leave,officeAtt:S.officeAtt,orgName:S.orgName,foldSite:S.foldSite,actuals:S.actuals,leaveTypes:S.leaveTypes,excl:[...S.excl],weekBase:S.weekBase,fiveBase:S.fiveBase,rpYM:S.rpYM,izYM:S.izYM,_savedAt:new Date().toLocaleString('ja-JP')};
+  const data={sites:S.sites,workers:S.workers,roles:S.roles,works:S.works,machines:S.machines,vehicles:S.vehicles,contacts:S.contacts,supplies:S.supplies,materials:S.materials,leave:S.leave,officeAtt:S.officeAtt,orgName:S.orgName,foldSite:S.foldSite,actuals:S.actuals,leaveTypes:S.leaveTypes,excl:[...S.excl],weekBase:S.weekBase,fiveBase:S.fiveBase,rpYM:S.rpYM,izYM:S.izYM,_savedAt:new Date().toLocaleString('ja-JP')};
   const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='data.json';
   document.body.appendChild(a);a.click();document.body.removeChild(a);
@@ -531,7 +531,7 @@ window.restoreBackup=async function(){
   }
 };
 window.exportFile=function(){
-  const data={sites:S.sites,workers:S.workers,roles:S.roles,works:S.works,machines:S.machines,vehicles:S.vehicles,contacts:S.contacts,supplies:S.supplies,leave:S.leave,officeAtt:S.officeAtt,orgName:S.orgName,foldSite:S.foldSite,actuals:S.actuals,leaveTypes:S.leaveTypes,excl:[...S.excl],weekBase:S.weekBase,fiveBase:S.fiveBase,rpYM:S.rpYM,izYM:S.izYM,_savedAt:new Date().toLocaleString('ja-JP')};
+  const data={sites:S.sites,workers:S.workers,roles:S.roles,works:S.works,machines:S.machines,vehicles:S.vehicles,contacts:S.contacts,supplies:S.supplies,materials:S.materials,leave:S.leave,officeAtt:S.officeAtt,orgName:S.orgName,foldSite:S.foldSite,actuals:S.actuals,leaveTypes:S.leaveTypes,excl:[...S.excl],weekBase:S.weekBase,fiveBase:S.fiveBase,rpYM:S.rpYM,izYM:S.izYM,_savedAt:new Date().toLocaleString('ja-JP')};
   const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'});
   const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='data.json';
   document.body.appendChild(a);a.click();document.body.removeChild(a);
@@ -825,7 +825,7 @@ function bWS(){
             <div class="sb-meta">
               ${site.prime||ctName?`<span>${site.prime||''}${ctName?` <b>${ctName}</b>${ctTel?` <span style="color:#1e40af;">${ctTel}</span>`:''}`:''}</span><br>`:''}
               ${mc.length?`<span>重機: ${mc.map(m=>`<span class="bmach">${machLabel(m)}</span>`).join('')}</span><br>`:''}
-              ${(()=>{const spArr=(dd.supplies&&dd.supplies.length)?dd.supplies:(site.supplies||[]);return spArr.length?`<span style="color:#166534;">必要品: ${spArr.map(sp=>`<span style="background:#dcfce7;border:1px solid #86efac;border-radius:3px;padding:0 4px;font-size:10px;">${sp}</span>`).join('')}</span><br>`:'';})()}
+              ${(()=>{const spArr=(dd.supplies&&dd.supplies.length)?dd.supplies:(site.supplies||[]);return spArr.length?`<span style="color:#166534;">必要品: ${spArr.map(sp=>`<span style="background:#dcfce7;border:1px solid #86efac;border-radius:3px;padding:0 4px;font-size:10px;">${sp}</span>`).join('')}</span><br>`:'';})()}${(()=>{const mtArr=(site.materials||[]);return mtArr.length?`<span style="color:#1e40af;">材料: ${mtArr.map(mt=>`<span style="background:#dbeafe;border:1px solid #93c5fd;border-radius:3px;padding:0 4px;font-size:10px;">${mt}</span>`).join('')}</span><br>`:'';})()}
               ${gTime?`<span>${gType}: <b style="color:#b45309;">${gTime}</b></span><br>`:''}
               ${site.okiba||site.kaisou?`<span>${site.okiba?`置場:${site.okiba} `:''}${site.kaisou?`回送:${site.kaisou}`:''}</span>`:''}
               ${site.note?`<span style="color:#7c3aed;background:#f5f3ff;border-radius:3px;padding:0 4px;">${site.note}</span>`:''}
@@ -991,6 +991,7 @@ function bD(){
         <div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl">工事内容:</span>${selWK}<select onchange="AWK2(${si},this.value);this.value=''" style="width:88px;"><option value="">＋ 追加</option>${workOpts}</select></div>
         <div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl">使用重機:</span>${selM}<button class="btn" onclick="showMachModal(${si})" style="padding:1px 8px;">☑ 選択</button></div>
         <div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl" style="color:#166534;">必要品:</span>${(site.supplies||[]).map((sp,spi)=>`<span class="bmach" style="background:#dcfce7;border-color:#86efac;color:#166534;">${sp}<button onclick="RSP(${si},${spi})">×</button></span>`).join('')}<select onchange="ASP2(${si},this.value);this.value=''" style="width:90px;"><option value="">＋ 選択</option>${sortByUsage(S.supplies,'supplies',x=>x).filter(sp=>!(site.supplies||[]).includes(sp)).map(sp=>`<option value="${sp}">${sp}</option>`).join('')}</select></div>
+        <div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl" style="color:#1e40af;">材料:</span>${(site.materials||[]).map((mt,mti)=>`<span class="bmach" style="background:#dbeafe;border-color:#93c5fd;color:#1e40af;">${mt}<button onclick="RMT(${si},${mti})">×</button></span>`).join('')}<select onchange="AMT2(${si},this.value);this.value=''" style="width:90px;"><option value="">＋ 選択</option>${sortByUsage(S.materials,'materials',x=>x).filter(mt=>!(site.materials||[]).includes(mt)).map(mt=>`<option value="${mt}">${mt}</option>`).join('')}</select></div>
         <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">時間:</span><select onchange="US(${si},'gatherType',this.value)" style="width:52px;font-size:11px;"><option${(site.gatherType||'集合')==='集合'?' selected':''}>集合</option><option${site.gatherType==='着'?' selected':''}>着</option></select><input value="${site.gatherTime||''}" placeholder="900" onblur="UST(${si},'gatherTime',this)" onkeydown="if(event.key==='Enter'){UST(${si},'gatherTime',this);}" style="width:60px;"></div>
         <input value="${site.note||''}" placeholder="摘要・備考" onchange="US(${si},'note',this.value)" style="flex:1;min-width:90px;">
       </div>
@@ -1357,6 +1358,7 @@ function bMaster(){
     ${msec('工事内容 ※よく使う順',sortByUsage(S.works,'works',x=>x).map((w)=>{const i=S.works.indexOf(w);return`<div style="display:flex;align-items:center;gap:3px;margin-bottom:2px;font-size:12px;"><span style="flex:1;">${w}</span><button class="btn btnd" onclick="DWK(${i})" style="padding:1px 5px;">✕</button></div>`;}).join(''),`<div style="display:flex;gap:3px;"><input id="nwork" placeholder="工事内容名" style="flex:1;"><button class="btn btnp" onclick="AWK()">追加</button></div>`)}
     ${msec('重機 ※よく使う順',sortByUsage(S.machines,'machines',x=>x).map((m)=>{const i=S.machines.indexOf(m);return`<div style="display:flex;align-items:center;gap:3px;margin-bottom:2px;font-size:12px;"><span style="flex:1;font-family:monospace;">${m}</span><button class="btn btnd" onclick="DM(${i})" style="padding:1px 5px;">✕</button></div>`;}).join(''),`<div style="display:flex;gap:3px;"><input id="nm" placeholder="重機コード" style="flex:1;"><button class="btn btnp" onclick="AM2()">追加</button></div>`)}
     ${msec('必要品 ※よく使う順',sortByUsage(S.supplies,'supplies',x=>x).map((sp)=>{const i=S.supplies.indexOf(sp);return`<div style="display:flex;align-items:center;gap:3px;margin-bottom:2px;font-size:12px;"><span style="flex:1;">${sp}</span><button class="btn btnd" onclick="DSP(${i})" style="padding:1px 5px;">✕</button></div>`;}).join(''),`<div style="display:flex;gap:3px;"><input id="nsp" placeholder="必要品名" style="flex:1;"><button class="btn btnp" onclick="ASP()">追加</button></div>`)}
+    ${msec('材料 ※よく使う順',sortByUsage(S.materials,'materials',x=>x).map((mt)=>{const i=S.materials.indexOf(mt);return`<div style="display:flex;align-items:center;gap:3px;margin-bottom:2px;font-size:12px;"><span style="flex:1;">${mt}</span><button class="btn btnd" onclick="DMT(${i})" style="padding:1px 5px;">✕</button></div>`;}).join(''),`<div style="display:flex;gap:3px;"><input id="nmt" placeholder="材料名" style="flex:1;"><button class="btn btnp" onclick="AMT()">追加</button></div>`)}
     ${msec('休暇・不在種別',(S.leaveTypes||[]).map((lt,i)=>`<div style="display:flex;align-items:center;gap:3px;margin-bottom:2px;font-size:12px;"><span style="flex:1;">${lt}</span><button class="btn btnd" onclick="DLT(${i})" style="padding:1px 5px;">✕</button></div>`).join(''),`<div style="display:flex;gap:3px;"><input id="nltname" placeholder="種別名（例:慶弔休暇）" style="flex:1;"><button class="btn btnp" onclick="ALT()">追加</button></div>`)}
     <div class="card"><div style="font-weight:500;margin-bottom:6px;">移動車（手当）※よく使う順</div>
       <div style="max-height:160px;overflow-y:auto;margin-bottom:6px;">${sortByUsage(S.vehicles,'vehicles',v=>v.name).map((v)=>{const i=S.vehicles.indexOf(v);return`<div style="display:flex;align-items:center;gap:3px;margin-bottom:2px;font-size:12px;"><span style="flex:1;">${v.name}</span><input type="number" value="${v.allowance}" onchange="UV(${i},this.value)" style="width:64px;"><button class="btn btnd" onclick="DV(${i})" style="padding:1px 5px;">✕</button></div>`;}).join('')}</div>
@@ -1986,6 +1988,8 @@ window.EditSite=(id,initDk)=>{
     :(site.contact?'<span style="font-size:10px;color:var(--tx2);">'+(S.contacts.find(c=>c.name===site.contact)||{}).tel+'</span>':'');
   const spChips=(site.supplies||[]).map((sp,spi)=>'<span class="bmach" style="background:#dcfce7;border-color:#86efac;color:#166534;">'+sp+'<button onclick="RSP('+si+','+spi+')">×</button></span>').join('');
   const spOpts=sortByUsage(S.supplies,'supplies',x=>x).filter(sp=>!(site.supplies||[]).includes(sp)).map(sp=>'<option value="'+sp+'">'+sp+'</option>').join('');
+  const mtChips=(site.materials||[]).map((mt,mti)=>'<span class="bmach" style="background:#dbeafe;border-color:#93c5fd;color:#1e40af;">'+mt+'<button onclick="RMT('+si+','+mti+')">×</button></span>').join('');
+  const mtOpts=sortByUsage(S.materials,'materials',x=>x).filter(mt=>!(site.materials||[]).includes(mt)).map(mt=>'<option value="'+mt+'">'+mt+'</option>').join('');
   const html='<div id="esm-inner" data-site-id="'+id+'" style="position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:1000;display:flex;align-items:flex-start;justify-content:center;padding:12px;overflow-y:auto;" onclick="if(event.target===this)closeEditModal()">'
     +'<div style="background:var(--bg1);border-radius:12px;width:100%;max-width:680px;padding:16px;margin:auto;" onclick="event.stopPropagation()">'
     +'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;border-bottom:1px solid var(--bd3);padding-bottom:8px;">'
@@ -2009,6 +2013,7 @@ window.EditSite=(id,initDk)=>{
     +'<div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl">工事内容:</span>'+selWK+'<select onchange="AWK2('+si+',this.value);this.value=\'\'" style="width:88px;"><option value="">＋ 追加</option>'+workOpts+'</select></div>'
     +'<div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl">使用重機:</span>'+selM+'<button class="btn" onclick="showMachModal('+si+')" style="padding:1px 8px;">☑ 選択</button></div>'
     +'<div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl" style="color:#166534;">必要品:</span>'+spChips+'<select onchange="ASP2('+si+',this.value);this.value=\'\'" style="width:90px;"><option value="">＋ 選択</option>'+spOpts+'</select></div>'
+    +'<div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl" style="color:#1e40af;">材料:</span>'+mtChips+'<select onchange="AMT2('+si+',this.value);this.value=\'\'" style="width:90px;"><option value="">＋ 選択</option>'+mtOpts+'</select></div>'
     +'<div style="display:flex;align-items:center;gap:2px;"><span class="lbl">時間:</span><select onchange="US('+si+',\'gatherType\',this.value)" style="width:52px;font-size:11px;"><option'+(( site.gatherType||'集合')==='集合'?' selected':'')+'>集合</option><option'+(site.gatherType==='着'?' selected':'')+'>着</option></select><input value="'+(site.gatherTime||'')+'" placeholder="900" onblur="UST('+si+',\'gatherTime\',this)" onkeydown="if(event.key===\'Enter\'){UST('+si+',\'gatherTime\',this);}" style="width:60px;"></div>'
     +'<input value="'+(site.note||'')+'" placeholder="摘要・備考" onchange="US('+si+',\'note\',this.value)" style="flex:1;min-width:90px;">'
     +'</div>'
@@ -2081,6 +2086,10 @@ window.ADSP=(si,dk,sp)=>{if(!sp)return;const d=_dd(si,dk);const arr=[...(d.suppl
 window.ADSPM=(si,dk)=>{const el=document.getElementById(`dsp_${si}_${dk}`);const v=(el?.value||'').trim();if(!v)return;if(!S.supplies.includes(v))S.supplies.push(v);const d=_dd(si,dk);const arr=[...(d.supplies||[])];if(!arr.includes(v))arr.push(v);d.supplies=arr;persist();render();};
 window.RDSP=(si,dk,spi)=>{const d=_dd(si,dk);const arr=[...(d.supplies||[])];arr.splice(spi,1);d.supplies=arr.length?arr:undefined;persist();render();};
 window.ASP=()=>{const v=(document.getElementById('nsp')?.value||'').trim();if(!v)return;if(!S.supplies.includes(v))S.supplies.push(v);document.getElementById('nsp').value='';persist();render();};
+window.AMT=()=>{const v=(document.getElementById('nmt')?.value||'').trim();if(!v)return;S.materials=S.materials||[];if(!S.materials.includes(v))S.materials.push(v);document.getElementById('nmt').value='';persist();render();};
+window.DMT=(i)=>{S.materials.splice(i,1);persist();render();};
+window.AMT2=(si,mt)=>{if(!mt)return;const s=S.sites[si];s.materials=s.materials||[];if(!s.materials.includes(mt))s.materials.push(mt);persist();_reloadModal();};
+window.RMT=(si,mti)=>{const s=S.sites[si];s.materials=s.materials||[];s.materials.splice(mti,1);persist();_reloadModal();};
 window.ASP2=(si,sp)=>{if(!sp)return;const s=S.sites[si];s.supplies=s.supplies||[];if(!s.supplies.includes(sp))s.supplies.push(sp);persist();_reloadModal();};
 window.RSP=(si,spi)=>{const s=S.sites[si];s.supplies=s.supplies||[];s.supplies.splice(spi,1);persist();_reloadModal();};
 window.DSP=(i)=>{S.supplies.splice(i,1);persist();render();};

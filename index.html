@@ -411,6 +411,13 @@ function init(){
       if(!r.ok)throw new Error('data.json なし');
       return r.json();
     }).then(d=>{
+      // data.jsonにないキーはlocalStorageの値で補完する
+      const cached=loadStore();
+      if(cached){
+        if(!d.materials||d.materials.length===0)d.materials=cached.materials||[];
+        if(!d.supplies||d.supplies.length===0)d.supplies=cached.supplies||[];
+        if(!d.leaveTypes||d.leaveTypes.length===0)d.leaveTypes=cached.leaveTypes||[];
+      }
       applyData(d);
       // localStorageにも反映しておく
       const toStore={...d};
@@ -1334,6 +1341,11 @@ function bMaster(){
     <div style="border-top:1px solid var(--bd3);padding-top:6px;">${addH}</div></div>`;
   return`<strong style="font-size:13px;">マスタ管理</strong>
   <div style="background:#dbeafe;border:1px solid #93c5fd;border-radius:8px;padding:6px 10px;margin:6px 0 10px;font-size:11px;color:#1e40af;">変更は自動保存されます。社員マスタは普段たたんでおけます。</div>
+  <div style="background:#fef2f2;border:2px solid #ef4444;border-radius:8px;padding:10px 14px;margin:0 0 10px;font-size:12px;color:#991b1b;">
+    <div style="font-weight:700;font-size:13px;margin-bottom:6px;">⚠️ 注意！マスタを変更したら必ず以下の手順を行ってください</div>
+    <div style="line-height:2;">① 変更・追加が終わったら<br>② 画面上部の <span style="background:#166534;color:#fff;border-radius:4px;padding:1px 8px;font-weight:700;">🚀 サイトを更新</span> ボタンを押す<br>③ 「更新しました」と表示されたら完了</div>
+    <div style="margin-top:6px;padding:6px 10px;background:#fff5f5;border-radius:6px;font-size:11px;color:#b91c1c;">⚠️ このボタンを押さずに閉じると、次に開いたときにマスタの変更が消えます！</div>
+  </div>
   <div class="card" style="margin-bottom:8px;">
     <div style="display:flex;align-items:center;gap:8px;cursor:pointer;" onclick="TogMaster('workers')">
       <span style="font-weight:500;">👷 社員マスタ（入社日・メール・並び順）</span>

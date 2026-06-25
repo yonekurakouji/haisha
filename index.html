@@ -944,6 +944,7 @@ function bD(){
         <div style="display:flex;align-items:center;gap:8px;">
           <span class="${site.shift==='夜'?'bngt':'bday'}">${site.shift}</span>
           <span style="font-weight:600;">${site.place||'(未入力)'}</span>
+          ${(()=>{const sd=(site.days||[]).slice().sort();const first=sd[0]||'';const last=sd[sd.length-1]||'';return first?`<span style="font-size:10px;color:#6b7280;background:#f3f4f6;border-radius:4px;padding:0 5px;">${first}〜${last!==first?last:''}</span>`:'';})()}
           ${(site.works||[]).length?`<span style="font-size:10px;color:#065f46;background:#d1fae5;border-radius:4px;padding:0 5px;">${site.works.join('・')}</span>`:''}
           <span style="font-size:11px;color:var(--tx3);">${site.days?.length?'計'+site.days.length+'日':''}</span>
           <button class="btn" onclick="FoldSite('${site.id}')" style="margin-left:auto;padding:2px 10px;">▼ 開く</button>
@@ -1768,7 +1769,7 @@ window.resetAll=function(){
 };
 
 window.showCopy=function(si,srcDk){
-  const el=document.getElementById('cmodal');if(!el)return;
+  let el=document.getElementById('cmodal');if(!el){el=document.createElement('div');el.id='cmodal';document.body.appendChild(el);}
   el.innerHTML=`<div style="position:fixed;inset:0;background:rgba(0,0,0,0.4);display:flex;align-items:center;justify-content:center;z-index:999;" onclick="closeCopy()">
     <div onclick="event.stopPropagation()" style="background:var(--bg1);border-radius:10px;border:1px solid var(--bd2);padding:16px;width:300px;">
       <div style="font-weight:500;margin-bottom:8px;">📋 ${srcDk} の割り振りをコピー</div>

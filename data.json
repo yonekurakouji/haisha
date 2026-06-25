@@ -1,7 +1,576 @@
 {
   "sites": [
     {
-      "id": "p4ji056wmqszl8h4",
+      "id": "2zv0wujnmqt2meg2",
+      "days": [
+        "2026-06-24",
+        "2026-06-25"
+      ],
+      "assigns": {
+        "2026-06-24": [
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "牛久測量",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ],
+        "2026-06-25": [
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "牛久測量",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {},
+      "shift": "昼",
+      "place": "事務所",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "8:00",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "tm44p27dmqt1cov9",
+      "days": [
+        "2026-06-23"
+      ],
+      "assigns": {
+        "2026-06-23": [
+          {
+            "name": "阿部",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "R1",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "作業員",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {},
+      "shift": "昼",
+      "place": "江戸川区一之江",
+      "prime": "大夢",
+      "contact": "紺野",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "駒田",
+      "works": [
+        "舗装工"
+      ],
+      "machines": [
+        {
+          "name": "ﾕﾝﾎﾞ0.1",
+          "qty": 1,
+          "carrier": ""
+        },
+        {
+          "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+          "qty": 1,
+          "carrier": ""
+        },
+        {
+          "name": "ｻｲﾄﾞﾛｰﾗｰ",
+          "qty": 1,
+          "carrier": ""
+        },
+        {
+          "name": "ﾌﾟﾚｰﾄ",
+          "qty": 1,
+          "carrier": ""
+        },
+        {
+          "name": "ﾗﾝﾏ",
+          "qty": 1
+        }
+      ],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "×",
+      "enShoo": false
+    },
+    {
+      "id": "mmfjfo8bmqt18x73",
+      "days": [
+        "2026-06-22",
+        "2026-06-23"
+      ],
+      "assigns": {
+        "2026-06-22": [
+          {
+            "name": "阿部",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "関",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ],
+        "2026-06-23": [
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "関",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-06-22": {
+          "gatherTime": "9:00"
+        },
+        "2026-06-23": {
+          "gatherTime": "9:00"
+        }
+      },
+      "shift": "昼",
+      "place": "河内",
+      "prime": "常盤工業",
+      "contact": "斉藤所長",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "阿部",
+      "works": [
+        "雑工"
+      ],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "測量",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "14dsfpjnmqt11uvk",
+      "days": [
+        "2026-06-22"
+      ],
+      "assigns": {
+        "2026-06-22": [
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "R1",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "作業員",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "米倉",
+            "role": "AFOP",
+            "vehicle": "R1",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-06-22": {
+          "machines": [
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": "R1"
+            },
+            {
+              "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+              "qty": 1,
+              "carrier": "R1"
+            },
+            {
+              "name": "ｻｲﾄﾞﾛｰﾗｰ",
+              "qty": 1,
+              "carrier": "3tダンプ"
+            },
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            }
+          ]
+        }
+      },
+      "shift": "昼",
+      "place": "江戸川区南篠崎",
+      "prime": "大夢",
+      "contact": "紺野",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "駒田",
+      "works": [
+        "捲り舗装"
+      ],
+      "machines": [
+        {
+          "name": "ﾕﾝﾎﾞ0.1",
+          "qty": 1,
+          "carrier": ""
+        },
+        {
+          "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+          "qty": 1,
+          "carrier": ""
+        },
+        {
+          "name": "ｻｲﾄﾞﾛｰﾗｰ",
+          "qty": 1,
+          "carrier": ""
+        },
+        {
+          "name": "ﾌﾟﾚｰﾄ",
+          "qty": 2,
+          "carrier": ""
+        },
+        {
+          "name": "AF45",
+          "qty": 1
+        }
+      ],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "○",
+      "enShoo": false
+    },
+    {
+      "id": "6je8hlgtmqt0z9ne",
+      "days": [
+        "2026-06-20"
+      ],
+      "assigns": {
+        "2026-06-20": [
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-06-20": {
+          "gatherTime": "8:00"
+        }
+      },
+      "shift": "昼",
+      "place": "市川",
+      "prime": "幸和道路",
+      "contact": "__manual__",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "2sc5cso7mqszr9ks",
       "days": [
         "2026-06-02"
       ],
@@ -40,7 +609,7 @@
       "enShoo": false
     },
     {
-      "id": "05ncr327mqszl8h4",
+      "id": "q241t8ybmqszr9ks",
       "days": [
         "2026-06-02"
       ],
@@ -101,7 +670,7 @@
       "enShoo": false
     },
     {
-      "id": "8w3hpggymqszl8h4",
+      "id": "pk4s72vlmqszr9ks",
       "days": [
         "2026-06-02"
       ],
@@ -138,152 +707,7 @@
       "enShoo": false
     },
     {
-      "id": "q9k1um8xmqszl8h4",
-      "days": [
-        "2026-06-01"
-      ],
-      "assigns": {
-        "2026-06-01": [
-          {
-            "name": "駒田",
-            "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "R8",
-            "isDriver": true,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "近藤",
-            "role": "作業員",
-            "vehicle": "Wキャブ",
-            "isDriver": true,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "中川",
-            "role": "作業員",
-            "vehicle": "3tダンプ",
-            "isDriver": true,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "大竹",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "菅沼",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "佐藤",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "アグン",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "アリヤ",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "アマダ",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "米倉",
-            "role": "AFOP",
-            "vehicle": "ハイエース",
-            "isDriver": true,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "関",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "樋口",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          }
-        ]
-      },
-      "dayData": {},
-      "shift": "夜",
-      "place": "守谷北園294",
-      "prime": "常盤茨",
-      "contact": "佐藤",
-      "contactManual": "",
-      "contactTel": "",
-      "ourContact": "阿部",
-      "leader": "駒田",
-      "works": [
-        "舗装工"
-      ],
-      "machines": [
-        {
-          "name": "ﾕﾝﾎﾞ0.1",
-          "qty": 1,
-          "carrier": ""
-        },
-        {
-          "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
-          "qty": 1,
-          "carrier": ""
-        },
-        {
-          "name": "ﾌﾟﾚｰﾄ",
-          "qty": 1,
-          "carrier": ""
-        },
-        {
-          "name": "AF60",
-          "qty": 1
-        }
-      ],
-      "gatherTime": "21:00",
-      "gatherType": "集合",
-      "note": "",
-      "okiba": "有",
-      "kaisou": "○",
-      "enShoo": false
-    },
-    {
-      "id": "p4l3ww58mqszl8h4",
+      "id": "t7d32qk9mqszr9ks",
       "days": [
         "2026-06-01"
       ],
@@ -483,20 +907,89 @@
       "enShoo": false
     },
     {
-      "id": "8zs6c6v8mqszl8h4",
+      "id": "6zi08iztmqszr9ks",
       "days": [
-        "2026-06-16"
+        "2026-06-16",
+        "2026-06-17",
+        "2026-06-18",
+        "2026-06-19"
       ],
       "assigns": {
         "2026-06-16": [
           {
-            "name": "阿部",
+            "name": "駒田",
+            "role": "重機OP",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
             "role": "作業員",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
             "absent": ""
           },
+          {
+            "name": "中川",
+            "role": "運搬員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "阿部",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ],
+        "2026-06-17": [
           {
             "name": "駒田",
             "role": "重機OP",
@@ -560,6 +1053,106 @@
             "isDriver": false,
             "memo": "",
             "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ],
+        "2026-06-18": [
+          {
+            "name": "駒田",
+            "role": "重機OP",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "運搬員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ],
+        "2026-06-19": [
+          {
+            "name": "駒田",
+            "role": "重機OP",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
@@ -581,10 +1174,18 @@
       "note": "事務所入り口舗装",
       "okiba": "",
       "kaisou": "",
-      "enShoo": false
+      "enShoo": false,
+      "report": {
+        "2026-06-16": {
+          "per": {},
+          "start": "08:00",
+          "end": "17:00",
+          "officeDefault": false
+        }
+      }
     },
     {
-      "id": "1vbcao1hmqszl8h4",
+      "id": "ncv6rjhumqszr9ks",
       "days": [
         "2026-06-15"
       ],
@@ -792,7 +1393,7 @@
       }
     },
     {
-      "id": "cx7rwlvvmqszl8h4",
+      "id": "wy073yr4mqszr9ks",
       "days": [
         "2026-06-04",
         "2026-06-05"
@@ -925,7 +1526,7 @@
       }
     },
     {
-      "id": "p373b1kkmqszl8h4",
+      "id": "v44j0yk1mqszr9ks",
       "days": [
         "2026-06-05"
       ],
@@ -977,7 +1578,7 @@
       "kaisou": ""
     },
     {
-      "id": "97dxx1g1mqszl8h4",
+      "id": "s1bqchc2mqszr9ks",
       "days": [
         "2026-06-08",
         "2026-06-09",
@@ -1265,7 +1866,7 @@
       }
     },
     {
-      "id": "26rcfbg0mqszl8h4",
+      "id": "ezwqabsamqszr9ks",
       "days": [
         "2026-06-11"
       ],
@@ -1334,7 +1935,7 @@
       }
     },
     {
-      "id": "vhf3wykvmqszl8h4",
+      "id": "2ue3en3nmqszr9ks",
       "days": [
         "2026-06-11"
       ],
@@ -1434,7 +2035,7 @@
       }
     },
     {
-      "id": "tppeezyzmqszl8h4",
+      "id": "vzf5fjetmqszr9ks",
       "days": [
         "2026-06-10",
         "2026-06-12"
@@ -1685,7 +2286,7 @@
       }
     },
     {
-      "id": "6uyty237mqszl8h4",
+      "id": "u2iezaaamqszr9ks",
       "days": [
         "2026-06-09"
       ],
@@ -1747,7 +2348,7 @@
       }
     },
     {
-      "id": "wsebb7f6mqszl8h4",
+      "id": "pvwncx46mqszr9ks",
       "days": [
         "2026-06-09"
       ],
@@ -2014,7 +2615,8 @@
     "切削",
     "乳剤散布",
     "機械部回送",
-    "捲り舗装"
+    "捲り舗装",
+    "雑工"
   ],
   "machines": [
     "ﾕﾝﾎﾞ0.1",
@@ -2131,6 +2733,50 @@
           "work": false
         }
       }
+    },
+    "2026-06-20": {
+      "小松﨑": {
+        "昼": {
+          "type": "有給",
+          "work": false
+        }
+      }
+    },
+    "2026-06-19": {
+      "小松﨑": {
+        "昼": {
+          "type": "有給",
+          "work": false
+        }
+      }
+    },
+    "2026-06-18": {
+      "アリヤ": {
+        "昼": {
+          "type": "有給",
+          "work": false
+        }
+      }
+    },
+    "2026-06-25": {
+      "アグン": {
+        "昼": {
+          "type": "有給",
+          "work": false
+        }
+      },
+      "アリヤ": {
+        "昼": {
+          "type": "有給",
+          "work": false
+        }
+      },
+      "アマダ": {
+        "昼": {
+          "type": "有給",
+          "work": false
+        }
+      }
     }
   },
   "officeAtt": {
@@ -2154,15 +2800,57 @@
     },
     "2026-06-12": {
       "島田聖子": "work"
+    },
+    "2026-06-15": {
+      "島田聖子": "leave"
+    },
+    "2026-06-16": {
+      "島田聖子": "leave"
+    },
+    "2026-06-22": {
+      "島田聖子": "leave"
+    },
+    "2026-06-23": {
+      "島田聖子": "work"
+    },
+    "2026-06-17": {
+      "島田聖子": "work"
+    },
+    "2026-06-18": {
+      "島田聖子": "work"
+    },
+    "2026-06-19": {
+      "島田聖子": "work"
+    },
+    "2026-06-01": {
+      "島田聖子": "work"
+    },
+    "2026-06-02": {
+      "島田聖子": "work"
+    },
+    "2026-06-03": {
+      "島田聖子": "work"
+    },
+    "2026-06-24": {
+      "島田聖子": "work"
+    },
+    "2026-06-25": {
+      "島田聖子": "work"
     }
   },
   "orgName": "工事部",
   "actuals": {},
+  "leaveTypes": [
+    "有給",
+    "講習",
+    "健診",
+    "その他"
+  ],
   "excl": [],
-  "weekBase": "2026-06-08",
-  "fiveBase": "2026-05-31",
+  "weekBase": "2026-06-22",
+  "fiveBase": "2026-06-21",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/6/25 13:13:03",
-  "_savedAt": "2026/6/25 13:13:03"
+  "lastSaved": "2026/6/25 14:49:04",
+  "_savedAt": "2026/6/25 14:49:04"
 }

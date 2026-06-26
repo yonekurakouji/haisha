@@ -1,57 +1,6 @@
 {
   "sites": [
     {
-      "id": "rk6ps0qcmqta3851",
-      "days": [
-        "2026-06-29"
-      ],
-      "assigns": {
-        "2026-06-29": [
-          {
-            "name": "駒田",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "小松﨑",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "近藤",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          }
-        ]
-      },
-      "dayData": {},
-      "shift": "昼",
-      "place": "事務所",
-      "prime": "",
-      "contact": "",
-      "contactManual": "",
-      "contactTel": "",
-      "ourContact": "関",
-      "leader": "",
-      "works": [],
-      "machines": [],
-      "gatherTime": "",
-      "gatherType": "集合",
-      "note": "測量",
-      "okiba": "",
-      "kaisou": "",
-      "enShoo": false
-    },
-    {
       "id": "u9j37pdxmqt36saj",
       "days": [
         "2026-06-26",
@@ -252,7 +201,7 @@
         "舗装工"
       ],
       "machines": [],
-      "gatherTime": "",
+      "gatherTime": "7:00",
       "gatherType": "集合",
       "note": "",
       "okiba": "",
@@ -263,7 +212,8 @@
       "id": "2zv0wujnmqt2meg2",
       "days": [
         "2026-06-24",
-        "2026-06-25"
+        "2026-06-25",
+        "2026-06-29"
       ],
       "assigns": {
         "2026-06-24": [
@@ -354,7 +304,7 @@
             "role": "",
             "vehicle": "",
             "isDriver": false,
-            "memo": "牛久測量",
+            "memo": "",
             "absent": ""
           },
           {
@@ -399,6 +349,32 @@
           },
           {
             "name": "佐藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ],
+        "2026-06-29": [
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "牛久測量",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
             "role": "",
             "vehicle": "",
             "isDriver": false,
@@ -1834,14 +1810,7 @@
       "gatherTime": "",
       "note": "",
       "okiba": "",
-      "kaisou": "",
-      "report": {
-        "2026-06-05": {
-          "per": {},
-          "start": "08:00",
-          "end": "17:00"
-        }
-      }
+      "kaisou": ""
     },
     {
       "id": "s1bqchc2mqszr9ks",
@@ -3034,7 +3003,26 @@
         }
       }
     },
-    "2026-06-25": {}
+    "2026-06-25": {
+      "アグン": {
+        "昼": {
+          "type": "有給",
+          "work": false
+        }
+      },
+      "アリヤ": {
+        "昼": {
+          "type": "有給",
+          "work": false
+        }
+      },
+      "アマダ": {
+        "昼": {
+          "type": "有給",
+          "work": false
+        }
+      }
+    }
   },
   "officeAtt": {
     "2026-06-04": {
@@ -3093,9 +3081,6 @@
     },
     "2026-06-25": {
       "島田聖子": "work"
-    },
-    "2026-06-26": {
-      "島田聖子": "work"
     }
   },
   "orgName": "工事部",
@@ -3109,9 +3094,9 @@
   ],
   "excl": [],
   "weekBase": "2026-06-22",
-  "fiveBase": "2026-06-01",
+  "fiveBase": "2026-06-26",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/6/26 8:11:16",
-  "_savedAt": "2026/6/26 8:11:16"
+  "lastSaved": "2026/6/26 12:49:22",
+  "_savedAt": "2026/6/26 12:49:22"
 }

@@ -10,88 +10,88 @@
         "2026-06-26": [
           {
             "name": "阿部",
-            "role": "",
-            "vehicle": "",
+            "role": "AFOP",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": ""
           },
           {
             "name": "駒田",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "ハイエース",
+            "isDriver": true,
             "memo": "",
             "absent": ""
           },
           {
             "name": "小松﨑",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "R1",
+            "isDriver": true,
             "memo": "",
             "absent": ""
           },
           {
             "name": "近藤",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
             "memo": "",
             "absent": ""
           },
           {
             "name": "中川",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "運搬員",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
             "memo": "",
             "absent": ""
           },
           {
             "name": "大竹",
-            "role": "",
-            "vehicle": "",
+            "role": "作業員",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": ""
           },
           {
             "name": "菅沼",
-            "role": "",
-            "vehicle": "",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
             "absent": ""
           },
           {
             "name": "佐藤",
-            "role": "",
-            "vehicle": "",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": ""
           },
           {
             "name": "アグン",
-            "role": "",
-            "vehicle": "",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
             "absent": ""
           },
           {
             "name": "アリヤ",
-            "role": "",
-            "vehicle": "",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "4tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": ""
           },
           {
             "name": "アマダ",
-            "role": "",
-            "vehicle": "",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -100,95 +100,102 @@
         "2026-06-30": [
           {
             "name": "阿部",
-            "role": "",
-            "vehicle": "",
+            "role": "AFOP",
+            "vehicle": "3tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": ""
           },
           {
             "name": "駒田",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "ハイエース",
+            "isDriver": true,
             "memo": "",
             "absent": ""
           },
           {
             "name": "小松﨑",
-            "role": "",
-            "vehicle": "",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": ""
           },
           {
             "name": "近藤",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
             "memo": "",
             "absent": ""
           },
           {
             "name": "中川",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "作業員",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
             "memo": "",
             "absent": ""
           },
           {
             "name": "大竹",
-            "role": "",
-            "vehicle": "",
+            "role": "作業員",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": ""
           },
           {
             "name": "菅沼",
-            "role": "",
-            "vehicle": "",
+            "role": "作業員",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": ""
           },
           {
             "name": "佐藤",
-            "role": "",
-            "vehicle": "",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": ""
           },
           {
             "name": "アグン",
-            "role": "",
-            "vehicle": "",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
             "absent": ""
           },
           {
             "name": "アリヤ",
-            "role": "",
-            "vehicle": "",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
             "absent": ""
           },
           {
             "name": "アマダ",
-            "role": "",
-            "vehicle": "",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
             "absent": ""
           }
         ]
       },
-      "dayData": {},
+      "dayData": {
+        "2026-06-26": {
+          "gatherTime": "6:00"
+        },
+        "2026-06-30": {
+          "gatherTime": "6:15"
+        }
+      },
       "shift": "昼",
       "place": "柏慈恵大",
       "prime": "工藤建設工業",
@@ -362,7 +369,7 @@
             "role": "",
             "vehicle": "",
             "isDriver": false,
-            "memo": "牛久測量",
+            "memo": "測量",
             "absent": ""
           },
           {
@@ -3097,9 +3104,9 @@
   ],
   "excl": [],
   "weekBase": "2026-06-22",
-  "fiveBase": "2026-06-21",
+  "fiveBase": "2026-06-26",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/6/26 17:58:39",
-  "_savedAt": "2026/6/26 17:58:39"
+  "lastSaved": "2026/6/26 18:55:27",
+  "_savedAt": "2026/6/26 18:55:27"
 }

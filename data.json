@@ -1,6 +1,191 @@
 {
   "sites": [
     {
+      "id": "m5i9ckz5mqykfhq8",
+      "days": [
+        "2026-06-01"
+      ],
+      "assigns": {
+        "2026-06-01": [
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "R8",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "P5",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "米倉",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "関",
+            "role": "",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "樋口",
+            "role": "",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "ティ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-06-01": {
+          "machines": [
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": "R8"
+            },
+            {
+              "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+              "qty": 1,
+              "carrier": "R8"
+            }
+          ]
+        }
+      },
+      "shift": "夜",
+      "place": "守谷北園294",
+      "prime": "常盤茨",
+      "contact": "佐藤",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "駒田",
+      "works": [
+        "舗装工"
+      ],
+      "machines": [
+        {
+          "name": "ﾕﾝﾎﾞ0.1",
+          "qty": 1,
+          "carrier": ""
+        },
+        {
+          "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+          "qty": 1,
+          "carrier": ""
+        },
+        {
+          "name": "ﾌﾟﾚｰﾄ",
+          "qty": 1,
+          "carrier": ""
+        },
+        {
+          "name": "AF60",
+          "qty": 1
+        }
+      ],
+      "gatherTime": "20:00",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false,
+      "supplies": [
+        "寒水粉"
+      ],
+      "report": {
+        "2026-06-01": {
+          "per": {},
+          "start": "20:00"
+        }
+      }
+    },
+    {
       "id": "0wzo0fpzmqyi4tm6",
       "days": [
         "2026-06-23"
@@ -3284,9 +3469,9 @@
   ],
   "excl": [],
   "weekBase": "2026-06-22",
-  "fiveBase": "2026-06-29",
+  "fiveBase": "2026-06-01",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/6/29 9:59:03",
-  "_savedAt": "2026/6/29 9:59:03"
+  "lastSaved": "2026/6/29 11:00:45",
+  "_savedAt": "2026/6/29 11:00:45"
 }

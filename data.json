@@ -832,14 +832,6 @@
             "isDriver": false,
             "memo": "",
             "absent": ""
-          },
-          {
-            "name": "中川",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
           }
         ]
       },
@@ -3580,6 +3572,6 @@
   "fiveBase": "2026-06-29",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/6/29 15:42:35",
-  "_savedAt": "2026/6/29 15:42:35"
+  "lastSaved": "2026/6/29 15:44:22",
+  "_savedAt": "2026/6/29 15:44:22"
 }

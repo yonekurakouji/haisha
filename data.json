@@ -1,6 +1,157 @@
 {
   "sites": [
     {
+      "id": "0wzo0fpzmqyi4tm6",
+      "days": [
+        "2026-06-23"
+      ],
+      "assigns": {
+        "2026-06-23": [
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "P5",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-06-23": {
+          "machines": [
+            {
+              "name": "AF60",
+              "qty": 1,
+              "carrier": "P5"
+            }
+          ]
+        }
+      },
+      "shift": "夜",
+      "place": "南葛西",
+      "prime": "コスモ",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "渋川",
+      "leader": "駒田",
+      "works": [
+        "機械部回送"
+      ],
+      "machines": [
+        {
+          "name": "AF60",
+          "qty": 1
+        }
+      ],
+      "gatherTime": "22:00",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": true
+    },
+    {
+      "id": "6etz4wn3mqyi22qf",
+      "days": [
+        "2026-06-23"
+      ],
+      "assigns": {
+        "2026-06-23": [
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "R9",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-06-23": {
+          "machines": [
+            {
+              "name": "AF45",
+              "qty": 1,
+              "carrier": "R9"
+            }
+          ]
+        }
+      },
+      "shift": "夜",
+      "place": "東メンテ",
+      "prime": "ユナイト",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "渋川",
+      "leader": "小松﨑",
+      "works": [
+        "機械部回送"
+      ],
+      "machines": [],
+      "gatherTime": "21:00",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": true
+    },
+    {
+      "id": "3g1nvzkmmqyhwagf",
+      "days": [
+        "2026-06-18"
+      ],
+      "assigns": {
+        "2026-06-18": [
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "P5",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-06-18": {
+          "machines": [
+            {
+              "name": "AF60",
+              "qty": 1,
+              "carrier": "P5"
+            }
+          ]
+        }
+      },
+      "shift": "夜",
+      "place": "我孫子",
+      "prime": "コスモ",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "渋川",
+      "leader": "小松﨑",
+      "works": [
+        "機械部回送"
+      ],
+      "machines": [
+        {
+          "name": "AF60",
+          "qty": 1
+        }
+      ],
+      "gatherTime": "21:00",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": true
+    },
+    {
       "id": "u9j37pdxmqt36saj",
       "days": [
         "2026-06-26",
@@ -3136,6 +3287,6 @@
   "fiveBase": "2026-06-29",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/6/29 9:27:29",
-  "_savedAt": "2026/6/29 9:27:29"
+  "lastSaved": "2026/6/29 9:59:03",
+  "_savedAt": "2026/6/29 9:59:03"
 }

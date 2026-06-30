@@ -1,6 +1,59 @@
 {
   "sites": [
     {
+      "id": "1",
+      "days": [
+        "2026-07-01"
+      ],
+      "assigns": {
+        "2026-07-01": [
+          {
+            "name": "中川",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {},
+      "shift": "昼",
+      "place": "柏",
+      "prime": "工藤建設",
+      "contact": "工藤会長",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "中川",
+      "works": [
+        "雑工"
+      ],
+      "machines": [],
+      "gatherTime": "6:30",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
       "id": "2",
       "days": [
         "2026-07-02"
@@ -78,14 +131,6 @@
         "2026-07-01": [
           {
             "name": "小松﨑",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "中川",
             "role": "作業員",
             "vehicle": "",
             "isDriver": false,
@@ -3709,9 +3754,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-06-29",
-  "fiveBase": "2026-06-30",
+  "fiveBase": "2026-07-01",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/6/30 17:59:23",
-  "_savedAt": "2026/6/30 17:59:23"
+  "lastSaved": "2026/7/1 6:10:50",
+  "_savedAt": "2026/7/1 6:10:50"
 }

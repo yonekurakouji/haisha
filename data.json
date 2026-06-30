@@ -716,7 +716,7 @@
           {
             "name": "中川",
             "role": "作業員",
-            "vehicle": "3tダンプ",
+            "vehicle": "4tダンプ",
             "isDriver": true,
             "memo": "",
             "absent": ""
@@ -3709,9 +3709,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-06-29",
-  "fiveBase": "2026-06-29",
+  "fiveBase": "2026-06-30",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/6/30 17:13:24",
-  "_savedAt": "2026/6/30 17:13:25"
+  "lastSaved": "2026/6/30 17:16:54",
+  "_savedAt": "2026/6/30 17:16:54"
 }

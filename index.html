@@ -871,10 +871,11 @@ function bWS(){
 
 function bD(){
   const dispOff=S.dispBase||0; // 工事日表示オフセット（日単位）
-  const baseStart=-3+dispOff; // 3日前起点
+  const RANGE_LEN=4; // 通常表示する日数（当日から3日先まで＝4日間）
+  const baseStart=dispOff; // 当日起点
   const days=S.showPast
     ? Array.from({length:44},(_,i)=>addD(toDay(),i-30))
-    : Array.from({length:17},(_,i)=>addD(toDay(),i+baseStart));
+    : Array.from({length:RANGE_LEN},(_,i)=>addD(toDay(),i+baseStart));
   const todayK=fmt(toDay());
   const dups={};
   S.sites.forEach(s=>(s.days||[]).forEach(dk=>(s.assigns?.[dk]||[]).forEach(a=>{const k=`${dk}|${s.shift}|${a.name}`;dups[k]=(dups[k]||0)+1;})));
@@ -991,7 +992,7 @@ function bD(){
         <input value="${site.note||''}" placeholder="摘要・備考" onchange="US(${si},'note',this.value)" style="flex:1;min-width:90px;">
       </div>
       <div style="margin-bottom:5px;">
-        <div class="hint" style="margin-bottom:3px;">工事日 <button class="btn" onclick="event.stopPropagation();S.dispBase=(S.dispBase||0)-7;persist();render();" style="padding:0 6px;font-size:11px;">◀ 前週</button><button class="btn" onclick="event.stopPropagation();S.dispBase=0;persist();render();" style="padding:0 6px;font-size:11px;${dispOff!==0?'background:#fef3c7;border-color:#fbbf24;':''}">今週</button><button class="btn" onclick="event.stopPropagation();S.dispBase=(S.dispBase||0)+7;persist();render();" style="padding:0 6px;font-size:11px;">次週 ▶</button></div>
+        <div class="hint" style="margin-bottom:3px;">工事日 <button class="btn" onclick="event.stopPropagation();S.dispBase=(S.dispBase||0)-${RANGE_LEN};persist();render();" style="padding:0 6px;font-size:11px;">◀ 前</button><button class="btn" onclick="event.stopPropagation();S.dispBase=0;persist();render();" style="padding:0 6px;font-size:11px;${dispOff!==0?'background:#fef3c7;border-color:#fbbf24;':''}">今日</button><button class="btn" onclick="event.stopPropagation();S.dispBase=(S.dispBase||0)+${RANGE_LEN};persist();render();" style="padding:0 6px;font-size:11px;">次 ▶</button><input type="date" onchange="event.stopPropagation();SD(this.value)" style="width:130px;font-size:11px;margin-left:4px;" title="この日を起点に表示"></div>
         <div style="display:flex;flex-wrap:wrap;gap:2px;margin-bottom:3px;">${dayBtns}</div>
         <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;"><input type="date" id="from_${si}" style="width:140px;"><span class="hint">〜</span><input type="date" id="to_${si}" style="width:140px;"><button class="btn" onclick="AP(${si})">期間追加</button>${site.days?.length?`<span class="hint">計${site.days.length}日</span>`:''}</div>
       </div>
@@ -1015,7 +1016,7 @@ function bD(){
       </div>
       ${S.showDone?doneCards.map(({card})=>card).join(''):''}
     </div>`:'';
-  return`<div class="tb"><strong style="font-size:13px;">配車・割振</strong><span style="font-size:11px;color:var(--tx3);">今日から2週間分</span><button class="btn" onclick="TogPast()" style="${S.showPast?'background:#fef3c7;border-color:#fde68a;color:#92400e;':''}">${S.showPast?'過去も表示中':'今日以降のみ'}</button><button class="btn btnp" onclick="AS()" style="margin-left:auto;">＋ 現場追加</button></div>
+  return`<div class="tb"><strong style="font-size:13px;">配車・割振</strong><span style="font-size:11px;color:var(--tx3);">当日から3日先まで表示（◀▶や日付指定で移動）</span><button class="btn" onclick="TogPast()" style="${S.showPast?'background:#fef3c7;border-color:#fde68a;color:#92400e;':''}">${S.showPast?'過去も表示中':'今日以降のみ'}</button><button class="btn btnp" onclick="AS()" style="margin-left:auto;">＋ 現場追加</button></div>
   ${dupK.length?`<div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:6px;padding:5px 10px;margin-bottom:8px;font-size:11px;color:#991b1b;">⚠ 重複: ${dupK.map(k=>k.split('|').join(' ')).join(' / ')}</div>`:''}
   ${!S.sites.length?'<div style="text-align:center;color:var(--tx3);padding:32px;">「＋ 現場追加」で現場を登録</div>':activeHtml+doneHtml}
   <div id="cmodal"></div>`;
@@ -2024,6 +2025,7 @@ window.T=t=>{S.tab=t;persist();render();};
 window.WM=m=>{S.wMode=m;persist();render();};
 window.MF=n=>{S.fiveBase=n===0?fmt(toDay()):fmt(addD(pd(S.fiveBase),n));persist();render();};
 window.SF=v=>{S.fiveBase=v;persist();render();};
+window.SD=v=>{if(!v)return;S.dispBase=Math.round((pd(v)-toDay())/86400000);persist();render();};
 window.MW=n=>{S.weekBase=fmt(addD(pd(S.weekBase),n));persist();render();};
 window.SWB=v=>{S.weekBase=fmt(monSt(pd(v)));persist();render();};
 window.TE=dk=>{if(VIEW_MODE)return;S.excl.has(dk)?S.excl.delete(dk):S.excl.add(dk);persist();render();};

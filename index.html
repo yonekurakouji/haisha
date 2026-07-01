@@ -1240,7 +1240,16 @@ function bBW(){
       const cells=days.map(d=>{const dk=fmt(d);const st=(S.officeAtt[dk]&&S.officeAtt[dk][w.name])||'';const disp=st==='work'?{t:'出勤',bg:'#dcfce7',co:'#166534'}:st==='leave'?{t:'有給',bg:'#fae8ff',co:'#86198f'}:st==='off'?{t:'休',bg:'#f1f5f9',co:'#94a3b8'}:{t:'',bg:'',co:''};return`<td ${VIEW_MODE?'':`onclick="CycleOffice('${dk}','${w.name}')" title="タップで 出勤→有給→休 を切替"`} style="border:1px solid var(--bd3);text-align:center;cursor:${VIEW_MODE?'default':'pointer'};${disp.bg?`background:${disp.bg};color:${disp.co};font-size:10px;font-weight:500;`:''}">${disp.t||(VIEW_MODE?'':'<span style="color:#e2e8f0;font-size:11px;">・</span>')}</td>`;}).join('');
       return`<tr style="background:#fffaf0;"><td class="nc" style="width:58px;">${w.name}<br><span style="font-size:9px;color:#b45309;">事務</span></td>${cells}</tr>`;
     }
-    const cells=days.map(d=>{const dk=fmt(d);const my=S.sites.flatMap(s=>{if(!(s.days||[]).includes(dk))return[];return(s.assigns?.[dk]||[]).filter(a=>a.name===w.name).map(a=>({s,a}));}).sort((x,y)=>(x.s.shift==='夜'?1:0)-(y.s.shift==='夜'?1:0));if(!my.length)return`<td style="border:1px solid var(--bd3);"></td>`;return`<td style="border:1px solid var(--bd3);padding:2px;">${my.map(({s,a})=>`<div style="padding:1px 3px;border-radius:3px;background:${s.shift==='夜'?'#eef2ff':'#fffbeb'};margin-bottom:1px;"><span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span> <b style="font-size:11px;">${s.place||'(未設定)'}</b>${a.isDriver?'<span class="bdrv">運転</span>':''}${a.memo?`<span style="font-size:10px;color:var(--tx2);"> ${a.memo}</span>`:''}</div>`).join('')}</td>`;}).join('');
+    const cells=days.map(d=>{const dk=fmt(d);const my=S.sites.flatMap(s=>{if(!(s.days||[]).includes(dk))return[];return(s.assigns?.[dk]||[]).filter(a=>a.name===w.name).map(a=>({s,a}));}).sort((x,y)=>(x.s.shift==='夜'?1:0)-(y.s.shift==='夜'?1:0));
+      if(!my.length){
+        const lvDay=getSlotLeave(dk,w.name,'昼'),lvNight=getSlotLeave(dk,w.name,'夜');
+        if(!lvDay&&!lvNight)return`<td style="border:1px solid var(--bd3);"></td>`;
+        const lvColor=lb=>lb==='有給'?'#86198f':lb==='講習'?'#0369a1':lb==='健診'?'#166534':'#92400e';
+        const lvBg=lb=>lb==='有給'?'#fae8ff':lb==='講習'?'#e0f2fe':lb==='健診'?'#dcfce7':'#fef3c7';
+        const badge=(lv,slot)=>lv?`<div style="padding:1px 3px;border-radius:3px;background:${lvBg(lv.type)};margin-bottom:1px;font-size:10px;color:${lvColor(lv.type)};font-weight:500;">${slot} ${lv.type}${lv.work?' (出)':''}</div>`:'';
+        return`<td style="border:1px solid var(--bd3);padding:2px;">${badge(lvDay,'昼')}${badge(lvNight,'夜')}</td>`;
+      }
+      return`<td style="border:1px solid var(--bd3);padding:2px;">${my.map(({s,a})=>`<div style="padding:1px 3px;border-radius:3px;background:${s.shift==='夜'?'#eef2ff':'#fffbeb'};margin-bottom:1px;"><span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span> <b style="font-size:11px;">${s.place||'(未設定)'}</b>${a.isDriver?'<span class="bdrv">運転</span>':''}${a.memo?`<span style="font-size:10px;color:var(--tx2);"> ${a.memo}</span>`:''}</div>`).join('')}</td>`;}).join('');
     return`<tr style="background:${ri%2===0?'var(--bg1)':'var(--bg2)'};">
       <td class="nc" style="font-weight:500;width:58px;">${w.name}</td>${cells}</tr>`;
   }).join('');
@@ -1312,9 +1321,14 @@ function bR(){
         </div>`;
       }).join('');
     }).join(''):'';
+    const lvDay=!has?getSlotLeave(dk,S.rpW,'昼'):null;
+    const lvNight=!has?getSlotLeave(dk,S.rpW,'夜'):null;
+    const lvColor=lb=>lb==='有給'?'#86198f':lb==='講習'?'#0369a1':lb==='健診'?'#166534':'#92400e';
+    const lvBg=lb=>lb==='有給'?'#fae8ff':lb==='講習'?'#e0f2fe':lb==='健診'?'#dcfce7':'#fef3c7';
+    const lvBadge=(lv,slot)=>lv?`<span style="background:${lvBg(lv.type)};color:${lvColor(lv.type)};font-size:10px;padding:1px 6px;border-radius:4px;margin-left:4px;">${slot} ${lv.type}${lv.work?' (出勤扱い)':''}</span>`:'';
     return`<div class="day-row" style="${!has?'opacity:0.4;':''}">
       <div class="dhdr" style="background:${hBg};"><span style="font-weight:500;font-size:12px;color:${hCo};min-width:86px;">${rm}/${dt.getDate()}(${WD[dw]})</span>
-        ${!has?'<span class="hint">予定なし</span>':ds.map(({s})=>`<span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span><b style="font-size:11px;margin-left:3px;">${s.place||'(未設定)'}</b>`).join('')}
+        ${!has?`<span class="hint">${lvDay||lvNight?'':'予定なし'}</span>${lvBadge(lvDay,'昼')}${lvBadge(lvNight,'夜')}`:ds.map(({s})=>`<span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span><b style="font-size:11px;margin-left:3px;">${s.place||'(未設定)'}</b>`).join('')}
       </div>${secs}</div>`;
   }).join('');
   // ===== 全集計（月＋年度8月始まり） =====

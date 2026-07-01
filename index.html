@@ -898,7 +898,7 @@ function bD(){
   S.sites.forEach(s=>(s.days||[]).forEach(dk=>(s.assigns?.[dk]||[]).forEach(a=>{const k=`${dk}|${s.shift}|${a.name}`;dups[k]=(dups[k]||0)+1;})));
   const dupK=Object.entries(dups).filter(([,v])=>v>1).map(([k])=>k);
   const cards=S.sites.map((site,si)=>{
-    const actDays=(site.days||[]).filter(dk=>days.some(d=>fmt(d)===dk)).filter(dk=>S.showPast||dk>=todayK);
+    const actDays=(site.days||[]).filter(dk=>S.showPast||dk>=todayK).sort();
     const dayBtns=days.map(d=>{const dk=fmt(d),sel=(site.days||[]).includes(dk),dw=d.getDay();return`<button class="chip" onclick="TSD(${si},'${dk}')" style="${sel?'background:#1e293b;color:#f1f5f9;border-color:#1e293b;':''}">${(d.getMonth()+1)}/${d.getDate()}(${WD[dw]})</button>`;}).join('');
     const mc=normMachines(site.machines);
     const selM=mc.map((m,mi)=>`<span class="bmach">${m.name}<input type="number" min="1" value="${m.qty}" onchange="SetMQ(${si},${mi},this.value)" style="width:34px;padding:1px 3px;margin:0 2px;font-size:10px;">台<button onclick="RM(${si},${mi})">×</button></span>`).join('');
@@ -2027,7 +2027,7 @@ window.SetAbsent=(dk,name,val)=>{
   document.querySelectorAll('.am-modal').forEach(el=>el.remove());
 };
 window.MoveW=(i,dir)=>{const j=i+dir;if(j<0||j>=S.workers.length)return;const t=S.workers[i];S.workers[i]=S.workers[j];S.workers[j]=t;persist();render();};
-window.EditSite=(id)=>{S.tab='dispatch';S.foldSite=S.foldSite||{};S.sites.forEach(s=>{S.foldSite[s.id]=true;});S.foldSite[id]=false;S.showPast=true;S.showDone=true;S.dispBase=0;S.focusSite=id;persist();render();setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},100);};
+window.EditSite=(id)=>{S.tab='dispatch';S.foldSite=S.foldSite||{};S.sites.forEach(s=>{S.foldSite[s.id]=true;});S.foldSite[id]=false;S.showDone=true;S.dispBase=0;S.focusSite=id;persist();render();setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},100);};
 window.ClearFocus=()=>{S.focusSite=null;persist();render();};
 window.FoldSite=(id)=>{
   const willOpen=S.foldSite[id]!==false; // false以外（undefined/true）→開く操作

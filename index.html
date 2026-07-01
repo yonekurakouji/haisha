@@ -1249,7 +1249,7 @@ function bBW(){
         const badge=(lv,slot)=>lv?`<div style="padding:1px 3px;border-radius:3px;background:${lvBg(lv.type)};margin-bottom:1px;font-size:10px;color:${lvColor(lv.type)};font-weight:500;">${slot} ${lv.type}${lv.work?' (出)':''}</div>`:'';
         return`<td style="border:1px solid var(--bd3);padding:2px;">${badge(lvDay,'昼')}${badge(lvNight,'夜')}</td>`;
       }
-      return`<td style="border:1px solid var(--bd3);padding:2px;">${my.map(({s,a})=>`<div style="padding:1px 3px;border-radius:3px;background:${s.shift==='夜'?'#eef2ff':'#fffbeb'};margin-bottom:1px;"><span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span> <b style="font-size:11px;">${s.place||'(未設定)'}</b>${a.isDriver?'<span class="bdrv">運転</span>':''}${a.memo?`<span style="font-size:10px;color:var(--tx2);"> ${a.memo}</span>`:''}</div>`).join('')}</td>`;}).join('');
+      return`<td style="border:1px solid var(--bd3);padding:2px;">${my.map(({s,a})=>a.absent?`<div style="padding:1px 3px;border-radius:3px;background:#fef9c3;margin-bottom:1px;font-size:10px;color:#92400e;font-weight:500;">📋 ${a.absent}</div>`:`<div style="padding:1px 3px;border-radius:3px;background:${s.shift==='夜'?'#eef2ff':'#fffbeb'};margin-bottom:1px;"><span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span> <b style="font-size:11px;">${s.place||'(未設定)'}</b>${a.isDriver?'<span class="bdrv">運転</span>':''}${a.memo?`<span style="font-size:10px;color:var(--tx2);"> ${a.memo}</span>`:''}</div>`).join('')}</td>`;}).join('');
     return`<tr style="background:${ri%2===0?'var(--bg1)':'var(--bg2)'};">
       <td class="nc" style="font-weight:500;width:58px;">${w.name}</td>${cells}</tr>`;
   }).join('');
@@ -1281,6 +1281,14 @@ function bR(){
     const secs=has?['昼','夜'].map(slot=>{
       const ss=ds.filter(({s})=>s.shift===slot);if(!ss.length)return'';
       return ss.map(({s,a})=>{
+        if(a.absent){
+          return`<div style="padding:5px 8px;border-top:1px solid var(--bd3);opacity:0.7;">
+            <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap;">
+              <span class="${slot==='夜'?'bngt':'bday'}">${slot}</span><b style="font-size:12px;">${s.place||'(未設定)'}</b>
+              <span style="background:#fef9c3;color:#92400e;font-size:10px;padding:1px 6px;border-radius:4px;">📋 ${a.absent}（不出勤）</span>
+            </div>
+          </div>`;
+        }
         const ak=`${dk}__${s.id}`,act=S.actuals[ak]||{};
         const dd=(s.dayData&&s.dayData[dk])||{};
         const isCancel=dd.cancelled;
@@ -1328,7 +1336,7 @@ function bR(){
     const lvBadge=(lv,slot)=>lv?`<span style="background:${lvBg(lv.type)};color:${lvColor(lv.type)};font-size:10px;padding:1px 6px;border-radius:4px;margin-left:4px;">${slot} ${lv.type}${lv.work?' (出勤扱い)':''}</span>`:'';
     return`<div class="day-row" style="${!has?'opacity:0.4;':''}">
       <div class="dhdr" style="background:${hBg};"><span style="font-weight:500;font-size:12px;color:${hCo};min-width:86px;">${rm}/${dt.getDate()}(${WD[dw]})</span>
-        ${!has?`<span class="hint">${lvDay||lvNight?'':'予定なし'}</span>${lvBadge(lvDay,'昼')}${lvBadge(lvNight,'夜')}`:ds.map(({s})=>`<span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span><b style="font-size:11px;margin-left:3px;">${s.place||'(未設定)'}</b>`).join('')}
+        ${!has?`<span class="hint">${lvDay||lvNight?'':'予定なし'}</span>${lvBadge(lvDay,'昼')}${lvBadge(lvNight,'夜')}`:ds.map(({s,a})=>a.absent?`<span style="background:#fef9c3;color:#92400e;font-size:10px;padding:1px 6px;border-radius:4px;">📋 ${a.absent}</span>`:`<span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span><b style="font-size:11px;margin-left:3px;">${s.place||'(未設定)'}</b>`).join('')}
       </div>${secs}</div>`;
   }).join('');
   // ===== 全集計（月＋年度8月始まり） =====

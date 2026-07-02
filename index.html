@@ -1976,29 +1976,6 @@ window.ShowAbsentMenu=(dk,name,slot)=>{
   </div>`;
   document.body.appendChild(el);
 };
-  const cur=S.leave[dk][name];
-  const obj=(cur&&typeof cur==='object'&&!Array.isArray(cur))?{...cur}:{};
-  if(obj[slot])obj[slot]={...obj[slot],work:!obj[slot].work};
-  S.leave[dk][name]=obj;
-  persist();render();
-};
-  const cur=S.leave[dk][name];
-  const obj=(cur&&typeof cur==='object'&&!Array.isArray(cur))?{...cur}:{};
-  const types=['講習','健診','有給','その他'];
-  const curType=obj[slot]?.type||'';
-  const idx=types.indexOf(curType);
-  const nextType=types[(idx+1)%5]; // 5番目はundefinedでクリア扱い
-  if(nextType===undefined||idx===3){
-    // クリア
-    delete obj[slot];
-    if(Object.keys(obj).length===0)delete S.leave[dk][name];
-    else S.leave[dk][name]=obj;
-  } else {
-    obj[slot]={type:nextType,work:false};
-    S.leave[dk][name]=obj;
-  }
-  persist();render();
-};
 window.SAType=(dk,name,slot,type)=>{
   S.leave=S.leave||{};S.leave[dk]=S.leave[dk]||{};
   const cur=S.leave[dk][name];

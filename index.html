@@ -674,10 +674,10 @@ function bWP(){
             const leaveLabel=slotLv.type||'有給';
             const leaveColor=leaveLabel==='有給'?'#86198f':leaveLabel==='講習'?'#0369a1':leaveLabel==='健診'?'#166534':'#92400e';
             const leaveBg=leaveLabel==='有給'?'#fae8ff':leaveLabel==='講習'?'#e0f2fe':leaveLabel==='健診'?'#dcfce7':'#fef3c7';
-            const workMark=VIEW_MODE?'':(slotLv.work?'<span onclick="event.stopPropagation();ToggleLeaveWork(\''+dk+'\',\''+w.name+'\',\''+slot+'\')" style="font-size:9px;background:#1e40af;color:#fff;border-radius:2px;padding:0 3px;margin-left:2px;cursor:pointer;">出勤扱</span>':'<span onclick="event.stopPropagation();ToggleLeaveWork(\''+dk+'\',\''+w.name+'\',\''+slot+'\')" style="font-size:9px;background:#e2e8f0;color:#475569;border-radius:2px;padding:0 3px;margin-left:2px;cursor:pointer;">非出勤</span>');
-            return`<td onclick="CycleLeave('${dk}','${w.name}','${slot}')" style="border:1px solid var(--bd3);text-align:center;background:${leaveBg};color:${leaveColor};font-size:10px;font-weight:500;cursor:pointer;">${leaveLabel}${workMark}</td>`;
+            const workMark=slotLv.work&&!VIEW_MODE?'<span style="font-size:9px;background:#1e40af;color:#fff;border-radius:2px;padding:0 2px;margin-left:2px;">出</span>':'';
+            return`<td onclick="ShowAbsentMenu('${dk}','${w.name}','${slot}')" style="border:1px solid var(--bd3);text-align:center;background:${leaveBg};color:${leaveColor};font-size:10px;font-weight:500;cursor:pointer;">${leaveLabel}${workMark}</td>`;
           }
-          return`<td onclick="CycleLeave('${dk}','${w.name}','${slot}')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:${emptyBg};" title="クリックで講習/健診/有給/その他を設定">—</td>`;
+          return`<td onclick="ShowAbsentMenu('${dk}','${w.name}','${slot}')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:${emptyBg};" title="クリックで予定入力">—</td>`;
         }
         const cellBg=slot==='昼'?'#fef3c7':'#dbeafe';
         const cellBar=slot==='昼'?'#f59e0b':'#3b82f6';
@@ -1976,18 +1976,12 @@ window.ShowAbsentMenu=(dk,name,slot)=>{
   </div>`;
   document.body.appendChild(el);
 };
-window.ToggleLeaveWork=(dk,name,slot)=>{
-  if(VIEW_MODE)return;
-  S.leave=S.leave||{};S.leave[dk]=S.leave[dk]||{};
   const cur=S.leave[dk][name];
   const obj=(cur&&typeof cur==='object'&&!Array.isArray(cur))?{...cur}:{};
   if(obj[slot])obj[slot]={...obj[slot],work:!obj[slot].work};
   S.leave[dk][name]=obj;
   persist();render();
 };
-window.CycleLeave=(dk,name,slot)=>{
-  if(VIEW_MODE)return;
-  S.leave=S.leave||{};S.leave[dk]=S.leave[dk]||{};
   const cur=S.leave[dk][name];
   const obj=(cur&&typeof cur==='object'&&!Array.isArray(cur))?{...cur}:{};
   const types=['講習','健診','有給','その他'];

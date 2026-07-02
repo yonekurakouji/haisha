@@ -255,10 +255,11 @@ function aggWorker(workerName,dkList){
         r.ot+=Number(ot)||0;
         r.kaisou+=Number(per.kaisou)||0;
       }
-      // leaveセルで「出勤扱い」の場合はworkedとして加算
+      // leaveセルの処理：講習・健診・その他は出勤扱い、有給で「出勤扱い」チェックありも出勤扱い
       const slotLeave=slot==='昼'?lyDay:lyNight;
-      if(!worked&&slotLeave&&slotLeave.work){
-        worked=true; // 出勤扱いの講習等
+      const leaveIsWork=slotLeave&&(slotLeave.work||(slotLeave.type&&slotLeave.type!=='有給'));
+      if(!worked&&leaveIsWork){
+        worked=true; // 講習・健診・その他は出勤日としてカウント
         dayWorked=true;
         if(slot==='昼')daySlotWorked=true;
         if(slot==='夜')nightWorked=true;
@@ -948,6 +949,7 @@ function bD(){
           ${isCancel?'<span style="background:#9ca3af;color:#fff;font-size:10px;padding:1px 6px;border-radius:4px;">中止</span>':''}
           <button class="btn btncopy" onclick="event.stopPropagation();showCopy(${si},'${dk}')" style="padding:1px 6px;font-size:11px;">📋 コピー</button>
           <button class="btn" onclick="ToggleCancel(${si},'${dk}')" style="padding:1px 6px;font-size:11px;${isCancel?'background:#9ca3af;color:#fff;border-color:#9ca3af;':'color:#b91c1c;border-color:#fca5a5;'}">${isCancel?'中止解除':'現場中止'}</button>
+          ${(()=>{const allAbsent=assigns.length>0&&assigns.every(a=>a.absent);return`<button onclick="BulkAbsent(${si},'${dk}')" style="padding:1px 8px;font-size:11px;border-radius:4px;border:1px solid ${allAbsent?'#fbbf24':'#93c5fd'};background:${allAbsent?'#fef3c7':'#eff6ff'};color:${allAbsent?'#92400e':'#1d4ed8'};cursor:pointer;white-space:nowrap;">${allAbsent?'↩ 全員出勤に戻す':'📚 全員講習'}</button>`;})()}
           <input value="${dd.altWork||''}" placeholder="別作業（手入力）" onchange="SetDD(${si},'${dk}','altWork',this.value)" style="width:130px;font-size:11px;">
         </div>
         ${isOpen?`<div style="padding:6px 8px;">${editPanel}${rows}<button class="btn" onclick="AA(${si},'${dk}')" style="margin-top:4px;font-size:11px;">＋ 社員追加</button></div>`:''}
@@ -1980,8 +1982,18 @@ window.SAType=(dk,name,slot,type)=>{
   S.leave=S.leave||{};S.leave[dk]=S.leave[dk]||{};
   const cur=S.leave[dk][name];
   const obj=(cur&&typeof cur==='object'&&!Array.isArray(cur))?{...cur}:{};
-  if(!type){delete obj[slot];}else{obj[slot]={type,work:obj[slot]?.work||false};}
+  // 講習・健診・その他はデフォルトで出勤扱い(work:true)、有給はデフォルトfalse
+  const defaultWork=type&&type!=='有給';
+  if(!type){delete obj[slot];}else{obj[slot]={type,work:obj[slot]?.work!==undefined?obj[slot].work:defaultWork};}
   if(Object.keys(obj).length===0){delete S.leave[dk][name];}else{S.leave[dk][name]=obj;}
+  // assignsのabsentも同期（日報・出勤カウントに反映）
+  S.sites.forEach(s=>{
+    if(s.shift!==slot)return;
+    if(!(s.days||[]).includes(dk))return;
+    const a=(s.assigns?.[dk]||[]).find(x=>x.name===name);
+    if(!a)return;
+    a.absent=type||'';
+  });
   persist();render();
   document.querySelectorAll('.am-modal').forEach(e=>e.remove());
   if(type)ShowAbsentMenu(dk,name,slot);
@@ -2267,6 +2279,7 @@ window.execAA=(si,dk)=>{
 };
 window.UA=(si,dk,ai,k,v)=>{if(S.sites[si].assigns?.[dk]?.[ai])S.sites[si].assigns[dk][ai][k]=v;persist();};
 window.SetDayLeader=(si,dk,ai)=>{const assigns=S.sites[si].assigns?.[dk];if(!assigns)return;const isAlready=assigns[ai].isLeader;assigns.forEach((a,i)=>a.isLeader=(i===ai&&!isAlready));persist();render();};
+window.BulkAbsent=(si,dk)=>{const assigns=S.sites[si].assigns?.[dk];if(!assigns)return;const allAbsent=assigns.length>0&&assigns.every(a=>a.absent);assigns.forEach(a=>a.absent=allAbsent?'':'講習');persist();render();};
 window.RA=(si,dk,ai)=>{S.sites[si].assigns[dk].splice(ai,1);persist();render();};
 window.SRW=v=>{S.rpW=v;persist();render();};
 window.FY=d=>{const cur=S.fyView!==null?S.fyView:fyStartYear(S.rpYM+'-01');S.fyView=cur+d;persist();render();};

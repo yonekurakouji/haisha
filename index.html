@@ -239,7 +239,7 @@ function aggWorker(workerName,dkList){
         if(!a)continue;
         const rep=getReport(s,dk);const per=(rep.per&&rep.per[workerName])||{};
         if(per.excluded)continue;
-        if(a.absent)continue; // 不出勤（講習・健診等）は勤務カウントしない
+        if(a.absent&&!a.absentWork)continue; // 非出勤扱いのみカウントしない（出勤扱いはカウント）
         worked=true;
         const KAISO_V=['R1','R2','R3','R8','R9','S3','S8','P5','P7','大型','増㌧','レンジャー'];
         if(s.enShoo){
@@ -257,7 +257,7 @@ function aggWorker(workerName,dkList){
       }
       // leaveセルの処理：講習・健診・その他は出勤扱い、有給で「出勤扱い」チェックありも出勤扱い
       const slotLeave=slot==='昼'?lyDay:lyNight;
-      const leaveIsWork=slotLeave&&(slotLeave.work||(slotLeave.type&&slotLeave.type!=='有給'));
+      const leaveIsWork=slotLeave&&slotLeave.work===true; // 出勤扱いチェックがtrueの場合のみカウント
       if(!worked&&leaveIsWork){
         worked=true; // 講習・健診・その他は出勤日としてカウント
         dayWorked=true;
@@ -687,8 +687,9 @@ function bWP(){
         if(cellLv){const ll=cellLv.type||'有給';const lc=ll==='有給'?'#86198f':ll==='講習'?'#0369a1':ll==='健診'?'#166534':'#92400e';const lb=ll==='有給'?'#fae8ff':ll==='講習'?'#e0f2fe':ll==='健診'?'#dcfce7':'#fef3c7';const wm=cellLv.work?'<span style="font-size:9px;background:#1e40af;color:#fff;border-radius:2px;padding:0 2px;margin-left:2px;">出</span>':'';return`<td onclick="ShowAbsentMenu('${dk}','${w.name}','${slot}')" style="border:1px solid var(--bd3);text-align:center;background:${lb};color:${lc};font-size:10px;font-weight:500;cursor:pointer;">${ll}${wm}</td>`;}
         return`<td style="border:1px solid var(--bd3);border-left:3px solid ${cellBar};padding:2px;vertical-align:top;background:${cellBg};">${items.map(({s,a})=>{
           const dd=(s.dayData&&s.dayData[dk])||{};
-          if(a.absent)return`<div style="background:#fef9c3;border-radius:3px;padding:1px 4px;font-size:10px;color:#92400e;font-weight:500;">📋 ${a.absent}</div>`;
-          return`<div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:${slot==='昼'?'#92400e':'#1e40af'};">${s.place||'(未入力)'}${s.enShoo?'<span style="background:#7c3aed;color:#fff;font-size:9px;padding:0 3px;border-radius:3px;margin-left:2px;">応援</span>':''}</div><div style="font-size:10px;color:var(--tx2);">${a.role||''}${a.isDriver?' <span class="bdrv">運転</span>':''}${gLabel(s,dd)?` <b>${gLabel(s,dd)}</b>`:''}</div></div>`;
+          // absent(非出勤)は現場内容を表示しつつ非出勤バッジを付ける
+          const absentBadge=a.absent?`<span style="background:#fef3c7;color:#92400e;font-size:9px;font-weight:600;padding:0 4px;border-radius:3px;margin-left:4px;">非出勤(${a.absent})</span>`:'';
+          return`<div style="margin-bottom:2px;${a.absent?'opacity:0.6;':''}"><div style="font-size:11px;font-weight:600;color:${slot==='昼'?'#92400e':'#1e40af'};">${s.place||'(未入力)'}${absentBadge}${s.enShoo?'<span style="background:#7c3aed;color:#fff;font-size:9px;padding:0 3px;border-radius:3px;margin-left:2px;">応援</span>':''}</div><div style="font-size:10px;color:var(--tx2);">${a.role||''}${a.isDriver?' <span class="bdrv">運転</span>':''}${gLabel(s,dd)?` <b>${gLabel(s,dd)}</b>`:''}</div></div>`;
         }).join('')}</td>`;
       });
     });
@@ -909,6 +910,7 @@ function bD(){
                 <option value="有給"${a.absent==='有給'?' selected':''}>🌴 有給</option>
                 <option value="その他"${a.absent==='その他'?' selected':''}>📋 その他</option>
               </select>
+              <button onclick="UAWork(${si},'${dk}',${ai})" style="padding:1px 6px;font-size:11px;border-radius:4px;border:1px solid ${a.absentWork?'#1e40af':'#d1d5db'};background:${a.absentWork?'#dbeafe':'#fff'};color:${a.absentWork?'#1e40af':'#6b7280'};cursor:pointer;white-space:nowrap;">${a.absentWork?'出勤扱い':'非出勤扱い'}</button>
               <button onclick="UA(${si},'${dk}',${ai},'absent','')" style="padding:1px 6px;font-size:11px;border-radius:4px;border:1px solid #fbbf24;background:#fef3c7;color:#92400e;cursor:pointer;">出勤に戻す</button>`
             : `<select onchange="UA(${si},'${dk}',${ai},'role',this.value)" style="width:100px;"><option value="">内容−</option>${S.roles.map(r=>`<option${a.role===r?' selected':''}>${r}</option>`).join('')}</select>
           <select onchange="UA(${si},'${dk}',${ai},'vehicle',this.value)" style="width:90px;"><option value="">車−</option>${S.vehicles.map(v=>`<option value="${v.name}"${a.vehicle===v.name?' selected':''}>${v.name}</option>`).join('')}</select>
@@ -1276,9 +1278,10 @@ function bR(){
         const ctName=s.contact==='__manual__'?s.contactManual:s.contact;
         const ctTel=s.contact==='__manual__'?s.contactTel:(S.contacts.find(c=>c.name===s.contact)||{}).tel||'';
         const mc=normMachines(s.machines);
-        return`<div style="padding:5px 8px;border-top:1px solid var(--bd3);${isCancel?'opacity:0.5;background:#f1f5f9;':''}">
+        return`<div style="padding:5px 8px;border-top:1px solid var(--bd3);${isCancel?'opacity:0.5;background:#f1f5f9;':''}${(a.absent&&!a.absentWork)?'background:#fffbeb;':''}">
           <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;flex-wrap:wrap;">
             <span class="${slot==='夜'?'bngt':'bday'}">${slot}</span><b style="font-size:12px;">${s.place||'(未設定)'}</b>
+            ${(a.absent&&!a.absentWork)?`<span style="background:#fef3c7;color:#92400e;font-size:10px;font-weight:600;padding:1px 8px;border-radius:4px;border:1px solid #fbbf24;">非出勤（${a.absent}）</span>`:''}
             ${isCancel?'<span style="background:#9ca3af;color:#fff;font-size:10px;padding:1px 6px;border-radius:4px;">中止</span>':''}
             ${dd.altWork?`<span style="background:#fef3c7;color:#b45309;font-size:10px;padding:1px 6px;border-radius:4px;">別作業:${dd.altWork}</span>`:''}
             ${s.prime?`<span style="font-size:10px;color:var(--tx2);">${s.prime}</span>`:''}
@@ -2003,7 +2006,7 @@ window.SAType=(dk,name,slot,type)=>{
   const cur=S.leave[dk][name];
   const obj=(cur&&typeof cur==='object'&&!Array.isArray(cur))?{...cur}:{};
   // 講習・健診・その他はデフォルトで出勤扱い(work:true)、有給はデフォルトfalse
-  const defaultWork=type&&type!=='有給';
+  const defaultWork=false; // 社員別タブからの設定はデフォルト非出勤
   if(!type){delete obj[slot];}else{obj[slot]={type,work:obj[slot]?.work!==undefined?obj[slot].work:defaultWork};}
   if(Object.keys(obj).length===0){delete S.leave[dk][name];}else{S.leave[dk][name]=obj;}
   // assignsのabsentも同期（日報・出勤カウントに反映）
@@ -2308,7 +2311,7 @@ window.UA=(si,dk,ai,k,v)=>{
     if(v){
       const cur=S.leave[dk][name]||{};
       const obj=(typeof cur==='object'&&!Array.isArray(cur))?{...cur}:{};
-      obj[slot]={type:v,work:v!=='有給'};
+      obj[slot]={type:v,work:false};
       S.leave[dk][name]=obj;
     } else {
       if(S.leave[dk][name]){
@@ -2321,6 +2324,15 @@ window.UA=(si,dk,ai,k,v)=>{
     render();
   }
   persist();
+};
+window.UAWork=(si,dk,ai)=>{
+  const a=S.sites[si].assigns?.[dk]?.[ai];
+  if(!a||!a.absent)return;
+  a.absentWork=!a.absentWork;
+  const slot=S.sites[si].shift||'昼';const name=a.name;
+  S.leave=S.leave||{};S.leave[dk]=S.leave[dk]||{};
+  if(S.leave[dk][name]){const obj=(typeof S.leave[dk][name]==='object')?{...S.leave[dk][name]}:{};if(obj[slot])obj[slot]={...obj[slot],work:!!a.absentWork};S.leave[dk][name]=obj;}
+  persist();render();
 };
 window.SetDayLeader=(si,dk,ai)=>{const assigns=S.sites[si].assigns?.[dk];if(!assigns)return;const isAlready=assigns[ai].isLeader;assigns.forEach((a,i)=>a.isLeader=(i===ai&&!isAlready));persist();render();};
 window.BulkAbsent=(si,dk)=>{const assigns=S.sites[si].assigns?.[dk];if(!assigns)return;const allAbsent=assigns.length>0&&assigns.every(a=>a.absent);assigns.forEach(a=>a.absent=allAbsent?'':'講習');persist();render();};

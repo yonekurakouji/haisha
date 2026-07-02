@@ -132,7 +132,7 @@ const JP_HOLIDAYS={
 "2026-01-01":"元日","2026-01-12":"成人の日","2026-02-11":"建国記念の日","2026-02-23":"天皇誕生日","2026-03-20":"春分の日","2026-04-29":"昭和の日","2026-05-03":"憲法記念日","2026-05-04":"みどりの日","2026-05-05":"こどもの日","2026-05-06":"振替休日","2026-07-20":"海の日","2026-08-11":"山の日","2026-09-21":"敬老の日","2026-09-22":"国民の休日","2026-09-23":"秋分の日","2026-10-12":"スポーツの日","2026-11-03":"文化の日","2026-11-23":"勤労感謝の日",
 "2027-01-01":"元日","2027-01-11":"成人の日","2027-02-11":"建国記念の日","2027-02-23":"天皇誕生日","2027-03-21":"春分の日","2027-03-22":"振替休日","2027-04-29":"昭和の日","2027-05-03":"憲法記念日","2027-05-04":"みどりの日","2027-05-05":"こどもの日","2027-07-19":"海の日","2027-08-11":"山の日","2027-09-20":"敬老の日","2027-09-23":"秋分の日","2027-10-11":"スポーツの日","2027-11-03":"文化の日","2027-11-23":"勤労感謝の日"
 };
-let _id=1;const uid=()=>{_id++;return `${Date.now().toString(36)}${_id}${Math.random().toString(36).slice(2,7)}`;};
+let _id=1;const uid=()=>String(_id++);
 const fmt=d=>`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 const pd=s=>{const[y,m,d]=s.split('-').map(Number);const r=new Date(y,m-1,d);r.setHours(0,0,0,0);return r;};
 const addD=(d,n)=>{const r=new Date(d);r.setDate(r.getDate()+n);return r;};
@@ -239,10 +239,7 @@ function aggWorker(workerName,dkList){
         if(!a)continue;
         const rep=getReport(s,dk);const per=(rep.per&&rep.per[workerName])||{};
         if(per.excluded)continue;
-        if(a.absent){
-          if(a.absent==='講習')worked=true; // 講習は出勤日数にカウントする（現場回数・残業等は加算しない）
-          continue;
-        }
+        if(a.absent)continue; // 不出勤（講習・健診等）は勤務カウントしない
         worked=true;
         const KAISO_V=['R1','R2','R3','R8','R9','S3','S8','P5','P7','大型','増㌧','レンジャー'];
         if(s.enShoo){
@@ -260,7 +257,7 @@ function aggWorker(workerName,dkList){
       }
       // leaveセルで「出勤扱い」の場合はworkedとして加算
       const slotLeave=slot==='昼'?lyDay:lyNight;
-      if(!worked&&slotLeave&&(slotLeave.work||slotLeave.type==='講習')){
+      if(!worked&&slotLeave&&slotLeave.work){
         worked=true; // 出勤扱いの講習等
         dayWorked=true;
         if(slot==='昼')daySlotWorked=true;
@@ -359,22 +356,6 @@ function saveStore(o){try{localStorage.setItem(LS,JSON.stringify(o));}catch(e){c
 let S={tab:"weekly",wMode:"site",showPast:false,showDone:false,foldSite:{},dispBase:0,sites:[],workers:IW,roles:IR,works:IWK,machines:IM,vehicles:IV,contacts:[],supplies:[],leave:{},officeAtt:{},orgName:"工事部",weekBase:fmt(monSt(toDay())),fiveBase:fmt(toDay()),excl:[],actuals:{},rpW:"",rpYM:fmt(toDay()).slice(0,7),izYM:fmt(toDay()).slice(0,7),fyView:null,openDays:{},calNotes:{},lastSaved:""};
 
 const persist=()=>saveStore({...S,excl:[...S.excl],_savedAt:new Date().toLocaleString('ja-JP')});
-function fixSiteIds(){
-  // 現場ID（site.id）が無い／重複していると、編集対象の絞り込みや日報の実績データが
-  // 別の現場と混ざってしまう。読み込み時に必ず一意なIDへ直しておく。
-  if(!Array.isArray(S.sites))return;
-  const seen=new Set();
-  S.sites.forEach(s=>{
-    if(!s.id||seen.has(s.id)){
-      const oldId=s.id;
-      s.id=uid();
-      if(oldId&&S.foldSite&&Object.prototype.hasOwnProperty.call(S.foldSite,oldId)&&!Object.prototype.hasOwnProperty.call(S.foldSite,s.id)){
-        S.foldSite[s.id]=S.foldSite[oldId];
-      }
-    }
-    seen.add(s.id);
-  });
-}
 function applyData(d){
   if(!d)return;
   S.sites=d.sites||[];S.workers=d.workers||IW;S.roles=d.roles||IR;S.works=d.works||IWK;
@@ -388,7 +369,6 @@ function applyData(d){
   if(d.wMode)S.wMode=d.wMode;if(d.openDays)S.openDays=d.openDays;
   S.calNotes=d.calNotes||{};
   if(d.lastSaved)S.lastSaved=d.lastSaved;
-  fixSiteIds();
 }
 let VIEW_MODE=false; // 社員閲覧モード（編集不可）
 /* ===== 埋め込み予定データ（オフライン/ローカル表示用フォールバック） ===== */
@@ -694,7 +674,7 @@ function bWP(){
             const leaveLabel=slotLv.type||'有給';
             const leaveColor=leaveLabel==='有給'?'#86198f':leaveLabel==='講習'?'#0369a1':leaveLabel==='健診'?'#166534':'#92400e';
             const leaveBg=leaveLabel==='有給'?'#fae8ff':leaveLabel==='講習'?'#e0f2fe':leaveLabel==='健診'?'#dcfce7':'#fef3c7';
-            const workMark=(slotLv.work||slotLv.type==='講習')&&!VIEW_MODE?'<span style="font-size:9px;background:#1e40af;color:#fff;border-radius:2px;padding:0 2px;margin-left:2px;">出</span>':'';
+            const workMark=slotLv.work&&!VIEW_MODE?'<span style="font-size:9px;background:#1e40af;color:#fff;border-radius:2px;padding:0 2px;margin-left:2px;">出</span>':'';
             return`<td onclick="ShowAbsentMenu('${dk}','${w.name}','${slot}')" style="border:1px solid var(--bd3);text-align:center;background:${leaveBg};color:${leaveColor};font-size:10px;font-weight:500;cursor:pointer;">${leaveLabel}${workMark}</td>`;
           }
           return`<td onclick="ShowAbsentMenu('${dk}','${w.name}','${slot}')" style="border:1px solid var(--bd3);color:var(--tx3);text-align:center;font-size:10px;cursor:pointer;background:${emptyBg};" title="クリックで予定入力">—</td>`;
@@ -853,13 +833,10 @@ function bWS(){
               ${site.okiba||site.kaisou?`<span>${site.okiba?`置場:${site.okiba} `:''}${site.kaisou?`回送:${site.kaisou}`:''}</span>`:''}
             </div>
           </div>
-          ${(site.ourContact||site.leader)?`<div style="width:96px;flex-shrink:0;border-left:2px solid ${isNight?'#c7d2fe':'#fde68a'};padding-left:6px;font-size:11px;">
-            ${site.leader?`<div style="margin-bottom:3px;"><span style="color:var(--tx2);">リーダー：</span><b style="color:#b45309;">${site.leader}</b></div>`:''}
-            ${site.ourContact?`<div><span style="color:var(--tx2);">担当：</span><b>${site.ourContact}</b></div>`:''}
-          </div>`:''}
+          ${(()=>{const dayLeader=(assigns.find(a=>a.isLeader)||{}).name||site.leader||'';return(site.ourContact||dayLeader)?`<div style="width:96px;flex-shrink:0;border-left:2px solid ${isNight?'#c7d2fe':'#fde68a'};padding-left:6px;font-size:11px;">${dayLeader?`<div style="margin-bottom:3px;"><span style="color:var(--tx2);">リーダー：</span><b style="color:#b45309;">${dayLeader}</b></div>`:''}${site.ourContact?`<div><span style="color:var(--tx2);">担当：</span><b>${site.ourContact}</b></div>`:''}</div>`:'';})()}
         </div>
         ${assigns.length?`<hr class="sb-divider">${assigns.map(a=>{
-          const w=S.workers.find(x=>x.name===a.name);const isH=w?.group==='helper';const isLeader=a.name===site.leader;
+          const w=S.workers.find(x=>x.name===a.name);const isH=w?.group==='helper';const isLeader=a.isLeader||(a.name===site.leader&&!assigns.some(x=>x.isLeader));
           const mc2=mc;
           return`<div class="sb-worker">
             <span style="font-weight:${isLeader?'700':isH?'400':'500'};color:${isLeader?'#b45309':isH?'var(--tx2)':'var(--tx)'};">${a.name||'(未設定)'}${isLeader?'★':''}</span>
@@ -891,17 +868,16 @@ function bWS(){
 
 function bD(){
   const dispOff=S.dispBase||0; // 工事日表示オフセット（日単位）
-  const RANGE_LEN=4; // 通常表示する日数（当日から3日先まで＝4日間）
-  const baseStart=dispOff; // 当日起点
+  const baseStart=-3+dispOff; // 3日前起点
   const days=S.showPast
     ? Array.from({length:44},(_,i)=>addD(toDay(),i-30))
-    : Array.from({length:RANGE_LEN},(_,i)=>addD(toDay(),i+baseStart));
+    : Array.from({length:17},(_,i)=>addD(toDay(),i+baseStart));
   const todayK=fmt(toDay());
   const dups={};
   S.sites.forEach(s=>(s.days||[]).forEach(dk=>(s.assigns?.[dk]||[]).forEach(a=>{const k=`${dk}|${s.shift}|${a.name}`;dups[k]=(dups[k]||0)+1;})));
   const dupK=Object.entries(dups).filter(([,v])=>v>1).map(([k])=>k);
   const cards=S.sites.map((site,si)=>{
-    const actDays=(site.days||[]).filter(dk=>S.showPast||dk>=todayK).sort();
+    const actDays=(site.days||[]).filter(dk=>days.some(d=>fmt(d)===dk)).filter(dk=>S.showPast||dk>=todayK);
     const dayBtns=days.map(d=>{const dk=fmt(d),sel=(site.days||[]).includes(dk),dw=d.getDay();return`<button class="chip" onclick="TSD(${si},'${dk}')" style="${sel?'background:#1e293b;color:#f1f5f9;border-color:#1e293b;':''}">${(d.getMonth()+1)}/${d.getDate()}(${WD[dw]})</button>`;}).join('');
     const mc=normMachines(site.machines);
     const selM=mc.map((m,mi)=>`<span class="bmach">${m.name}<input type="number" min="1" value="${m.qty}" onchange="SetMQ(${si},${mi},this.value)" style="width:34px;padding:1px 3px;margin:0 2px;font-size:10px;">台<button onclick="RM(${si},${mi})">×</button></span>`).join('');
@@ -933,6 +909,7 @@ function bD(){
           <select onchange="UA(${si},'${dk}',${ai},'vehicle',this.value)" style="width:90px;"><option value="">車−</option>${S.vehicles.map(v=>`<option value="${v.name}"${a.vehicle===v.name?' selected':''}>${v.name}</option>`).join('')}</select>
           <label style="display:flex;align-items:center;gap:2px;cursor:pointer;font-size:11px;"><input type="checkbox" ${a.isDriver?'checked':''} onchange="UA(${si},'${dk}',${ai},'isDriver',this.checked)">運転${a.isDriver?'<span class="bdrv">🚗</span>':''}${vA>0?`<span style="color:#92400e;font-size:10px;">+¥${vA}</span>`:''}</label>
           ${(()=>{const mc2=dayMachArr(dd.machines)||normMachines(site.machines);const carriers=mc2.filter(m=>m.carrier&&m.carrier===a.vehicle).map(m=>m.name);return carriers.length?`<span style="font-size:10px;background:#fef9c3;border:1px solid #fde68a;border-radius:4px;padding:0 5px;color:#854d0e;">積載:${carriers.join('・')}</span>`:'';})()}
+          <button onclick="SetDayLeader(${si},'${dk}',${ai})" style="padding:1px 6px;font-size:11px;border-radius:4px;border:1px solid ${a.isLeader?'#b45309':'#d1d5db'};background:${a.isLeader?'#fef3c7':'#fff'};color:${a.isLeader?'#b45309':'#6b7280'};cursor:pointer;white-space:nowrap;">${a.isLeader?'★リーダー':'☆'}</button>
           <input value="${a.memo||''}" placeholder="摘要" onchange="UA(${si},'${dk}',${ai},'memo',this.value)" style="flex:1;min-width:80px;font-size:11px;">
           <button onclick="UA(${si},'${dk}',${ai},'absent','講習')" style="padding:1px 6px;font-size:11px;border-radius:4px;border:1px solid #d1d5db;background:#fff;color:#374151;cursor:pointer;white-space:nowrap;">不出勤</button>`
           }
@@ -1004,7 +981,6 @@ function bD(){
       </div>
       <div class="row2">
         <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">弊社担当:</span><select onchange="US(${si},'ourContact',this.value)" style="width:84px;"><option value="">選択−</option>${S.workers.filter(w=>w.group==='main').map(w=>`<option value="${w.name}"${site.ourContact===w.name?' selected':''}>${w.name}</option>`).join('')}</select></div>
-        <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">リーダー:</span><select onchange="US(${si},'leader',this.value)" style="width:84px;"><option value="">選択−</option>${S.workers.map(w=>`<option value="${w.name}"${site.leader===w.name?' selected':''}>${w.name}</option>`).join('')}</select></div>
         <div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl">工事内容:</span>${selWK}<select onchange="AWK2(${si},this.value);this.value=''" style="width:88px;"><option value="">＋ 追加</option>${workOpts}</select></div>
         <div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl">使用重機:</span>${selM}<select onchange="AM(${si},this.value);this.value=''" style="width:80px;"><option value="">＋ 追加</option>${machOpts}</select></div>
         <div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl" style="color:#166534;">必要品:</span>${(site.supplies||[]).map((sp,spi)=>`<span class="bmach" style="background:#dcfce7;border-color:#86efac;color:#166534;">${sp}<button onclick="RSP(${si},${spi})">×</button></span>`).join('')}<select onchange="ASP2(${si},this.value);this.value=''" style="width:90px;"><option value="">＋ 選択</option>${sortByUsage(S.supplies,'supplies',x=>x).filter(sp=>!(site.supplies||[]).includes(sp)).map(sp=>`<option value="${sp}">${sp}</option>`).join('')}</select></div>
@@ -1012,7 +988,7 @@ function bD(){
         <input value="${site.note||''}" placeholder="摘要・備考" onchange="US(${si},'note',this.value)" style="flex:1;min-width:90px;">
       </div>
       <div style="margin-bottom:5px;">
-        <div class="hint" style="margin-bottom:3px;">工事日 <button class="btn" onclick="event.stopPropagation();S.dispBase=(S.dispBase||0)-${RANGE_LEN};persist();render();" style="padding:0 6px;font-size:11px;">◀ 前</button><button class="btn" onclick="event.stopPropagation();S.dispBase=0;persist();render();" style="padding:0 6px;font-size:11px;${dispOff!==0?'background:#fef3c7;border-color:#fbbf24;':''}">今日</button><button class="btn" onclick="event.stopPropagation();S.dispBase=(S.dispBase||0)+${RANGE_LEN};persist();render();" style="padding:0 6px;font-size:11px;">次 ▶</button><input type="date" onchange="event.stopPropagation();SD(this.value)" style="width:130px;font-size:11px;margin-left:4px;" title="この日を起点に表示"></div>
+        <div class="hint" style="margin-bottom:3px;">工事日 <button class="btn" onclick="event.stopPropagation();S.dispBase=(S.dispBase||0)-7;persist();render();" style="padding:0 6px;font-size:11px;">◀ 前週</button><button class="btn" onclick="event.stopPropagation();S.dispBase=0;persist();render();" style="padding:0 6px;font-size:11px;${dispOff!==0?'background:#fef3c7;border-color:#fbbf24;':''}">今週</button><button class="btn" onclick="event.stopPropagation();S.dispBase=(S.dispBase||0)+7;persist();render();" style="padding:0 6px;font-size:11px;">次週 ▶</button></div>
         <div style="display:flex;flex-wrap:wrap;gap:2px;margin-bottom:3px;">${dayBtns}</div>
         <div style="display:flex;align-items:center;gap:4px;flex-wrap:wrap;"><input type="date" id="from_${si}" style="width:140px;"><span class="hint">〜</span><input type="date" id="to_${si}" style="width:140px;"><button class="btn" onclick="AP(${si})">期間追加</button>${site.days?.length?`<span class="hint">計${site.days.length}日</span>`:''}</div>
       </div>
@@ -1027,8 +1003,8 @@ function bD(){
   const activeCards=siteCards.filter(({site})=>(site.days||[]).length===0||(site.days||[]).some(dk=>dk>=todayStr)).sort((a,b)=>{if(!a.lastDay&&!b.lastDay)return 0;if(!a.lastDay)return -1;if(!b.lastDay)return 1;return b.lastDay.localeCompare(a.lastDay);});
   // 工事日が全て過去 → 完了済み
   const doneCards=siteCards.filter(({site})=>(site.days||[]).length>0&&!(site.days||[]).some(dk=>dk>=todayStr)).sort((a,b)=>b.lastDay.localeCompare(a.lastDay));
-  const activeHtmlAll=activeCards.map(({card})=>card).join('');
-  const doneHtmlAll=doneCards.length?`
+  const activeHtml=activeCards.map(({card})=>card).join('');
+  const doneHtml=doneCards.length?`
     <div style="margin-top:16px;border-top:2px dashed #d1d5db;padding-top:10px;">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
         <span style="font-size:12px;font-weight:600;color:#6b7280;">✅ 完了済み現場（${doneCards.length}件）</span>
@@ -1036,14 +1012,7 @@ function bD(){
       </div>
       ${S.showDone?doneCards.map(({card})=>card).join(''):''}
     </div>`:'';
-  /* 編集中・追加直後の現場だけに絞り込んで表示 */
-  const focusId=S.focusSite||null;
-  const focusSc=focusId?siteCards.find(sc=>sc.site.id===focusId):null;
-  const focusBar=focusSc?`<div style="margin-bottom:8px;"><button class="btn" onclick="ClearFocus()">← 全ての現場を表示</button></div>`:'';
-  const activeHtml=focusSc?focusSc.card:activeHtmlAll;
-  const doneHtml=focusSc?'':doneHtmlAll;
-  return`<div class="tb"><strong style="font-size:13px;">配車・割振</strong><span style="font-size:11px;color:var(--tx3);">当日から3日先まで表示（◀▶や日付指定で移動）</span><button class="btn" onclick="TogPast()" style="${S.showPast?'background:#fef3c7;border-color:#fde68a;color:#92400e;':''}">${S.showPast?'過去も表示中':'今日以降のみ'}</button><button class="btn btnp" onclick="AS()" style="margin-left:auto;">＋ 現場追加</button></div>
-  ${focusBar}
+  return`<div class="tb"><strong style="font-size:13px;">配車・割振</strong><span style="font-size:11px;color:var(--tx3);">今日から2週間分</span><button class="btn" onclick="TogPast()" style="${S.showPast?'background:#fef3c7;border-color:#fde68a;color:#92400e;':''}">${S.showPast?'過去も表示中':'今日以降のみ'}</button><button class="btn btnp" onclick="AS()" style="margin-left:auto;">＋ 現場追加</button></div>
   ${dupK.length?`<div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:6px;padding:5px 10px;margin-bottom:8px;font-size:11px;color:#991b1b;">⚠ 重複: ${dupK.map(k=>k.split('|').join(' ')).join(' / ')}</div>`:''}
   ${!S.sites.length?'<div style="text-align:center;color:var(--tx3);padding:32px;">「＋ 現場追加」で現場を登録</div>':activeHtml+doneHtml}
   <div id="cmodal"></div>`;
@@ -1217,7 +1186,7 @@ function bCal(){
       const ddd=(s.dayData&&s.dayData[dk])||{};const cancel=ddd.cancelled;const isNight=s.shift==='夜';
       const assigns=(s.assigns?.[dk]||[]).slice().sort((a,b)=>{const ia=S.workers.findIndex(w=>w.name===a.name);const ib=S.workers.findIndex(w=>w.name===b.name);return(ia<0?999:ia)-(ib<0?999:ib);});
       const ctName=s.contact==='__manual__'?s.contactManual:s.contact;
-      const members=assigns.length?assigns.map(a=>`<span style="display:inline-block;margin:1px 6px 1px 0;">${esc(a.name)||'(未設定)'}${a.name===s.leader?'★':''}</span>`).join(''):'<span style="color:var(--tx3);">作業員未配置</span>';
+      const members=assigns.length?assigns.map(a=>{const isL=a.isLeader||(a.name===s.leader&&!assigns.some(x=>x.isLeader));return`<span style="display:inline-block;margin:1px 6px 1px 0;${isL?'font-weight:bold;color:#b45309;':''}">${esc(a.name)||'(未設定)'}${isL?'★':''}</span>`;}).join(''):'<span style="color:var(--tx3);">作業員未配置</span>';
       return`<div style="border:1px solid var(--bd3);border-left:5px solid ${isNight?'#3730a3':'#b45309'};border-radius:8px;padding:8px 10px;margin-bottom:8px;background:var(--bg1);${cancel?'opacity:.55;':''}">
         <div style="font-size:13px;font-weight:600;margin-bottom:4px;"><span class="${isNight?'bngt':'bday'}">${s.shift}</span> ${esc(s.place)||'(未入力)'}${s.enShoo?'<span style="background:#7c3aed;color:#fff;font-size:10px;padding:0 5px;border-radius:4px;margin-left:4px;">応援</span>':''}${cancel?'<span style="background:#9ca3af;color:#fff;font-size:10px;padding:1px 5px;border-radius:4px;margin-left:4px;">中止</span>':''}<span class="bcnt" style="margin-left:4px;">計${assigns.length}名</span></div>
         ${s.prime||ctName?`<div style="font-size:11px;color:var(--tx2);margin-bottom:4px;">元請: ${esc(s.prime)}${ctName?` <b>${esc(ctName)}</b>`:''}</div>`:''}
@@ -1243,16 +1212,7 @@ function bBW(){
       const cells=days.map(d=>{const dk=fmt(d);const st=(S.officeAtt[dk]&&S.officeAtt[dk][w.name])||'';const disp=st==='work'?{t:'出勤',bg:'#dcfce7',co:'#166534'}:st==='leave'?{t:'有給',bg:'#fae8ff',co:'#86198f'}:st==='off'?{t:'休',bg:'#f1f5f9',co:'#94a3b8'}:{t:'',bg:'',co:''};return`<td ${VIEW_MODE?'':`onclick="CycleOffice('${dk}','${w.name}')" title="タップで 出勤→有給→休 を切替"`} style="border:1px solid var(--bd3);text-align:center;cursor:${VIEW_MODE?'default':'pointer'};${disp.bg?`background:${disp.bg};color:${disp.co};font-size:10px;font-weight:500;`:''}">${disp.t||(VIEW_MODE?'':'<span style="color:#e2e8f0;font-size:11px;">・</span>')}</td>`;}).join('');
       return`<tr style="background:#fffaf0;"><td class="nc" style="width:58px;">${w.name}<br><span style="font-size:9px;color:#b45309;">事務</span></td>${cells}</tr>`;
     }
-    const cells=days.map(d=>{const dk=fmt(d);const my=S.sites.flatMap(s=>{if(!(s.days||[]).includes(dk))return[];return(s.assigns?.[dk]||[]).filter(a=>a.name===w.name).map(a=>({s,a}));}).sort((x,y)=>(x.s.shift==='夜'?1:0)-(y.s.shift==='夜'?1:0));
-      if(!my.length){
-        const lvDay=getSlotLeave(dk,w.name,'昼'),lvNight=getSlotLeave(dk,w.name,'夜');
-        if(!lvDay&&!lvNight)return`<td style="border:1px solid var(--bd3);"></td>`;
-        const lvColor=lb=>lb==='有給'?'#86198f':lb==='講習'?'#0369a1':lb==='健診'?'#166534':'#92400e';
-        const lvBg=lb=>lb==='有給'?'#fae8ff':lb==='講習'?'#e0f2fe':lb==='健診'?'#dcfce7':'#fef3c7';
-        const badge=(lv,slot)=>lv?`<div style="padding:1px 3px;border-radius:3px;background:${lvBg(lv.type)};margin-bottom:1px;font-size:10px;color:${lvColor(lv.type)};font-weight:500;">${slot} ${lv.type}${(lv.work||lv.type==='講習')?' (出)':''}</div>`:'';
-        return`<td style="border:1px solid var(--bd3);padding:2px;">${badge(lvDay,'昼')}${badge(lvNight,'夜')}</td>`;
-      }
-      return`<td style="border:1px solid var(--bd3);padding:2px;">${my.map(({s,a})=>a.absent?`<div style="padding:1px 3px;border-radius:3px;background:#fef9c3;margin-bottom:1px;font-size:10px;color:#92400e;font-weight:500;">📋 ${a.absent}</div>`:`<div style="padding:1px 3px;border-radius:3px;background:${s.shift==='夜'?'#eef2ff':'#fffbeb'};margin-bottom:1px;"><span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span> <b style="font-size:11px;">${s.place||'(未設定)'}</b>${a.isDriver?'<span class="bdrv">運転</span>':''}${a.memo?`<span style="font-size:10px;color:var(--tx2);"> ${a.memo}</span>`:''}</div>`).join('')}</td>`;}).join('');
+    const cells=days.map(d=>{const dk=fmt(d);const my=S.sites.flatMap(s=>{if(!(s.days||[]).includes(dk))return[];return(s.assigns?.[dk]||[]).filter(a=>a.name===w.name).map(a=>({s,a}));}).sort((x,y)=>(x.s.shift==='夜'?1:0)-(y.s.shift==='夜'?1:0));if(!my.length)return`<td style="border:1px solid var(--bd3);"></td>`;return`<td style="border:1px solid var(--bd3);padding:2px;">${my.map(({s,a})=>`<div style="padding:1px 3px;border-radius:3px;background:${s.shift==='夜'?'#eef2ff':'#fffbeb'};margin-bottom:1px;"><span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span> <b style="font-size:11px;">${s.place||'(未設定)'}</b>${a.isDriver?'<span class="bdrv">運転</span>':''}${a.memo?`<span style="font-size:10px;color:var(--tx2);"> ${a.memo}</span>`:''}</div>`).join('')}</td>`;}).join('');
     return`<tr style="background:${ri%2===0?'var(--bg1)':'var(--bg2)'};">
       <td class="nc" style="font-weight:500;width:58px;">${w.name}</td>${cells}</tr>`;
   }).join('');
@@ -1279,24 +1239,11 @@ function bR(){
   const rows=mDays.map(dk=>{
     const dt=pd(dk),dw=dt.getDay();const isSun=dw===0,isSat=dw===6;
     const ds=gds(dk),has=ds.length>0;
-    const lvDay=!has?getSlotLeave(dk,S.rpW,'昼'):null;
-    const lvNight=!has?getSlotLeave(dk,S.rpW,'夜'):null;
-    const hasLeave=!!(lvDay||lvNight);
-    const hBg=isSun?'#fee2e2':isSat?'#dbeafe':(has||hasLeave)?'#fef9c3':'var(--bg2)';
+    const hBg=isSun?'#fee2e2':isSat?'#dbeafe':has?'#fef9c3':'var(--bg2)';
     const hCo=isSun?'#991b1b':isSat?'#1e40af':'var(--tx)';
     const secs=has?['昼','夜'].map(slot=>{
       const ss=ds.filter(({s})=>s.shift===slot);if(!ss.length)return'';
       return ss.map(({s,a})=>{
-        if(a.absent){
-          const abColor=a.absent==='有給'?'#86198f':a.absent==='講習'?'#0369a1':a.absent==='健診'?'#166534':'#92400e';
-          const abBg=a.absent==='有給'?'#fae8ff':a.absent==='講習'?'#e0f2fe':a.absent==='健診'?'#dcfce7':'#fef3c7';
-          return`<div style="padding:5px 8px;border-top:1px solid var(--bd3);">
-            <div style="display:flex;align-items:center;gap:5px;flex-wrap:wrap;">
-              <span class="${slot==='夜'?'bngt':'bday'}">${slot}</span><b style="font-size:12px;">${s.place||'(未設定)'}</b>
-              <span style="background:${abBg};color:${abColor};font-size:10px;padding:1px 6px;border-radius:4px;font-weight:500;">📋 ${a.absent}</span>
-            </div>
-          </div>`;
-        }
         const ak=`${dk}__${s.id}`,act=S.actuals[ak]||{};
         const dd=(s.dayData&&s.dayData[dk])||{};
         const isCancel=dd.cancelled;
@@ -1337,12 +1284,9 @@ function bR(){
         </div>`;
       }).join('');
     }).join(''):'';
-    const lvColor=lb=>lb==='有給'?'#86198f':lb==='講習'?'#0369a1':lb==='健診'?'#166534':'#92400e';
-    const lvBg=lb=>lb==='有給'?'#fae8ff':lb==='講習'?'#e0f2fe':lb==='健診'?'#dcfce7':'#fef3c7';
-    const lvBadge=(lv,slot)=>lv?`<span style="background:${lvBg(lv.type)};color:${lvColor(lv.type)};font-size:10px;padding:1px 6px;border-radius:4px;margin-left:4px;">${slot} ${lv.type}${(lv.work||lv.type==='講習')?' (出勤扱い)':''}</span>`:'';
-    return`<div class="day-row" style="${!has&&!hasLeave?'opacity:0.4;':''}">
+    return`<div class="day-row" style="${!has?'opacity:0.4;':''}">
       <div class="dhdr" style="background:${hBg};"><span style="font-weight:500;font-size:12px;color:${hCo};min-width:86px;">${rm}/${dt.getDate()}(${WD[dw]})</span>
-        ${!has?`<span class="hint">${hasLeave?'':'予定なし'}</span>${lvBadge(lvDay,'昼')}${lvBadge(lvNight,'夜')}`:ds.map(({s,a})=>a.absent?`<span style="background:#fef9c3;color:#92400e;font-size:10px;padding:1px 6px;border-radius:4px;">📋 ${a.absent}</span>`:`<span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span><b style="font-size:11px;margin-left:3px;">${s.place||'(未設定)'}</b>`).join('')}
+        ${!has?'<span class="hint">予定なし</span>':ds.map(({s})=>`<span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span><b style="font-size:11px;margin-left:3px;">${s.place||'(未設定)'}</b>`).join('')}
       </div>${secs}</div>`;
   }).join('');
   // ===== 全集計（月＋年度8月始まり） =====
@@ -1742,12 +1686,13 @@ function printWeekSchedule(){
         const dwArr=dayWorksArr(dd.works);const wkShow=(dwArr&&dwArr.length)?dwArr:(s.works||[]);
         const dmArr=dayMachArr(dd.machines);const mc=(dmArr&&dmArr.length)?dmArr:normMachines(s.machines);
         const ctName=s.contact==='__manual__'?s.contactManual:s.contact;
-        const sideCol=(s.ourContact||s.leader)?`<td style="width:90px;border-left:2px solid #ccc;font-size:10px;vertical-align:top;">${s.leader?`<div>リーダー：<b style="color:#b45309;">${s.leader}</b></div>`:''}${s.ourContact?`<div>担当：<b>${s.ourContact}</b></div>`:''}</td>`:'<td style="width:80px;border-left:2px solid #ccc;"></td>';
+        const dayLeaderName=(assigns.find(a=>a.isLeader)||{}).name||s.leader||'';
+        const sideCol=(s.ourContact||dayLeaderName)?`<td style="width:90px;border-left:2px solid #ccc;font-size:10px;vertical-align:top;">${dayLeaderName?`<div>リーダー：<b style="color:#b45309;">${dayLeaderName}</b></div>`:''}${s.ourContact?`<div>担当：<b>${s.ourContact}</b></div>`:''}</td>`:'<td style="width:80px;border-left:2px solid #ccc;"></td>';
         return`<table style="width:100%;border:1px solid #aaa;border-left:4px solid ${slot==='夜'?'#3730a3':'#b45309'};margin:3px 0;${dd.cancelled?'opacity:0.5;':''}"><tr>
           <td style="vertical-align:top;border:none;">
             <div style="font-weight:bold;font-size:12px;">[${s.shift}] ${s.place||'(未入力)'}${wkShow.length?' <span style="font-size:10px;color:#1e40af;font-weight:normal;">'+wkShow.join('・')+'</span>':''} <span style="font-weight:normal;font-size:10px;color:#555;">計${assigns.length}名</span>${dd.cancelled?' <span style="color:#dc2626;">※中止</span>':''}</div>
             <div style="font-size:9px;color:#555;">${[s.prime,ctName,gLabel(s,dd)||'',mc.length?'重機:'+mc.map(machLabel).join(','):''].filter(Boolean).join(' / ')}</div>
-            <div style="font-size:10px;margin-top:2px;">${assigns.map(a=>{const isL=a.name===s.leader;return`<span style="${isL?'font-weight:bold;color:#b45309;':''}">${a.name}${isL?'★':''}${a.role?'('+a.role+')':''}${a.vehicle?'/'+a.vehicle:''}${a.isDriver?'🚗':''}</span>`;}).join('　')||'<span style="color:#999;">未配置</span>'}</div>
+            <div style="font-size:10px;margin-top:2px;">${assigns.map(a=>{const isL=a.isLeader||(a.name===s.leader&&!assigns.some(x=>x.isLeader));return`<span style="${isL?'font-weight:bold;color:#b45309;':''}">${a.name}${isL?'★':''}${a.role?'('+a.role+')':''}${a.vehicle?'/'+a.vehicle:''}${a.isDriver?'🚗':''}</span>`;}).join('　')||'<span style="color:#999;">未配置</span>'}</div>
           </td>
           ${sideCol}
         </tr></table>`;
@@ -1772,12 +1717,13 @@ function weekSiteHTML(days,range){
       const dd=(s.dayData&&s.dayData[dk])||{};
       const assigns=(s.assigns?.[dk]||[]).slice().sort((a,b)=>{const ia=S.workers.findIndex(w=>w.name===a.name),ib=S.workers.findIndex(w=>w.name===b.name);return(ia<0?999:ia)-(ib<0?999:ib);});
       const dwArr=dayWorksArr(dd.works);const wkShow=(dwArr&&dwArr.length)?dwArr:(s.works||[]);const dmArr=dayMachArr(dd.machines);const mc=(dmArr&&dmArr.length)?dmArr:normMachines(s.machines);const ctName=s.contact==='__manual__'?s.contactManual:s.contact;
-      const sideCol=(s.ourContact||s.leader)?`<td style="width:90px;border-left:2px solid #ccc;font-size:10px;vertical-align:top;">${s.leader?`<div>リーダー：<b style="color:#b45309;">${s.leader}</b></div>`:''}${s.ourContact?`<div>担当：<b>${s.ourContact}</b></div>`:''}</td>`:'';
+      const dayLeaderName2=(assigns.find(a=>a.isLeader)||{}).name||s.leader||'';
+      const sideCol=(s.ourContact||dayLeaderName2)?`<td style="width:90px;border-left:2px solid #ccc;font-size:10px;vertical-align:top;">${dayLeaderName2?`<div>リーダー：<b style="color:#b45309;">${dayLeaderName2}</b></div>`:''}${s.ourContact?`<div>担当：<b>${s.ourContact}</b></div>`:''}</td>`:'';
       return`<table style="width:100%;border:1px solid #aaa;border-left:4px solid ${slot==='夜'?'#3730a3':'#b45309'};margin:3px 0;${dd.cancelled?'opacity:0.5;':''}"><tr>
         <td style="vertical-align:top;border:none;">
           <div style="font-weight:bold;font-size:12px;">[${s.shift}] ${s.place||'(未入力)'}${wkShow.length?' <span style="font-size:10px;color:#1e40af;font-weight:normal;">'+wkShow.join('・')+'</span>':''} <span style="font-weight:normal;font-size:10px;color:#555;">計${assigns.length}名</span>${dd.cancelled?' <span style="color:#dc2626;">※中止</span>':''}</div>
           <div style="font-size:9px;color:#555;">${[s.prime,ctName,gLabel(s,dd)||'',mc.length?'重機:'+mc.map(machLabel).join(','):''].filter(Boolean).join(' / ')}</div>
-          <div style="font-size:10px;margin-top:2px;">${assigns.map(a=>{const isL=a.name===s.leader;return`<span style="${isL?'font-weight:bold;color:#b45309;':''}">${a.name}${isL?'★':''}${a.role?'('+a.role+')':''}${a.vehicle?'/'+a.vehicle:''}${a.isDriver?'🚗':''}</span>`;}).join('　')||'<span style="color:#999;">未配置</span>'}</div>
+          <div style="font-size:10px;margin-top:2px;">${assigns.map(a=>{const isL=a.isLeader||(a.name===s.leader&&!assigns.some(x=>x.isLeader));return`<span style="${isL?'font-weight:bold;color:#b45309;':''}">${a.name}${isL?'★':''}${a.role?'('+a.role+')':''}${a.vehicle?'/'+a.vehicle:''}${a.isDriver?'🚗':''}</span>`;}).join('　')||'<span style="color:#999;">未配置</span>'}</div>
         </td>${sideCol}</tr></table>`;
     }));
     return dayTitle+blocks.join('');
@@ -2055,8 +2001,7 @@ window.SetAbsent=(dk,name,val)=>{
   document.querySelectorAll('.am-modal').forEach(el=>el.remove());
 };
 window.MoveW=(i,dir)=>{const j=i+dir;if(j<0||j>=S.workers.length)return;const t=S.workers[i];S.workers[i]=S.workers[j];S.workers[j]=t;persist();render();};
-window.EditSite=(id)=>{S.tab='dispatch';S.foldSite=S.foldSite||{};S.sites.forEach(s=>{S.foldSite[s.id]=true;});S.foldSite[id]=false;S.showDone=true;S.dispBase=0;S.focusSite=id;persist();render();setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},100);};
-window.ClearFocus=()=>{S.focusSite=null;persist();render();};
+window.EditSite=(id)=>{S.tab='dispatch';S.foldSite=S.foldSite||{};S.sites.forEach(s=>{S.foldSite[s.id]=true;});S.foldSite[id]=false;S.showPast=true;S.showDone=true;S.dispBase=0;persist();render();setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},100);};
 window.FoldSite=(id)=>{
   const willOpen=S.foldSite[id]!==false; // false以外（undefined/true）→開く操作
   if(willOpen){S.sites.forEach(s=>{S.foldSite[s.id]=true;});S.foldSite[id]=false;}
@@ -2074,16 +2019,15 @@ window.SetWF=(i,k,v)=>{if(S.workers[i])S.workers[i][k]=(k==='name'||k==='fullNam
 window.SetEmail=(i,v)=>{if(S.workers[i])S.workers[i].email=v.trim();persist();render();};
 window.SetHire=(i,v)=>{if(S.workers[i])S.workers[i].hireDate=v;persist();render();};
 window.DWI=(i)=>{S.workers.splice(i,1);persist();render();};
-window.T=t=>{S.tab=t;S.focusSite=null;persist();render();};
+window.T=t=>{S.tab=t;persist();render();};
 window.WM=m=>{S.wMode=m;persist();render();};
 window.MF=n=>{S.fiveBase=n===0?fmt(toDay()):fmt(addD(pd(S.fiveBase),n));persist();render();};
 window.SF=v=>{S.fiveBase=v;persist();render();};
-window.SD=v=>{if(!v)return;S.dispBase=Math.round((pd(v)-toDay())/86400000);persist();render();};
 window.MW=n=>{S.weekBase=fmt(addD(pd(S.weekBase),n));persist();render();};
 window.SWB=v=>{S.weekBase=fmt(monSt(pd(v)));persist();render();};
 window.TE=dk=>{if(VIEW_MODE)return;S.excl.has(dk)?S.excl.delete(dk):S.excl.add(dk);persist();render();};
-window.AS=()=>{const id=uid();const newSite={id,days:[],assigns:{},dayData:{},shift:'昼',place:'',prime:'',contact:'',contactManual:'',contactTel:'',ourContact:'',leader:'',works:[],machines:[],gatherTime:'',gatherType:'集合',note:'',okiba:'',kaisou:'',enShoo:false};S.sites.unshift(newSite);S.foldSite=S.foldSite||{};S.sites.forEach(s=>{if(s.id!==id)S.foldSite[s.id]=true;});S.foldSite[id]=false;S.focusSite=id;persist();render();setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},80);};
-window.DS=i=>{if(!confirm('削除しますか？'))return;const removedId=S.sites[i]?.id;S.sites.splice(i,1);if(S.focusSite===removedId)S.focusSite=null;persist();render();};
+window.AS=()=>{const id=uid();const newSite={id,days:[],assigns:{},dayData:{},shift:'昼',place:'',prime:'',contact:'',contactManual:'',contactTel:'',ourContact:'',leader:'',works:[],machines:[],gatherTime:'',gatherType:'集合',note:'',okiba:'',kaisou:'',enShoo:false};S.sites.unshift(newSite);S.foldSite=S.foldSite||{};S.sites.forEach(s=>{if(s.id!==id)S.foldSite[s.id]=true;});S.foldSite[id]=false;persist();render();setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},80);};
+window.DS=i=>{if(!confirm('削除しますか？'))return;S.sites.splice(i,1);persist();render();};
 window.US=(i,k,v)=>{S.sites[i][k]=v;persist();render();};
 window.UST=(i,k,el)=>{const v=pTime(el.value);S.sites[i][k]=v;el.value=v;persist();};
 window.AM=(si,m)=>{if(!m)return;const s=S.sites[si];s.machines=normMachines(s.machines);if(!s.machines.some(x=>x.name===m))s.machines.push({name:m,qty:1});persist();render();};
@@ -2320,6 +2264,7 @@ window.execAA=(si,dk)=>{
   render();
 };
 window.UA=(si,dk,ai,k,v)=>{if(S.sites[si].assigns?.[dk]?.[ai])S.sites[si].assigns[dk][ai][k]=v;persist();};
+window.SetDayLeader=(si,dk,ai)=>{const assigns=S.sites[si].assigns?.[dk];if(!assigns)return;const isAlready=assigns[ai].isLeader;assigns.forEach((a,i)=>a.isLeader=(i===ai&&!isAlready));persist();render();};
 window.RA=(si,dk,ai)=>{S.sites[si].assigns[dk].splice(ai,1);persist();render();};
 window.SRW=v=>{S.rpW=v;persist();render();};
 window.FY=d=>{const cur=S.fyView!==null?S.fyView:fyStartYear(S.rpYM+'-01');S.fyView=cur+d;persist();render();};

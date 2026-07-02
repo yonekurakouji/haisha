@@ -2297,7 +2297,31 @@ window.execAA=(si,dk)=>{
   const cm=document.getElementById('cmodal');if(cm)cm.innerHTML='';
   render();
 };
-window.UA=(si,dk,ai,k,v)=>{if(S.sites[si].assigns?.[dk]?.[ai])S.sites[si].assigns[dk][ai][k]=v;persist();};
+window.UA=(si,dk,ai,k,v)=>{
+  const a=S.sites[si].assigns?.[dk]?.[ai];
+  if(!a)return;
+  a[k]=v;
+  if(k==='absent'){
+    const slot=S.sites[si].shift||'昼';
+    const name=a.name;
+    S.leave=S.leave||{};S.leave[dk]=S.leave[dk]||{};
+    if(v){
+      const cur=S.leave[dk][name]||{};
+      const obj=(typeof cur==='object'&&!Array.isArray(cur))?{...cur}:{};
+      obj[slot]={type:v,work:v!=='有給'};
+      S.leave[dk][name]=obj;
+    } else {
+      if(S.leave[dk][name]){
+        const obj=(typeof S.leave[dk][name]==='object')?{...S.leave[dk][name]}:{};
+        delete obj[slot];
+        if(Object.keys(obj).length===0)delete S.leave[dk][name];
+        else S.leave[dk][name]=obj;
+      }
+    }
+    render();
+  }
+  persist();
+};
 window.SetDayLeader=(si,dk,ai)=>{const assigns=S.sites[si].assigns?.[dk];if(!assigns)return;const isAlready=assigns[ai].isLeader;assigns.forEach((a,i)=>a.isLeader=(i===ai&&!isAlready));persist();render();};
 window.BulkAbsent=(si,dk)=>{const assigns=S.sites[si].assigns?.[dk];if(!assigns)return;const allAbsent=assigns.length>0&&assigns.every(a=>a.absent);assigns.forEach(a=>a.absent=allAbsent?'':'講習');persist();render();};
 window.RA=(si,dk,ai)=>{S.sites[si].assigns[dk].splice(ai,1);persist();render();};

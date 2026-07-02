@@ -101,7 +101,8 @@
             "vehicle": "",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "小松﨑",
@@ -109,7 +110,8 @@
             "vehicle": "",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": true
           }
         ]
       },
@@ -146,7 +148,8 @@
             "vehicle": "ハイエース",
             "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": true
           },
           {
             "name": "小松﨑",
@@ -154,7 +157,8 @@
             "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "近藤",
@@ -162,7 +166,8 @@
             "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "中川",
@@ -170,7 +175,8 @@
             "vehicle": "4tダンプ",
             "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "大竹",
@@ -178,7 +184,8 @@
             "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "菅沼",
@@ -186,7 +193,8 @@
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "佐藤",
@@ -194,7 +202,8 @@
             "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "アグン",
@@ -202,7 +211,8 @@
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "アリヤ",
@@ -210,7 +220,8 @@
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "アマダ",
@@ -218,7 +229,8 @@
             "vehicle": "4tダンプ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           }
         ]
       },
@@ -3744,6 +3756,6 @@
   "fiveBase": "2026-07-02",
   "rpYM": "2026-07",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/2 9:10:17",
-  "_savedAt": "2026/7/2 9:10:17"
+  "lastSaved": "2026/7/2 11:27:38",
+  "_savedAt": "2026/7/2 11:27:38"
 }

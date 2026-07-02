@@ -684,6 +684,9 @@ function bWP(){
         const cellBar=slot==='昼'?'#f59e0b':'#3b82f6';
         return`<td style="border:1px solid var(--bd3);border-left:3px solid ${cellBar};padding:2px;vertical-align:top;background:${cellBg};">${items.map(({s,a})=>{
           const dd=(s.dayData&&s.dayData[dk])||{};
+          // leaveが設定されている場合はleaveラベルを優先表示
+          const cellLv=getSlotLeave(dk,w.name,slot);
+          if(cellLv){const ll=cellLv.type||'有給';const lc=ll==='有給'?'#86198f':ll==='講習'?'#0369a1':ll==='健診'?'#166534':'#92400e';const lb=ll==='有給'?'#fae8ff':ll==='講習'?'#e0f2fe':ll==='健診'?'#dcfce7':'#fef3c7';const wm=cellLv.work?'<span style="font-size:9px;background:#1e40af;color:#fff;border-radius:2px;padding:0 2px;margin-left:2px;">出</span>':'';return`<div onclick="ShowAbsentMenu('${dk}','${w.name}','${slot}')" style="background:${lb};border-radius:3px;padding:1px 4px;font-size:10px;color:${lc};font-weight:500;cursor:pointer;">${ll}${wm}</div>`;}
           if(a.absent)return`<div style="background:#fef9c3;border-radius:3px;padding:1px 4px;font-size:10px;color:#92400e;font-weight:500;">📋 ${a.absent}</div>`;
           return`<div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:${slot==='昼'?'#92400e':'#1e40af'};">${s.place||'(未入力)'}${s.enShoo?'<span style="background:#7c3aed;color:#fff;font-size:9px;padding:0 3px;border-radius:3px;margin-left:2px;">応援</span>':''}</div><div style="font-size:10px;color:var(--tx2);">${a.role||''}${a.isDriver?' <span class="bdrv">運転</span>':''}${gLabel(s,dd)?` <b>${gLabel(s,dd)}</b>`:''}</div></div>`;
         }).join('')}</td>`;
@@ -1242,12 +1245,26 @@ function bR(){
   mDays.forEach(dk=>{const sh=gds(dk);if(sh.length)totD++;sh.forEach(({s,a})=>{if(a.isDriver&&a.vehicle){totA+=S.vehicles.find(v=>v.name===a.vehicle)?.allowance||0;const KAISO_V=['R1','R2','R3','R8','R9','S3','S8','P5','P7','大型','増㌧','レンジャー'];const vKey=KAISO_V.includes(a.vehicle)?'回送':a.vehicle;drvC[vKey]=(drvC[vKey]||0)+1;}const rep=getReport(s,dk);const rper=(rep.per&&rep.per[a.name])||{};if(rper.returnDrive>0){const rv=rper.returnVehicle||a.vehicle;totA+=S.vehicles.find(v=>v.name===rv)?.allowance||0;const KAISO_V2=['R1','R2','R3','R8','R9','S3','S8','P5','P7','大型','増㌧','レンジャー'];const rvKey=KAISO_V2.includes(rv)?'回送':rv;drvC[rvKey]=(drvC[rvKey]||0)+rper.returnDrive;}});});
   const rows=mDays.map(dk=>{
     const dt=pd(dk),dw=dt.getDay();const isSun=dw===0,isSat=dw===6;
-    const ds=gds(dk),has=ds.length>0;
+    const ds=gds(dk);
+    // leaveも確認（現場配置なしでleaveだけの場合も表示）
+    const lyDay=getSlotLeave(dk,S.rpW,'昼');const lyNight=getSlotLeave(dk,S.rpW,'夜');
+    const hasLeave=!!(lyDay||lyNight);
+    const has=ds.length>0||hasLeave;
     const hBg=isSun?'#fee2e2':isSat?'#dbeafe':has?'#fef9c3':'var(--bg2)';
     const hCo=isSun?'#991b1b':isSat?'#1e40af':'var(--tx)';
-    const secs=has?['昼','夜'].map(slot=>{
+    // leave専用カード（現場配置なしの日）
+    const leaveOnlySecs=(!ds.length&&hasLeave)?['昼','夜'].map(slot=>{
+      const lv=getSlotLeave(dk,S.rpW,slot);if(!lv)return'';
+      const ll=lv.type||'有給';const lc=ll==='有給'?'#86198f':ll==='講習'?'#0369a1':ll==='健診'?'#166534':'#92400e';const lb=ll==='有給'?'#fae8ff':ll==='講習'?'#e0f2fe':ll==='健診'?'#dcfce7':'#fef3c7';
+      const wm=lv.work?'<span style="font-size:10px;background:#1e40af;color:#fff;border-radius:3px;padding:0 4px;margin-left:4px;">出勤扱い</span>':'';
+      return`<div style="padding:5px 8px;border-top:1px solid var(--bd3);background:${lb};"><span class="${slot==='夜'?'bngt':'bday'}">${slot}</span> <b style="color:${lc};font-size:12px;">${ll}${wm}</b></div>`;
+    }).join(''):'';
+    const secs=ds.length?['昼','夜'].map(slot=>{
       const ss=ds.filter(({s})=>s.shift===slot);if(!ss.length)return'';
-      return ss.map(({s,a})=>{
+      // leaveが設定されている場合はleaveカードを先頭に追加
+      const lv=getSlotLeave(dk,S.rpW,slot);
+      const lvCard=lv?(`<div style="padding:3px 8px;background:${lv.type==='有給'?'#fae8ff':lv.type==='講習'?'#e0f2fe':lv.type==='健診'?'#dcfce7':'#fef3c7'};border-top:1px solid var(--bd3);"><span style="font-size:11px;font-weight:600;color:${lv.type==='有給'?'#86198f':lv.type==='講習'?'#0369a1':lv.type==='健診'?'#166534':'#92400e'};">📋 ${lv.type||'有給'}${lv.work?'<span style="font-size:9px;background:#1e40af;color:#fff;border-radius:2px;padding:0 2px;margin-left:3px;">出勤扱い</span>':''}</span></div>`):'';;
+      return lvCard+ss.map(({s,a})=>{
         const ak=`${dk}__${s.id}`,act=S.actuals[ak]||{};
         const dd=(s.dayData&&s.dayData[dk])||{};
         const isCancel=dd.cancelled;
@@ -1288,10 +1305,13 @@ function bR(){
         </div>`;
       }).join('');
     }).join(''):'';
+    const secsAll=(leaveOnlySecs||'')+(secs||'');
+    const hdrLeave=hasLeave&&!ds.length?`<span style="background:#e0f2fe;color:#0369a1;font-size:10px;padding:0 5px;border-radius:4px;font-weight:500;">📋 講習等</span>`:'';
+    const hdrSites=ds.map(({s})=>`<span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span><b style="font-size:11px;margin-left:3px;">${s.place||'(未設定)'}</b>`).join('');
     return`<div class="day-row" style="${!has?'opacity:0.4;':''}">
       <div class="dhdr" style="background:${hBg};"><span style="font-weight:500;font-size:12px;color:${hCo};min-width:86px;">${rm}/${dt.getDate()}(${WD[dw]})</span>
-        ${!has?'<span class="hint">予定なし</span>':ds.map(({s})=>`<span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span><b style="font-size:11px;margin-left:3px;">${s.place||'(未設定)'}</b>`).join('')}
-      </div>${secs}</div>`;
+        ${!has?'<span class="hint">予定なし</span>':hdrLeave+hdrSites}
+      </div>${secsAll}</div>`;
   }).join('');
   // ===== 全集計（月＋年度8月始まり） =====
   const monthDks=daysInMonth(S.rpYM);

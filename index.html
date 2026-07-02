@@ -146,13 +146,23 @@ const pTime=v=>{if(!v)return'';v=v.replace(/[：:]/g,':').trim();if(/^\d{1,2}:\d
 // 着時間 or 集合時間のラベル付き文字列を返す
 const gLabel=(site,dd)=>{const t=(dd&&dd.gatherTime!==undefined)?dd.gatherTime:site.gatherTime;const tp=(dd&&dd.gatherType!==undefined)?dd.gatherType:(site.gatherType||'集合');return t?`${tp} ${t}`:'';};
 // leave[dk][name] は {昼:{type:'有給'|'講習'|'健診'|'その他', work:bool}, 夜:{...}} の形
-// スロットごとの予定を取得（旧形式の文字列・trueにも対応）
+// スロットごとの予定を取得。assigns.absentも統合して参照する
 const getSlotLeave=(dk,name,slot)=>{
+  // まずS.leaveを確認
   const v=S.leave&&S.leave[dk]&&S.leave[dk][name];
-  if(!v)return null;
-  if(typeof v==='object'&&!Array.isArray(v)){return v[slot]||null;}
-  // 旧形式（文字列/true）→昼夜両方に同じ種別として扱う
-  return{type:v===true?'有給':v,work:false};
+  let fromLeave=null;
+  if(v){
+    if(typeof v==='object'&&!Array.isArray(v))fromLeave=v[slot]||null;
+    else fromLeave={type:v===true?'有給':v,work:false};
+  }
+  // assigns.absentも確認（配車・割振タブからの設定）
+  const site=S.sites.find(s=>s.shift===slot&&(s.days||[]).includes(dk));
+  const assign=site?(site.assigns?.[dk]||[]).find(a=>a.name===name):null;
+  if(assign&&assign.absent){
+    // absentWorkフラグで出勤扱いか非出勤扱いか判定
+    return{type:assign.absent,work:!!assign.absentWork};
+  }
+  return fromLeave;
 };
 const dc=o=>JSON.parse(JSON.stringify(o));
 /* ===== 日本の祝日 自動判定 ===== */
@@ -1265,7 +1275,7 @@ function bR(){
       const ss=ds.filter(({s})=>s.shift===slot);if(!ss.length)return'';
       // leaveが設定されている場合はleaveカードを先頭に追加
       const lv=getSlotLeave(dk,S.rpW,slot);
-      const lvCard=lv?(`<div style="padding:3px 8px;background:${lv.type==='有給'?'#fae8ff':lv.type==='講習'?'#e0f2fe':lv.type==='健診'?'#dcfce7':'#fef3c7'};border-top:1px solid var(--bd3);"><span style="font-size:11px;font-weight:600;color:${lv.type==='有給'?'#86198f':lv.type==='講習'?'#0369a1':lv.type==='健診'?'#166534':'#92400e'};">📋 ${lv.type||'有給'}${lv.work?'<span style="font-size:9px;background:#1e40af;color:#fff;border-radius:2px;padding:0 2px;margin-left:3px;">出勤扱い</span>':''}</span></div>`):'';;
+      const lvCard=lv?(`<div style="padding:3px 8px;background:${lv.type==='有給'?'#fae8ff':lv.type==='講習'?'#e0f2fe':lv.type==='健診'?'#dcfce7':'#fef3c7'};border-top:1px solid var(--bd3);"><span style="font-size:11px;font-weight:600;color:${lv.type==='有給'?'#86198f':lv.type==='講習'?'#0369a1':lv.type==='健診'?'#166534':'#92400e'};">📋 ${lv.type||'有給'}${!lv.work?'<span style="font-size:9px;background:#dc2626;color:#fff;border-radius:2px;padding:0 2px;margin-left:3px;">非出勤</span>':''}</span></div>`):'';;
       return lvCard+ss.map(({s,a})=>{
         const ak=`${dk}__${s.id}`,act=S.actuals[ak]||{};
         const dd=(s.dayData&&s.dayData[dk])||{};

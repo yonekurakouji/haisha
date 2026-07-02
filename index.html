@@ -682,11 +682,11 @@ function bWP(){
         }
         const cellBg=slot==='昼'?'#fef3c7':'#dbeafe';
         const cellBar=slot==='昼'?'#f59e0b':'#3b82f6';
+        // leaveが設定されている場合はセル全体をleave表示に切り替える
+        const cellLv=getSlotLeave(dk,w.name,slot);
+        if(cellLv){const ll=cellLv.type||'有給';const lc=ll==='有給'?'#86198f':ll==='講習'?'#0369a1':ll==='健診'?'#166534':'#92400e';const lb=ll==='有給'?'#fae8ff':ll==='講習'?'#e0f2fe':ll==='健診'?'#dcfce7':'#fef3c7';const wm=cellLv.work?'<span style="font-size:9px;background:#1e40af;color:#fff;border-radius:2px;padding:0 2px;margin-left:2px;">出</span>':'';return`<td onclick="ShowAbsentMenu('${dk}','${w.name}','${slot}')" style="border:1px solid var(--bd3);text-align:center;background:${lb};color:${lc};font-size:10px;font-weight:500;cursor:pointer;">${ll}${wm}</td>`;}
         return`<td style="border:1px solid var(--bd3);border-left:3px solid ${cellBar};padding:2px;vertical-align:top;background:${cellBg};">${items.map(({s,a})=>{
           const dd=(s.dayData&&s.dayData[dk])||{};
-          // leaveが設定されている場合はleaveラベルを優先表示
-          const cellLv=getSlotLeave(dk,w.name,slot);
-          if(cellLv){const ll=cellLv.type||'有給';const lc=ll==='有給'?'#86198f':ll==='講習'?'#0369a1':ll==='健診'?'#166534':'#92400e';const lb=ll==='有給'?'#fae8ff':ll==='講習'?'#e0f2fe':ll==='健診'?'#dcfce7':'#fef3c7';const wm=cellLv.work?'<span style="font-size:9px;background:#1e40af;color:#fff;border-radius:2px;padding:0 2px;margin-left:2px;">出</span>':'';return`<div onclick="ShowAbsentMenu('${dk}','${w.name}','${slot}')" style="background:${lb};border-radius:3px;padding:1px 4px;font-size:10px;color:${lc};font-weight:500;cursor:pointer;">${ll}${wm}</div>`;}
           if(a.absent)return`<div style="background:#fef9c3;border-radius:3px;padding:1px 4px;font-size:10px;color:#92400e;font-weight:500;">📋 ${a.absent}</div>`;
           return`<div style="margin-bottom:2px;"><div style="font-size:11px;font-weight:600;color:${slot==='昼'?'#92400e':'#1e40af'};">${s.place||'(未入力)'}${s.enShoo?'<span style="background:#7c3aed;color:#fff;font-size:9px;padding:0 3px;border-radius:3px;margin-left:2px;">応援</span>':''}</div><div style="font-size:10px;color:var(--tx2);">${a.role||''}${a.isDriver?' <span class="bdrv">運転</span>':''}${gLabel(s,dd)?` <b>${gLabel(s,dd)}</b>`:''}</div></div>`;
         }).join('')}</td>`;

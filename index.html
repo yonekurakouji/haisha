@@ -1220,7 +1220,10 @@ function bBW(){
       const leaveColors={'有給':{bg:'#fae8ff',co:'#86198f'},'講習':{bg:'#e0f2fe',co:'#0369a1'},'健診':{bg:'#dcfce7',co:'#166534'},'その他':{bg:'#fef3c7',co:'#92400e'}};
       const leaveHTML=['昼','夜'].filter(slot=>!my.some(({s})=>s.shift===slot)).map(slot=>{const slv=getSlotLeave(dk,w.name,slot);if(!slv||!slv.type)return'';const c=leaveColors[slv.type]||{bg:'#f1f5f9',co:'#475569'};return`<div style="padding:1px 3px;border-radius:3px;background:${c.bg};margin-bottom:1px;"><span style="font-size:10px;font-weight:500;color:${c.co};">${slot} ${slv.type}${slv.work?'(勤務あり)':''}</span></div>`;}).join('');
       if(!my.length&&!leaveHTML)return`<td style="border:1px solid var(--bd3);"></td>`;
-      return`<td style="border:1px solid var(--bd3);padding:2px;">${leaveHTML}${my.map(({s,a})=>`<div style="padding:1px 3px;border-radius:3px;background:${s.shift==='夜'?'#eef2ff':'#fffbeb'};margin-bottom:1px;"><span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span> <b style="font-size:11px;">${s.place||'(未設定)'}</b>${a.isDriver?'<span class="bdrv">運転</span>':''}${a.memo?`<span style="font-size:10px;color:var(--tx2);"> ${a.memo}</span>`:''}</div>`).join('')}</td>`;}).join('');
+      return`<td style="border:1px solid var(--bd3);padding:2px;">${leaveHTML}${my.map(({s,a})=>{
+        if(a.absent){const c=leaveColors[a.absent]||{bg:'#fef9c3',co:'#92400e'};return`<div style="padding:1px 3px;border-radius:3px;background:${c.bg};margin-bottom:1px;"><span style="font-size:10px;font-weight:500;color:${c.co};">📋 ${a.absent}</span></div>`;}
+        return`<div style="padding:1px 3px;border-radius:3px;background:${s.shift==='夜'?'#eef2ff':'#fffbeb'};margin-bottom:1px;"><span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span> <b style="font-size:11px;">${s.place||'(未設定)'}</b>${a.isDriver?'<span class="bdrv">運転</span>':''}${a.memo?`<span style="font-size:10px;color:var(--tx2);"> ${a.memo}</span>`:''}</div>`;
+      }).join('')}</td>`;}).join('');
     return`<tr style="background:${ri%2===0?'var(--bg1)':'var(--bg2)'};">
       <td class="nc" style="font-weight:500;width:58px;">${w.name}</td>${cells}</tr>`;
   }).join('');

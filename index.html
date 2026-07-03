@@ -155,6 +155,14 @@ const getSlotLeave=(dk,name,slot)=>{
   return{type:v===true?'有給':v,work:false};
 };
 const dc=o=>JSON.parse(JSON.stringify(o));
+/* 休暇種別の共通カラー定義（社員別タブ・日報タブで共用） */
+const LEAVE_COLORS={'有給':{bg:'#fae8ff',co:'#86198f'},'講習':{bg:'#e0f2fe',co:'#0369a1'},'健診':{bg:'#dcfce7',co:'#166534'},'その他':{bg:'#fef3c7',co:'#92400e'}};
+/* 休暇・不出勤バッジHTML生成。work=true(出勤あり)の場合は内容のみのシンプル表示、falseの場合は色付きバッジ表示 */
+function leaveBadgeHTML(label,work,slot){
+  if(work)return`<div style="font-size:10px;color:var(--tx2);padding:1px 3px;margin-bottom:1px;">${slot?slot+' ':''}${label}</div>`;
+  const c=LEAVE_COLORS[label]||{bg:'#fef9c3',co:'#92400e'};
+  return`<div style="padding:1px 3px;border-radius:3px;background:${c.bg};margin-bottom:1px;"><span style="font-size:10px;font-weight:500;color:${c.co};">${slot?'📋 '+slot+' '+label:'📋 '+label}</span></div>`;
+}
 /* ===== 日本の祝日 自動判定 ===== */
 const _holCache={};
 function holidaysOf(year){
@@ -1217,11 +1225,10 @@ function bBW(){
       return`<tr style="background:#fffaf0;"><td class="nc" style="width:58px;">${w.name}<br><span style="font-size:9px;color:#b45309;">事務</span></td>${cells}</tr>`;
     }
     const cells=days.map(d=>{const dk=fmt(d);const my=S.sites.flatMap(s=>{if(!(s.days||[]).includes(dk))return[];return(s.assigns?.[dk]||[]).filter(a=>a.name===w.name).map(a=>({s,a}));}).sort((x,y)=>(x.s.shift==='夜'?1:0)-(y.s.shift==='夜'?1:0));
-      const leaveColors={'有給':{bg:'#fae8ff',co:'#86198f'},'講習':{bg:'#e0f2fe',co:'#0369a1'},'健診':{bg:'#dcfce7',co:'#166534'},'その他':{bg:'#fef3c7',co:'#92400e'}};
-      const leaveHTML=['昼','夜'].filter(slot=>!my.some(({s})=>s.shift===slot)).map(slot=>{const slv=getSlotLeave(dk,w.name,slot);if(!slv||!slv.type)return'';const c=leaveColors[slv.type]||{bg:'#f1f5f9',co:'#475569'};return`<div style="padding:1px 3px;border-radius:3px;background:${c.bg};margin-bottom:1px;"><span style="font-size:10px;font-weight:500;color:${c.co};">${slot} ${slv.type}${slv.work?'(勤務あり)':''}</span></div>`;}).join('');
+      const leaveHTML=['昼','夜'].filter(slot=>!my.some(({s})=>s.shift===slot)).map(slot=>{const slv=getSlotLeave(dk,w.name,slot);if(!slv||!slv.type)return'';return leaveBadgeHTML(slv.type,!!slv.work,slot);}).join('');
       if(!my.length&&!leaveHTML)return`<td style="border:1px solid var(--bd3);"></td>`;
       return`<td style="border:1px solid var(--bd3);padding:2px;">${leaveHTML}${my.map(({s,a})=>{
-        if(a.absent){const c=leaveColors[a.absent]||{bg:'#fef9c3',co:'#92400e'};return`<div style="padding:1px 3px;border-radius:3px;background:${c.bg};margin-bottom:1px;"><span style="font-size:10px;font-weight:500;color:${c.co};">📋 ${a.absent}</span></div>`;}
+        if(a.absent)return leaveBadgeHTML(a.absent,false,s.shift);
         return`<div style="padding:1px 3px;border-radius:3px;background:${s.shift==='夜'?'#eef2ff':'#fffbeb'};margin-bottom:1px;"><span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span> <b style="font-size:11px;">${s.place||'(未設定)'}</b>${a.isDriver?'<span class="bdrv">運転</span>':''}${a.memo?`<span style="font-size:10px;color:var(--tx2);"> ${a.memo}</span>`:''}</div>`;
       }).join('')}</td>`;}).join('');
     return`<tr style="background:${ri%2===0?'var(--bg1)':'var(--bg2)'};">
@@ -1245,16 +1252,22 @@ function bR(){
   const todayK=fmt(toDay());
   const mDays=Array.from({length:lastDay},(_,i)=>`${S.rpYM}-${String(i+1).padStart(2,'0')}`).filter(dk=>dk<=todayK);
   const gds=dk=>{if(!S.rpW)return[];return S.sites.flatMap(s=>{if(!(s.days||[]).includes(dk))return[];return(s.assigns?.[dk]||[]).filter(a=>a.name===S.rpW).map(a=>({s,a}));});};
+  const glv=dk=>{if(!S.rpW)return{};const r={};['昼','夜'].forEach(slot=>{const slv=getSlotLeave(dk,S.rpW,slot);if(slv&&slv.type)r[slot]=slv;});return r;};
   let totD=0,totA=0;const drvC={};
-  mDays.forEach(dk=>{const sh=gds(dk);if(sh.length)totD++;sh.forEach(({s,a})=>{if(a.isDriver&&a.vehicle){totA+=S.vehicles.find(v=>v.name===a.vehicle)?.allowance||0;const KAISO_V=['R1','R2','R3','R8','R9','S3','S8','P5','P7','大型','増㌧','レンジャー'];const vKey=KAISO_V.includes(a.vehicle)?'回送':a.vehicle;drvC[vKey]=(drvC[vKey]||0)+1;}const rep=getReport(s,dk);const rper=(rep.per&&rep.per[a.name])||{};if(rper.returnDrive>0){const rv=rper.returnVehicle||a.vehicle;totA+=S.vehicles.find(v=>v.name===rv)?.allowance||0;const KAISO_V2=['R1','R2','R3','R8','R9','S3','S8','P5','P7','大型','増㌧','レンジャー'];const rvKey=KAISO_V2.includes(rv)?'回送':rv;drvC[rvKey]=(drvC[rvKey]||0)+rper.returnDrive;}});});
+  mDays.forEach(dk=>{const sh=gds(dk).filter(({a})=>!a.absent);if(sh.length)totD++;sh.forEach(({s,a})=>{if(a.isDriver&&a.vehicle){totA+=S.vehicles.find(v=>v.name===a.vehicle)?.allowance||0;const KAISO_V=['R1','R2','R3','R8','R9','S3','S8','P5','P7','大型','増㌧','レンジャー'];const vKey=KAISO_V.includes(a.vehicle)?'回送':a.vehicle;drvC[vKey]=(drvC[vKey]||0)+1;}const rep=getReport(s,dk);const rper=(rep.per&&rep.per[a.name])||{};if(rper.returnDrive>0){const rv=rper.returnVehicle||a.vehicle;totA+=S.vehicles.find(v=>v.name===rv)?.allowance||0;const KAISO_V2=['R1','R2','R3','R8','R9','S3','S8','P5','P7','大型','増㌧','レンジャー'];const rvKey=KAISO_V2.includes(rv)?'回送':rv;drvC[rvKey]=(drvC[rvKey]||0)+rper.returnDrive;}});});
   const rows=mDays.map(dk=>{
     const dt=pd(dk),dw=dt.getDay();const isSun=dw===0,isSat=dw===6;
-    const ds=gds(dk),has=ds.length>0;
+    const ds=gds(dk),lv=glv(dk),has=ds.length>0||Object.keys(lv).length>0;
     const hBg=isSun?'#fee2e2':isSat?'#dbeafe':has?'#fef9c3':'var(--bg2)';
     const hCo=isSun?'#991b1b':isSat?'#1e40af':'var(--tx)';
     const secs=has?['昼','夜'].map(slot=>{
-      const ss=ds.filter(({s})=>s.shift===slot);if(!ss.length)return'';
+      const ss=ds.filter(({s})=>s.shift===slot);
+      if(!ss.length){
+        if(lv[slot])return`<div style="padding:5px 8px;border-top:1px solid var(--bd3);">${leaveBadgeHTML(lv[slot].type,!!lv[slot].work,slot)}</div>`;
+        return'';
+      }
       return ss.map(({s,a})=>{
+        if(a.absent)return`<div style="padding:5px 8px;border-top:1px solid var(--bd3);">${leaveBadgeHTML(a.absent,false,slot)}</div>`;
         const ak=`${dk}__${s.id}`,act=S.actuals[ak]||{};
         const dd=(s.dayData&&s.dayData[dk])||{};
         const isCancel=dd.cancelled;
@@ -1297,7 +1310,7 @@ function bR(){
     }).join(''):'';
     return`<div class="day-row" style="${!has?'opacity:0.4;':''}">
       <div class="dhdr" style="background:${hBg};"><span style="font-weight:500;font-size:12px;color:${hCo};min-width:86px;">${rm}/${dt.getDate()}(${WD[dw]})</span>
-        ${!has?'<span class="hint">予定なし</span>':ds.map(({s})=>`<span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span><b style="font-size:11px;margin-left:3px;">${s.place||'(未設定)'}</b>`).join('')}
+        ${!has?'<span class="hint">予定なし</span>':ds.map(({s,a})=>a.absent?`<span style="font-size:11px;color:#92400e;">📋 ${a.absent}</span>`:`<span class="${s.shift==='夜'?'bngt':'bday'}">${s.shift}</span><b style="font-size:11px;margin-left:3px;">${s.place||'(未設定)'}</b>`).join('')}${ds.length===0&&Object.keys(lv).length?Object.entries(lv).map(([slot,slv])=>`<span style="font-size:11px;color:#0369a1;">${slot} ${slv.type}</span>`).join('　'):''}
       </div>${secs}</div>`;
   }).join('');
   // ===== 全集計（月＋年度8月始まり） =====

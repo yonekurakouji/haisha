@@ -123,7 +123,7 @@
             "isDriver": false,
             "memo": "",
             "absent": "",
-            "isLeader": false
+            "isLeader": true
           },
           {
             "name": "小松﨑",
@@ -132,7 +132,7 @@
             "isDriver": false,
             "memo": "今日のリーダー",
             "absent": "",
-            "isLeader": true
+            "isLeader": false
           },
           {
             "name": "近藤",
@@ -788,7 +788,8 @@
       "days": [
         "2026-06-24",
         "2026-06-25",
-        "2026-06-29"
+        "2026-06-29",
+        "2026-07-07"
       ],
       "assigns": {
         "2026-06-24": [
@@ -964,9 +965,95 @@
             "memo": "",
             "absent": ""
           }
+        ],
+        "2026-07-07": [
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
         ]
       },
-      "dayData": {},
+      "dayData": {
+        "2026-07-07": {
+          "gatherTime": "8:00"
+        }
+      },
       "shift": "昼",
       "place": "事務所",
       "prime": "",
@@ -3757,6 +3844,6 @@
   "fiveBase": "2026-07-03",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/3 12:28:16",
-  "_savedAt": "2026/7/3 12:28:16"
+  "lastSaved": "2026/7/3 18:43:28",
+  "_savedAt": "2026/7/3 18:43:28"
 }

@@ -1325,22 +1325,13 @@
         ],
         "2026-07-08": [
           {
-            "name": "駒田",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": true
-          },
-          {
             "name": "小松﨑",
             "role": "作業員",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
             "absent": "",
-            "isLeader": false
+            "isLeader": true
           },
           {
             "name": "近藤",
@@ -1386,6 +1377,30 @@
             "memo": "",
             "absent": "",
             "isLeader": false
+          },
+          {
+            "name": "アグン",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
@@ -4189,6 +4204,6 @@
   "fiveBase": "2026-07-07",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/7 11:10:56",
-  "_savedAt": "2026/7/7 11:10:56"
+  "lastSaved": "2026/7/7 20:16:16",
+  "_savedAt": "2026/7/7 20:16:16"
 }

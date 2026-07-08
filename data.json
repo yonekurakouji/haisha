@@ -20,7 +20,7 @@
           {
             "name": "小松﨑",
             "role": "作業員",
-            "vehicle": "3tダンプ",
+            "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -29,7 +29,7 @@
           {
             "name": "近藤",
             "role": "作業員",
-            "vehicle": "Wキャブ",
+            "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -47,7 +47,7 @@
           {
             "name": "大竹",
             "role": "作業員",
-            "vehicle": "ハイエース",
+            "vehicle": "3tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -56,7 +56,7 @@
           {
             "name": "菅沼",
             "role": "作業員",
-            "vehicle": "Wキャブ",
+            "vehicle": "レンジャー",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -65,7 +65,7 @@
           {
             "name": "佐藤",
             "role": "作業員",
-            "vehicle": "ハイエース",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -97,14 +97,6 @@
             "memo": "",
             "absent": "",
             "isLeader": false
-          },
-          {
-            "name": "阿部",
-            "role": "",
-            "vehicle": "ハイエース",
-            "isDriver": true,
-            "memo": "",
-            "absent": ""
           }
         ],
         "2026-07-10": [
@@ -211,7 +203,13 @@
       },
       "dayData": {
         "2026-07-09": {
-          "dayNote": "グレーダー3.1・タイヤショベル0.5・路盤道具一式・"
+          "dayNote": "グレーダー3.1・タイヤショベル0.5・路盤道具一式",
+          "gatherTime": "7:15",
+          "supplies": [
+            "寒水粉",
+            "養生一式",
+            "糸張りくん"
+          ]
         },
         "2026-07-10": {
           "works": [
@@ -264,14 +262,16 @@
           "qty": 1
         }
       ],
-      "gatherTime": "6:45",
+      "gatherTime": "7:15",
       "gatherType": "集合",
       "note": "",
       "okiba": "有",
       "kaisou": "×",
       "enShoo": false,
       "supplies": [
-        "養生一式"
+        "養生一式",
+        "寒水粉",
+        "糸張りくん"
       ]
     },
     {
@@ -4011,7 +4011,8 @@
     "定規",
     "防炎シート",
     "砂",
-    "砕石"
+    "砕石",
+    "糸張りくん"
   ],
   "leave": {
     "2026-06-07": {},
@@ -4201,9 +4202,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-06-29",
-  "fiveBase": "2026-07-07",
+  "fiveBase": "2026-07-08",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/7 20:16:16",
-  "_savedAt": "2026/7/7 20:16:16"
+  "lastSaved": "2026/7/8 16:02:47",
+  "_savedAt": "2026/7/8 16:02:47"
 }

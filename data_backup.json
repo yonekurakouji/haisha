@@ -112,9 +112,9 @@
           {
             "name": "駒田",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "レンジャー",
+            "vehicle": "R1",
             "isDriver": true,
-            "memo": "",
+            "memo": "945",
             "absent": "",
             "isLeader": true
           },
@@ -139,7 +139,7 @@
           {
             "name": "中川",
             "role": "運搬員",
-            "vehicle": "4tダンプ",
+            "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -193,7 +193,7 @@
           {
             "name": "アマダ",
             "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "4tダンプ",
+            "vehicle": "3tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -225,9 +225,11 @@
           "supplies": [
             "清掃用具一式",
             "根庫",
-            "定規"
+            "定規",
+            "ハンドスイーパー"
           ],
-          "dayNote": "暑い予報なので水筒等各自・透水性"
+          "dayNote": "暑い予報なので水筒等各自・透水性95t",
+          "gatherTime": "7:30"
         }
       },
       "shift": "昼",
@@ -1064,7 +1066,8 @@
         "2026-06-25",
         "2026-06-29",
         "2026-07-07",
-        "2026-07-08"
+        "2026-07-08",
+        "2026-07-13"
       ],
       "assigns": {
         "2026-06-24": [
@@ -1402,11 +1405,72 @@
             "memo": "",
             "absent": ""
           }
+        ],
+        "2026-07-13": [
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
         ]
       },
       "dayData": {
         "2026-07-07": {
           "gatherTime": "8:00"
+        },
+        "2026-07-13": {
+          "dayNote": "午後一に仙台名盤２台・16:00茨城町"
         }
       },
       "shift": "昼",
@@ -4012,7 +4076,8 @@
     "防炎シート",
     "砂",
     "砕石",
-    "糸張りくん"
+    "糸張りくん",
+    "ハンドスイーパー"
   ],
   "leave": {
     "2026-06-07": {},
@@ -4202,9 +4267,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-06-29",
-  "fiveBase": "2026-07-08",
+  "fiveBase": "2026-07-09",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/8 16:02:47",
-  "_savedAt": "2026/7/8 16:02:47"
+  "lastSaved": "2026/7/9 15:28:36",
+  "_savedAt": "2026/7/9 15:28:36"
 }

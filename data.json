@@ -45,15 +45,6 @@
             "isLeader": false
           },
           {
-            "name": "大竹",
-            "role": "作業員",
-            "vehicle": "3tダンプ",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
             "name": "菅沼",
             "role": "作業員",
             "vehicle": "レンジャー",
@@ -4270,6 +4261,6 @@
   "fiveBase": "2026-07-09",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/9 15:53:40",
-  "_savedAt": "2026/7/9 15:53:40"
+  "lastSaved": "2026/7/9 15:59:53",
+  "_savedAt": "2026/7/9 15:59:53"
 }

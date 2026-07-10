@@ -137,15 +137,6 @@
             "isLeader": false
           },
           {
-            "name": "大竹",
-            "role": "作業員",
-            "vehicle": "ハイエース",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
             "name": "菅沼",
             "role": "作業員",
             "vehicle": "Wキャブ",
@@ -1058,7 +1049,8 @@
         "2026-06-29",
         "2026-07-07",
         "2026-07-08",
-        "2026-07-13"
+        "2026-07-13",
+        "2026-07-14"
       ],
       "assigns": {
         "2026-06-24": [
@@ -1454,6 +1446,88 @@
             "memo": "",
             "absent": ""
           }
+        ],
+        "2026-07-14": [
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
         ]
       },
       "dayData": {
@@ -1462,6 +1536,9 @@
         },
         "2026-07-13": {
           "dayNote": "午後一に仙台名盤２台・16:00茨城町"
+        },
+        "2026-07-14": {
+          "dayNote": "水曜日の準備など"
         }
       },
       "shift": "昼",
@@ -4258,9 +4335,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-06-29",
-  "fiveBase": "2026-07-09",
+  "fiveBase": "2026-07-10",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/9 15:59:53",
-  "_savedAt": "2026/7/9 15:59:53"
+  "lastSaved": "2026/7/10 16:27:17",
+  "_savedAt": "2026/7/10 16:27:17"
 }

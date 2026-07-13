@@ -195,15 +195,6 @@
             "isLeader": false
           },
           {
-            "name": "中川",
-            "role": "誘導員",
-            "vehicle": "4tダンプ",
-            "isDriver": true,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
             "name": "大竹",
             "role": "作業員",
             "vehicle": "ハイエース",
@@ -251,7 +242,7 @@
           {
             "name": "アマダ",
             "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "4tダンプ",
+            "vehicle": "3tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -4732,6 +4723,6 @@
   "fiveBase": "2026-07-13",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/13 11:39:39",
-  "_savedAt": "2026/7/13 11:39:39"
+  "lastSaved": "2026/7/13 13:48:02",
+  "_savedAt": "2026/7/13 13:48:02"
 }

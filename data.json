@@ -87,7 +87,7 @@
           {
             "name": "中川",
             "role": "誘導員",
-            "vehicle": "規制車",
+            "vehicle": "4tダンプ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -141,7 +141,7 @@
           {
             "name": "アマダ",
             "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "3tダンプ",
+            "vehicle": "4tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -150,8 +150,8 @@
           {
             "name": "阿部",
             "role": "作業員",
-            "vehicle": "規制車",
-            "isDriver": true,
+            "vehicle": "ハイエース",
+            "isDriver": false,
             "memo": "",
             "absent": "",
             "isLeader": false
@@ -161,8 +161,8 @@
           {
             "name": "阿部",
             "role": "作業員",
-            "vehicle": "規制車",
-            "isDriver": true,
+            "vehicle": "ハイエース",
+            "isDriver": false,
             "memo": "",
             "absent": "",
             "isLeader": false
@@ -251,6 +251,15 @@
         ],
         "2026-07-17": [
           {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
             "name": "近藤",
             "role": "作業員",
             "vehicle": "Wキャブ",
@@ -276,14 +285,6 @@
             "memo": "",
             "absent": "",
             "isLeader": false
-          },
-          {
-            "name": "小松﨑",
-            "role": "",
-            "vehicle": "ハイエース",
-            "isDriver": true,
-            "memo": "",
-            "absent": ""
           }
         ]
       },
@@ -1467,8 +1468,7 @@
         "2026-07-07",
         "2026-07-08",
         "2026-07-13",
-        "2026-07-14",
-        "2026-07-17"
+        "2026-07-14"
       ],
       "assigns": {
         "2026-06-24": [
@@ -1911,35 +1911,6 @@
             "absent": "",
             "isLeader": false
           }
-        ],
-        "2026-07-17": [
-          {
-            "name": "駒田",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": true
-          },
-          {
-            "name": "中川",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
-            "name": "大竹",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          }
         ]
       },
       "dayData": {
@@ -1951,9 +1922,6 @@
         },
         "2026-07-14": {
           "dayNote": "６０以外前日搬入・水曜日の準備など"
-        },
-        "2026-07-17": {
-          "dayNote": "納車・U字溝取"
         }
       },
       "shift": "昼",
@@ -4510,14 +4478,6 @@
     {
       "name": "増㌧",
       "allowance": 0
-    },
-    {
-      "name": "トラコン",
-      "allowance": 0
-    },
-    {
-      "name": "規制車",
-      "allowance": 0
     }
   ],
   "contacts": [
@@ -4753,16 +4713,31 @@
     },
     "2026-07-10": {
       "島田聖子": "work"
+    },
+    "2026-07-13": {
+      "島田聖子": "work"
+    },
+    "2026-07-14": {
+      "島田聖子": "work"
+    },
+    "2026-07-15": {
+      "島田聖子": "work"
+    },
+    "2026-07-16": {
+      "島田聖子": "work"
+    },
+    "2026-07-17": {
+      "島田聖子": "work"
     }
   },
   "orgName": "工事部",
   "calNotes": {},
   "actuals": {},
   "excl": [],
-  "weekBase": "2026-06-29",
-  "fiveBase": "2026-07-13",
+  "weekBase": "2026-07-13",
+  "fiveBase": "2026-07-08",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/13 14:14:27",
-  "_savedAt": "2026/7/13 14:14:27"
+  "lastSaved": "2026/7/13 14:15:11",
+  "_savedAt": "2026/7/13 14:15:11"
 }

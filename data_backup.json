@@ -3,6 +3,172 @@
     {
       "id": "1",
       "days": [
+        "2026-07-18"
+      ],
+      "assigns": {
+        "2026-07-18": [
+          {
+            "name": "阿部",
+            "role": "AFOP",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "駒田",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "R1",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "小松﨑",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "R8",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "近藤",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "R1",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "菅沼",
+            "role": "作業員",
+            "vehicle": "R8",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "佐藤",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "4tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アグン",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アリヤ",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アマダ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ]
+      },
+      "dayData": {},
+      "shift": "昼",
+      "place": "取手",
+      "prime": "館野設備",
+      "contact": "館野設備　田中",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "",
+      "works": [
+        "打替え舗装"
+      ],
+      "machines": [
+        {
+          "name": "ﾕﾝﾎﾞ0.1",
+          "qty": 1,
+          "carrier": ""
+        },
+        {
+          "name": "ｻｲﾄﾞﾛｰﾗｰ",
+          "qty": 1,
+          "carrier": ""
+        },
+        {
+          "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+          "qty": 1,
+          "carrier": ""
+        },
+        {
+          "name": "ﾌﾟﾚｰﾄ",
+          "qty": 2,
+          "carrier": ""
+        },
+        {
+          "name": "ｽﾌﾟﾚｲﾔｰ",
+          "qty": 1,
+          "carrier": ""
+        },
+        {
+          "name": "AF30",
+          "qty": 1,
+          "carrier": ""
+        },
+        {
+          "name": "ﾗﾝﾏ",
+          "qty": 1
+        }
+      ],
+      "gatherTime": "7:00",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "有",
+      "kaisou": "○",
+      "enShoo": false,
+      "supplies": [
+        "寒水粉",
+        "養生一式",
+        "清掃用具一式",
+        "根庫",
+        "ハンドスイーパー",
+        "シールコート一式",
+        "定規",
+        "糸張りくん",
+        "乳剤一式",
+        "砂"
+      ]
+    },
+    {
+      "id": "1",
+      "days": [
         "2026-07-14",
         "2026-07-15",
         "2026-07-16",
@@ -4467,6 +4633,14 @@
     {
       "name": "増㌧",
       "allowance": 0
+    },
+    {
+      "name": "規制車",
+      "allowance": 0
+    },
+    {
+      "name": "トラコン",
+      "allowance": 0
     }
   ],
   "contacts": [
@@ -4727,6 +4901,6 @@
   "fiveBase": "2026-07-14",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/14 9:04:08",
-  "_savedAt": "2026/7/14 9:04:08"
+  "lastSaved": "2026/7/14 9:39:02",
+  "_savedAt": "2026/7/14 9:39:02"
 }

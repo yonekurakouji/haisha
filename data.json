@@ -54,6 +54,22 @@
             "memo": "",
             "absent": "",
             "isLeader": false
+          },
+          {
+            "name": "中川",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ],
         "2026-07-15": [
@@ -1876,34 +1892,7 @@
             "isLeader": true
           },
           {
-            "name": "中川",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
             "name": "アリヤ",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
-            "name": "菅沼",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
-            "name": "佐藤",
             "role": "",
             "vehicle": "",
             "isDriver": false,
@@ -4735,9 +4724,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-07-13",
-  "fiveBase": "2026-07-08",
+  "fiveBase": "2026-07-14",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/13 14:15:11",
-  "_savedAt": "2026/7/13 14:15:11"
+  "lastSaved": "2026/7/14 9:04:08",
+  "_savedAt": "2026/7/14 9:04:08"
 }

@@ -251,7 +251,7 @@
           {
             "name": "小松﨑",
             "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "3tダンプ",
+            "vehicle": "規制車",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -269,7 +269,7 @@
           {
             "name": "中川",
             "role": "誘導員",
-            "vehicle": "4tダンプ",
+            "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -323,7 +323,7 @@
           {
             "name": "アマダ",
             "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "4tダンプ",
+            "vehicle": "規制車",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -332,8 +332,8 @@
           {
             "name": "阿部",
             "role": "作業員",
-            "vehicle": "ハイエース",
-            "isDriver": false,
+            "vehicle": "規制車",
+            "isDriver": true,
             "memo": "",
             "absent": "",
             "isLeader": false
@@ -343,8 +343,8 @@
           {
             "name": "阿部",
             "role": "作業員",
-            "vehicle": "ハイエース",
-            "isDriver": false,
+            "vehicle": "規制車",
+            "isDriver": true,
             "memo": "",
             "absent": "",
             "isLeader": false
@@ -361,7 +361,7 @@
           {
             "name": "小松﨑",
             "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "3tダンプ",
+            "vehicle": "規制車",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -424,7 +424,7 @@
           {
             "name": "アマダ",
             "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "3tダンプ",
+            "vehicle": "規制車",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -460,13 +460,12 @@
             "isLeader": false
           },
           {
-            "name": "佐藤",
-            "role": "作業員",
-            "vehicle": "Wキャブ",
+            "name": "大竹",
+            "role": "",
+            "vehicle": "",
             "isDriver": false,
             "memo": "",
-            "absent": "",
-            "isLeader": false
+            "absent": ""
           }
         ]
       },
@@ -568,7 +567,8 @@
             "清掃用具一式",
             "根庫",
             "防炎シート"
-          ]
+          ],
+          "dayNote": "ダンプはOP"
         },
         "2026-07-17": {
           "works": [
@@ -1650,7 +1650,8 @@
         "2026-07-07",
         "2026-07-08",
         "2026-07-13",
-        "2026-07-14"
+        "2026-07-14",
+        "2026-07-17"
       ],
       "assigns": {
         "2026-06-24": [
@@ -2066,6 +2067,24 @@
             "absent": "",
             "isLeader": false
           }
+        ],
+        "2026-07-17": [
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
         ]
       },
       "dayData": {
@@ -2077,7 +2096,8 @@
         },
         "2026-07-14": {
           "dayNote": "６０以外前日搬入・水曜日の準備など"
-        }
+        },
+        "2026-07-17": {}
       },
       "shift": "昼",
       "place": "事務所",
@@ -4901,6 +4921,6 @@
   "fiveBase": "2026-07-14",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/14 9:39:02",
-  "_savedAt": "2026/7/14 9:39:02"
+  "lastSaved": "2026/7/14 9:50:06",
+  "_savedAt": "2026/7/14 9:50:06"
 }

@@ -10,7 +10,7 @@
           {
             "name": "阿部",
             "role": "AFOP",
-            "vehicle": "Wキャブ",
+            "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -37,7 +37,7 @@
           {
             "name": "近藤",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "4tダンプ",
+            "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -96,6 +96,14 @@
             "memo": "",
             "absent": "",
             "isLeader": false
+          },
+          {
+            "name": "中川",
+            "role": "運搬員",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
@@ -4920,6 +4928,6 @@
   "fiveBase": "2026-07-15",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/15 17:41:47",
-  "_savedAt": "2026/7/15 17:41:47"
+  "lastSaved": "2026/7/15 17:43:47",
+  "_savedAt": "2026/7/15 17:43:47"
 }

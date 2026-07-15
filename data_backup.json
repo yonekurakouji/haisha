@@ -458,20 +458,31 @@
             "isLeader": false
           },
           {
-            "name": "大竹",
-            "role": "",
-            "vehicle": "Wキャブ",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "中川",
-            "role": "",
+            "name": "小松﨑",
+            "role": "作業員",
             "vehicle": "規制車",
             "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "佐藤",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アグン",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
           }
         ]
       },
@@ -1656,8 +1667,7 @@
         "2026-07-07",
         "2026-07-08",
         "2026-07-13",
-        "2026-07-14",
-        "2026-07-17"
+        "2026-07-14"
       ],
       "assigns": {
         "2026-06-24": [
@@ -2074,24 +2084,7 @@
             "isLeader": false
           }
         ],
-        "2026-07-17": [
-          {
-            "name": "小松﨑",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "佐藤",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          }
-        ]
+        "2026-07-17": []
       },
       "dayData": {
         "2026-07-07": {
@@ -4927,6 +4920,6 @@
   "fiveBase": "2026-07-15",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/15 17:38:46",
-  "_savedAt": "2026/7/15 17:38:46"
+  "lastSaved": "2026/7/15 17:41:47",
+  "_savedAt": "2026/7/15 17:41:47"
 }

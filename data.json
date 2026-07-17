@@ -53,26 +53,8 @@
             "isLeader": false
           },
           {
-            "name": "佐藤",
-            "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "Wキャブ",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
             "name": "アグン",
             "role": "ﾌﾟﾚｰﾄ",
-            "vehicle": "Wキャブ",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
-            "name": "アマダ",
-            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -84,6 +66,14 @@
             "role": "作業員",
             "vehicle": "3tダンプ",
             "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
             "memo": "",
             "absent": ""
           }
@@ -144,7 +134,8 @@
             "台車",
             "カラーコーン",
             "ガス台"
-          ]
+          ],
+          "dayNote": "8:00開始　８t常用2台"
         }
       },
       "shift": "昼",
@@ -212,7 +203,8 @@
         "防炎シート",
         "乳剤一式",
         "砂",
-        "砕石"
+        "砕石",
+        "台車"
       ]
     },
     {
@@ -367,7 +359,7 @@
             }
           ],
           "gatherTime": "7:45",
-          "dayNote": "9:00規制"
+          "dayNote": "9:00規制　８t常用１台"
         }
       },
       "shift": "昼",
@@ -433,7 +425,11 @@
         "定規",
         "糸張りくん",
         "乳剤一式",
-        "砂"
+        "砂",
+        "台車",
+        "ガス台",
+        "下駄",
+        "カラーコーン"
       ]
     },
     {
@@ -782,6 +778,14 @@
             "memo": "",
             "absent": "",
             "isLeader": false
+          },
+          {
+            "name": "佐藤",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
@@ -5260,6 +5264,6 @@
   "fiveBase": "2026-07-17",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/17 18:02:53",
-  "_savedAt": "2026/7/17 18:02:53"
+  "lastSaved": "2026/7/17 18:17:01",
+  "_savedAt": "2026/7/17 18:17:01"
 }

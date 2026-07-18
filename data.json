@@ -159,9 +159,9 @@
             "absent": ""
           },
           {
-            "name": "アリヤ",
-            "role": "",
-            "vehicle": "4tダンプ",
+            "name": "佐藤",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -860,18 +860,18 @@
             "isLeader": false
           },
           {
-            "name": "佐藤",
-            "role": "作業員",
-            "vehicle": "規制車",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
             "name": "ハオ",
             "role": "作業員",
             "vehicle": "規制車",
             "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "作業員",
+            "vehicle": "規制車",
+            "isDriver": false,
             "memo": "",
             "absent": ""
           }
@@ -5390,6 +5390,6 @@
   "fiveBase": "2026-07-18",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/18 18:25:13",
-  "_savedAt": "2026/7/18 18:25:13"
+  "lastSaved": "2026/7/18 18:26:57",
+  "_savedAt": "2026/7/18 18:26:57"
 }

@@ -866,6 +866,14 @@
             "isDriver": false,
             "memo": "",
             "absent": ""
+          },
+          {
+            "name": "ハオ",
+            "role": "作業員",
+            "vehicle": "規制車",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
@@ -5382,6 +5390,6 @@
   "fiveBase": "2026-07-18",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/18 18:24:09",
-  "_savedAt": "2026/7/18 18:24:09"
+  "lastSaved": "2026/7/18 18:25:13",
+  "_savedAt": "2026/7/18 18:25:13"
 }

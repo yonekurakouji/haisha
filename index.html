@@ -1130,10 +1130,15 @@ window.CalAddSite=(dk)=>{const id=uid();const ns={id,days:[dk],assigns:{[dk]:[]}
 window.CalSiteField=(si,f,v)=>{const s=S.sites[si];if(!s)return;s[f]=v;persist();render();};
 window.CalSiteShift=(si)=>{const s=S.sites[si];if(!s)return;s.shift=(s.shift==='夜'?'昼':'夜');persist();render();};
 function primeColor(name){
-  const PAL=[['#fee2e2','#991b1b'],['#dbeafe','#1e40af'],['#dcfce7','#166534'],['#fef3c7','#92400e'],['#ede9fe','#5b21b6'],['#e0f2fe','#075985'],['#fce7f3','#9d174d'],['#ffedd5','#9a3412'],['#ecfccb','#3f6212'],['#e2e8f0','#334155']];
+  const PAL=[['#fee2e2','#991b1b'],['#dbeafe','#1e40af'],['#dcfce7','#166534'],['#fef3c7','#92400e'],['#ede9fe','#5b21b6'],['#e0f2fe','#075985'],['#fce7f3','#9d174d'],['#ffedd5','#9a3412'],['#ecfccb','#3f6212'],['#cffafe','#155e75'],['#fef9c3','#854d0e'],['#e0e7ff','#3730a3'],['#fae8ff','#86198f'],['#d1fae5','#065f46'],['#fecdd3','#9f1239'],['#c7d2fe','#312e81'],['#fed7aa','#7c2d12'],['#d9f99d','#3f6212'],['#bae6fd','#0c4a6e'],['#e2e8f0','#334155']];
   if(!name)return PAL[PAL.length-1];
-  let h=0;for(let i=0;i<name.length;i++){h=(h*31+name.charCodeAt(i))>>>0;}
-  return PAL[h%PAL.length];
+  /* 表記ゆれで同じ会社が別名になっている場合はここに追加すると同じ色になります */
+  const PRIME_ALIAS={'工藤建設工業':'工藤建設','常盤茨':'常盤工業'};
+  const norm=n=>PRIME_ALIAS[n]||n;
+  /* 実在する元請名の一覧から順番に色を割り当てる（同じ会社は毎回同じ色、別会社は別の色になりやすい） */
+  const names=[...new Set((S.sites||[]).map(s=>norm(s.prime)).filter(Boolean))].sort();
+  const idx=names.indexOf(norm(name));
+  return idx>=0?PAL[idx%PAL.length]:PAL[(function(){let h=0;for(let i=0;i<name.length;i++){h=(h*31+name.charCodeAt(i))>>>0;}return h%PAL.length;})()];
 }
 function bCal(){
   const ym=calCurYM();

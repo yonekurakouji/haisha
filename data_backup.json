@@ -1,6 +1,28 @@
 {
   "sites": [
     {
+      "id": "1",
+      "days": [],
+      "assigns": {},
+      "dayData": {},
+      "shift": "昼",
+      "place": "稲敷",
+      "prime": "自社",
+      "contact": "関",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "有",
+      "kaisou": "○",
+      "enShoo": false
+    },
+    {
       "id": "2",
       "days": [
         "2026-07-27"
@@ -5977,7 +5999,8 @@
     "雑工",
     "打替え舗装",
     "構造物設置",
-    "構造物撤去"
+    "構造物撤去",
+    "捲り"
   ],
   "machines": [
     "ﾕﾝﾎﾞ0.1",
@@ -6120,6 +6143,14 @@
     {
       "name": "池田",
       "tel": "08048807178"
+    },
+    {
+      "name": "関",
+      "tel": ""
+    },
+    {
+      "name": "阿部",
+      "tel": ""
     }
   ],
   "supplies": [
@@ -6348,6 +6379,6 @@
   "fiveBase": "2026-07-27",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/22 17:56:01",
-  "_savedAt": "2026/7/22 17:56:01"
+  "lastSaved": "2026/7/22 18:31:21",
+  "_savedAt": "2026/7/22 18:31:21"
 }

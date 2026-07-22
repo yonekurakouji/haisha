@@ -8,12 +8,14 @@
       "shift": "昼",
       "place": "茨城町",
       "prime": "常盤茨",
-      "contact": "__manual__",
+      "contact": "池田",
       "contactManual": "池田",
       "contactTel": "080-4880-7178",
       "ourContact": "小松﨑",
       "leader": "",
-      "works": [],
+      "works": [
+        "構造物設置"
+      ],
       "machines": [],
       "gatherTime": "",
       "gatherType": "集合",
@@ -5665,7 +5667,9 @@
     "グレーダー3.1",
     "ショベル0.5",
     "９tタイヤ",
-    "タンデム"
+    "タンデム",
+    "ユンボ0.2",
+    "コンバインド4.0"
   ],
   "vehicles": [
     {
@@ -6013,6 +6017,6 @@
   "fiveBase": "2026-07-22",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/22 16:19:55",
-  "_savedAt": "2026/7/22 16:19:55"
+  "lastSaved": "2026/7/22 16:21:16",
+  "_savedAt": "2026/7/22 16:21:16"
 }

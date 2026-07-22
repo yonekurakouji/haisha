@@ -2,9 +2,162 @@
   "sites": [
     {
       "id": "1",
-      "days": [],
-      "assigns": {},
-      "dayData": {},
+      "days": [
+        "2026-07-28",
+        "2026-07-29",
+        "2026-07-30"
+      ],
+      "assigns": {
+        "2026-07-28": [
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "関",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "ティ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ],
+        "2026-07-29": [
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "関",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "ティ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ],
+        "2026-07-30": [
+          {
+            "name": "駒田",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "米倉",
+            "role": "AFOP",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "関",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "ティ",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "外注",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "外注",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "外注",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "外注",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ]
+      },
+      "dayData": {
+        "2026-07-28": {
+          "works": [
+            "捲り"
+          ]
+        },
+        "2026-07-29": {
+          "works": [
+            "路盤工"
+          ]
+        },
+        "2026-07-30": {
+          "works": [
+            "舗装工"
+          ]
+        }
+      },
       "shift": "昼",
       "place": "稲敷",
       "prime": "自社",
@@ -13,9 +166,31 @@
       "contactTel": "",
       "ourContact": "",
       "leader": "",
-      "works": [],
-      "machines": [],
-      "gatherTime": "",
+      "works": [
+        "捲り"
+      ],
+      "machines": [
+        {
+          "name": "ﾕﾝﾎﾞ0.1",
+          "qty": 1,
+          "carrier": ""
+        },
+        {
+          "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+          "qty": 1,
+          "carrier": ""
+        },
+        {
+          "name": "ﾌﾟﾚｰﾄ",
+          "qty": 1,
+          "carrier": ""
+        },
+        {
+          "name": "ﾗﾝﾏ",
+          "qty": 1
+        }
+      ],
+      "gatherTime": "7:00",
       "gatherType": "集合",
       "note": "",
       "okiba": "有",
@@ -698,7 +873,7 @@
             "name": "阿部",
             "role": "ﾛｰﾗｰﾏﾝ",
             "vehicle": "ハイエース",
-            "isDriver": true,
+            "isDriver": false,
             "memo": "",
             "absent": "",
             "isLeader": true
@@ -764,6 +939,14 @@
             "isDriver": false,
             "memo": "",
             "absent": ""
+          },
+          {
+            "name": "ハオ",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
           }
         ],
         "2026-07-29": [
@@ -771,7 +954,7 @@
             "name": "阿部",
             "role": "ﾛｰﾗｰﾏﾝ",
             "vehicle": "ハイエース",
-            "isDriver": true,
+            "isDriver": false,
             "memo": "",
             "absent": "",
             "isLeader": true
@@ -834,6 +1017,22 @@
             "name": "アマダ",
             "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "ハオ",
+            "role": "AFOP",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "渋川",
+            "role": "AFOP",
+            "vehicle": "4tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -844,7 +1043,7 @@
             "name": "阿部",
             "role": "ﾛｰﾗｰﾏﾝ",
             "vehicle": "ハイエース",
-            "isDriver": true,
+            "isDriver": false,
             "memo": "",
             "absent": "",
             "isLeader": true
@@ -908,6 +1107,22 @@
             "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "渋川",
+            "role": "AFOP",
+            "vehicle": "4tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "ハオ",
+            "role": "AFOP",
+            "vehicle": "ハイエース",
+            "isDriver": true,
             "memo": "",
             "absent": ""
           }
@@ -6376,9 +6591,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-07-13",
-  "fiveBase": "2026-07-27",
+  "fiveBase": "2026-07-22",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/22 18:31:21",
-  "_savedAt": "2026/7/22 18:31:21"
+  "lastSaved": "2026/7/22 18:49:07",
+  "_savedAt": "2026/7/22 18:49:07"
 }

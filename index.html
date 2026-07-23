@@ -833,7 +833,7 @@ function bWS(){
               ${wkShow.length?`<span style="font-size:10px;color:#065f46;background:#d1fae5;border-radius:4px;padding:0 4px;margin:0 3px;">${wkShow.join('・')}</span>`:''}
               <span class="bcnt" style="margin-left:2px;">計${assigns.length}名</span>
               ${isCancel?'<span style="background:#9ca3af;color:#fff;font-size:10px;padding:1px 5px;border-radius:4px;margin-left:4px;">中止</span>':''}
-              ${!VIEW_MODE?`<button class="btn" onclick="EditSite('${site.id}')" style="font-size:10px;padding:0 6px;margin-left:6px;">✎ 編集</button>`:''}
+              ${!VIEW_MODE?`<button class="btn" onclick="EditSite('${site.id}','${dk}')" style="font-size:10px;padding:0 6px;margin-left:6px;">✎ 編集</button>`:''}
             </div>
             ${altWork?`<div style="font-size:11px;color:#b45309;background:#fef3c7;border-radius:4px;padding:1px 5px;margin-bottom:3px;">別作業: ${altWork}</div>`:''}
             ${dd.dayNote?`<div style="font-size:11px;color:#7c3aed;background:#f5f3ff;border-radius:4px;padding:1px 6px;margin-bottom:3px;">📝 ${dd.dayNote}</div>`:''}${!dd.dayNote&&site.note?`<div style="font-size:11px;color:#7c3aed;background:#f5f3ff;border-radius:4px;padding:1px 6px;margin-bottom:3px;">📝 ${site.note}</div>`:''}
@@ -883,6 +883,8 @@ function bWS(){
 
 function bD(){
   const dispOff=S.dispBase||0;
+  const focusDay=S.dispFocusDay||null; // 指定された日のみ表示する絞り込み
+  const focusSite=S.dispFocusSite||null; // 指定された現場のみ表示する絞り込み
   const days=S.showPast
     ? Array.from({length:44},(_,i)=>addD(toDay(),i-30))
     : Array.from({length:3},(_,i)=>addD(toDay(),i+dispOff));
@@ -891,7 +893,9 @@ function bD(){
   S.sites.forEach(s=>(s.days||[]).forEach(dk=>(s.assigns?.[dk]||[]).forEach(a=>{const k=`${dk}|${s.shift}|${a.name}`;dups[k]=(dups[k]||0)+1;})));
   const dupK=Object.entries(dups).filter(([,v])=>v>1).map(([k])=>k);
   const cards=S.sites.map((site,si)=>{
-    const actDays=(site.days||[]).filter(dk=>days.some(d=>fmt(d)===dk)).filter(dk=>S.showPast||dk>=todayK);
+    const actDays=focusDay
+      ? (site.days||[]).filter(dk=>dk===focusDay)
+      : (site.days||[]).filter(dk=>days.some(d=>fmt(d)===dk)).filter(dk=>S.showPast||dk>=todayK);
     const dayBtns=days.map(d=>{const dk=fmt(d),sel=(site.days||[]).includes(dk),dw=d.getDay();return`<button class="chip" onclick="TSD(${si},'${dk}')" style="${sel?'background:#1e293b;color:#f1f5f9;border-color:#1e293b;':''}">${(d.getMonth()+1)}/${d.getDate()}(${WD[dw]})</button>`;}).join('');
     const mc=normMachines(site.machines);
     const selM=mc.map((m,mi)=>`<span class="bmach">${m.name}<input type="number" min="1" value="${m.qty}" onchange="SetMQ(${si},${mi},this.value)" style="width:34px;padding:1px 3px;margin:0 2px;font-size:10px;">台<button onclick="RM(${si},${mi})">×</button></span>`).join('');
@@ -900,7 +904,7 @@ function bD(){
     const workOpts=S.works.filter(w=>!(site.works||[]).includes(w)).map(w=>`<option value="${w}">${w}</option>`).join('');
     const ctOpts=S.contacts.map(c=>`<option value="${c.name}"${site.contact===c.name?' selected':''}>${c.name}${c.tel?' ('+c.tel+')':''}</option>`).join('');
     const asgSecs=actDays.map(dk=>{
-      const assigns=site.assigns?.[dk]||[],isOpen=S.openDays[`${si}_${dk}`];
+      const assigns=site.assigns?.[dk]||[],isOpen=focusDay===dk?true:S.openDays[`${si}_${dk}`];
       const dd=(site.dayData&&site.dayData[dk])||{};
       const isCancel=dd.cancelled;
       const rows=assigns.map((a,ai)=>{
@@ -966,7 +970,7 @@ function bD(){
         ${isOpen?`<div style="padding:6px 8px;">${editPanel}${rows}<button class="btn" onclick="AA(${si},'${dk}')" style="margin-top:4px;font-size:11px;">＋ 社員追加</button></div>`:''}
       </div>`;
     }).join('');
-    const folded=S.foldSite[site.id]!==false; // falseのときだけ開く（undefined/trueは畳む）
+    const folded=focusDay?false:(S.foldSite[site.id]!==false); // falseのときだけ開く（undefined/trueは畳む）。絞り込み表示中は常に開く
     if(folded){
       return`<div class="card" id="site_${site.id}" style="padding:6px 10px;">
         <div style="display:flex;align-items:center;gap:8px;">
@@ -1011,6 +1015,29 @@ function bD(){
     </div>`;
   }).join('§§§'); // 一時区切り文字で分割可能にする
   const cardsArr=cards.split('§§§');
+  if(focusDay||focusSite){
+    // 絞り込み表示中：指定された現場・日だけを表示する
+    const matchIdx=S.sites.map((s,si)=>si).filter(si=>{
+      const s=S.sites[si];
+      if(focusSite&&s.id!==focusSite)return false;
+      if(focusDay&&!(s.days||[]).includes(focusDay))return false;
+      return true;
+    });
+    const focusHtml=matchIdx.map(si=>cardsArr[si]||'').join('');
+    const focusSiteObj=focusSite?S.sites.find(s=>s.id===focusSite):null;
+    const labelParts=[];
+    if(focusSiteObj)labelParts.push(`現場「${focusSiteObj.place||'(未入力)'}」`);
+    if(focusDay){const fd=pd(focusDay);labelParts.push(`${fd.getMonth()+1}/${fd.getDate()}(${WD[fd.getDay()]})`);}
+    const label=labelParts.join(' の ')+' のみ表示中';
+    return`<div class="tb"><strong style="font-size:13px;">配車・割振</strong>
+      <span style="font-size:11px;color:#92400e;background:#fef3c7;border:1px solid #fde68a;border-radius:4px;padding:2px 8px;">📅 ${label}</span>
+      <button class="btn" onclick="ClearDispFocus()" style="font-size:11px;">すべての現場を表示</button>
+      <button class="btn btnp" onclick="AS()" style="margin-left:auto;">＋ 現場追加</button>
+    </div>
+    ${dupK.length?`<div style="background:#fee2e2;border:1px solid #fca5a5;border-radius:6px;padding:5px 10px;margin-bottom:8px;font-size:11px;color:#991b1b;">⚠ 重複: ${dupK.map(k=>k.split('|').join(' ')).join(' / ')}</div>`:''}
+    ${matchIdx.length?focusHtml:'<div style="text-align:center;color:var(--tx3);padding:32px;">該当する現場はまだありません。「＋ 現場追加」で登録できます。</div>'}
+    <div id="cmodal"></div>`;
+  }
   // アクティブ（今後予定あり）と完了済みに分離
   const todayStr=fmt(toDay());
   const siteCards=S.sites.map((site,si)=>({site,si,card:cardsArr[si]||'',lastDay:(site.days||[]).slice().sort().reverse()[0]||''}));
@@ -1166,11 +1193,7 @@ function bCal(){
       :(active.length?active.map(s=>{const dd=(s.dayData&&s.dayData[dk])||{};const cancel=dd.cancelled;const cnt=(s.assigns?.[dk]||[]).length;const[pbg,ptx]=primeColor(s.prime);return`<div style="font-size:12px;line-height:1.6;white-space:normal;word-break:break-all;${cancel?'opacity:.5;text-decoration:line-through;':''}"><span class="${s.shift==='夜'?'bngt':'bday'}" style="font-size:11px;padding:0 3px;">${s.shift}</span> ${s.place||'(未入力)'} <span style="color:var(--tx2);">${cnt}名</span>${s.prime?` <span style="background:${pbg};color:${ptx};font-size:10px;font-weight:600;padding:0 5px;border-radius:4px;margin-left:2px;">${s.prime}</span>`:''}${s.enShoo?' <span style="color:#7c3aed;">応</span>':''}</div>`;}).join(''):'');
     const noteHtml=note?`<div style="font-size:11px;color:#92400e;background:#fef3c7;border-radius:3px;padding:0 3px;margin-top:2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">📝${note}</div>`:'';
     const empty=(!isE&&!active.length&&!note&&!VIEW_MODE)?`<div style="font-size:15px;color:#cbd5e1;text-align:center;margin-top:6px;">＋</div>`:'';
-    let normalBg=isE?'#fecaca':hol?'#ffe4e6':dw===0?'#fef2f2':dw===6?'#eff6ff':'var(--bg1)';
-    if(dk>='2026-08-10'&&dk<='2026-08-15'){
-      normalBg=(dk==='2026-08-11'||dk==='2026-08-15')?`linear-gradient(rgba(252,211,77,.22),rgba(252,211,77,.22)), ${normalBg}`:'#fdf6d8';
-    }
-    const cellBg=isSel?'#fef3c7':isTd?'#dbeafe':normalBg;
+    const cellBg=isSel?'#fef3c7':isTd?'#dbeafe':isE?'#fecaca':hol?'#ffe4e6':dw===0?'#fef2f2':dw===6?'#eff6ff':'var(--bg1)';
     const holBorder=(hol&&!isSel&&!isTd&&!isE)?'border-left:3px solid #dc2626;':'';
     return`<td onclick="CalSel('${dk}')" class="calCell" style="border:1px solid var(--bd3);${holBorder}vertical-align:top;padding:5px 6px;min-height:110px;background:${cellBg};cursor:pointer;outline:${isSel?'2px solid #f59e0b':'none'};outline-offset:-2px;"><div style="font-weight:700;font-size:14px;color:${numColor};margin-bottom:3px;">${d.getDate()}${isTd?' <span style="font-size:10px;color:#fff;background:#1d4ed8;padding:0 5px;border-radius:8px;">今日</span>':''}</div>${holHtml}${chips}${noteHtml}${empty}</td>`;
   }).join('')}</tr>`).join('');
@@ -1186,7 +1209,7 @@ function bCal(){
           <button class="btn" onclick="CalSiteShift(${i})" style="font-size:11px;padding:1px 8px;">${s.shift}</button>
           <input value="${esc(s.place)}" placeholder="現場名" onchange="CalSiteField(${i},'place',this.value)" style="flex:1;min-width:120px;font-size:12px;border:1px solid var(--bd3);border-radius:4px;padding:3px 6px;">
           <span class="bcnt">計${(s.assigns?.[dk]||[]).length}名</span>
-          <button class="btn" onclick="EditSite('${s.id}')" style="font-size:10px;padding:1px 8px;">✎ 詳しく編集</button>
+          <button class="btn" onclick="EditSite('${s.id}','${dk}')" style="font-size:10px;padding:1px 8px;">✎ 詳しく編集</button>
         </div>
         <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:5px;">
           <input value="${esc(s.prime)}" placeholder="元請" onchange="CalSiteField(${i},'prime',this.value)" style="flex:1;min-width:90px;font-size:11px;border:1px solid var(--bd3);border-radius:4px;padding:2px 6px;">
@@ -2043,7 +2066,7 @@ window.SetAbsent=(dk,name,val)=>{
   document.querySelectorAll('.am-modal').forEach(el=>el.remove());
 };
 window.MoveW=(i,dir)=>{const j=i+dir;if(j<0||j>=S.workers.length)return;const t=S.workers[i];S.workers[i]=S.workers[j];S.workers[j]=t;persist();render();};
-window.EditSite=(id)=>{S.tab='dispatch';S.foldSite=S.foldSite||{};S.sites.forEach(s=>{S.foldSite[s.id]=true;});S.foldSite[id]=false;S.showPast=true;S.showDone=true;S.dispBase=0;persist();render();setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},100);};
+window.EditSite=(id,dk)=>{S.tab='dispatch';S.dispFocusDay=dk||null;S.dispFocusSite=id||null;S.foldSite=S.foldSite||{};S.sites.forEach(s=>{S.foldSite[s.id]=true;});S.foldSite[id]=false;S.showPast=true;S.showDone=true;S.dispBase=0;if(dk){const si=S.sites.findIndex(s=>s.id===id);if(si>=0)S.openDays[`${si}_${dk}`]=true;}persist();render();setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},100);};
 window.FoldSite=(id)=>{
   const willOpen=S.foldSite[id]!==false; // false以外（undefined/true）→開く操作
   if(willOpen){S.sites.forEach(s=>{S.foldSite[s.id]=true;});S.foldSite[id]=false;}
@@ -2053,6 +2076,7 @@ window.FoldSite=(id)=>{
 };
 window.TogPast=()=>{S.showPast=!S.showPast;persist();render();};
 window.TogDone=()=>{S.showDone=!S.showDone;persist();render();};
+window.ClearDispFocus=()=>{S.dispFocusDay=null;S.dispFocusSite=null;persist();render();};
 window.TogInvoiced=(si,ym)=>{const s=S.sites[si];s.invoiced=s.invoiced||{};s.invoiced[ym]=!s.invoiced[ym];persist();render();};
 window.SetQMemo=(si,ym,v)=>{const s=S.sites[si];s.qMemo=s.qMemo||{};s.qMemo[ym]=v;persist();};
 window.SetOrg=(v)=>{S.orgName=v.trim();persist();render();};
@@ -2061,14 +2085,14 @@ window.SetWF=(i,k,v)=>{if(S.workers[i])S.workers[i][k]=(k==='name'||k==='fullNam
 window.SetEmail=(i,v)=>{if(S.workers[i])S.workers[i].email=v.trim();persist();render();};
 window.SetHire=(i,v)=>{if(S.workers[i])S.workers[i].hireDate=v;persist();render();};
 window.DWI=(i)=>{S.workers.splice(i,1);persist();render();};
-window.T=t=>{S.tab=t;persist();render();};
+window.T=t=>{S.tab=t;S.dispFocusDay=null;S.dispFocusSite=null;persist();render();};
 window.WM=m=>{S.wMode=m;persist();render();};
 window.MF=n=>{S.fiveBase=n===0?fmt(toDay()):fmt(addD(pd(S.fiveBase),n));persist();render();};
 window.SF=v=>{S.fiveBase=v;persist();render();};
 window.MW=n=>{S.weekBase=fmt(addD(pd(S.weekBase),n));persist();render();};
 window.SWB=v=>{S.weekBase=fmt(monSt(pd(v)));persist();render();};
 window.TE=dk=>{if(VIEW_MODE)return;S.excl.has(dk)?S.excl.delete(dk):S.excl.add(dk);persist();render();};
-window.AS=()=>{const id=uid();const newSite={id,days:[],assigns:{},dayData:{},shift:'昼',place:'',prime:'',contact:'',contactManual:'',contactTel:'',ourContact:'',leader:'',works:[],machines:[],gatherTime:'',gatherType:'集合',note:'',okiba:'',kaisou:'',enShoo:false};S.sites.unshift(newSite);S.foldSite=S.foldSite||{};S.sites.forEach(s=>{if(s.id!==id)S.foldSite[s.id]=true;});S.foldSite[id]=false;persist();render();setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},80);};
+window.AS=()=>{const id=uid();const newSite={id,days:S.dispFocusDay?[S.dispFocusDay]:[],assigns:{},dayData:{},shift:'昼',place:'',prime:'',contact:'',contactManual:'',contactTel:'',ourContact:'',leader:'',works:[],machines:[],gatherTime:'',gatherType:'集合',note:'',okiba:'',kaisou:'',enShoo:false};S.sites.unshift(newSite);S.foldSite=S.foldSite||{};S.sites.forEach(s=>{if(s.id!==id)S.foldSite[s.id]=true;});S.foldSite[id]=false;persist();render();setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},80);};
 window.DS=i=>{if(!confirm('削除しますか？'))return;S.sites.splice(i,1);persist();render();};
 window.US=(i,k,v)=>{S.sites[i][k]=v;persist();render();};
 window.UST=(i,k,el)=>{const v=pTime(el.value);S.sites[i][k]=v;el.value=v;persist();};

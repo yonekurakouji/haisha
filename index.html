@@ -972,20 +972,20 @@ function bD(){
         ${isOpen?`<div style="padding:6px 8px;">${editPanel}${rows}<button class="btn" onclick="AA(${si},'${dk}')" style="margin-top:4px;font-size:11px;">＋ 社員追加</button></div>`:''}
       </div>`;
     }).join('');
-    const folded=focusDay?false:(S.foldSite[site.id]!==false); // falseのときだけ開く（undefined/trueは畳む）。絞り込み表示中は常に開く
+    const folded=focusDay?false:(S.foldSite[si]!==false); // falseのときだけ開く（undefined/trueは畳む）。絞り込み表示中は常に開く。位置(si)で管理するのでidが重複していても他の現場に影響しない
     if(folded){
-      return`<div class="card" id="site_${site.id}" style="padding:6px 10px;">
+      return`<div class="card" id="site_${si}" style="padding:6px 10px;">
         <div style="display:flex;align-items:center;gap:8px;">
           <span class="${site.shift==='夜'?'bngt':'bday'}">${site.shift}</span>
           <span style="font-weight:600;">${site.place||'(未入力)'}</span>
           ${(site.works||[]).length?`<span style="font-size:10px;color:#065f46;background:#d1fae5;border-radius:4px;padding:0 5px;">${site.works.join('・')}</span>`:''}
           <span style="font-size:11px;color:var(--tx3);">${site.days?.length?'計'+site.days.length+'日':''}</span>
-          <button class="btn" onclick="FoldSite('${site.id}')" style="margin-left:auto;padding:2px 10px;">▼ 開く</button>
+          <button class="btn" onclick="FoldSite(${si})" style="margin-left:auto;padding:2px 10px;">▼ 開く</button>
         </div>
       </div>`;
     }
-    return`<div class="card" id="site_${site.id}">
-      <div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="btn" onclick="FoldSite('${site.id}')" style="padding:1px 10px;background:#f0fdf4;border-color:#86efac;color:#166534;font-size:11px;">▲ 畳む（終わった現場）</button></div>
+    return`<div class="card" id="site_${si}">
+      <div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="btn" onclick="FoldSite(${si})" style="padding:1px 10px;background:#f0fdf4;border-color:#86efac;color:#166534;font-size:11px;">▲ 畳む（終わった現場）</button></div>
       <div class="row1">
         <select onchange="US(${si},'shift',this.value)" style="width:60px;font-weight:500;"><option${site.shift==='昼'?' selected':''}>昼</option><option${site.shift==='夜'?' selected':''}>夜</option></select>
         <input value="${site.place||''}" placeholder="場所（必須）" onchange="US(${si},'place',this.value)" style="flex:1;min-width:120px;font-weight:500;">
@@ -2069,13 +2069,13 @@ window.SetAbsent=(dk,name,val)=>{
   document.querySelectorAll('.am-modal').forEach(el=>el.remove());
 };
 window.MoveW=(i,dir)=>{const j=i+dir;if(j<0||j>=S.workers.length)return;const t=S.workers[i];S.workers[i]=S.workers[j];S.workers[j]=t;persist();render();};
-window.EditSite=(id,dk,idx)=>{S.tab='dispatch';S.dispFocusDay=dk||null;S.dispFocusSite=id||null;S.dispFocusSiteIdx=(typeof idx==='number'&&idx>=0)?idx:null;S.foldSite=S.foldSite||{};S.sites.forEach(s=>{S.foldSite[s.id]=true;});S.foldSite[id]=false;S.showPast=true;S.showDone=true;S.dispBase=0;const si=(typeof idx==='number'&&idx>=0)?idx:S.sites.findIndex(s=>s.id===id);if(dk&&si>=0)S.openDays[`${si}_${dk}`]=true;persist();render();setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},100);};
-window.FoldSite=(id)=>{
-  const willOpen=S.foldSite[id]!==false; // false以外（undefined/true）→開く操作
-  if(willOpen){S.sites.forEach(s=>{S.foldSite[s.id]=true;});S.foldSite[id]=false;}
-  else{S.foldSite[id]=true;}
+window.EditSite=(id,dk,idx)=>{S.tab='dispatch';S.dispFocusDay=dk||null;S.dispFocusSite=id||null;const si=(typeof idx==='number'&&idx>=0)?idx:S.sites.findIndex(s=>s.id===id);S.dispFocusSiteIdx=si>=0?si:null;S.foldSite=S.foldSite||{};S.sites.forEach((s,i)=>{S.foldSite[i]=true;});if(si>=0)S.foldSite[si]=false;S.showPast=true;S.showDone=true;S.dispBase=0;if(dk&&si>=0)S.openDays[`${si}_${dk}`]=true;persist();render();setTimeout(()=>{const el=document.getElementById('site_'+si);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},100);};
+window.FoldSite=(idx)=>{
+  const willOpen=S.foldSite[idx]!==false; // false以外（undefined/true）→開く操作
+  if(willOpen){S.sites.forEach((s,i)=>{S.foldSite[i]=true;});S.foldSite[idx]=false;}
+  else{S.foldSite[idx]=true;}
   persist();render();
-  if(willOpen)setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},80);
+  if(willOpen)setTimeout(()=>{const el=document.getElementById('site_'+idx);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},80);
 };
 window.TogPast=()=>{S.showPast=!S.showPast;persist();render();};
 window.TogDone=()=>{S.showDone=!S.showDone;persist();render();};
@@ -2095,7 +2095,7 @@ window.SF=v=>{S.fiveBase=v;persist();render();};
 window.MW=n=>{S.weekBase=fmt(addD(pd(S.weekBase),n));persist();render();};
 window.SWB=v=>{S.weekBase=fmt(monSt(pd(v)));persist();render();};
 window.TE=dk=>{if(VIEW_MODE)return;S.excl.has(dk)?S.excl.delete(dk):S.excl.add(dk);persist();render();};
-window.AS=()=>{const id=uid();const newSite={id,days:S.dispFocusDay?[S.dispFocusDay]:[],assigns:{},dayData:{},shift:'昼',place:'',prime:'',contact:'',contactManual:'',contactTel:'',ourContact:'',leader:'',works:[],machines:[],gatherTime:'',gatherType:'集合',note:'',okiba:'',kaisou:'',enShoo:false};S.sites.unshift(newSite);S.foldSite=S.foldSite||{};S.sites.forEach(s=>{if(s.id!==id)S.foldSite[s.id]=true;});S.foldSite[id]=false;persist();render();setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},80);};
+window.AS=()=>{const id=uid();const newSite={id,days:S.dispFocusDay?[S.dispFocusDay]:[],assigns:{},dayData:{},shift:'昼',place:'',prime:'',contact:'',contactManual:'',contactTel:'',ourContact:'',leader:'',works:[],machines:[],gatherTime:'',gatherType:'集合',note:'',okiba:'',kaisou:'',enShoo:false};S.sites.unshift(newSite);S.foldSite=S.foldSite||{};S.sites.forEach((s,i)=>{S.foldSite[i]=(i!==0);});persist();render();setTimeout(()=>{const el=document.getElementById('site_0');if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},80);};
 window.DS=i=>{if(!confirm('削除しますか？'))return;S.sites.splice(i,1);persist();render();};
 window.US=(i,k,v)=>{S.sites[i][k]=v;persist();render();};
 window.UST=(i,k,el)=>{const v=pTime(el.value);S.sites[i][k]=v;el.value=v;persist();};

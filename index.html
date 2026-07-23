@@ -1219,28 +1219,41 @@ function bCal(){
           <input value="${esc(s.gatherTime)}" placeholder="集合時間 例 7:30" onchange="CalSiteField(${i},'gatherTime',this.value)" style="width:140px;font-size:11px;border:1px solid var(--bd3);border-radius:4px;padding:2px 6px;">
         </div>
       </div>`).join(''):`<div style="color:var(--tx3);font-size:12px;padding:6px 0;">この日の現場はまだありません</div>`;
-    /* 同じ日の複数現場を横並びで比較（重機・必要品の重複チェック用）。2件以上あるときだけ表示 */
+    /* 同じ日の複数現場を横並びで比較（従業員・重機・必要品の重複チェック用）。2件以上あるときだけ表示 */
     let compareHtml='';
     if(sitesIdx.length>=2){
       const perSite=sitesIdx.map(({s,i})=>{
         const dd=(s.dayData&&s.dayData[dk])||{};
         const dm=dayMachArr(dd.machines);
-        const mList=(dm&&dm.length)?dm:normMachines(s.machines);
-        const spList=(dd.supplies&&dd.supplies.length)?dd.supplies:(s.supplies||[]);
-        return{s,i,mList,spList};
+        const usingDayMach=!!(dm&&dm.length);
+        const mList=usingDayMach?dm:normMachines(s.machines);
+        const dsp=(dd.supplies&&dd.supplies.length)?dd.supplies:null;
+        const usingDaySp=!!dsp;
+        const spList=dsp||(s.supplies||[]);
+        const assigns=s.assigns?.[dk]||[];
+        return{s,i,mList,usingDayMach,spList,usingDaySp,assigns};
       });
       const machCount={};perSite.forEach(({mList})=>mList.forEach(m=>{machCount[m.name]=(machCount[m.name]||0)+1;}));
       const spCount={};perSite.forEach(({spList})=>spList.forEach(sp=>{spCount[sp]=(spCount[sp]||0)+1;}));
-      const chip=(label,dup)=>`<span style="font-size:11px;padding:1px 6px;border-radius:4px;display:inline-block;margin:1px;${dup?'background:#fee2e2;color:#991b1b;border:1px solid #fca5a5;':'background:var(--bg2);border:1px solid var(--bd3);'}">${label}</span>`;
-      const cols=perSite.map(({s,mList,spList})=>`<div style="flex:1;min-width:160px;border:1px solid var(--bd3);border-radius:8px;padding:8px;background:var(--bg1);">
+      const workerCount={};perSite.forEach(({s,assigns})=>assigns.forEach(a=>{if(a.name){const k=`${s.shift}|${a.name}`;workerCount[k]=(workerCount[k]||0)+1;}}));
+      const chip=(label,dup,onRemove)=>`<span style="font-size:11px;padding:1px 4px 1px 6px;border-radius:4px;display:inline-flex;align-items:center;gap:3px;margin:1px;${dup?'background:#fee2e2;color:#991b1b;border:1px solid #fca5a5;':'background:var(--bg2);border:1px solid var(--bd3);'}">${label}<button onclick="${onRemove}" style="border:none;background:none;color:inherit;cursor:pointer;font-size:11px;padding:0 1px;line-height:1;">✕</button></span>`;
+      const cols=perSite.map(({s,i,mList,usingDayMach,spList,usingDaySp,assigns})=>{
+        const workerRows=assigns.length?assigns.map((a,ai)=>{
+          const dup=a.name&&(workerCount[`${s.shift}|${a.name}`]||0)>1;
+          return`<div style="display:flex;align-items:center;gap:4px;font-size:11px;padding:2px 4px;border-radius:4px;margin-bottom:2px;${dup?'background:#fee2e2;color:#991b1b;':''}"><span style="flex:1;">${a.name||'(未設定)'}${a.role?` <span style="color:var(--tx3);">${a.role}</span>`:''}${a.vehicle?` <span style="color:var(--tx3);">${a.vehicle}</span>`:''}${dup?' <b>⚠重複</b>':''}</span><button onclick="RA(${i},'${dk}',${ai})" style="border:none;background:none;color:inherit;cursor:pointer;font-size:11px;">✕</button></div>`;
+        }).join(''):'<span style="font-size:10px;color:var(--tx3);">なし</span>';
+        return`<div style="flex:1;min-width:170px;border:1px solid var(--bd3);border-radius:8px;padding:8px;background:var(--bg1);">
           <div style="font-weight:600;font-size:12px;margin-bottom:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${s.place||'(未入力)'}${s.prime?`<span style="color:var(--tx3);font-weight:400;">／${s.prime}</span>`:''}</div>
+          <div style="font-size:10px;color:var(--tx2);margin-bottom:2px;">従業員（計${assigns.length}名）</div>
+          <div style="margin-bottom:6px;">${workerRows}</div>
           <div style="font-size:10px;color:var(--tx2);margin-bottom:2px;">重機</div>
-          <div style="margin-bottom:6px;">${mList.length?mList.map(m=>chip(machLabel(m),machCount[m.name]>1)).join(''):'<span style="font-size:10px;color:var(--tx3);">なし</span>'}</div>
+          <div style="margin-bottom:6px;">${mList.length?mList.map((m,mi)=>chip(machLabel(m),machCount[m.name]>1,usingDayMach?`RDM(${i},'${dk}',${mi})`:`RM(${i},${mi})`)).join(''):'<span style="font-size:10px;color:var(--tx3);">なし</span>'}</div>
           <div style="font-size:10px;color:var(--tx2);margin-bottom:2px;">必要品</div>
-          <div>${spList.length?spList.map(sp=>chip(sp,spCount[sp]>1)).join(''):'<span style="font-size:10px;color:var(--tx3);">なし</span>'}</div>
-        </div>`).join('');
+          <div>${spList.length?spList.map((sp,spi)=>chip(sp,spCount[sp]>1,usingDaySp?`RDSP(${i},'${dk}',${spi})`:`RSP(${i},${spi})`)).join(''):'<span style="font-size:10px;color:var(--tx3);">なし</span>'}</div>
+        </div>`;
+      }).join('');
       compareHtml=`<div style="margin:8px 0 12px;">
-        <div style="font-size:11px;color:var(--tx2);margin-bottom:5px;">🔍 この日の現場を比較（<span style="color:#991b1b;font-weight:600;">赤</span>＝複数の現場で重複して使われています）</div>
+        <div style="font-size:11px;color:var(--tx2);margin-bottom:5px;">🔍 この日の現場を比較（<span style="color:#991b1b;font-weight:600;">赤</span>＝複数の現場で重複しています。✕で取り消せます）</div>
         <div style="display:flex;gap:8px;flex-wrap:wrap;">${cols}</div>
       </div>`;
     }

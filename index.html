@@ -1001,7 +1001,7 @@ function bD(){
         <button class="btn btnd" onclick="DS(${si})" style="padding:2px 8px;margin-left:auto;">✕</button>
       </div>
       <div class="row2">
-        <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">弊社担当:</span><select onchange="US(${si},'ourContact',this.value)" style="width:84px;"><option value="">選択−</option>${S.workers.filter(w=>w.group==='main').map(w=>`<option value="${w.name}"${site.ourContact===w.name?' selected':''}>${w.name}</option>`).join('')}</select></div>
+        <div style="display:flex;align-items:center;gap:2px;"><span class="lbl">弊社担当:</span><select onchange="US(${si},'ourContact',this.value)" style="width:84px;"><option value="">選択−</option>${S.workers.filter(w=>w.group==='main'||w.group==='helper').map(w=>`<option value="${w.name}"${site.ourContact===w.name?' selected':''}>${w.name}</option>`).join('')}</select></div>
         <div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl">工事内容:</span>${selWK}<select onchange="AWK2(${si},this.value);this.value=''" style="width:88px;"><option value="">＋ 追加</option>${workOpts}</select></div>
         <div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl">使用重機:</span>${selM}<select onchange="AM(${si},this.value);this.value=''" style="width:80px;"><option value="">＋ 追加</option>${machOpts}</select></div>
         <div style="display:flex;align-items:center;gap:2px;flex-wrap:wrap;"><span class="lbl" style="color:#166534;">必要品:</span>${(site.supplies||[]).map((sp,spi)=>`<span class="bmach" style="background:#dcfce7;border-color:#86efac;color:#166534;">${sp}<button onclick="RSP(${si},${spi})">×</button></span>`).join('')}<select onchange="ASP2(${si},this.value);this.value=''" style="width:90px;"><option value="">＋ 選択</option>${sortByUsage(S.supplies,'supplies',x=>x).filter(sp=>!(site.supplies||[]).includes(sp)).map(sp=>`<option value="${sp}">${sp}</option>`).join('')}</select></div>
@@ -1219,6 +1219,31 @@ function bCal(){
           <input value="${esc(s.gatherTime)}" placeholder="集合時間 例 7:30" onchange="CalSiteField(${i},'gatherTime',this.value)" style="width:140px;font-size:11px;border:1px solid var(--bd3);border-radius:4px;padding:2px 6px;">
         </div>
       </div>`).join(''):`<div style="color:var(--tx3);font-size:12px;padding:6px 0;">この日の現場はまだありません</div>`;
+    /* 同じ日の複数現場を横並びで比較（重機・必要品の重複チェック用）。2件以上あるときだけ表示 */
+    let compareHtml='';
+    if(sitesIdx.length>=2){
+      const perSite=sitesIdx.map(({s,i})=>{
+        const dd=(s.dayData&&s.dayData[dk])||{};
+        const dm=dayMachArr(dd.machines);
+        const mList=(dm&&dm.length)?dm:normMachines(s.machines);
+        const spList=(dd.supplies&&dd.supplies.length)?dd.supplies:(s.supplies||[]);
+        return{s,i,mList,spList};
+      });
+      const machCount={};perSite.forEach(({mList})=>mList.forEach(m=>{machCount[m.name]=(machCount[m.name]||0)+1;}));
+      const spCount={};perSite.forEach(({spList})=>spList.forEach(sp=>{spCount[sp]=(spCount[sp]||0)+1;}));
+      const chip=(label,dup)=>`<span style="font-size:11px;padding:1px 6px;border-radius:4px;display:inline-block;margin:1px;${dup?'background:#fee2e2;color:#991b1b;border:1px solid #fca5a5;':'background:var(--bg2);border:1px solid var(--bd3);'}">${label}</span>`;
+      const cols=perSite.map(({s,mList,spList})=>`<div style="flex:1;min-width:160px;border:1px solid var(--bd3);border-radius:8px;padding:8px;background:var(--bg1);">
+          <div style="font-weight:600;font-size:12px;margin-bottom:5px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">${s.place||'(未入力)'}${s.prime?`<span style="color:var(--tx3);font-weight:400;">／${s.prime}</span>`:''}</div>
+          <div style="font-size:10px;color:var(--tx2);margin-bottom:2px;">重機</div>
+          <div style="margin-bottom:6px;">${mList.length?mList.map(m=>chip(machLabel(m),machCount[m.name]>1)).join(''):'<span style="font-size:10px;color:var(--tx3);">なし</span>'}</div>
+          <div style="font-size:10px;color:var(--tx2);margin-bottom:2px;">必要品</div>
+          <div>${spList.length?spList.map(sp=>chip(sp,spCount[sp]>1)).join(''):'<span style="font-size:10px;color:var(--tx3);">なし</span>'}</div>
+        </div>`).join('');
+      compareHtml=`<div style="margin:8px 0 12px;">
+        <div style="font-size:11px;color:var(--tx2);margin-bottom:5px;">🔍 この日の現場を比較（<span style="color:#991b1b;font-weight:600;">赤</span>＝複数の現場で重複して使われています）</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">${cols}</div>
+      </div>`;
+    }
     panel=`<div id="calEditPanel" style="margin-top:14px;border:2px solid #f59e0b;border-radius:10px;padding:12px;background:var(--bg1);">
       <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px;">
         <strong style="font-size:14px;">${dd.getFullYear()}年${dd.getMonth()+1}月${dd.getDate()}日（${WD[dd.getDay()]}）の予定入力</strong>
@@ -1230,6 +1255,7 @@ function bCal(){
       </div>
       <div style="font-size:11px;color:var(--tx2);margin-bottom:4px;">🏗 この日の現場</div>
       ${siteRows}
+      ${compareHtml}
       <button class="btn btnp" onclick="CalAddSite('${dk}')" style="font-size:12px;padding:4px 12px;">＋ この日に現場を追加</button>
       <div style="font-size:10px;color:var(--tx3);margin-top:6px;">※ 社員・重機・車両などの細かい割り振りは「✎ 詳しく編集」から配車・割振で入力できます</div>
     </div>`;

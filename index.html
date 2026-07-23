@@ -1168,7 +1168,7 @@ function bCal(){
     const empty=(!isE&&!active.length&&!note&&!VIEW_MODE)?`<div style="font-size:15px;color:#cbd5e1;text-align:center;margin-top:6px;">＋</div>`:'';
     let normalBg=isE?'#fecaca':hol?'#ffe4e6':dw===0?'#fef2f2':dw===6?'#eff6ff':'var(--bg1)';
     if(dk>='2026-08-10'&&dk<='2026-08-15'){
-      normalBg=(dk==='2026-08-11'||dk==='2026-08-15')?`linear-gradient(rgba(250,204,21,.32),rgba(250,204,21,.32)), ${normalBg}`:'#fef08a';
+      normalBg=(dk==='2026-08-11'||dk==='2026-08-15')?`linear-gradient(rgba(252,211,77,.22),rgba(252,211,77,.22)), ${normalBg}`:'#fdf6d8';
     }
     const cellBg=isSel?'#fef3c7':isTd?'#dbeafe':normalBg;
     const holBorder=(hol&&!isSel&&!isTd&&!isE)?'border-left:3px solid #dc2626;':'';

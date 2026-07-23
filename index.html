@@ -803,6 +803,7 @@ function bWS(){
     const daySites=activeSites.filter(s=>s.shift==='昼');
     const nightSites=activeSites.filter(s=>s.shift==='夜');
     const renderSiteBlock=(site,blockIdx)=>{
+      const siteArrIdx=S.sites.indexOf(site);
       const dd=(site.dayData&&site.dayData[dk])||{};
       const isCancel=dd.cancelled;
       const altWork=dd.altWork||'';
@@ -833,7 +834,7 @@ function bWS(){
               ${wkShow.length?`<span style="font-size:10px;color:#065f46;background:#d1fae5;border-radius:4px;padding:0 4px;margin:0 3px;">${wkShow.join('・')}</span>`:''}
               <span class="bcnt" style="margin-left:2px;">計${assigns.length}名</span>
               ${isCancel?'<span style="background:#9ca3af;color:#fff;font-size:10px;padding:1px 5px;border-radius:4px;margin-left:4px;">中止</span>':''}
-              ${!VIEW_MODE?`<button class="btn" onclick="EditSite('${site.id}','${dk}')" style="font-size:10px;padding:0 6px;margin-left:6px;">✎ 編集</button>`:''}
+              ${!VIEW_MODE?`<button class="btn" onclick="EditSite('${site.id}','${dk}',${siteArrIdx})" style="font-size:10px;padding:0 6px;margin-left:6px;">✎ 編集</button>`:''}
             </div>
             ${altWork?`<div style="font-size:11px;color:#b45309;background:#fef3c7;border-radius:4px;padding:1px 5px;margin-bottom:3px;">別作業: ${altWork}</div>`:''}
             ${dd.dayNote?`<div style="font-size:11px;color:#7c3aed;background:#f5f3ff;border-radius:4px;padding:1px 6px;margin-bottom:3px;">📝 ${dd.dayNote}</div>`:''}${!dd.dayNote&&site.note?`<div style="font-size:11px;color:#7c3aed;background:#f5f3ff;border-radius:4px;padding:1px 6px;margin-bottom:3px;">📝 ${site.note}</div>`:''}
@@ -884,7 +885,8 @@ function bWS(){
 function bD(){
   const dispOff=S.dispBase||0;
   const focusDay=S.dispFocusDay||null; // 指定された日のみ表示する絞り込み
-  const focusSite=S.dispFocusSite||null; // 指定された現場のみ表示する絞り込み
+  const focusSite=S.dispFocusSite||null; // 指定された現場のみ表示する絞り込み（id、互換用）
+  const focusSiteIdx=(typeof S.dispFocusSiteIdx==='number'&&S.dispFocusSiteIdx>=0)?S.dispFocusSiteIdx:null; // 指定された現場のみ表示する絞り込み（配列の位置。idが重複していても確実に1件だけ特定できる）
   const days=S.showPast
     ? Array.from({length:44},(_,i)=>addD(toDay(),i-30))
     : Array.from({length:3},(_,i)=>addD(toDay(),i+dispOff));
@@ -1019,12 +1021,13 @@ function bD(){
     // 絞り込み表示中：指定された現場・日だけを表示する
     const matchIdx=S.sites.map((s,si)=>si).filter(si=>{
       const s=S.sites[si];
-      if(focusSite&&s.id!==focusSite)return false;
+      if(focusSiteIdx!==null){if(si!==focusSiteIdx)return false;}
+      else if(focusSite&&s.id!==focusSite)return false;
       if(focusDay&&!(s.days||[]).includes(focusDay))return false;
       return true;
     });
     const focusHtml=matchIdx.map(si=>cardsArr[si]||'').join('');
-    const focusSiteObj=focusSite?S.sites.find(s=>s.id===focusSite):null;
+    const focusSiteObj=focusSiteIdx!==null?S.sites[focusSiteIdx]:(focusSite?S.sites.find(s=>s.id===focusSite):null);
     const labelParts=[];
     if(focusSiteObj)labelParts.push(`現場「${focusSiteObj.place||'(未入力)'}」`);
     if(focusDay){const fd=pd(focusDay);labelParts.push(`${fd.getMonth()+1}/${fd.getDate()}(${WD[fd.getDay()]})`);}
@@ -1120,7 +1123,7 @@ function bQ(){
         </div>
         <div style="display:flex;gap:6px;align-items:center;">
           <input value="${memo}" placeholder="備考メモ" onchange="SetQMemo(${si},'${ym}',this.value)" style="flex:1;font-size:11px;border:1px solid #e2e8f0;border-radius:4px;padding:3px 6px;">
-          <button class="btn" onclick="EditSite('${s.id}')" style="font-size:10px;padding:1px 6px;">✎ 編集</button>
+          <button class="btn" onclick="EditSite('${s.id}','',${si})" style="font-size:10px;padding:1px 6px;">✎ 編集</button>
         </div>
       </div>`;
     }).join(''):`<div style="color:#94a3b8;text-align:center;padding:16px;font-size:12px;">この月の工事なし</div>`;
@@ -1209,7 +1212,7 @@ function bCal(){
           <button class="btn" onclick="CalSiteShift(${i})" style="font-size:11px;padding:1px 8px;">${s.shift}</button>
           <input value="${esc(s.place)}" placeholder="現場名" onchange="CalSiteField(${i},'place',this.value)" style="flex:1;min-width:120px;font-size:12px;border:1px solid var(--bd3);border-radius:4px;padding:3px 6px;">
           <span class="bcnt">計${(s.assigns?.[dk]||[]).length}名</span>
-          <button class="btn" onclick="EditSite('${s.id}','${dk}')" style="font-size:10px;padding:1px 8px;">✎ 詳しく編集</button>
+          <button class="btn" onclick="EditSite('${s.id}','${dk}',${i})" style="font-size:10px;padding:1px 8px;">✎ 詳しく編集</button>
         </div>
         <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:5px;">
           <input value="${esc(s.prime)}" placeholder="元請" onchange="CalSiteField(${i},'prime',this.value)" style="flex:1;min-width:90px;font-size:11px;border:1px solid var(--bd3);border-radius:4px;padding:2px 6px;">
@@ -2066,7 +2069,7 @@ window.SetAbsent=(dk,name,val)=>{
   document.querySelectorAll('.am-modal').forEach(el=>el.remove());
 };
 window.MoveW=(i,dir)=>{const j=i+dir;if(j<0||j>=S.workers.length)return;const t=S.workers[i];S.workers[i]=S.workers[j];S.workers[j]=t;persist();render();};
-window.EditSite=(id,dk)=>{S.tab='dispatch';S.dispFocusDay=dk||null;S.dispFocusSite=id||null;S.foldSite=S.foldSite||{};S.sites.forEach(s=>{S.foldSite[s.id]=true;});S.foldSite[id]=false;S.showPast=true;S.showDone=true;S.dispBase=0;if(dk){const si=S.sites.findIndex(s=>s.id===id);if(si>=0)S.openDays[`${si}_${dk}`]=true;}persist();render();setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},100);};
+window.EditSite=(id,dk,idx)=>{S.tab='dispatch';S.dispFocusDay=dk||null;S.dispFocusSite=id||null;S.dispFocusSiteIdx=(typeof idx==='number'&&idx>=0)?idx:null;S.foldSite=S.foldSite||{};S.sites.forEach(s=>{S.foldSite[s.id]=true;});S.foldSite[id]=false;S.showPast=true;S.showDone=true;S.dispBase=0;const si=(typeof idx==='number'&&idx>=0)?idx:S.sites.findIndex(s=>s.id===id);if(dk&&si>=0)S.openDays[`${si}_${dk}`]=true;persist();render();setTimeout(()=>{const el=document.getElementById('site_'+id);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});},100);};
 window.FoldSite=(id)=>{
   const willOpen=S.foldSite[id]!==false; // false以外（undefined/true）→開く操作
   if(willOpen){S.sites.forEach(s=>{S.foldSite[s.id]=true;});S.foldSite[id]=false;}
@@ -2076,7 +2079,7 @@ window.FoldSite=(id)=>{
 };
 window.TogPast=()=>{S.showPast=!S.showPast;persist();render();};
 window.TogDone=()=>{S.showDone=!S.showDone;persist();render();};
-window.ClearDispFocus=()=>{S.dispFocusDay=null;S.dispFocusSite=null;persist();render();};
+window.ClearDispFocus=()=>{S.dispFocusDay=null;S.dispFocusSite=null;S.dispFocusSiteIdx=null;persist();render();};
 window.TogInvoiced=(si,ym)=>{const s=S.sites[si];s.invoiced=s.invoiced||{};s.invoiced[ym]=!s.invoiced[ym];persist();render();};
 window.SetQMemo=(si,ym,v)=>{const s=S.sites[si];s.qMemo=s.qMemo||{};s.qMemo[ym]=v;persist();};
 window.SetOrg=(v)=>{S.orgName=v.trim();persist();render();};
@@ -2085,7 +2088,7 @@ window.SetWF=(i,k,v)=>{if(S.workers[i])S.workers[i][k]=(k==='name'||k==='fullNam
 window.SetEmail=(i,v)=>{if(S.workers[i])S.workers[i].email=v.trim();persist();render();};
 window.SetHire=(i,v)=>{if(S.workers[i])S.workers[i].hireDate=v;persist();render();};
 window.DWI=(i)=>{S.workers.splice(i,1);persist();render();};
-window.T=t=>{S.tab=t;S.dispFocusDay=null;S.dispFocusSite=null;persist();render();};
+window.T=t=>{S.tab=t;S.dispFocusDay=null;S.dispFocusSite=null;S.dispFocusSiteIdx=null;persist();render();};
 window.WM=m=>{S.wMode=m;persist();render();};
 window.MF=n=>{S.fiveBase=n===0?fmt(toDay()):fmt(addD(pd(S.fiveBase),n));persist();render();};
 window.SF=v=>{S.fiveBase=v;persist();render();};

@@ -332,6 +332,14 @@
             "memo": "",
             "absent": "",
             "isLeader": false
+          },
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "社用車",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
           }
         ],
         "2026-07-27": [
@@ -731,15 +739,6 @@
             "isLeader": false
           },
           {
-            "name": "駒田",
-            "role": "作業員",
-            "vehicle": "Wキャブ",
-            "isDriver": true,
-            "memo": "",
-            "absent": "",
-            "isLeader": true
-          },
-          {
             "name": "中川",
             "role": "作業員",
             "vehicle": "4tダンプ",
@@ -778,7 +777,7 @@
           {
             "name": "樋口",
             "role": "作業員",
-            "vehicle": "4tダンプ",
+            "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -1223,7 +1222,7 @@
             "路盤工",
             "切削"
           ],
-          "dayNote": "ニシオ4T",
+          "dayNote": "軽油2本",
           "gatherTime": "7:15"
         },
         "2026-07-27": {
@@ -6594,6 +6593,6 @@
   "fiveBase": "2026-07-22",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/22 18:49:07",
-  "_savedAt": "2026/7/22 18:49:07"
+  "lastSaved": "2026/7/23 17:18:04",
+  "_savedAt": "2026/7/23 17:18:04"
 }

@@ -759,7 +759,7 @@
             "isDriver": true,
             "memo": "",
             "absent": "",
-            "isLeader": false
+            "isLeader": true
           },
           {
             "name": "中川",
@@ -6624,6 +6624,6 @@
   "fiveBase": "2026-07-24",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/24 19:00:27",
-  "_savedAt": "2026/7/24 19:00:27"
+  "lastSaved": "2026/7/24 19:01:25",
+  "_savedAt": "2026/7/24 19:01:25"
 }

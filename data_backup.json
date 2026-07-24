@@ -11,26 +11,26 @@
         "2026-07-28": [
           {
             "name": "駒田",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "重機OP",
+            "vehicle": "R8",
+            "isDriver": true,
             "memo": "",
             "absent": "",
             "isLeader": true
           },
           {
             "name": "関",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "運搬員",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
             "memo": "",
             "absent": "",
             "isLeader": false
           },
           {
             "name": "ティ",
-            "role": "",
-            "vehicle": "",
+            "role": "作業員",
+            "vehicle": "R8",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -145,7 +145,8 @@
         "2026-07-28": {
           "works": [
             "捲り"
-          ]
+          ],
+          "dayNote": "パートナー・暗橋管・コンバインドとパートナー以外ユナイト"
         },
         "2026-07-29": {
           "works": [
@@ -164,7 +165,7 @@
       "contact": "関",
       "contactManual": "",
       "contactTel": "",
-      "ourContact": "",
+      "ourContact": "関",
       "leader": "",
       "works": [
         "捲り"
@@ -216,7 +217,7 @@
           {
             "name": "中川",
             "role": "重機OP",
-            "vehicle": "4tダンプ",
+            "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "舗装道具一式",
             "absent": "",
@@ -225,7 +226,7 @@
           {
             "name": "アマダ",
             "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "4tダンプ",
+            "vehicle": "3tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -819,9 +820,9 @@
           {
             "name": "阿部",
             "role": "",
-            "vehicle": "ハイエース",
+            "vehicle": "4tダンプ",
             "isDriver": true,
-            "memo": "",
+            "memo": "定規120本",
             "absent": "",
             "isLeader": false
           },
@@ -882,7 +883,7 @@
           {
             "name": "関",
             "role": "",
-            "vehicle": "3tダンプ",
+            "vehicle": "ハイエース",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -1251,13 +1252,15 @@
           "works": [
             "路盤工"
           ],
-          "dayNote": "グリス・パートナー・軽油２本",
+          "dayNote": "定規真物120本・ピン・グリス・パートナー・軽油２本　グレーダー3.1搬入　横兄回送",
           "gatherTime": "7:15"
         },
         "2026-07-28": {
           "works": [
             "舗装工"
-          ]
+          ],
+          "gatherTime": "7:15",
+          "dayNote": "取付舗装"
         },
         "2026-07-29": {
           "works": [
@@ -6621,6 +6624,6 @@
   "fiveBase": "2026-07-24",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/24 17:59:40",
-  "_savedAt": "2026/7/24 17:59:40"
+  "lastSaved": "2026/7/24 19:00:27",
+  "_savedAt": "2026/7/24 19:00:27"
 }

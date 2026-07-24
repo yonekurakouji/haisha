@@ -218,7 +218,7 @@
             "role": "重機OP",
             "vehicle": "4tダンプ",
             "isDriver": true,
-            "memo": "",
+            "memo": "舗装道具一式",
             "absent": "",
             "isLeader": true
           },
@@ -242,7 +242,29 @@
           }
         ]
       },
-      "dayData": {},
+      "dayData": {
+        "2026-07-27": {
+          "supplies": [
+            "根庫",
+            "清掃用具一式",
+            "定規"
+          ],
+          "dayNote": "レーキ・スコップ・油・フルイ・タンパ・ほうき・定規10本・乗り入れ定規数本",
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 1,
+              "carrier": "4tダンプ"
+            },
+            {
+              "name": "ﾗﾝﾏ",
+              "qty": 1,
+              "carrier": "4tダンプ"
+            }
+          ],
+          "gatherTime": "7:15"
+        }
+      },
       "shift": "昼",
       "place": "江戸崎",
       "prime": "常盤茨",
@@ -346,7 +368,7 @@
           {
             "name": "小松﨑",
             "role": "作業員",
-            "vehicle": "4tダンプ",
+            "vehicle": "軽バン",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -355,7 +377,7 @@
           {
             "name": "近藤",
             "role": "作業員",
-            "vehicle": "4tダンプ",
+            "vehicle": "軽バン",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -364,7 +386,7 @@
           {
             "name": "菅沼",
             "role": "作業員",
-            "vehicle": "4tダンプ",
+            "vehicle": "軽バン",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -1228,7 +1250,9 @@
         "2026-07-27": {
           "works": [
             "路盤工"
-          ]
+          ],
+          "dayNote": "グリス・パートナー・軽油２本",
+          "gatherTime": "7:15"
         },
         "2026-07-28": {
           "works": [
@@ -6597,6 +6621,6 @@
   "fiveBase": "2026-07-24",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/24 17:42:13",
-  "_savedAt": "2026/7/24 17:42:13"
+  "lastSaved": "2026/7/24 17:59:40",
+  "_savedAt": "2026/7/24 17:59:40"
 }

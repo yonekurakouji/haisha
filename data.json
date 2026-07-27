@@ -388,7 +388,7 @@
         "2026-07-28": [
           {
             "name": "小松﨑",
-            "role": "",
+            "role": "作業員",
             "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
@@ -397,7 +397,7 @@
           },
           {
             "name": "近藤",
-            "role": "",
+            "role": "作業員",
             "vehicle": "ハイエース",
             "isDriver": true,
             "memo": "",
@@ -406,7 +406,7 @@
           },
           {
             "name": "佐藤",
-            "role": "",
+            "role": "作業員",
             "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
@@ -415,8 +415,8 @@
           },
           {
             "name": "大竹",
-            "role": "",
-            "vehicle": "",
+            "role": "作業員",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -577,6 +577,9 @@
             "根庫",
             "台車"
           ]
+        },
+        "2026-07-28": {
+          "gatherTime": "6:00"
         }
       },
       "shift": "昼",
@@ -1288,7 +1291,7 @@
             "舗装工"
           ],
           "gatherTime": "7:15",
-          "dayNote": "取付舗装",
+          "dayNote": "取付舗装・定規・ピン・砂",
           "machines": [
             {
               "name": "ﾌﾟﾚｰﾄ",
@@ -6717,6 +6720,6 @@
   "fiveBase": "2026-07-27",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/27 17:04:52",
-  "_savedAt": "2026/7/27 17:04:52"
+  "lastSaved": "2026/7/27 19:18:50",
+  "_savedAt": "2026/7/27 19:18:50"
 }

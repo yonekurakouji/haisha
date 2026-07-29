@@ -1,6 +1,41 @@
 {
   "sites": [
     {
+      "id": "4",
+      "days": [
+        "2026-07-28"
+      ],
+      "assigns": {
+        "2026-07-28": [
+          {
+            "name": "近藤",
+            "role": "運搬員",
+            "vehicle": "P5",
+            "isDriver": true,
+            "memo": "樋口見習",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {},
+      "shift": "夜",
+      "place": "小山",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": true
+    },
+    {
       "id": "1",
       "days": [
         "2026-07-28",
@@ -6710,6 +6745,6 @@
   "fiveBase": "2026-07-28",
   "rpYM": "2026-06",
   "izYM": "2026-06",
-  "lastSaved": "2026/7/28 17:14:00",
-  "_savedAt": "2026/7/28 17:14:00"
+  "lastSaved": "2026/7/29 12:24:52",
+  "_savedAt": "2026/7/29 12:24:52"
 }

@@ -101,26 +101,8 @@
             "isLeader": false
           },
           {
-            "name": "中川",
-            "role": "作業員",
-            "vehicle": "4tダンプ",
-            "isDriver": true,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
             "name": "大竹",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "ハイエース",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
-            "name": "佐藤",
-            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
@@ -138,7 +120,7 @@
           },
           {
             "name": "アリヤ",
-            "role": "ﾌﾟﾚｰﾄ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -153,6 +135,14 @@
             "memo": "",
             "absent": "",
             "isLeader": false
+          },
+          {
+            "name": "ティ",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
@@ -186,7 +176,7 @@
             "下駄",
             "コア埋め一式"
           ],
-          "dayNote": "コア３本"
+          "dayNote": "コア３本　中川講習　佐藤学校"
         }
       },
       "shift": "昼",
@@ -7034,6 +7024,6 @@
   "fiveBase": "2026-07-31",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/7/31 17:18:03",
-  "_savedAt": "2026/7/31 17:18:03"
+  "lastSaved": "2026/7/31 17:38:11",
+  "_savedAt": "2026/7/31 17:38:11"
 }

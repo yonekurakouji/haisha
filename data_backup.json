@@ -85,7 +85,7 @@
           {
             "name": "阿部",
             "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "3tダンプ",
+            "vehicle": "ハイエース",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -112,7 +112,7 @@
           {
             "name": "大竹",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "4tダンプ",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -121,7 +121,7 @@
           {
             "name": "佐藤",
             "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "3tダンプ",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -158,15 +158,35 @@
       },
       "dayData": {
         "2026-08-03": {
-          "gatherTime": "6:15",
+          "gatherTime": "7:00",
           "works": [
             "路盤工"
+          ],
+          "supplies": [
+            "根庫",
+            "清掃用具一式",
+            "養生一式",
+            "寒水粉",
+            "糸張りくん",
+            "台車",
+            "定規",
+            "防炎シート"
           ]
         },
         "2026-08-04": {
           "works": [
             "路盤工"
-          ]
+          ],
+          "supplies": [
+            "清掃用具一式",
+            "ハンドスイーパー",
+            "シールコート一式",
+            "砂",
+            "ガス台",
+            "下駄",
+            "コア埋め一式"
+          ],
+          "dayNote": "コア３本"
         }
       },
       "shift": "昼",
@@ -791,53 +811,59 @@
         "2026-08-03": [
           {
             "name": "小松﨑",
-            "role": "",
-            "vehicle": "",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": true
           },
           {
             "name": "近藤",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "菅沼",
-            "role": "",
-            "vehicle": "",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           }
         ],
         "2026-08-04": [
           {
             "name": "小松﨑",
-            "role": "",
-            "vehicle": "",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": true
           },
           {
             "name": "近藤",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "菅沼",
-            "role": "",
-            "vehicle": "",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           }
         ]
       },
@@ -876,6 +902,13 @@
               "carrier": ""
             }
           ]
+        },
+        "2026-08-03": {
+          "gatherTime": "6:00"
+        },
+        "2026-08-04": {
+          "gatherTime": "6:00",
+          "dayNote": "パートナー返却予定"
         }
       },
       "shift": "昼",
@@ -6998,9 +7031,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-07-27",
-  "fiveBase": "2026-07-30",
-  "rpYM": "2026-06",
-  "izYM": "2026-06",
-  "lastSaved": "2026/7/30 17:18:41",
-  "_savedAt": "2026/7/30 17:18:41"
+  "fiveBase": "2026-07-31",
+  "rpYM": "2026-07",
+  "izYM": "2026-07",
+  "lastSaved": "2026/7/31 17:17:15",
+  "_savedAt": "2026/7/31 17:17:15"
 }

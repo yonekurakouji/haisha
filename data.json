@@ -72,7 +72,7 @@
             "isLeader": false
           },
           {
-            "name": "阿部",
+            "name": "関",
             "role": "作業員",
             "vehicle": "3tダンプ",
             "isDriver": true,
@@ -7021,9 +7021,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-07-27",
-  "fiveBase": "2026-07-31",
+  "fiveBase": "2026-08-03",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/7/31 17:38:11",
-  "_savedAt": "2026/7/31 17:38:11"
+  "lastSaved": "2026/8/3 14:59:08",
+  "_savedAt": "2026/8/3 14:59:08"
 }

@@ -1,6 +1,216 @@
 {
   "sites": [
     {
+      "id": "3",
+      "days": [],
+      "assigns": {},
+      "dayData": {},
+      "shift": "昼",
+      "place": "",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "2",
+      "days": [
+        "2026-08-05"
+      ],
+      "assigns": {
+        "2026-08-05": [
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "アグン",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ]
+      },
+      "dayData": {
+        "2026-08-05": {
+          "dayNote": "補修手引き"
+        }
+      },
+      "shift": "昼",
+      "place": "⁇",
+      "prime": "常盤茨",
+      "contact": "佐藤",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "",
+      "works": [
+        "雑工"
+      ],
+      "machines": [],
+      "gatherTime": "7:00",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false,
+      "supplies": [
+        "根庫",
+        "台車"
+      ]
+    },
+    {
+      "id": "1",
+      "days": [
+        "2026-08-05",
+        "2026-08-06"
+      ],
+      "assigns": {
+        "2026-08-05": [
+          {
+            "name": "阿部",
+            "role": "運搬員",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          }
+        ],
+        "2026-08-06": [
+          {
+            "name": "阿部",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "駒田",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "運搬員",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "米倉",
+            "role": "AFOP",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-08-05": {
+          "works": [
+            "雑工"
+          ],
+          "dayNote": "砕石運び"
+        },
+        "2026-08-06": {
+          "works": [
+            "路盤工",
+            "舗装工"
+          ],
+          "gatherTime": "7:30",
+          "supplies": [
+            "清掃用具一式",
+            "養生一式",
+            "防炎シート",
+            "砂",
+            "乳剤一式",
+            "下駄"
+          ]
+        }
+      },
+      "shift": "昼",
+      "place": "荒川本郷",
+      "prime": "サンコー建設",
+      "contact": "サンコー鈴木",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "8:00",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "無",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
       "id": "1",
       "days": [
         "2026-08-03",
@@ -176,7 +386,8 @@
             "下駄",
             "コア埋め一式"
           ],
-          "dayNote": "コア３本　中川講習　佐藤学校"
+          "dayNote": "コア３本　中川講習　佐藤学校",
+          "gatherTime": "7:00"
         }
       },
       "shift": "昼",
@@ -568,7 +779,10 @@
         "2026-07-30",
         "2026-07-31",
         "2026-08-03",
-        "2026-08-04"
+        "2026-08-04",
+        "2026-08-05",
+        "2026-08-06",
+        "2026-08-07"
       ],
       "assigns": {
         "2026-07-23": [
@@ -855,6 +1069,108 @@
             "absent": "",
             "isLeader": false
           }
+        ],
+        "2026-08-05": [
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ],
+        "2026-08-06": [
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ],
+        "2026-08-07": [
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "社用車",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "",
+            "vehicle": "4tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "",
+            "vehicle": "4tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "",
+            "vehicle": "3tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
         ]
       },
       "dayData": {
@@ -899,6 +1215,15 @@
         "2026-08-04": {
           "gatherTime": "6:00",
           "dayNote": "パートナー返却予定"
+        },
+        "2026-08-05": {
+          "gatherTime": "6:00"
+        },
+        "2026-08-06": {
+          "gatherTime": "6:00"
+        },
+        "2026-08-07": {
+          "gatherTime": "6:00"
         }
       },
       "shift": "昼",
@@ -2930,7 +3255,8 @@
       "days": [
         "2026-07-01",
         "2026-07-02",
-        "2026-07-03"
+        "2026-07-03",
+        "2026-08-07"
       ],
       "assigns": {
         "2026-07-01": [
@@ -3078,11 +3404,48 @@
             "absent": "",
             "isLeader": false
           }
+        ],
+        "2026-08-07": [
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
         ]
       },
       "dayData": {
         "2026-07-03": {
           "gatherTime": "8:00"
+        },
+        "2026-08-07": {
+          "dayNote": "事務所清掃"
         }
       },
       "shift": "昼",
@@ -7024,6 +7387,6 @@
   "fiveBase": "2026-08-03",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/8/3 15:20:42",
-  "_savedAt": "2026/8/3 15:20:42"
+  "lastSaved": "2026/8/3 17:08:31",
+  "_savedAt": "2026/8/3 17:08:31"
 }

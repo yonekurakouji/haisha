@@ -60,11 +60,11 @@
       },
       "dayData": {
         "2026-08-05": {
-          "dayNote": "補修手引き"
+          "dayNote": "補修手引き 合材シート・バーナー・乳剤一斗缶"
         }
       },
       "shift": "昼",
-      "place": "⁇",
+      "place": "みどりの",
       "prime": "常盤茨",
       "contact": "佐藤",
       "contactManual": "",
@@ -74,7 +74,12 @@
       "works": [
         "雑工"
       ],
-      "machines": [],
+      "machines": [
+        {
+          "name": "ﾌﾟﾚｰﾄ",
+          "qty": 1
+        }
+      ],
       "gatherTime": "7:00",
       "gatherType": "集合",
       "note": "",
@@ -83,7 +88,8 @@
       "enShoo": false,
       "supplies": [
         "根庫",
-        "台車"
+        "台車",
+        "ガス台"
       ]
     },
     {
@@ -107,7 +113,7 @@
           {
             "name": "阿部",
             "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "ハイエース",
+            "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "",
             "absent": ""
@@ -115,7 +121,7 @@
           {
             "name": "駒田",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "Wキャブ",
+            "vehicle": "レンジャー",
             "isDriver": true,
             "memo": "",
             "absent": ""
@@ -131,7 +137,7 @@
           {
             "name": "大竹",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "ハイエース",
+            "vehicle": "レンジャー",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -163,8 +169,8 @@
           {
             "name": "米倉",
             "role": "AFOP",
-            "vehicle": "ハイエース",
-            "isDriver": false,
+            "vehicle": "Wキャブ",
+            "isDriver": true,
             "memo": "",
             "absent": ""
           }
@@ -190,6 +196,38 @@
             "砂",
             "乳剤一式",
             "下駄"
+          ],
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 2,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": "レンジャー"
+            },
+            {
+              "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+              "qty": 1,
+              "carrier": "レンジャー"
+            },
+            {
+              "name": "ﾗﾝﾏ",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "ｽﾌﾟﾚｲﾔｰ",
+              "qty": 1,
+              "carrier": "3tダンプ"
+            },
+            {
+              "name": "ショベル0.5",
+              "qty": 1,
+              "carrier": ""
+            }
           ]
         }
       },
@@ -3256,6 +3294,7 @@
         "2026-07-01",
         "2026-07-02",
         "2026-07-03",
+        "2026-08-05",
         "2026-08-07"
       ],
       "assigns": {
@@ -3433,6 +3472,24 @@
           {
             "name": "アマダ",
             "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ],
+        "2026-08-05": [
+          {
+            "name": "アリヤ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
@@ -7384,9 +7441,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-07-27",
-  "fiveBase": "2026-08-03",
+  "fiveBase": "2026-08-04",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/8/3 17:08:31",
-  "_savedAt": "2026/8/3 17:08:31"
+  "lastSaved": "2026/8/4 16:57:32",
+  "_savedAt": "2026/8/4 16:57:32"
 }

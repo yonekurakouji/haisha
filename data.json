@@ -1,6 +1,106 @@
 {
   "sites": [
     {
+      "id": "1",
+      "days": [
+        "2026-08-20",
+        "2026-08-21",
+        "2026-08-22",
+        "2026-08-23",
+        "2026-08-24",
+        "2026-08-25",
+        "2026-08-26",
+        "2026-08-27"
+      ],
+      "assigns": {
+        "2026-08-20": [
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "関",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "樋口",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {},
+      "shift": "昼",
+      "place": "松戸小金原",
+      "prime": "大夢",
+      "contact": "紺野",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "関",
+      "leader": "",
+      "works": [
+        "打替え舗装"
+      ],
+      "machines": [],
+      "gatherTime": "6:30",
+      "gatherType": "集合",
+      "note": "レンジャー1台OK",
+      "okiba": "無",
+      "kaisou": "×",
+      "enShoo": false
+    },
+    {
       "id": "3",
       "days": [],
       "assigns": {},
@@ -116,7 +216,8 @@
             "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "駒田",
@@ -124,7 +225,8 @@
             "vehicle": "レンジャー",
             "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": true
           },
           {
             "name": "中川",
@@ -132,15 +234,17 @@
             "vehicle": "4tダンプ",
             "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "大竹",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "レンジャー",
+            "vehicle": "3tダンプ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "アグン",
@@ -148,7 +252,8 @@
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "アリヤ",
@@ -156,7 +261,8 @@
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "アマダ",
@@ -164,13 +270,23 @@
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "米倉",
             "role": "AFOP",
             "vehicle": "Wキャブ",
             "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "佐藤",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "4tダンプ",
+            "isDriver": false,
             "memo": "",
             "absent": ""
           }
@@ -3295,7 +3411,8 @@
         "2026-07-02",
         "2026-07-03",
         "2026-08-05",
-        "2026-08-07"
+        "2026-08-07",
+        "2026-08-08"
       ],
       "assigns": {
         "2026-07-01": [
@@ -3479,6 +3596,88 @@
           }
         ],
         "2026-08-05": [
+          {
+            "name": "アリヤ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ],
+        "2026-08-08": [
+          {
+            "name": "阿部",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
           {
             "name": "アリヤ",
             "role": "",
@@ -7441,9 +7640,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-07-27",
-  "fiveBase": "2026-08-04",
+  "fiveBase": "2026-08-05",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/8/4 16:57:32",
-  "_savedAt": "2026/8/4 16:57:32"
+  "lastSaved": "2026/8/5 17:42:20",
+  "_savedAt": "2026/8/5 17:42:20"
 }

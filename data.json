@@ -39,7 +39,7 @@
             "role": "ﾚｰｷﾏﾝ",
             "vehicle": "社用車",
             "isDriver": true,
-            "memo": "渋川車",
+            "memo": "ボクシー",
             "absent": "",
             "isLeader": false
           },
@@ -48,7 +48,7 @@
             "role": "ﾛｰﾗｰﾏﾝ",
             "vehicle": "社用車",
             "isDriver": false,
-            "memo": "渋川車",
+            "memo": "ボクシー",
             "absent": "",
             "isLeader": false
           },
@@ -8623,6 +8623,6 @@
   "fiveBase": "2026-08-18",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/8/18 17:30:52",
-  "_savedAt": "2026/8/18 17:30:52"
+  "lastSaved": "2026/8/18 17:33:30",
+  "_savedAt": "2026/8/18 17:33:30"
 }

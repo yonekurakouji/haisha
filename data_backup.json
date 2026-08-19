@@ -487,7 +487,7 @@
           {
             "name": "駒田",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "レンジャー",
+            "vehicle": "R1",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -497,7 +497,7 @@
             "name": "大竹",
             "role": "ﾚｰｷﾏﾝ",
             "vehicle": "3tダンプ",
-            "isDriver": false,
+            "isDriver": true,
             "memo": "",
             "absent": "",
             "isLeader": false
@@ -505,7 +505,7 @@
           {
             "name": "佐藤",
             "role": "ﾌﾟﾚｰﾄ",
-            "vehicle": "レンジャー",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -546,6 +546,14 @@
             "memo": "",
             "absent": "",
             "isLeader": false
+          },
+          {
+            "name": "米倉",
+            "role": "AFOP",
+            "vehicle": "R1",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ],
         "2026-08-21": [
@@ -8623,6 +8631,6 @@
   "fiveBase": "2026-08-18",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/8/18 17:33:30",
-  "_savedAt": "2026/8/18 17:33:30"
+  "lastSaved": "2026/8/20 7:45:41",
+  "_savedAt": "2026/8/20 7:45:41"
 }

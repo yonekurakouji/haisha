@@ -689,7 +689,7 @@
           {
             "name": "大竹",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "ハイエース",
+            "vehicle": "レンジャー",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -716,8 +716,8 @@
           {
             "name": "ハオ",
             "role": "ﾌﾟﾚｰﾄ",
-            "vehicle": "ハイエース",
-            "isDriver": true,
+            "vehicle": "レンジャー",
+            "isDriver": false,
             "memo": "渋川さんと",
             "absent": ""
           },
@@ -726,6 +726,14 @@
             "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "渋川",
+            "role": "AFOP",
+            "vehicle": "レンジャー",
+            "isDriver": true,
             "memo": "",
             "absent": ""
           }
@@ -9021,6 +9029,6 @@
   "fiveBase": "2026-08-21",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/8/21 17:22:53",
-  "_savedAt": "2026/8/21 17:22:53"
+  "lastSaved": "2026/8/21 17:28:17",
+  "_savedAt": "2026/8/21 17:28:17"
 }

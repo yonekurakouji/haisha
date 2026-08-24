@@ -740,17 +740,8 @@
         ],
         "2026-08-25": [
           {
-            "name": "阿部",
-            "role": "",
-            "vehicle": "3tダンプ",
-            "isDriver": true,
-            "memo": "水ローリー・ドラム・スプレーヤー・砂・寒水粉・シールコート一式",
-            "absent": "",
-            "isLeader": false
-          },
-          {
             "name": "駒田",
-            "role": "",
+            "role": "ﾚｰｷﾏﾝ",
             "vehicle": "レンジャー",
             "isDriver": true,
             "memo": "",
@@ -759,17 +750,17 @@
           },
           {
             "name": "中川",
-            "role": "",
+            "role": "作業員",
             "vehicle": "Wキャブ",
             "isDriver": true,
-            "memo": "",
+            "memo": "写真",
             "absent": "",
             "isLeader": false
           },
           {
             "name": "大竹",
-            "role": "",
-            "vehicle": "レンジャー",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -777,8 +768,8 @@
           },
           {
             "name": "佐藤",
-            "role": "",
-            "vehicle": "3tダンプ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -786,7 +777,7 @@
           },
           {
             "name": "アグン",
-            "role": "",
+            "role": "ﾌﾟﾚｰﾄ",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -795,7 +786,16 @@
           },
           {
             "name": "アリヤ",
-            "role": "",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "ふるいメイン",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アマダ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -803,13 +803,36 @@
             "isLeader": false
           },
           {
-            "name": "アマダ",
-            "role": "",
-            "vehicle": "Wキャブ",
+            "name": "小松﨑",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "水ローリー・ドラム・スプレーヤー・砂・寒水粉・シールコート一式",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "R2",
+            "isDriver": true,
+            "memo": "40",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "作業員",
+            "vehicle": "ハイエース",
             "isDriver": false,
+            "memo": "ふるいメイン",
+            "absent": ""
+          },
+          {
+            "name": "米倉",
+            "role": "AFOP",
+            "vehicle": "ハイエース",
+            "isDriver": true,
             "memo": "",
-            "absent": "",
-            "isLeader": false
+            "absent": ""
           }
         ]
       },
@@ -1013,7 +1036,8 @@
             "ハンドスイーパー",
             "カラーコーン",
             "看板"
-          ]
+          ],
+          "dayNote": "捲り班と別れてシールコート、マンホール掃除"
         }
       },
       "shift": "昼",
@@ -1878,7 +1902,6 @@
         "2026-08-20",
         "2026-08-21",
         "2026-08-24",
-        "2026-08-25",
         "2026-08-26",
         "2026-08-27",
         "2026-08-28"
@@ -9032,9 +9055,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-07-27",
-  "fiveBase": "2026-08-21",
+  "fiveBase": "2026-08-24",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/8/24 13:17:34",
-  "_savedAt": "2026/8/24 13:17:34"
+  "lastSaved": "2026/8/24 18:23:44",
+  "_savedAt": "2026/8/24 18:23:44"
 }

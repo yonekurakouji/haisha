@@ -3,6 +3,45 @@
     {
       "id": "1",
       "days": [
+        "2026-08-27"
+      ],
+      "assigns": {
+        "2026-08-27": [
+          {
+            "name": "阿部",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-08-27": {
+          "dayNote": "指導員講習　9:20～"
+        }
+      },
+      "shift": "昼",
+      "place": "講習",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "1",
+      "days": [
         "2026-08-28",
         "2026-08-31",
         "2026-09-01"
@@ -1069,18 +1108,9 @@
         ],
         "2026-08-27": [
           {
-            "name": "阿部",
-            "role": "作業員",
-            "vehicle": "3tダンプ",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
             "name": "駒田",
             "role": "作業員",
-            "vehicle": "Wキャブ",
+            "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -1089,7 +1119,7 @@
           {
             "name": "中川",
             "role": "作業員",
-            "vehicle": "3tダンプ",
+            "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -9489,6 +9519,6 @@
   "fiveBase": "2026-08-25",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/8/25 17:32:12",
-  "_savedAt": "2026/8/25 17:32:12"
+  "lastSaved": "2026/8/25 18:46:51",
+  "_savedAt": "2026/8/25 18:46:51"
 }

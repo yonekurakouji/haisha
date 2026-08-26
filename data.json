@@ -562,77 +562,6 @@
       "enShoo": false
     },
     {
-      "id": "1",
-      "days": [
-        "2026-09-02"
-      ],
-      "assigns": {
-        "2026-09-02": [
-          {
-            "name": "中川",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": true
-          },
-          {
-            "name": "アグン",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
-            "name": "アリヤ",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
-            "name": "アマダ",
-            "role": "作業員",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          }
-        ]
-      },
-      "dayData": {
-        "2026-09-02": {
-          "works": [
-            "雑工"
-          ],
-          "gatherTime": "8:00",
-          "dayNote": "中外洗車・整理整頓・在庫確認・草刈り"
-        }
-      },
-      "shift": "昼",
-      "place": "事務所",
-      "prime": "",
-      "contact": "",
-      "contactManual": "",
-      "contactTel": "",
-      "ourContact": "",
-      "leader": "",
-      "works": [],
-      "machines": [],
-      "gatherTime": "",
-      "gatherType": "集合",
-      "note": "",
-      "okiba": "",
-      "kaisou": "",
-      "enShoo": false
-    },
-    {
       "id": "5",
       "days": [
         "2026-08-19"
@@ -1109,7 +1038,7 @@
         "2026-08-24",
         "2026-08-25",
         "2026-08-26",
-        "2026-08-27"
+        "2026-09-02"
       ],
       "assigns": {
         "2026-08-20": [
@@ -1584,6 +1513,53 @@
             "absent": "",
             "isLeader": false
           }
+        ],
+        "2026-09-02": [
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "佐藤",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アグン",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アリヤ",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
         ]
       },
       "dayData": {
@@ -1834,6 +1810,19 @@
           ]
         },
         "2026-08-27": {
+          "works": [
+            "雑工",
+            "片付け清掃"
+          ],
+          "supplies": [
+            "清掃用具一式",
+            "根庫",
+            "台車",
+            "ハンドスイーパー",
+            "カラーコーン"
+          ]
+        },
+        "2026-09-02": {
           "works": [
             "雑工",
             "片付け清掃"
@@ -3423,13 +3412,20 @@
             "isLeader": false
           },
           {
-            "name": "アマダ",
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "社用車",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
             "role": "作業員",
             "vehicle": "4tダンプ",
             "isDriver": false,
             "memo": "",
-            "absent": "",
-            "isLeader": false
+            "absent": ""
           }
         ],
         "2026-08-28": [
@@ -10074,9 +10070,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-07-27",
-  "fiveBase": "2026-08-11",
+  "fiveBase": "2026-08-26",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/8/26 10:15:12",
-  "_savedAt": "2026/8/26 10:15:12"
+  "lastSaved": "2026/8/26 13:26:00",
+  "_savedAt": "2026/8/26 13:26:00"
 }

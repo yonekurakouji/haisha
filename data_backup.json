@@ -1,6 +1,84 @@
 {
   "sites": [
     {
+      "id": "1",
+      "days": [
+        "2026-08-27"
+      ],
+      "assigns": {
+        "2026-08-27": [
+          {
+            "name": "駒田",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "中川",
+            "role": "運搬員",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アグン",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アリヤ",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アマダ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ]
+      },
+      "dayData": {
+        "2026-08-27": {
+          "dayNote": "緊急工事　陥没穴埋め"
+        }
+      },
+      "shift": "昼",
+      "place": "荒川本郷",
+      "prime": "今井設備",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "",
+      "works": [
+        "舗装工"
+      ],
+      "machines": [],
+      "gatherTime": "8:00",
+      "gatherType": "集合",
+      "note": "緊急工事　陥没穴埋め",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
       "id": "3",
       "days": [
         "2026-08-25"
@@ -3387,7 +3465,7 @@
           {
             "name": "近藤",
             "role": "作業員",
-            "vehicle": "Wキャブ",
+            "vehicle": "ハイエース",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -3396,7 +3474,7 @@
           {
             "name": "大竹",
             "role": "作業員",
-            "vehicle": "Wキャブ",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -3405,24 +3483,16 @@
           {
             "name": "菅沼",
             "role": "作業員",
-            "vehicle": "Wキャブ",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": "",
             "isLeader": false
           },
           {
-            "name": "駒田",
+            "name": "佐藤",
             "role": "作業員",
-            "vehicle": "社用車",
-            "isDriver": true,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "中川",
-            "role": "作業員",
-            "vehicle": "Wキャブ",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -10073,6 +10143,6 @@
   "fiveBase": "2026-08-26",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/8/26 14:39:15",
-  "_savedAt": "2026/8/26 14:39:15"
+  "lastSaved": "2026/8/26 15:35:14",
+  "_savedAt": "2026/8/26 15:35:14"
 }

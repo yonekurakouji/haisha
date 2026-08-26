@@ -1,6 +1,148 @@
 {
   "sites": [
     {
+      "id": "3",
+      "days": [
+        "2026-08-25"
+      ],
+      "assigns": {
+        "2026-08-25": [
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "P7",
+            "isDriver": true,
+            "memo": "回送",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-08-25": {
+          "works": [
+            "回送"
+          ],
+          "gatherTime": "22:00"
+        }
+      },
+      "shift": "夜",
+      "place": "荒川区東尾久",
+      "prime": "コスモ",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": true
+    },
+    {
+      "id": "2",
+      "days": [
+        "2026-08-15"
+      ],
+      "assigns": {
+        "2026-08-15": [
+          {
+            "name": "小松﨑",
+            "role": "AFOP",
+            "vehicle": "R1",
+            "isDriver": true,
+            "memo": "245",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-08-15": {
+          "works": [
+            "舗装工"
+          ],
+          "machines": [
+            {
+              "name": "AF45",
+              "qty": 1,
+              "carrier": "R1"
+            }
+          ],
+          "gatherTime": "8:00",
+          "dayNote": "休日出勤"
+        }
+      },
+      "shift": "昼",
+      "place": "龍ヶ崎日立建機",
+      "prime": "ザキヤマ",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "○",
+      "enShoo": true
+    },
+    {
+      "id": "1",
+      "days": [
+        "2026-08-24"
+      ],
+      "assigns": {
+        "2026-08-24": [
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "P7",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-08-24": {
+          "works": [
+            "回送"
+          ],
+          "machines": [
+            {
+              "name": "AF60",
+              "qty": 1,
+              "carrier": "P7"
+            }
+          ],
+          "gatherTime": "22:00",
+          "dayNote": "回送見習い"
+        }
+      },
+      "shift": "夜",
+      "place": "荒川区東尾久",
+      "prime": "コスモ",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": true
+    },
+    {
       "id": "1",
       "days": [
         "2026-08-27"
@@ -328,6 +470,9 @@
             "根庫",
             "糸張りくん",
             "台車"
+          ],
+          "works": [
+            "掘削"
           ]
         },
         "2026-08-31": {
@@ -4242,7 +4387,7 @@
           {
             "name": "関",
             "role": "作業員",
-            "vehicle": "軽バン",
+            "vehicle": "ハイエース",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -9484,7 +9629,9 @@
     "打替え舗装",
     "構造物設置",
     "構造物撤去",
-    "捲り"
+    "捲り",
+    "掘削",
+    "回送"
   ],
   "machines": [
     "ﾕﾝﾎﾞ0.1",
@@ -9927,9 +10074,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-07-27",
-  "fiveBase": "2026-08-26",
+  "fiveBase": "2026-08-11",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/8/26 8:37:11",
-  "_savedAt": "2026/8/26 8:37:11"
+  "lastSaved": "2026/8/26 10:15:12",
+  "_savedAt": "2026/8/26 10:15:12"
 }

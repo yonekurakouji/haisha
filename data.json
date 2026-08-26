@@ -3387,7 +3387,7 @@
           {
             "name": "近藤",
             "role": "作業員",
-            "vehicle": "ハイエース",
+            "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -3396,7 +3396,7 @@
           {
             "name": "大竹",
             "role": "作業員",
-            "vehicle": "ハイエース",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -3405,7 +3405,7 @@
           {
             "name": "菅沼",
             "role": "作業員",
-            "vehicle": "ハイエース",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -3422,7 +3422,7 @@
           {
             "name": "中川",
             "role": "作業員",
-            "vehicle": "4tダンプ",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -10073,6 +10073,6 @@
   "fiveBase": "2026-08-26",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/8/26 13:33:50",
-  "_savedAt": "2026/8/26 13:33:50"
+  "lastSaved": "2026/8/26 14:39:15",
+  "_savedAt": "2026/8/26 14:39:15"
 }

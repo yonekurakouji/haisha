@@ -273,16 +273,7 @@
             "role": "重機OP",
             "vehicle": "R1",
             "isDriver": true,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
-            "name": "小松﨑",
-            "role": "重機OP",
-            "vehicle": "R2",
-            "isDriver": true,
-            "memo": "7:00にユナイト引取",
+            "memo": "こんま25前日搬入",
             "absent": "",
             "isLeader": false
           },
@@ -298,7 +289,7 @@
           {
             "name": "佐藤",
             "role": "作業員",
-            "vehicle": "3tダンプ",
+            "vehicle": "R1",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -335,6 +326,14 @@
             "name": "アリヤ",
             "role": "作業員",
             "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "3tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -3518,7 +3517,7 @@
             "isLeader": false
           },
           {
-            "name": "大竹",
+            "name": "小松﨑",
             "role": "作業員",
             "vehicle": "4tダンプ",
             "isDriver": false,
@@ -10140,9 +10139,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-07-27",
-  "fiveBase": "2026-08-26",
+  "fiveBase": "2026-08-27",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/8/26 15:35:14",
-  "_savedAt": "2026/8/26 15:35:14"
+  "lastSaved": "2026/8/27 14:42:23",
+  "_savedAt": "2026/8/27 14:42:23"
 }

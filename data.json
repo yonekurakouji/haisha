@@ -376,7 +376,7 @@
           {
             "name": "中川",
             "role": "作業員",
-            "vehicle": "4tダンプ",
+            "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "砕石運搬あり",
             "absent": "",
@@ -416,13 +416,21 @@
             "isDriver": false,
             "memo": "",
             "absent": ""
+          },
+          {
+            "name": "樋口",
+            "role": "",
+            "vehicle": "R1",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ],
         "2026-09-03": [
           {
             "name": "阿部",
-            "role": "AFOP",
-            "vehicle": "R2",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -472,6 +480,14 @@
             "memo": "",
             "absent": "",
             "isLeader": false
+          },
+          {
+            "name": "樋口",
+            "role": "AFOP",
+            "vehicle": "レンジャー",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
@@ -10808,6 +10824,6 @@
   "fiveBase": "2026-08-28",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/8/28 13:57:14",
-  "_savedAt": "2026/8/28 13:57:14"
+  "lastSaved": "2026/8/28 16:11:17",
+  "_savedAt": "2026/8/28 16:11:17"
 }

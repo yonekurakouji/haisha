@@ -804,52 +804,6 @@
       ]
     },
     {
-      "id": "3",
-      "days": [],
-      "assigns": {},
-      "dayData": {},
-      "shift": "昼",
-      "place": "",
-      "prime": "",
-      "contact": "",
-      "contactManual": "",
-      "contactTel": "",
-      "ourContact": "",
-      "leader": "",
-      "works": [],
-      "machines": [],
-      "gatherTime": "",
-      "gatherType": "集合",
-      "note": "",
-      "okiba": "",
-      "kaisou": "",
-      "enShoo": false
-    },
-    {
-      "id": "2",
-      "days": [],
-      "assigns": {
-        "2026-08-17": []
-      },
-      "dayData": {},
-      "shift": "昼",
-      "place": "",
-      "prime": "",
-      "contact": "",
-      "contactManual": "",
-      "contactTel": "",
-      "ourContact": "",
-      "leader": "",
-      "works": [],
-      "machines": [],
-      "gatherTime": "",
-      "gatherType": "集合",
-      "note": "",
-      "okiba": "",
-      "kaisou": "",
-      "enShoo": false
-    },
-    {
       "id": "1",
       "days": [
         "2026-08-17",
@@ -1931,28 +1885,6 @@
       "note": "レンジャー1台OK",
       "okiba": "無",
       "kaisou": "×",
-      "enShoo": false
-    },
-    {
-      "id": "3",
-      "days": [],
-      "assigns": {},
-      "dayData": {},
-      "shift": "昼",
-      "place": "",
-      "prime": "",
-      "contact": "",
-      "contactManual": "",
-      "contactTel": "",
-      "ourContact": "",
-      "leader": "",
-      "works": [],
-      "machines": [],
-      "gatherTime": "",
-      "gatherType": "集合",
-      "note": "",
-      "okiba": "",
-      "kaisou": "",
       "enShoo": false
     },
     {
@@ -10170,6 +10102,6 @@
   "fiveBase": "2026-08-31",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/8/29 8:18:07",
-  "_savedAt": "2026/8/29 8:18:07"
+  "lastSaved": "2026/8/29 8:18:50",
+  "_savedAt": "2026/8/29 8:18:50"
 }

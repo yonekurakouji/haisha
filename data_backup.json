@@ -1035,8 +1035,8 @@
         "2026-09-01": [
           {
             "name": "阿部",
-            "role": "AFOP",
-            "vehicle": "レンジャー",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "ハイエース",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -1054,7 +1054,7 @@
           {
             "name": "中川",
             "role": "作業員",
-            "vehicle": "4tダンプ",
+            "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -1063,7 +1063,7 @@
           {
             "name": "大竹",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "レンジャー",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -1072,7 +1072,7 @@
           {
             "name": "佐藤",
             "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "4tダンプ",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -1108,11 +1108,19 @@
           {
             "name": "関",
             "role": "作業員",
-            "vehicle": "Wキャブ",
+            "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "",
             "absent": "",
             "isLeader": true
+          },
+          {
+            "name": "樋口",
+            "role": "AFOP",
+            "vehicle": "レンジャー",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
@@ -4133,7 +4141,7 @@
             "role": "作業員",
             "vehicle": "ハイエース",
             "isDriver": true,
-            "memo": "",
+            "memo": "自社4TD",
             "absent": "",
             "isLeader": true
           },
@@ -4168,7 +4176,7 @@
             "role": "",
             "vehicle": "ハイエース",
             "isDriver": false,
-            "memo": "",
+            "memo": "自社4TD",
             "absent": ""
           }
         ],
@@ -10800,6 +10808,6 @@
   "fiveBase": "2026-08-28",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/8/28 12:03:23",
-  "_savedAt": "2026/8/28 12:03:23"
+  "lastSaved": "2026/8/28 13:57:14",
+  "_savedAt": "2026/8/28 13:57:14"
 }

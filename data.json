@@ -4157,7 +4157,7 @@
             "role": "作業員",
             "vehicle": "ハイエース",
             "isDriver": true,
-            "memo": "自社4TD",
+            "memo": "",
             "absent": "",
             "isLeader": true
           },
@@ -10821,9 +10821,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-07-27",
-  "fiveBase": "2026-09-02",
+  "fiveBase": "2026-08-30",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/8/29 10:58:18",
-  "_savedAt": "2026/8/29 10:58:18"
+  "lastSaved": "2026/8/30 17:06:24",
+  "_savedAt": "2026/8/30 17:06:24"
 }

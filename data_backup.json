@@ -1251,14 +1251,6 @@
             "isLeader": true
           },
           {
-            "name": "阿部",
-            "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "4tダンプ",
-            "isDriver": true,
-            "memo": "",
-            "absent": ""
-          },
-          {
             "name": "アマダ",
             "role": "作業員",
             "vehicle": "Wキャブ",
@@ -1272,7 +1264,7 @@
             "name": "阿部",
             "role": "ﾛｰﾗｰﾏﾝ",
             "vehicle": "R1",
-            "isDriver": false,
+            "isDriver": true,
             "memo": "",
             "absent": "",
             "isLeader": false
@@ -1280,9 +1272,9 @@
           {
             "name": "駒田",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "R1",
+            "vehicle": "R8",
             "isDriver": true,
-            "memo": "",
+            "memo": "345",
             "absent": "",
             "isLeader": false
           },
@@ -1298,7 +1290,7 @@
           {
             "name": "大竹",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "レンジャー",
+            "vehicle": "R1",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -1341,10 +1333,10 @@
             "isLeader": true
           },
           {
-            "name": "樋口",
+            "name": "米倉",
             "role": "AFOP",
-            "vehicle": "レンジャー",
-            "isDriver": true,
+            "vehicle": "R8",
+            "isDriver": false,
             "memo": "",
             "absent": ""
           }
@@ -11342,6 +11334,6 @@
   "fiveBase": "2026-08-31",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/8/31 17:08:36",
-  "_savedAt": "2026/8/31 17:08:36"
+  "lastSaved": "2026/8/31 17:15:46",
+  "_savedAt": "2026/8/31 17:15:46"
 }

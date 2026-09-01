@@ -595,7 +595,7 @@
           {
             "name": "中川",
             "role": "作業員",
-            "vehicle": "3tダンプ",
+            "vehicle": "4tダンプ",
             "isDriver": true,
             "memo": "砕石運搬あり",
             "absent": "",
@@ -624,7 +624,7 @@
             "role": "作業員",
             "vehicle": "Wキャブ",
             "isDriver": true,
-            "memo": "",
+            "memo": "写真",
             "absent": "",
             "isLeader": false
           },
@@ -639,8 +639,8 @@
           {
             "name": "樋口",
             "role": "",
-            "vehicle": "R1",
-            "isDriver": false,
+            "vehicle": "3tダンプ",
+            "isDriver": true,
             "memo": "",
             "absent": ""
           }
@@ -11331,9 +11331,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-08-31",
-  "fiveBase": "2026-08-31",
+  "fiveBase": "2026-09-01",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/8/31 17:15:46",
-  "_savedAt": "2026/8/31 17:15:46"
+  "lastSaved": "2026/9/1 16:24:47",
+  "_savedAt": "2026/9/1 16:24:47"
 }

@@ -352,15 +352,6 @@
             "isLeader": false
           },
           {
-            "name": "菅沼",
-            "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "ハイエース",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
             "name": "アグン",
             "role": "ﾌﾟﾚｰﾄ",
             "vehicle": "ハイエース",
@@ -368,6 +359,14 @@
             "memo": "",
             "absent": "",
             "isLeader": false
+          },
+          {
+            "name": "ティ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "4tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ],
         "2026-09-04": [
@@ -627,14 +626,6 @@
             "memo": "写真",
             "absent": "",
             "isLeader": false
-          },
-          {
-            "name": "大竹",
-            "role": "作業員",
-            "vehicle": "Wキャブ",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
           },
           {
             "name": "樋口",
@@ -4460,13 +4451,12 @@
             "isLeader": false
           },
           {
-            "name": "菅沼",
-            "role": "作業員",
-            "vehicle": "4tダンプ",
+            "name": "大竹",
+            "role": "",
+            "vehicle": "レンジャー",
             "isDriver": false,
             "memo": "",
-            "absent": "",
-            "isLeader": false
+            "absent": ""
           }
         ],
         "2026-09-04": [
@@ -11334,6 +11324,6 @@
   "fiveBase": "2026-09-01",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/9/1 16:24:47",
-  "_savedAt": "2026/9/1 16:24:47"
+  "lastSaved": "2026/9/1 20:40:14",
+  "_savedAt": "2026/9/1 20:40:14"
 }

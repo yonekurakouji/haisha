@@ -683,18 +683,17 @@
             "isLeader": false
           },
           {
-            "name": "関",
-            "role": "作業員",
-            "vehicle": "Wキャブ",
-            "isDriver": true,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
             "name": "樋口",
             "role": "AFOP",
             "vehicle": "レンジャー",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "渋川",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "",
             "absent": ""
@@ -11323,6 +11322,6 @@
   "fiveBase": "2026-09-02",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/9/2 17:27:56",
-  "_savedAt": "2026/9/2 17:27:56"
+  "lastSaved": "2026/9/2 19:17:12",
+  "_savedAt": "2026/9/2 19:17:12"
 }

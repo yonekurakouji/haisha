@@ -3,6 +3,167 @@
     {
       "id": "1",
       "days": [
+        "2026-09-05"
+      ],
+      "assigns": {
+        "2026-09-05": [
+          {
+            "name": "阿部",
+            "role": "AFOP",
+            "vehicle": "R1",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "駒田",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "R1",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "小松﨑",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "R2",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "近藤",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "佐藤",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アグン",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アリヤ",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アマダ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "関",
+            "role": "作業員",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ]
+      },
+      "dayData": {
+        "2026-09-05": {
+          "works": [
+            "路盤工",
+            "舗装工"
+          ],
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": "R1"
+            },
+            {
+              "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+              "qty": 1,
+              "carrier": "R1"
+            },
+            {
+              "name": "ｻｲﾄﾞﾛｰﾗｰ",
+              "qty": 1,
+              "carrier": "R1"
+            },
+            {
+              "name": "ﾗﾝﾏ",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "AF45",
+              "qty": 1,
+              "carrier": "R2"
+            }
+          ],
+          "gatherTime": "7:15",
+          "supplies": [
+            "根庫",
+            "養生一式",
+            "清掃用具一式",
+            "台車",
+            "糸張りくん",
+            "寒水粉",
+            "定規",
+            "ハンドスイーパー"
+          ]
+        }
+      },
+      "shift": "昼",
+      "place": "つくば高見原",
+      "prime": "常陽ビルド",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "関",
+      "leader": "",
+      "works": [
+        "路盤工",
+        "舗装工"
+      ],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "1",
+      "days": [
         "2026-09-08"
       ],
       "assigns": {
@@ -11397,9 +11558,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-08-31",
-  "fiveBase": "2026-09-08",
+  "fiveBase": "2026-09-03",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/9/3 17:20:08",
-  "_savedAt": "2026/9/3 17:20:08"
+  "lastSaved": "2026/9/3 18:22:10",
+  "_savedAt": "2026/9/3 18:22:10"
 }

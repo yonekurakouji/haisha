@@ -3,6 +3,83 @@
     {
       "id": "1",
       "days": [
+        "2026-09-08",
+        "2026-09-09"
+      ],
+      "assigns": {
+        "2026-09-08": [
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "菅沼",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ],
+        "2026-09-09": [
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "菅沼",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ]
+      },
+      "dayData": {
+        "2026-09-08": {
+          "works": [
+            "雑工"
+          ],
+          "gatherTime": "7:30",
+          "dayNote": "測量"
+        },
+        "2026-09-09": {
+          "gatherTime": "7:30"
+        }
+      },
+      "shift": "昼",
+      "place": "守谷",
+      "prime": "常盤茨",
+      "contact": "斉藤所長",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "1",
+      "days": [
         "2026-09-05"
       ],
       "assigns": {
@@ -164,7 +241,7 @@
     {
       "id": "1",
       "days": [
-        "2026-09-08"
+        "2026-09-16"
       ],
       "assigns": {
         "2026-09-08": [
@@ -340,20 +417,11 @@
           {
             "name": "駒田",
             "role": "作業員",
-            "vehicle": "R8",
+            "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "",
+            "memo": "自社3t＇",
             "absent": "",
             "isLeader": true
-          },
-          {
-            "name": "中川",
-            "role": "作業員",
-            "vehicle": "4tダンプ",
-            "isDriver": true,
-            "memo": "ユナ4TD",
-            "absent": "",
-            "isLeader": false
           },
           {
             "name": "アグン",
@@ -394,9 +462,9 @@
           {
             "name": "近藤",
             "role": "作業員",
-            "vehicle": "4tダンプ",
+            "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "自社4TD",
+            "memo": "",
             "absent": ""
           }
         ],
@@ -4904,20 +4972,51 @@
             "isLeader": true
           },
           {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "各自(自分の車)",
+            "isDriver": true,
+            "memo": "、",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
             "name": "佐藤",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
             "role": "作業員",
             "vehicle": "3tダンプ",
             "isDriver": false,
             "memo": "",
-            "absent": "",
-            "isLeader": false
+            "absent": ""
           }
         ],
         "2026-09-09": [
           {
             "name": "小松﨑",
             "role": "作業員",
-            "vehicle": "3tダンプ",
+            "vehicle": "4tダンプ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -4926,11 +5025,19 @@
           {
             "name": "佐藤",
             "role": "作業員",
-            "vehicle": "3tダンプ",
+            "vehicle": "4tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": "",
             "isLeader": false
+          },
+          {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ],
         "2026-09-10": [
@@ -11609,6 +11716,6 @@
   "fiveBase": "2026-09-07",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/9/7 14:17:04",
-  "_savedAt": "2026/9/7 14:17:04"
+  "lastSaved": "2026/9/7 15:12:13",
+  "_savedAt": "2026/9/7 15:12:13"
 }

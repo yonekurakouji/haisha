@@ -36,15 +36,6 @@
             "memo": "",
             "absent": "",
             "isLeader": true
-          },
-          {
-            "name": "菅沼",
-            "role": "作業員",
-            "vehicle": "ハイエース",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
           }
         ]
       },
@@ -472,26 +463,17 @@
           {
             "name": "駒田",
             "role": "作業員",
-            "vehicle": "R1",
+            "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "",
+            "memo": "自社3t",
             "absent": "",
             "isLeader": true
           },
           {
             "name": "中川",
             "role": "作業員",
-            "vehicle": "4tダンプ",
+            "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
-            "name": "大竹",
-            "role": "作業員",
-            "vehicle": "4tダンプ",
-            "isDriver": false,
             "memo": "",
             "absent": "",
             "isLeader": false
@@ -524,18 +506,9 @@
             "isLeader": false
           },
           {
-            "name": "関",
-            "role": "作業員",
-            "vehicle": "Wキャブ",
-            "isDriver": true,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
             "name": "近藤",
             "role": "作業員",
-            "vehicle": "4tダンプ",
+            "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "",
             "absent": ""
@@ -5030,21 +5003,13 @@
             "memo": "",
             "absent": "",
             "isLeader": false
-          },
-          {
-            "name": "大竹",
-            "role": "作業員",
-            "vehicle": "4tダンプ",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
           }
         ],
         "2026-09-10": [
           {
             "name": "小松﨑",
             "role": "作業員",
-            "vehicle": "3tダンプ",
+            "vehicle": "4tダンプ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -5053,11 +5018,19 @@
           {
             "name": "佐藤",
             "role": "作業員",
-            "vehicle": "3tダンプ",
+            "vehicle": "4tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": "",
             "isLeader": false
+          },
+          {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ],
         "2026-09-11": [
@@ -11713,9 +11686,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-08-31",
-  "fiveBase": "2026-09-07",
+  "fiveBase": "2026-09-08",
   "rpYM": "2026-07",
   "izYM": "2026-07",
-  "lastSaved": "2026/9/7 15:16:15",
-  "_savedAt": "2026/9/7 15:16:15"
+  "lastSaved": "2026/9/8 6:35:11",
+  "_savedAt": "2026/9/8 6:35:11"
 }

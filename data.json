@@ -1,6 +1,107 @@
 {
   "sites": [
     {
+      "id": "3",
+      "days": [
+        "2026-09-17",
+        "2026-09-18"
+      ],
+      "assigns": {
+        "2026-09-17": [
+          {
+            "name": "駒田",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "AFOP",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-09-17": {
+          "dayNote": "近藤健康診断",
+          "works": [
+            "切削",
+            "舗装工"
+          ],
+          "gatherTime": "6:15"
+        }
+      },
+      "shift": "昼",
+      "place": "坂東生子",
+      "prime": "常盤茨",
+      "contact": "佐藤",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
       "id": "1",
       "days": [
         "2026-09-11",
@@ -37,15 +138,6 @@
           },
           {
             "name": "大竹",
-            "role": "作業員",
-            "vehicle": "Wキャブ",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
-            "name": "アグン",
             "role": "作業員",
             "vehicle": "Wキャブ",
             "isDriver": false,
@@ -178,7 +270,7 @@
             "ロールシート"
           ],
           "gatherTime": "7:15",
-          "dayNote": "ユンボ.1tローラ前日搬入・桝アジャスタ.ソケット・グライダー"
+          "dayNote": "アグン健康診断・ユンボ.1tローラ前日搬入・桝アジャスタ.ソケット・グライダー"
         },
         "2026-09-14": {
           "works": [
@@ -253,7 +345,8 @@
       "id": "1",
       "days": [
         "2026-09-08",
-        "2026-09-09"
+        "2026-09-09",
+        "2026-09-10"
       ],
       "assigns": {
         "2026-09-08": [
@@ -285,6 +378,32 @@
             "memo": "",
             "absent": "",
             "isLeader": true
+          },
+          {
+            "name": "渋川",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ],
+        "2026-09-10": [
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "ティ",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
@@ -482,7 +601,7 @@
     {
       "id": "1",
       "days": [
-        "2026-09-16"
+        "2026-09-18"
       ],
       "assigns": {
         "2026-09-08": [
@@ -720,15 +839,6 @@
             "isLeader": true
           },
           {
-            "name": "中川",
-            "role": "作業員",
-            "vehicle": "3tダンプ",
-            "isDriver": true,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
             "name": "アグン",
             "role": "作業員",
             "vehicle": "Wキャブ",
@@ -758,8 +868,16 @@
           {
             "name": "近藤",
             "role": "作業員",
-            "vehicle": "Wキャブ",
+            "vehicle": "4tダンプ",
             "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "関",
+            "role": "",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
             "memo": "",
             "absent": ""
           }
@@ -5318,7 +5436,7 @@
           {
             "name": "近藤",
             "role": "作業員",
-            "vehicle": "4tダンプ",
+            "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "",
             "absent": ""
@@ -5326,7 +5444,7 @@
           {
             "name": "アリヤ",
             "role": "作業員",
-            "vehicle": "4tダンプ",
+            "vehicle": "3tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -5377,6 +5495,199 @@
             "name": "アリヤ",
             "role": "ﾌﾟﾚｰﾄ",
             "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ],
+        "2026-09-15": [
+          {
+            "name": "阿部",
+            "role": "AFOP",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "小松﨑",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "レンジャー",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "近藤",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "運搬あるかも",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "大竹",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "4tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "菅沼",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "フルイ",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "佐藤",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アグン",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アリヤ",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アマダ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ],
+        "2026-09-16": [
+          {
+            "name": "阿部",
+            "role": "AFOP",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "駒田",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "レンジャー",
+            "isDriver": true,
+            "memo": "重機類引き上げ",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "小松﨑",
+            "role": "重機OP",
+            "vehicle": "R1",
+            "isDriver": true,
+            "memo": "345",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "中川",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "大竹",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "R1",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "菅沼",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "佐藤",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アグン",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アリヤ",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "レンジャー",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ],
+        "2026-09-17": [
+          {
+            "name": "小松﨑",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "作業員",
+            "vehicle": "",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -5621,6 +5932,93 @@
           "works": [
             "舗装工"
           ]
+        },
+        "2026-09-15": {
+          "works": [
+            "舗装工"
+          ],
+          "gatherTime": "6:15",
+          "dayNote": "駒田健康診断",
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ｻｲﾄﾞﾛｰﾗｰ",
+              "qty": 1,
+              "carrier": "4tダンプ"
+            },
+            {
+              "name": "ﾗﾝﾏ",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "AF30",
+              "qty": 1,
+              "carrier": "レンジャー"
+            }
+          ]
+        },
+        "2026-09-16": {
+          "dayNote": "アマダ健康診断・近藤回送応援かも",
+          "gatherTime": "6:15",
+          "works": [
+            "舗装工"
+          ],
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ｻｲﾄﾞﾛｰﾗｰ",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ﾗﾝﾏ",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "ｽﾌﾟﾚｲﾔｰ",
+              "qty": 1,
+              "carrier": "3tダンプ"
+            },
+            {
+              "name": "AF45",
+              "qty": 1,
+              "carrier": "R1"
+            }
+          ]
+        },
+        "2026-09-17": {
+          "gatherTime": "6:15",
+          "dayNote": "コア・穴埋め・片付け・清掃"
         }
       },
       "shift": "昼",
@@ -12027,6 +12425,6 @@
   "fiveBase": "2026-09-10",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/9/10 19:05:35",
-  "_savedAt": "2026/9/10 19:05:35"
+  "lastSaved": "2026/9/10 19:15:42",
+  "_savedAt": "2026/9/10 19:15:42"
 }

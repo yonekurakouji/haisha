@@ -345,7 +345,8 @@
       "id": "1",
       "days": [
         "2026-09-08",
-        "2026-09-09"
+        "2026-09-09",
+        "2026-09-10"
       ],
       "assigns": {
         "2026-09-08": [
@@ -377,6 +378,32 @@
             "memo": "",
             "absent": "",
             "isLeader": true
+          },
+          {
+            "name": "渋川",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ],
+        "2026-09-10": [
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "ティ",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
@@ -812,15 +839,6 @@
             "isLeader": true
           },
           {
-            "name": "中川",
-            "role": "作業員",
-            "vehicle": "3tダンプ",
-            "isDriver": true,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
             "name": "アグン",
             "role": "作業員",
             "vehicle": "Wキャブ",
@@ -850,8 +868,16 @@
           {
             "name": "近藤",
             "role": "作業員",
-            "vehicle": "Wキャブ",
+            "vehicle": "4tダンプ",
             "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "関",
+            "role": "",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
             "memo": "",
             "absent": ""
           }
@@ -12399,6 +12425,6 @@
   "fiveBase": "2026-09-10",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/9/10 14:59:40",
-  "_savedAt": "2026/9/10 14:59:40"
+  "lastSaved": "2026/9/10 15:03:18",
+  "_savedAt": "2026/9/10 15:03:18"
 }

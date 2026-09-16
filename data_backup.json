@@ -11,7 +11,7 @@
           {
             "name": "駒田",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "R1",
+            "vehicle": "R8",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -20,18 +20,18 @@
           {
             "name": "小松﨑",
             "role": "AFOP",
-            "vehicle": "4tダンプ",
+            "vehicle": "R1",
             "isDriver": true,
-            "memo": "",
+            "memo": "945",
             "absent": "",
             "isLeader": false
           },
           {
             "name": "中川",
             "role": "作業員",
-            "vehicle": "Wキャブ",
+            "vehicle": "4tダンプ",
             "isDriver": true,
-            "memo": "切削誘導",
+            "memo": "切削誘導・常盤事務所7:00に看板",
             "absent": "",
             "isLeader": false
           },
@@ -74,8 +74,8 @@
           {
             "name": "近藤",
             "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "各自(自分の車)",
-            "isDriver": false,
+            "vehicle": "ハイエース",
+            "isDriver": true,
             "memo": "",
             "absent": "",
             "isLeader": false
@@ -83,7 +83,7 @@
           {
             "name": "ティ",
             "role": "作業員",
-            "vehicle": "各自(自分の車)",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -96,13 +96,21 @@
             "isDriver": false,
             "memo": "",
             "absent": ""
+          },
+          {
+            "name": "渋川",
+            "role": "AFOP",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
           }
         ],
         "2026-09-18": [
           {
             "name": "アマダ",
             "role": "作業員",
-            "vehicle": "ハイエース",
+            "vehicle": "3tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -111,7 +119,7 @@
           {
             "name": "関",
             "role": "作業員",
-            "vehicle": "ハイエース",
+            "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -121,12 +129,12 @@
       },
       "dayData": {
         "2026-09-17": {
-          "dayNote": "近藤健康診断",
+          "dayNote": "トラチョッキ・近藤健康診断午後から現場",
           "works": [
             "切削",
             "舗装工"
           ],
-          "gatherTime": "7:00",
+          "gatherTime": "6:30",
           "machines": [
             {
               "name": "ﾌﾟﾚｰﾄ",
@@ -176,13 +184,12 @@
             "台車",
             "糸張りくん",
             "寒水粉",
-            "ハンドスイーパー",
-            "シールコート一式"
+            "ハンドスイーパー"
           ]
         },
         "2026-09-18": {
-          "gatherTime": "7:00",
-          "dayNote": "コア"
+          "gatherTime": "6:30",
+          "dayNote": "コア・シールコート"
         }
       },
       "shift": "昼",
@@ -888,7 +895,7 @@
           {
             "name": "駒田",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "R1",
+            "vehicle": "R8",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -897,7 +904,7 @@
           {
             "name": "小松﨑",
             "role": "AFOP",
-            "vehicle": "レンジャー",
+            "vehicle": "R1",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -950,7 +957,7 @@
           },
           {
             "name": "アリヤ",
-            "role": "ﾌﾟﾚｰﾄ",
+            "role": "ﾚｰｷﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -1035,17 +1042,17 @@
             {
               "name": "ﾕﾝﾎﾞ0.1",
               "qty": 1,
-              "carrier": "R1"
+              "carrier": "R8"
             },
             {
               "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
               "qty": 1,
-              "carrier": "R1"
+              "carrier": "R8"
             },
             {
               "name": "ｻｲﾄﾞﾛｰﾗｰ",
               "qty": 1,
-              "carrier": "R1"
+              "carrier": "R8"
             },
             {
               "name": "ﾗﾝﾏ",
@@ -1060,7 +1067,7 @@
             {
               "name": "AF30",
               "qty": 1,
-              "carrier": "レンジャー"
+              "carrier": "R1"
             },
             {
               "name": "コアカッター",
@@ -1083,7 +1090,8 @@
             "防炎シート",
             "コア埋め一式",
             "水タンク"
-          ]
+          ],
+          "dayNote": "佐藤健康診断"
         }
       },
       "shift": "昼",
@@ -6033,7 +6041,7 @@
           {
             "name": "佐藤",
             "role": "作業員",
-            "vehicle": "ハイエース",
+            "vehicle": "3tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -6042,7 +6050,7 @@
           {
             "name": "関",
             "role": "作業員",
-            "vehicle": "ハイエース",
+            "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -13006,9 +13014,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-09-07",
-  "fiveBase": "2026-09-15",
+  "fiveBase": "2026-09-16",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/9/15 16:21:14",
-  "_savedAt": "2026/9/15 16:21:14"
+  "lastSaved": "2026/9/16 13:21:06",
+  "_savedAt": "2026/9/16 13:21:06"
 }

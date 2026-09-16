@@ -18,15 +18,6 @@
             "isLeader": true
           },
           {
-            "name": "小松﨑",
-            "role": "AFOP",
-            "vehicle": "R1",
-            "isDriver": true,
-            "memo": "945",
-            "absent": "",
-            "isLeader": false
-          },
-          {
             "name": "中川",
             "role": "作業員",
             "vehicle": "4tダンプ",
@@ -100,9 +91,17 @@
           {
             "name": "渋川",
             "role": "AFOP",
-            "vehicle": "Wキャブ",
+            "vehicle": "R1",
             "isDriver": true,
             "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "関",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "切削誘導・フルイ",
             "absent": ""
           }
         ],
@@ -6048,13 +6047,12 @@
             "isLeader": false
           },
           {
-            "name": "関",
+            "name": "小松﨑",
             "role": "作業員",
             "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "",
-            "absent": "",
-            "isLeader": true
+            "memo": "ユナ3t・早く終われば高速で応援",
+            "absent": ""
           }
         ],
         "2026-09-12": [
@@ -13017,6 +13015,6 @@
   "fiveBase": "2026-09-16",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/9/16 13:21:06",
-  "_savedAt": "2026/9/16 13:21:06"
+  "lastSaved": "2026/9/16 17:06:42",
+  "_savedAt": "2026/9/16 17:06:42"
 }

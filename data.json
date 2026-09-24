@@ -245,7 +245,7 @@
           {
             "name": "アマダ",
             "role": "作業員",
-            "vehicle": "レンジャー",
+            "vehicle": "4tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -263,7 +263,7 @@
           {
             "name": "アグン",
             "role": "作業員",
-            "vehicle": "4tダンプ",
+            "vehicle": "レンジャー",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -13604,6 +13604,6 @@
   "fiveBase": "2026-09-23",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/9/24 17:46:32",
-  "_savedAt": "2026/9/24 17:46:32"
+  "lastSaved": "2026/9/24 17:49:35",
+  "_savedAt": "2026/9/24 17:49:35"
 }

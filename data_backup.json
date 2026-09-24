@@ -11,32 +11,32 @@
           {
             "name": "近藤",
             "role": "作業員",
-            "vehicle": "4tダンプ",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "自社",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "佐藤",
+            "role": "作業員",
+            "vehicle": "3tダンプ",
+            "isDriver": false,
+            "memo": "ユナ",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "小松﨑",
+            "role": "重機OP",
+            "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "ユナ",
             "absent": "",
             "isLeader": true
           },
           {
-            "name": "アリヤ",
-            "role": "ﾌﾟﾚｰﾄ",
-            "vehicle": "4tダンプ",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
-            "name": "樋口",
-            "role": "重機OP",
-            "vehicle": "3tダンプ",
-            "isDriver": true,
-            "memo": "ユナ",
-            "absent": "",
-            "isLeader": false
-          },
-          {
-            "name": "中川",
+            "name": "関",
             "role": "作業員",
             "vehicle": "軽バン",
             "isDriver": true,
@@ -52,12 +52,12 @@
             {
               "name": "ﾌﾟﾚｰﾄ",
               "qty": 1,
-              "carrier": "4tダンプ"
+              "carrier": "3tダンプ"
             },
             {
               "name": "ﾕﾝﾎﾞ0.1",
               "qty": 1,
-              "carrier": "4tダンプ"
+              "carrier": "3tダンプ"
             },
             {
               "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
@@ -67,16 +67,17 @@
             {
               "name": "ｽﾌﾟﾚｲﾔｰ",
               "qty": 1,
-              "carrier": "4tダンプ"
+              "carrier": "3tダンプ"
             }
           ],
           "supplies": [
             "台車",
             "定規",
             "砂",
-            "乳剤一式"
+            "乳剤一式",
+            "ハンドスイーパー"
           ],
-          "gatherTime": "6:15"
+          "gatherTime": "6:00"
         }
       },
       "shift": "昼",
@@ -251,18 +252,18 @@
             "isLeader": false
           },
           {
-            "name": "関",
+            "name": "中川",
             "role": "作業員",
-            "vehicle": "3tダンプ",
+            "vehicle": "4tダンプ",
             "isDriver": true,
-            "memo": "自社",
+            "memo": "ユナ",
             "absent": "",
             "isLeader": false
           },
           {
-            "name": "佐藤",
+            "name": "アグン",
             "role": "作業員",
-            "vehicle": "3tダンプ",
+            "vehicle": "4tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -305,7 +306,8 @@
             "清掃用具一式",
             "定規",
             "カラーコーン"
-          ]
+          ],
+          "gatherTime": "6:00"
         }
       },
       "shift": "昼",
@@ -410,9 +412,9 @@
             "isLeader": false
           },
           {
-            "name": "アグン",
+            "name": "アリヤ",
             "role": "ﾌﾟﾚｰﾄ",
-            "vehicle": "ハイエース",
+            "vehicle": "レンジャー",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -430,6 +432,24 @@
           {
             "name": "阿部",
             "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "自社",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "樋口",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "レンジャー",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "ハオ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "ハイエース",
             "isDriver": true,
             "memo": "",
@@ -437,18 +457,9 @@
             "isLeader": false
           },
           {
-            "name": "小松﨑",
+            "name": "大竹",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "レンジャー",
-            "isDriver": true,
-            "memo": "",
-            "absent": "",
-            "isLeader": true
-          },
-          {
-            "name": "中川",
-            "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "レンジャー",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -544,11 +555,9 @@
             "養生一式",
             "清掃用具一式",
             "台車",
-            "糸張りくん",
-            "ハンドスイーパー",
             "防炎シート"
           ],
-          "gatherTime": "6:45"
+          "gatherTime": "6:00"
         }
       },
       "shift": "昼",
@@ -13595,6 +13604,6 @@
   "fiveBase": "2026-09-23",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/9/23 18:15:40",
-  "_savedAt": "2026/9/23 18:15:40"
+  "lastSaved": "2026/9/24 17:46:32",
+  "_savedAt": "2026/9/24 17:46:32"
 }

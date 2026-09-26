@@ -5,7 +5,28 @@
       "days": [
         "2026-09-29"
       ],
-      "assigns": {},
+      "assigns": {
+        "2026-09-29": [
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "菅沼",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ]
+      },
       "dayData": {},
       "shift": "昼",
       "place": "野田",
@@ -77,6 +98,26 @@
             "absent": "",
             "isLeader": false
           }
+        ],
+        "2026-09-29": [
+          {
+            "name": "佐藤",
+            "role": "作業員",
+            "vehicle": "2tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "関",
+            "role": "作業員",
+            "vehicle": "2tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          }
         ]
       },
       "dayData": {
@@ -104,7 +145,8 @@
             }
           ],
           "gatherTime": "7:00",
-          "altWork": "鉱砕"
+          "altWork": "鉱砕",
+          "dayNote": "中川健康診断"
         }
       },
       "shift": "昼",
@@ -214,6 +256,107 @@
             "absent": "",
             "isLeader": false
           }
+        ],
+        "2026-09-29": [
+          {
+            "name": "阿部",
+            "role": "作業員",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "小松﨑",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "各自(自分の車)",
+            "isDriver": true,
+            "memo": "終わり次第",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "近藤",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "中川",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "写真",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "大竹",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アグン",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "大型",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アリヤ",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アマダ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "樋口",
+            "role": "AFOP",
+            "vehicle": "大型",
+            "isDriver": true,
+            "memo": "60",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "ハオ",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "3tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "ティ",
+            "role": "AFOP",
+            "vehicle": "4tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
         ]
       },
       "dayData": {
@@ -291,6 +434,9 @@
           ],
           "gatherTime": "6:15",
           "dayNote": "定規３本・くず"
+        },
+        "2026-09-29": {
+          "dayNote": "小松崎健康診断"
         }
       },
       "shift": "昼",
@@ -14065,6 +14211,6 @@
   "fiveBase": "2026-09-25",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/9/26 14:49:26",
-  "_savedAt": "2026/9/26 14:49:26"
+  "lastSaved": "2026/9/26 15:10:46",
+  "_savedAt": "2026/9/26 15:10:46"
 }

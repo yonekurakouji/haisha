@@ -97,6 +97,22 @@
             "memo": "",
             "absent": "",
             "isLeader": false
+          },
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "各自(自分の車)",
+            "isDriver": true,
+            "memo": "終わったらすぐ来て部長と交代",
+            "absent": ""
+          },
+          {
+            "name": "渋川",
+            "role": "",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "中川来るまで運搬",
+            "absent": ""
           }
         ],
         "2026-09-29": [
@@ -356,6 +372,104 @@
             "memo": "",
             "absent": "",
             "isLeader": false
+          }
+        ],
+        "2026-09-30": [
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "ハオ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "ティ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
@@ -14208,9 +14322,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-09-21",
-  "fiveBase": "2026-09-25",
+  "fiveBase": "2026-09-26",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/9/26 15:10:46",
-  "_savedAt": "2026/9/26 15:10:46"
+  "lastSaved": "2026/9/26 15:19:27",
+  "_savedAt": "2026/9/26 15:19:27"
 }

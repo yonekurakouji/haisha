@@ -3,6 +3,59 @@
     {
       "id": "1",
       "days": [
+        "2026-09-28"
+      ],
+      "assigns": {
+        "2026-09-28": [
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "P5",
+            "isDriver": true,
+            "memo": "460",
+            "absent": "",
+            "isLeader": true
+          }
+        ]
+      },
+      "dayData": {
+        "2026-09-28": {
+          "works": [
+            "回送"
+          ],
+          "machines": [
+            {
+              "name": "AF60",
+              "qty": 1,
+              "carrier": "P5"
+            }
+          ],
+          "gatherTime": "22:30",
+          "dayNote": "回送応援"
+        }
+      },
+      "shift": "夜",
+      "place": "春日部",
+      "prime": "コスモ2",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [
+        "回送"
+      ],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": true
+    },
+    {
+      "id": "1",
+      "days": [
         "2026-10-01",
         "2026-10-02"
       ],
@@ -14641,6 +14694,6 @@
   "fiveBase": "2026-09-28",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/9/28 18:22:02",
-  "_savedAt": "2026/9/28 18:22:02"
+  "lastSaved": "2026/9/28 19:46:16",
+  "_savedAt": "2026/9/28 19:46:16"
 }

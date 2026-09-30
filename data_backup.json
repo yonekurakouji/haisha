@@ -10,7 +10,7 @@
           {
             "name": "関",
             "role": "",
-            "vehicle": "",
+            "vehicle": "2tダンプ",
             "isDriver": true,
             "memo": "写真",
             "absent": ""
@@ -34,7 +34,7 @@
           {
             "name": "樋口",
             "role": "",
-            "vehicle": "",
+            "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "",
             "absent": ""
@@ -42,8 +42,8 @@
           {
             "name": "ハオ",
             "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "vehicle": "ハイエース",
+            "isDriver": true,
             "memo": "",
             "absent": ""
           },
@@ -1147,16 +1147,16 @@
           {
             "name": "小松﨑",
             "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "vehicle": "4tダンプ",
+            "isDriver": true,
             "memo": "写真",
             "absent": ""
           },
           {
             "name": "近藤",
             "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "vehicle": "Wキャブ",
+            "isDriver": true,
             "memo": "",
             "absent": ""
           },
@@ -1187,8 +1187,8 @@
           {
             "name": "阿部",
             "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "vehicle": "3tダンプ",
+            "isDriver": true,
             "memo": "",
             "absent": ""
           }
@@ -14904,6 +14904,6 @@
   "fiveBase": "2026-09-30",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/9/30 17:41:40",
-  "_savedAt": "2026/9/30 17:41:40"
+  "lastSaved": "2026/9/30 17:58:10",
+  "_savedAt": "2026/9/30 17:58:10"
 }

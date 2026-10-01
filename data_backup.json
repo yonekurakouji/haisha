@@ -249,7 +249,7 @@
           {
             "name": "中川",
             "role": "作業員",
-            "vehicle": "3tダンプ",
+            "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "ユナ",
             "absent": "",
@@ -303,7 +303,7 @@
           {
             "name": "関",
             "role": "作業員",
-            "vehicle": "Wキャブ",
+            "vehicle": "社用車",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -15004,6 +15004,6 @@
   "fiveBase": "2026-10-01",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/10/1 17:06:34",
-  "_savedAt": "2026/10/1 17:06:34"
+  "lastSaved": "2026/10/1 17:28:25",
+  "_savedAt": "2026/10/1 17:28:25"
 }

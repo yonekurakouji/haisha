@@ -223,7 +223,7 @@
             "name": "駒田",
             "role": "作業員",
             "vehicle": "ハイエース",
-            "isDriver": false,
+            "isDriver": true,
             "memo": "",
             "absent": "",
             "isLeader": true
@@ -231,7 +231,7 @@
           {
             "name": "小松﨑",
             "role": "重機OP",
-            "vehicle": "Wキャブ",
+            "vehicle": "レンジャー",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -303,7 +303,7 @@
           {
             "name": "関",
             "role": "作業員",
-            "vehicle": "ハイエース",
+            "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -15004,6 +15004,6 @@
   "fiveBase": "2026-10-01",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/10/1 14:58:02",
-  "_savedAt": "2026/10/1 14:58:02"
+  "lastSaved": "2026/10/1 17:06:34",
+  "_savedAt": "2026/10/1 17:06:34"
 }

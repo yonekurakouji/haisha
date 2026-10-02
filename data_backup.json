@@ -3,6 +3,144 @@
     {
       "id": "1",
       "days": [
+        "2026-10-05",
+        "2026-10-06",
+        "2026-10-07"
+      ],
+      "assigns": {
+        "2026-10-05": [
+          {
+            "name": "阿部",
+            "role": "",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "ユナ3T・2.5CR",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "西尾3T・0.1BH",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "大竹",
+            "role": "",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "菅沼",
+            "role": "",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アリヤ",
+            "role": "",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "3tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ]
+      },
+      "dayData": {
+        "2026-10-05": {
+          "works": [
+            "路盤工"
+          ],
+          "gatherTime": "5:45",
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": "3tダンプ"
+            },
+            {
+              "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+              "qty": 1,
+              "carrier": "3tダンプ"
+            },
+            {
+              "name": "ｻｲﾄﾞﾛｰﾗｰ",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "ﾗﾝﾏ",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            }
+          ],
+          "supplies": [
+            "根庫",
+            "養生一式",
+            "台車",
+            "カラーコーン",
+            "防炎シート",
+            "マスカーテープ",
+            "ロールシート"
+          ]
+        }
+      },
+      "shift": "昼",
+      "place": "船橋中山ピックルボールコート場",
+      "prime": "コスモ第二",
+      "contact": "__manual__",
+      "contactManual": "コスモ２石田",
+      "contactTel": "090-1117-8146",
+      "ourContact": "阿部",
+      "leader": "",
+      "works": [
+        "路盤工",
+        "舗装工"
+      ],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "有",
+      "kaisou": "×",
+      "enShoo": false
+    },
+    {
+      "id": "1",
+      "days": [
         "2026-10-03"
       ],
       "assigns": {
@@ -12,7 +150,7 @@
             "role": "運搬員",
             "vehicle": "2tダンプ",
             "isDriver": true,
-            "memo": "写真",
+            "memo": "写真・温度計",
             "absent": ""
           },
           {
@@ -36,7 +174,7 @@
             "role": "重機OP",
             "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "",
+            "memo": "西尾3T・西尾スプレーヤー・砂・水ローリー300",
             "absent": ""
           },
           {
@@ -100,7 +238,8 @@
             "乳剤一式",
             "シールコート一式",
             "看板"
-          ]
+          ],
+          "dayNote": "看板ご迷惑・くず定規数本・行下、帰上"
         }
       },
       "shift": "昼",
@@ -1199,7 +1338,7 @@
             "role": "重機OP",
             "vehicle": "4tダンプ",
             "isDriver": true,
-            "memo": "写真",
+            "memo": "写真・温度計・スプレーヤー・砂",
             "absent": ""
           },
           {
@@ -1239,7 +1378,7 @@
             "role": "ﾚｰｷﾏﾝ",
             "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "",
+            "memo": "ユナ3T",
             "absent": ""
           }
         ]
@@ -1286,22 +1425,22 @@
             {
               "name": "ﾌﾟﾚｰﾄ",
               "qty": 1,
-              "carrier": "3tダンプ"
+              "carrier": "4tダンプ"
             },
             {
               "name": "ﾕﾝﾎﾞ0.1",
               "qty": 1,
-              "carrier": "4tダンプ"
+              "carrier": "3tダンプ"
             },
             {
               "name": "ｻｲﾄﾞﾛｰﾗｰ",
               "qty": 1,
-              "carrier": "3tダンプ"
+              "carrier": "4tダンプ"
             },
             {
               "name": "ｽﾌﾟﾚｲﾔｰ",
               "qty": 1,
-              "carrier": "3tダンプ"
+              "carrier": "4tダンプ"
             },
             {
               "name": "電動ハンマー",
@@ -1328,7 +1467,8 @@
             "防炎シート",
             "看板",
             "水タンク"
-          ]
+          ],
+          "dayNote": "くず定規数本・看板ご迷惑"
         }
       },
       "shift": "昼",
@@ -1480,7 +1620,8 @@
       "id": "2",
       "days": [
         "2026-09-25",
-        "2026-09-26"
+        "2026-09-26",
+        "2026-10-05"
       ],
       "assigns": {
         "2026-09-25": [
@@ -1621,6 +1762,44 @@
             "absent": "",
             "isLeader": false
           }
+        ],
+        "2026-10-05": [
+          {
+            "name": "小松﨑",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "中川",
+            "role": "重機OP",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "運搬",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "佐藤",
+            "role": "",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "関",
+            "role": "",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
         ]
       },
       "dayData": {
@@ -1703,6 +1882,44 @@
           ],
           "gatherTime": "6:00",
           "dayNote": "ピン・回送、横田"
+        },
+        "2026-10-05": {
+          "gatherTime": "5:45",
+          "works": [
+            "打替え舗装"
+          ],
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 1,
+              "carrier": "4tダンプ"
+            },
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": "4tダンプ"
+            },
+            {
+              "name": "ｻｲﾄﾞﾛｰﾗｰ",
+              "qty": 1,
+              "carrier": "4tダンプ"
+            },
+            {
+              "name": "ﾗﾝﾏ",
+              "qty": 1,
+              "carrier": "4tダンプ"
+            }
+          ],
+          "supplies": [
+            "根庫",
+            "養生一式",
+            "清掃用具一式",
+            "台車",
+            "カラーコーン",
+            "防炎シート",
+            "マスカーテープ",
+            "ロールシート"
+          ]
         }
       },
       "shift": "昼",
@@ -15016,9 +15233,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-09-28",
-  "fiveBase": "2026-10-01",
+  "fiveBase": "2026-10-02",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/10/2 14:31:10",
-  "_savedAt": "2026/10/2 14:31:10"
+  "lastSaved": "2026/10/2 16:36:04",
+  "_savedAt": "2026/10/2 16:36:04"
 }

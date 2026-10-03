@@ -35,16 +35,16 @@
         "2026-10-05": [
           {
             "name": "阿部",
-            "role": "",
-            "vehicle": "3tダンプ",
+            "role": "作業員",
+            "vehicle": "2tダンプ",
             "isDriver": true,
-            "memo": "ユナ3T・2.5CR",
+            "memo": "2.5CR",
             "absent": "",
             "isLeader": false
           },
           {
             "name": "駒田",
-            "role": "",
+            "role": "重機OP",
             "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "西尾3T・0.1BH",
@@ -53,7 +53,7 @@
           },
           {
             "name": "近藤",
-            "role": "",
+            "role": "作業員",
             "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "",
@@ -62,7 +62,7 @@
           },
           {
             "name": "大竹",
-            "role": "",
+            "role": "作業員",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -71,7 +71,7 @@
           },
           {
             "name": "菅沼",
-            "role": "",
+            "role": "作業員",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -80,7 +80,7 @@
           },
           {
             "name": "アリヤ",
-            "role": "",
+            "role": "作業員",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -89,7 +89,7 @@
           },
           {
             "name": "アマダ",
-            "role": "",
+            "role": "作業員",
             "vehicle": "3tダンプ",
             "isDriver": false,
             "memo": "",
@@ -103,7 +103,7 @@
           "works": [
             "路盤工"
           ],
-          "gatherTime": "5:45",
+          "gatherTime": "5:15",
           "machines": [
             {
               "name": "ﾌﾟﾚｰﾄ",
@@ -118,7 +118,7 @@
             {
               "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
               "qty": 1,
-              "carrier": "3tダンプ"
+              "carrier": "2tダンプ"
             },
             {
               "name": "ｻｲﾄﾞﾛｰﾗｰ",
@@ -1769,9 +1769,9 @@
           {
             "name": "中川",
             "role": "重機OP",
-            "vehicle": "4tダンプ",
+            "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "運搬",
+            "memo": "運搬・ユナ3T",
             "absent": "",
             "isLeader": false
           },
@@ -1885,22 +1885,22 @@
             {
               "name": "ﾌﾟﾚｰﾄ",
               "qty": 1,
-              "carrier": "4tダンプ"
+              "carrier": "ハイエース"
             },
             {
               "name": "ﾕﾝﾎﾞ0.1",
               "qty": 1,
-              "carrier": "4tダンプ"
+              "carrier": "3tダンプ"
             },
             {
               "name": "ｻｲﾄﾞﾛｰﾗｰ",
               "qty": 1,
-              "carrier": "4tダンプ"
+              "carrier": ""
             },
             {
               "name": "ﾗﾝﾏ",
               "qty": 1,
-              "carrier": "4tダンプ"
+              "carrier": "3tダンプ"
             }
           ],
           "supplies": [
@@ -15261,9 +15261,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-09-28",
-  "fiveBase": "2026-10-02",
+  "fiveBase": "2026-10-04",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/10/2 17:30:39",
-  "_savedAt": "2026/10/2 17:30:39"
+  "lastSaved": "2026/10/4 6:39:08",
+  "_savedAt": "2026/10/4 6:39:08"
 }

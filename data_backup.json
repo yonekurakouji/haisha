@@ -100,7 +100,7 @@
         "2026-10-06": [
           {
             "name": "阿部",
-            "role": "",
+            "role": "誘導員",
             "vehicle": "3tダンプ",
             "isDriver": false,
             "memo": "",
@@ -109,7 +109,7 @@
           },
           {
             "name": "駒田",
-            "role": "",
+            "role": "ﾚｰｷﾏﾝ",
             "vehicle": "2tダンプ",
             "isDriver": true,
             "memo": "CR引き上げ",
@@ -118,16 +118,16 @@
           },
           {
             "name": "小松﨑",
-            "role": "",
+            "role": "重機OP",
             "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "BH引き上げ",
+            "memo": "TSOP・BH引き上げ",
             "absent": "",
             "isLeader": false
           },
           {
             "name": "近藤",
-            "role": "",
+            "role": "ﾛｰﾗｰﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "1tR引き上げ",
@@ -136,16 +136,16 @@
           },
           {
             "name": "中川",
-            "role": "",
+            "role": "作業員",
             "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "TS引き上げ",
+            "memo": "運搬あるかも・TS引き上げ",
             "absent": "",
             "isLeader": false
           },
           {
             "name": "大竹",
-            "role": "",
+            "role": "ﾚｰｷﾏﾝ",
             "vehicle": "3tダンプ",
             "isDriver": false,
             "memo": "",
@@ -154,7 +154,7 @@
           },
           {
             "name": "菅沼",
-            "role": "",
+            "role": "ﾌﾟﾚｰﾄ",
             "vehicle": "2tダンプ",
             "isDriver": false,
             "memo": "",
@@ -163,7 +163,7 @@
           },
           {
             "name": "佐藤",
-            "role": "",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -172,7 +172,7 @@
           },
           {
             "name": "アリヤ",
-            "role": "",
+            "role": "ﾌﾟﾚｰﾄ",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -181,7 +181,7 @@
           },
           {
             "name": "アマダ",
-            "role": "",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -190,7 +190,7 @@
           },
           {
             "name": "米倉",
-            "role": "",
+            "role": "AFOP",
             "vehicle": "レンジャー",
             "isDriver": false,
             "memo": "",
@@ -15392,6 +15392,6 @@
   "fiveBase": "2026-10-04",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/10/5 18:02:03",
-  "_savedAt": "2026/10/5 18:02:03"
+  "lastSaved": "2026/10/5 18:04:16",
+  "_savedAt": "2026/10/5 18:04:16"
 }

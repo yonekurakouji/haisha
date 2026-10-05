@@ -121,7 +121,7 @@
             "role": "重機OP",
             "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "TSOP・BH引き上げ",
+            "memo": "ユナ3T・TSOP・BH引き上げ",
             "absent": "",
             "isLeader": false
           },
@@ -139,7 +139,7 @@
             "role": "作業員",
             "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "運搬あるかも・TS引き上げ",
+            "memo": "西尾3I・運搬あるかも・TS引き上げ",
             "absent": "",
             "isLeader": false
           },
@@ -15392,6 +15392,6 @@
   "fiveBase": "2026-10-04",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/10/5 18:04:16",
-  "_savedAt": "2026/10/5 18:04:16"
+  "lastSaved": "2026/10/5 18:05:24",
+  "_savedAt": "2026/10/5 18:05:24"
 }

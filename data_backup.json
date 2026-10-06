@@ -224,8 +224,8 @@
           {
             "name": "駒田",
             "role": "重機OP",
-            "vehicle": "Wキャブ",
-            "isDriver": true,
+            "vehicle": "ハイエース",
+            "isDriver": false,
             "memo": "",
             "absent": "",
             "isLeader": true
@@ -242,9 +242,9 @@
           {
             "name": "近藤",
             "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "3tダンプ",
+            "vehicle": "Wキャブ",
             "isDriver": true,
-            "memo": "BH引き上げ",
+            "memo": "",
             "absent": "",
             "isLeader": false
           },
@@ -15648,6 +15648,6 @@
   "fiveBase": "2026-10-06",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/10/6 15:43:57",
-  "_savedAt": "2026/10/6 15:43:57"
+  "lastSaved": "2026/10/6 18:27:19",
+  "_savedAt": "2026/10/6 18:27:19"
 }

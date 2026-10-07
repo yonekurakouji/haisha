@@ -712,25 +712,25 @@
           {
             "name": "駒田",
             "role": "重機OP",
-            "vehicle": "大型",
+            "vehicle": "Wキャブ",
             "isDriver": true,
-            "memo": "グレーダー",
+            "memo": "",
             "absent": "",
             "isLeader": true
           },
           {
             "name": "小松﨑",
             "role": "重機OP",
-            "vehicle": "レンジャー",
+            "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "0.1BH・2.5CR",
+            "memo": "",
             "absent": "",
             "isLeader": false
           },
           {
             "name": "大竹",
             "role": "作業員",
-            "vehicle": "大型",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -739,7 +739,7 @@
           {
             "name": "菅沼",
             "role": "作業員",
-            "vehicle": "大型",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -748,7 +748,7 @@
           {
             "name": "アリヤ",
             "role": "作業員",
-            "vehicle": "レンジャー",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -759,7 +759,15 @@
             "role": "作業員",
             "vehicle": "大型",
             "isDriver": true,
-            "memo": "0.4BH・9TTR",
+            "memo": "0.1BH4TCR・9TTR",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "",
+            "vehicle": "3tダンプ",
+            "isDriver": false,
+            "memo": "",
             "absent": ""
           }
         ]
@@ -776,6 +784,10 @@
           "works": [
             "路盤工"
           ]
+        },
+        "2026-10-08": {
+          "dayNote": "前日搬入　グレーダー駒1・0.4BH小松1・tP近1",
+          "gatherTime": "7:00"
         }
       },
       "shift": "昼",
@@ -979,7 +991,7 @@
           {
             "name": "佐藤",
             "role": "作業員",
-            "vehicle": "ハイエース",
+            "vehicle": "2tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -988,7 +1000,7 @@
           {
             "name": "アマダ",
             "role": "作業員",
-            "vehicle": "ハイエース",
+            "vehicle": "2tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -1002,14 +1014,6 @@
             "memo": "",
             "absent": "",
             "isLeader": true
-          },
-          {
-            "name": "中川",
-            "role": "作業員",
-            "vehicle": "ハイエース",
-            "isDriver": true,
-            "memo": "",
-            "absent": ""
           }
         ]
       },
@@ -1049,7 +1053,8 @@
               "carrier": "2tダンプ"
             }
           ],
-          "dayNote": "水・ジョーロ・乳剤・スコップ・木コテ・タンパ・ハンマー・カッター"
+          "dayNote": "水・ジョーロ・乳剤・スコップ・木コテ・タンパ・ハンマー・カッター",
+          "gatherTime": "7:00"
         }
       },
       "shift": "昼",
@@ -15645,9 +15650,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-10-05",
-  "fiveBase": "2026-10-06",
+  "fiveBase": "2026-10-07",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/10/6 18:27:19",
-  "_savedAt": "2026/10/6 18:27:19"
+  "lastSaved": "2026/10/7 17:14:16",
+  "_savedAt": "2026/10/7 17:14:16"
 }

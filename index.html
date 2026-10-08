@@ -1742,7 +1742,8 @@ window.printReport=function(si,dk){
           <td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;width:60px;">昼/夜</td><td style="border:1px solid #bbb;padding:5px 8px;">${site.shift}</td></tr>
       <tr><td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;">現場名</td><td style="border:1px solid #bbb;padding:5px 8px;" colspan="3">${site.place||''}${site.prime?' ／ '+site.prime:''}</td></tr>
       <tr><td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;">工事内容</td><td style="border:1px solid #bbb;padding:5px 8px;" colspan="3">${(site.works||[]).join('、')||''}</td></tr>
-      <tr><td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;">使用重機</td><td style="border:1px solid #bbb;padding:5px 8px;" colspan="3">${mc.map(m=>machLabel(m)).join('、')||''}</td></tr>
+      <tr><td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;" rowspan="2">使用重機</td><td style="border:1px solid #bbb;padding:5px 8px;height:18px;" colspan="3">${mc.map(m=>machLabel(m)).join('、')||''}</td></tr>
+      <tr><td style="border:1px solid #bbb;padding:5px 8px;height:18px;" colspan="3"></td></tr>
       <tr><td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;">開始〜終了</td><td style="border:1px solid #bbb;padding:5px 8px;">　　：　　〜　　：　　</td>
           <td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;">天候</td><td style="border:1px solid #bbb;padding:5px 8px;"></td></tr>
       ${ctName?`<tr><td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;">元請担当</td><td style="border:1px solid #bbb;padding:5px 8px;" colspan="3">${ctName}${ctTel?' '+ctTel:''}</td></tr>`:''}

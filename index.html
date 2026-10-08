@@ -1761,7 +1761,10 @@ window.printReport=function(si,dk){
         <th style="border:1px solid #bbb;padding:5px;">除外</th>
         <th style="border:1px solid #bbb;padding:5px;min-width:140px;">備考</th>
       </tr></thead>
-      <tbody>${rows}${Array(5).fill(`<tr>${Array(8).fill('<td style="border:1px solid #bbb;padding:5px 8px;height:16px;"></td>').join('')}</tr>`).join('')}</tbody>
+      <tbody>${rows}</tbody>
+    </table>
+    <table style="width:100%;border-collapse:collapse;font-size:11px;margin-top:12px;">
+      <tbody>${Array(5).fill('<tr><td style="border:1px solid #bbb;padding:5px 8px;height:20px;"></td></tr>').join('')}</tbody>
     </table>
   </div>`;
   const w=window.open('','_blank');

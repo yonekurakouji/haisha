@@ -1735,7 +1735,7 @@ window.printReport=function(si,dk){
     const hasRet=p.returnDrive>0;
     const retVName=p.returnVehicle||a.vehicle||'';
     const isDiffRet=p.returnVehicle&&p.returnVehicle!==a.vehicle;
-    return`<tr${p.excluded?' style="color:#999;text-decoration:line-through;"':''}>
+    return`<tr class="rpRow"${p.excluded?' style="color:#999;text-decoration:line-through;"':''}>
       <td style="border:1px solid #bbb;padding:5px 8px;font-weight:500;">${a.name}</td>
       <td style="border:1px solid #bbb;padding:5px 8px;">${a.role||''}</td>
       <td style="border:1px solid #bbb;padding:5px 8px;">${a.vehicle||''}${a.isDriver?' [運転]':''}${hasRet&&isDiffRet?'<br><span style="font-size:10px;">帰り: '+retVName+'</span>':''}</td>
@@ -1747,7 +1747,8 @@ window.printReport=function(si,dk){
     </tr>`;
   }).join('');
   setPrintOrientation('portrait');
-  const html=`<div style="font-family:'Hiragino Kaku Gothic ProN','Meiryo',sans-serif;padding:10px;">
+  const html=`<div class="rpWrap" style="font-family:'Hiragino Kaku Gothic ProN','Meiryo',sans-serif;">
+    <div class="rpTop">
     <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;">
       <div><div style="font-size:18px;font-weight:700;margin-bottom:4px;">${S.orgName||'工事部'} 終了報告書</div></div>
       <div style="display:flex;gap:12px;">
@@ -1780,7 +1781,8 @@ window.printReport=function(si,dk){
       ${site.leader?`<tr><td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;">リーダー</td><td style="border:1px solid #bbb;padding:5px 8px;" colspan="3">${site.leader}</td></tr>`:''}
       ${(()=>{const perFees=assigns.reduce((t,aa)=>{const pp=per[aa.name]||{};return t+(pp.tollFee||0)+(pp.parkingFee||0);},0);const otherF=rep.otherFee||0;const total=perFees+otherF;const details=assigns.filter(aa=>{const pp=per[aa.name]||{};return(pp.tollFee||0)+(pp.parkingFee||0)>0;}).map(aa=>{const pp=per[aa.name]||{};const parts=[];if(pp.tollFee)parts.push('高速¥'+Number(pp.tollFee).toLocaleString());if(pp.parkingFee)parts.push('駐車¥'+Number(pp.parkingFee).toLocaleString());return aa.name+'('+parts.join(' ')+')';}).join('　');return total?`<tr><td style="border:1px solid #bbb;padding:5px 8px;background:#f5f5f5;">経費</td><td style="border:1px solid #bbb;padding:5px 8px;" colspan="3">${details}${otherF?' その他¥'+otherF.toLocaleString():''}${rep.feeNote?' ('+rep.feeNote+')':''}<b style="margin-left:8px;">合計 ¥${total.toLocaleString()}</b></td></tr>`:'';})()}
     </table>
-    <table style="width:100%;border-collapse:collapse;font-size:11px;">
+    </div>
+    <table class="rpMembers" style="width:100%;border-collapse:collapse;font-size:11px;">
       <thead><tr style="background:#e5e7eb;">
         <th style="border:1px solid #bbb;padding:5px;">社員名</th>
         <th style="border:1px solid #bbb;padding:5px;">役割</th>
@@ -1793,12 +1795,28 @@ window.printReport=function(si,dk){
       </tr></thead>
       <tbody>${rows}</tbody>
     </table>
-    <table style="width:100%;border-collapse:collapse;font-size:11px;margin-top:12px;">
-      <tbody>${Array(5).fill('<tr><td style="border:1px solid #bbb;padding:5px 8px;height:20px;"></td></tr>').join('')}</tbody>
+    <table class="rpFree" style="width:100%;border-collapse:collapse;font-size:11px;margin-top:12px;">
+      <tbody>${Array(10).fill('<tr><td style="border:1px solid #bbb;padding:5px 8px;height:20px;"></td></tr>').join('')}</tbody>
     </table>
   </div>`;
   const w=window.open('','_blank');
-  w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>終了報告 ${site.place} ${dk}</title><style>@media print{*{color:#000!important;background:#fff!important;border-color:#999!important;-webkit-print-color-adjust:exact;}span,b,div{color:#000!important;}}</style></head><body>${html}</body></html>`);
+  w.document.write(`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>終了報告 ${site.place} ${dk}</title><style>
+@page{size:A4 portrait;margin:10mm;}
+html,body{margin:0;padding:0;}
+.rpWrap{padding:0 2px;box-sizing:border-box;}
+/* 上の報告欄（タイトル〜経費）はページをまたがない */
+.rpTop{break-inside:avoid;page-break-inside:avoid;}
+/* 社員表：1行が途中で切れないようにする（2ページ目に見出しは付けない） */
+.rpMembers{border-collapse:collapse!important;}
+.rpMembers th,.rpMembers td{border:1px solid #999!important;}
+.rpMembers thead{display:table-row-group;}
+.rpMembers tr{break-inside:avoid;page-break-inside:avoid;}
+/* 下の自由記入欄：ページの残りに入る分だけ入れ、続きは次のページへ（1行が途中で切れないようにする） */
+.rpFree{border-collapse:collapse!important;}
+.rpFree td{border:1px solid #999!important;}
+.rpFree tr{break-inside:avoid;page-break-inside:avoid;}
+@media print{*{color:#000!important;background:#fff!important;border-color:#999!important;-webkit-print-color-adjust:exact;}span,b,div{color:#000!important;}}
+</style></head><body>${html}</body></html>`);
   w.document.close();
   w.print();
 };

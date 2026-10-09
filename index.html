@@ -966,6 +966,8 @@ function bD(){
           <span class="bcnt">${assigns.length}名配置</span>
           ${isCancel?'<span style="background:#9ca3af;color:#fff;font-size:10px;padding:1px 6px;border-radius:4px;">中止</span>':''}
           <button class="btn btncopy" onclick="event.stopPropagation();showCopy(${si},'${dk}')" style="padding:1px 6px;font-size:11px;">📋 コピー</button>
+          <button class="btn" onclick="event.stopPropagation();SplitDayShift(${si},'${dk}','move')" title="この日だけ昼⇔夜を切り替えます（他の日は変わりません）" style="padding:1px 6px;font-size:11px;">この日だけ${site.shift==='夜'?'昼':'夜'}に</button>
+          <button class="btn" onclick="event.stopPropagation();SplitDayShift(${si},'${dk}','add')" title="同じ現場でこの日に${site.shift==='夜'?'昼':'夜'}の作業も追加します" style="padding:1px 6px;font-size:11px;">＋${site.shift==='夜'?'昼':'夜'}も作業</button>
           <button class="btn" onclick="ToggleCancel(${si},'${dk}')" style="padding:1px 6px;font-size:11px;${isCancel?'background:#9ca3af;color:#fff;border-color:#9ca3af;':'color:#b91c1c;border-color:#fca5a5;'}">${isCancel?'中止解除':'現場中止'}</button>
           <input value="${dd.altWork||''}" placeholder="別作業（手入力）" onchange="SetDD(${si},'${dk}','altWork',this.value)" style="width:130px;font-size:11px;">
         </div>
@@ -987,7 +989,7 @@ function bD(){
     return`<div class="card" id="site_${si}">
       <div style="display:flex;justify-content:flex-end;margin-bottom:4px;"><button class="btn" onclick="FoldSite(${si})" style="padding:1px 10px;background:#f0fdf4;border-color:#86efac;color:#166534;font-size:11px;">▲ 畳む（終わった現場）</button></div>
       <div class="row1">
-        <select onchange="US(${si},'shift',this.value)" style="width:60px;font-weight:500;"><option${site.shift==='昼'?' selected':''}>昼</option><option${site.shift==='夜'?' selected':''}>夜</option></select>
+        <select onchange="US(${si},'shift',this.value)" title="この現場の全ての日の昼／夜を変えます。1日だけ変える時は日付欄の「この日だけ」ボタンを使ってください" style="width:60px;font-weight:500;"><option${site.shift==='昼'?' selected':''}>昼</option><option${site.shift==='夜'?' selected':''}>夜</option></select>
         <input value="${site.place||''}" placeholder="場所（必須）" onchange="US(${si},'place',this.value)" style="flex:1;min-width:120px;font-weight:500;">
         <input value="${site.prime||''}" placeholder="元請名" onchange="US(${si},'prime',this.value)" style="flex:1;min-width:90px;">
         <div style="display:flex;align-items:center;gap:2px;">
@@ -1158,7 +1160,34 @@ window.CalSel=(dk)=>{CAL_SEL=(CAL_SEL===dk?null:dk);render();if(CAL_SEL)setTimeo
 window.CalSetNote=(dk,v)=>{if(!S.calNotes)S.calNotes={};const t=(v||'').trim();if(t)S.calNotes[dk]=t;else delete S.calNotes[dk];persist();render();};
 window.CalAddSite=(dk)=>{const id=uid();const ns={id,days:[dk],assigns:{[dk]:[]},dayData:{},shift:'昼',place:'',prime:'',contact:'',contactManual:'',contactTel:'',ourContact:'',leader:'',works:[],machines:[],gatherTime:'',gatherType:'集合',note:'',okiba:'',kaisou:'',enShoo:false};S.sites.unshift(ns);persist();render();};
 window.CalSiteField=(si,f,v)=>{const s=S.sites[si];if(!s)return;s[f]=v;persist();render();};
-window.CalSiteShift=(si)=>{const s=S.sites[si];if(!s)return;s.shift=(s.shift==='夜'?'昼':'夜');persist();render();};
+window.CalSiteShift=(si,dk)=>{if(dk){SplitDayShift(si,dk,'move');return;}const s=S.sites[si];if(!s)return;s.shift=(s.shift==='夜'?'昼':'夜');persist();render();};
+/* ===== 日ごとの昼／夜 =====
+   昼夜は現場単位の設定のため、「この日だけ」変える時はその日を同じ現場名の別カード（反対の昼夜）に分けます。
+   mode='move' : この日だけ昼⇔夜を切替（その日の人員・重機・備考も一緒に移動）
+   mode='add'  : この日に反対の昼夜の作業を追加（現場情報だけコピー、人員は空） */
+window.SplitDayShift=(si,dk,mode)=>{
+  const s=S.sites[si];if(!s||!dk)return;
+  const other=s.shift==='夜'?'昼':'夜';
+  if(mode==='move'&&(s.days||[]).length<=1){s.shift=other;persist();render();return;}
+  const meta={};['place','prime','contact','contactManual','contactTel','ourContact','leader','note','okiba','kaisou','enShoo','gatherType'].forEach(k=>{if(s[k]!==undefined)meta[k]=JSON.parse(JSON.stringify(s[k]));});
+  const ns={id:'s'+Date.now().toString(36)+Math.random().toString(36).slice(2,6),days:[dk],assigns:{[dk]:[]},dayData:{},shift:other,works:[],machines:[],gatherTime:'',gatherType:'集合',...meta};
+  if(mode==='move'){
+    ns.assigns[dk]=s.assigns?.[dk]||[];
+    if(s.dayData&&s.dayData[dk])ns.dayData[dk]=s.dayData[dk];
+    ns.works=JSON.parse(JSON.stringify(s.works||[]));ns.machines=JSON.parse(JSON.stringify(s.machines||[]));ns.gatherTime=s.gatherTime||'';
+    s.days=(s.days||[]).filter(d=>d!==dk);
+    if(s.assigns)delete s.assigns[dk];
+    if(s.dayData)delete s.dayData[dk];
+  }else{
+    ns.works=JSON.parse(JSON.stringify(s.works||[]));
+  }
+  /* 元の現場のすぐ下に入れる。位置で管理している開閉状態を1つずつずらす */
+  const shiftKeys=(obj,isDayKey)=>{if(!obj)return obj;const out={};Object.keys(obj).forEach(k=>{if(isDayKey){const m=k.match(/^(\d+)_(.*)$/);if(m&&+m[1]>si){out[(+m[1]+1)+'_'+m[2]]=obj[k];return;}out[k]=obj[k];}else{const n=+k;out[(!isNaN(n)&&n>si)?n+1:k]=obj[k];}});return out;};
+  S.openDays=shiftKeys(S.openDays,true);S.foldSite=shiftKeys(S.foldSite||{},false);
+  S.sites.splice(si+1,0,ns);
+  S.foldSite[si+1]=false;S.openDays[`${si+1}_${dk}`]=true;
+  persist();render();
+};
 function primeColor(name){
   const PAL=[['#fee2e2','#991b1b'],['#dbeafe','#1e40af'],['#dcfce7','#166534'],['#fef3c7','#92400e'],['#ede9fe','#5b21b6'],['#e0f2fe','#075985'],['#fce7f3','#9d174d'],['#ffedd5','#9a3412'],['#ecfccb','#3f6212'],['#cffafe','#155e75'],['#fef9c3','#854d0e'],['#e0e7ff','#3730a3'],['#fae8ff','#86198f'],['#d1fae5','#065f46'],['#fecdd3','#9f1239'],['#c7d2fe','#312e81'],['#fed7aa','#7c2d12'],['#d9f99d','#3f6212'],['#bae6fd','#0c4a6e'],['#e2e8f0','#334155']];
   if(!name)return PAL[PAL.length-1];
@@ -1209,10 +1238,11 @@ function bCal(){
     const esc=v=>String(v||'').replace(/"/g,'&quot;');
     const siteRows=sitesIdx.length?sitesIdx.map(({s,i})=>`<div style="border:1px solid var(--bd3);border-radius:8px;padding:8px;margin-bottom:6px;background:var(--bg1);">
         <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;">
-          <button class="btn" onclick="CalSiteShift(${i})" style="font-size:11px;padding:1px 8px;">${s.shift}</button>
+          <button class="btn" onclick="CalSiteShift(${i},'${dk}')" title="この日だけ昼⇔夜を切り替えます（他の日は変わりません）" style="font-size:11px;padding:1px 8px;">${s.shift} ⇄</button>
           <input value="${esc(s.place)}" placeholder="現場名" onchange="CalSiteField(${i},'place',this.value)" style="flex:1;min-width:120px;font-size:12px;border:1px solid var(--bd3);border-radius:4px;padding:3px 6px;">
           <span class="bcnt">計${(s.assigns?.[dk]||[]).length}名</span>
           <button class="btn" onclick="EditSite('${s.id}','${dk}',${i})" style="font-size:10px;padding:1px 8px;">✎ 詳しく編集</button>
+          <button class="btn" onclick="SplitDayShift(${i},'${dk}','add')" title="同じ現場でこの日に${s.shift==='夜'?'昼':'夜'}の作業も追加します" style="font-size:10px;padding:1px 8px;">＋${s.shift==='夜'?'昼':'夜'}も作業</button>
         </div>
         <div style="display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin-top:5px;">
           <input value="${esc(s.prime)}" placeholder="元請" onchange="CalSiteField(${i},'prime',this.value)" style="flex:1;min-width:90px;font-size:11px;border:1px solid var(--bd3);border-radius:4px;padding:2px 6px;">

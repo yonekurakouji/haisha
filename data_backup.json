@@ -3,35 +3,16 @@
     {
       "id": "3",
       "days": [
-        "2026-10-09",
         "2026-10-13",
         "2026-10-14",
         "2026-10-16"
       ],
       "assigns": {
-        "2026-10-09": [
-          {
-            "name": "阿部",
-            "role": "",
-            "vehicle": "3tダンプ",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "中川",
-            "role": "",
-            "vehicle": "3tダンプ",
-            "isDriver": true,
-            "memo": "",
-            "absent": ""
-          }
-        ],
         "2026-10-13": [
           {
             "name": "阿部",
             "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "Wキャブ",
+            "vehicle": "2tダンプ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -42,23 +23,23 @@
             "role": "ﾚｰｷﾏﾝ",
             "vehicle": "R8",
             "isDriver": true,
-            "memo": "",
+            "memo": "0.1BH・4tCR入",
             "absent": "",
             "isLeader": true
           },
           {
             "name": "小松﨑",
             "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "大型",
+            "vehicle": "バルーン車",
             "isDriver": true,
-            "memo": "AF60",
+            "memo": "",
             "absent": "",
             "isLeader": false
           },
           {
             "name": "近藤",
             "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "レンジャー",
+            "vehicle": "R1",
             "isDriver": true,
             "memo": "AF30",
             "absent": "",
@@ -67,7 +48,7 @@
           {
             "name": "中川",
             "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "2tダンプ",
+            "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -98,18 +79,26 @@
             "isDriver": false,
             "memo": "",
             "absent": ""
+          },
+          {
+            "name": "大塚",
+            "role": "AFOP",
+            "vehicle": "規制車",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "米倉",
+            "role": "AFOP",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
       "dayData": {
-        "2026-10-09": {
-          "gatherTime": "8:00",
-          "works": [
-            "雑工"
-          ],
-          "dayNote": "準備工・仙台名盤→西尾→現場",
-          "shift": "昼"
-        },
         "2026-10-13": {
           "works": [
             "切削",
@@ -164,7 +153,8 @@
             "台車",
             "ハンドスイーパー",
             "寒水粉"
-          ]
+          ],
+          "dayNote": "460.9tTR.R2.0.5TS横田入"
         },
         "2026-10-16": {
           "shift": "昼"
@@ -182,6 +172,58 @@
       "machines": [],
       "gatherTime": "",
       "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "smv0qfafk3cuq",
+      "days": [
+        "2026-10-09"
+      ],
+      "assigns": {
+        "2026-10-09": [
+          {
+            "name": "阿部",
+            "role": "",
+            "vehicle": "3tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-10-09": {
+          "gatherTime": "8:00",
+          "works": [
+            "雑工"
+          ],
+          "dayNote": "準備工・仙台名盤→西尾→現場",
+          "shift": "昼"
+        }
+      },
+      "shift": "昼",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "place": "稲敷",
+      "prime": "常盤茨",
+      "contact": "沖田",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "",
       "note": "",
       "okiba": "",
       "kaisou": "",
@@ -1004,15 +1046,6 @@
             "isLeader": false
           },
           {
-            "name": "大竹",
-            "role": "作業員",
-            "vehicle": "Wキャブ",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
             "name": "菅沼",
             "role": "作業員",
             "vehicle": "Wキャブ",
@@ -1111,6 +1144,107 @@
             "absent": "",
             "isLeader": false
           }
+        ],
+        "2026-10-13": [
+          {
+            "name": "阿部",
+            "role": "AFOP",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "駒田",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "R8",
+            "isDriver": true,
+            "memo": "0.1BH・4tCR引上げ",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "小松﨑",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "近藤",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "大竹",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "菅沼",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "佐藤",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アリヤ",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アマダ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "ハオ",
+            "role": "AFOP",
+            "vehicle": "3tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
         ]
       },
       "dayData": {
@@ -1136,6 +1270,50 @@
             "路盤工"
           ],
           "dayNote": "9tTRは夜に持っていくので置きで。2.5CRは夜終わったら引上げ"
+        },
+        "2026-10-13": {
+          "works": [
+            "舗装工"
+          ],
+          "gatherTime": "7:00",
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 2,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ﾗﾝﾏ",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "９tタイヤ",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "コンバインド4.0",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "AF60",
+              "qty": 1,
+              "carrier": ""
+            }
+          ],
+          "dayNote": "渋川460出・9tTR出"
         }
       },
       "shift": "昼",
@@ -15564,6 +15742,10 @@
     {
       "name": "2tダンプ",
       "allowance": 0
+    },
+    {
+      "name": "バルーン車",
+      "allowance": 0
     }
   ],
   "contacts": [
@@ -15998,9 +16180,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-10-05",
-  "fiveBase": "2026-10-08",
+  "fiveBase": "2026-10-09",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/10/9 15:06:56",
-  "_savedAt": "2026/10/9 15:06:56"
+  "lastSaved": "2026/10/9 17:59:19",
+  "_savedAt": "2026/10/9 17:59:19"
 }

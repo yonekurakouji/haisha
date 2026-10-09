@@ -1086,16 +1086,16 @@
             "role": "重機OP",
             "vehicle": "P5",
             "isDriver": true,
-            "memo": "グレーダー引上げ",
+            "memo": "460入・グレーダー出",
             "absent": "",
             "isLeader": true
           },
           {
             "name": "小松﨑",
             "role": "作業員",
-            "vehicle": "S8",
+            "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "460搬入・0.4BH引上げ",
+            "memo": "",
             "absent": "",
             "isLeader": false
           },
@@ -1269,7 +1269,7 @@
           "works": [
             "路盤工"
           ],
-          "dayNote": "9tTRは夜に持っていくので置きで。2.5CRは夜終わったら引上げ"
+          "dayNote": ""
         },
         "2026-10-13": {
           "works": [
@@ -16183,6 +16183,6 @@
   "fiveBase": "2026-10-09",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/10/9 17:59:19",
-  "_savedAt": "2026/10/9 17:59:19"
+  "lastSaved": "2026/10/9 18:02:22",
+  "_savedAt": "2026/10/9 18:02:22"
 }

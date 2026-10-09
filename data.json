@@ -4,8 +4,7 @@
       "id": "3",
       "days": [
         "2026-10-13",
-        "2026-10-14",
-        "2026-10-16"
+        "2026-10-14"
       ],
       "assigns": {
         "2026-10-13": [
@@ -138,9 +137,6 @@
             "ハンドスイーパー",
             "寒水粉"
           ]
-        },
-        "2026-10-16": {
-          "shift": "昼"
         }
       },
       "shift": "夜",
@@ -155,6 +151,36 @@
       "machines": [],
       "gatherTime": "",
       "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "smv0igba880p0",
+      "days": [
+        "2026-10-16"
+      ],
+      "assigns": {
+        "2026-10-16": []
+      },
+      "dayData": {
+        "2026-10-16": {
+          "shift": "昼"
+        }
+      },
+      "shift": "昼",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "place": "稲敷",
+      "prime": "常盤茨",
+      "contact": "沖田",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "",
       "note": "",
       "okiba": "",
       "kaisou": "",
@@ -16023,9 +16049,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-10-05",
-  "fiveBase": "2026-10-08",
+  "fiveBase": "2026-10-13",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/10/9 14:13:54",
-  "_savedAt": "2026/10/9 14:13:54"
+  "lastSaved": "2026/10/9 14:14:21",
+  "_savedAt": "2026/10/9 14:14:21"
 }

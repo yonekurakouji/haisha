@@ -3,30 +3,11 @@
     {
       "id": "3",
       "days": [
-        "2026-10-09",
         "2026-10-13",
         "2026-10-14",
         "2026-10-16"
       ],
       "assigns": {
-        "2026-10-09": [
-          {
-            "name": "阿部",
-            "role": "",
-            "vehicle": "3tダンプ",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "中川",
-            "role": "",
-            "vehicle": "3tダンプ",
-            "isDriver": true,
-            "memo": "",
-            "absent": ""
-          }
-        ],
         "2026-10-13": [
           {
             "name": "阿部",
@@ -102,14 +83,6 @@
         ]
       },
       "dayData": {
-        "2026-10-09": {
-          "gatherTime": "8:00",
-          "works": [
-            "雑工"
-          ],
-          "dayNote": "準備工・仙台名盤→西尾→現場",
-          "shift": "昼"
-        },
         "2026-10-13": {
           "works": [
             "切削",
@@ -182,6 +155,58 @@
       "machines": [],
       "gatherTime": "",
       "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "smv0if28rhaov",
+      "days": [
+        "2026-10-09"
+      ],
+      "assigns": {
+        "2026-10-09": [
+          {
+            "name": "阿部",
+            "role": "",
+            "vehicle": "3tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-10-09": {
+          "gatherTime": "8:00",
+          "works": [
+            "雑工"
+          ],
+          "dayNote": "準備工・仙台名盤→西尾→現場",
+          "shift": "昼"
+        }
+      },
+      "shift": "昼",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "place": "稲敷",
+      "prime": "常盤茨",
+      "contact": "沖田",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "",
       "note": "",
       "okiba": "",
       "kaisou": "",
@@ -16001,6 +16026,6 @@
   "fiveBase": "2026-10-08",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/10/9 12:10:02",
-  "_savedAt": "2026/10/9 12:10:02"
+  "lastSaved": "2026/10/9 14:13:54",
+  "_savedAt": "2026/10/9 14:13:54"
 }

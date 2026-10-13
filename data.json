@@ -13,32 +13,32 @@
             "role": "ﾚｰｷﾏﾝ",
             "vehicle": "R8",
             "isDriver": true,
-            "memo": "",
+            "memo": "0.1BH・2.5CR",
             "absent": "",
             "isLeader": true
           },
           {
             "name": "小松﨑",
-            "role": "AFOP",
-            "vehicle": "R1",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "2tダンプ",
             "isDriver": true,
-            "memo": "",
+            "memo": "ドラム・スプレーヤー・砂",
             "absent": "",
             "isLeader": false
           },
           {
             "name": "近藤",
-            "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "3tダンプ",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
             "isDriver": true,
-            "memo": "",
+            "memo": "運搬あり",
             "absent": "",
             "isLeader": false
           },
           {
             "name": "大竹",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "3tダンプ",
+            "vehicle": "4tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -74,7 +74,7 @@
           {
             "name": "関",
             "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "ハイエース",
+            "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -82,7 +82,52 @@
           }
         ]
       },
-      "dayData": {},
+      "dayData": {
+        "2026-10-16": {
+          "works": [
+            "打替え舗装"
+          ],
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": "3tダンプ"
+            },
+            {
+              "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+              "qty": 1,
+              "carrier": "2tダンプ"
+            },
+            {
+              "name": "ﾗﾝﾏ",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "ｽﾌﾟﾚｲﾔｰ",
+              "qty": 1,
+              "carrier": ""
+            }
+          ],
+          "supplies": [
+            "根庫",
+            "清掃用具一式",
+            "台車",
+            "ハンドスイーパー",
+            "カラーコーン",
+            "寒水粉",
+            "砂",
+            "乳剤一式",
+            "シールコート一式"
+          ],
+          "gatherTime": "6:30"
+        }
+      },
       "shift": "昼",
       "place": "下河原崎",
       "prime": "常盤茨",
@@ -120,9 +165,9 @@
           {
             "name": "駒田",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "R8",
+            "vehicle": "Wキャブ",
             "isDriver": true,
-            "memo": "0.1BH・4tCR入",
+            "memo": "0.1BH・4tCR先入",
             "absent": "",
             "isLeader": true
           },
@@ -156,7 +201,7 @@
           {
             "name": "大竹",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "Wキャブ",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -182,7 +227,7 @@
           {
             "name": "大塚",
             "role": "AFOP",
-            "vehicle": "規制車",
+            "vehicle": "ハイエース",
             "isDriver": true,
             "memo": "",
             "absent": ""
@@ -190,7 +235,7 @@
           {
             "name": "米倉",
             "role": "AFOP",
-            "vehicle": "Wキャブ",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -198,7 +243,7 @@
           {
             "name": "佐藤",
             "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "3tダンプ",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -367,7 +412,7 @@
             "寒水粉",
             "防炎シート"
           ],
-          "dayNote": "460.9tTR.R2.0.5TS横田入・バルーン車.規制車1台は昼に関搬入"
+          "dayNote": "飛散防止ネット・460.9tTR.R2.0.5TS横田入・トラコン.規制車2台は昼に搬入"
         },
         "2026-10-14": {
           "gatherTime": "19:00",
@@ -551,7 +596,8 @@
     {
       "id": "2",
       "days": [
-        "2026-10-09"
+        "2026-10-09",
+        "2026-10-15"
       ],
       "assigns": {
         "2026-10-09": [
@@ -573,12 +619,52 @@
             "absent": "",
             "isLeader": false
           }
+        ],
+        "2026-10-15": [
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
         ]
       },
       "dayData": {
         "2026-10-09": {
           "gatherTime": "8:00",
           "dayNote": "砂買い・テプラ貼・草刈り・事務所掃除・工事部担当機整備"
+        },
+        "2026-10-15": {
+          "gatherTime": "8:00",
+          "works": [
+            "雑工"
+          ]
         }
       },
       "shift": "昼",
@@ -16546,9 +16632,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-10-05",
-  "fiveBase": "2026-10-09",
+  "fiveBase": "2026-10-13",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/10/9 18:35:17",
-  "_savedAt": "2026/10/9 18:35:17"
+  "lastSaved": "2026/10/13 16:53:15",
+  "_savedAt": "2026/10/13 16:53:15"
 }

@@ -11,9 +11,9 @@
           {
             "name": "駒田",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "R8",
+            "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "0.1BH・2.5CR",
+            "memo": "0.1BH・ブリッジ",
             "absent": "",
             "isLeader": true
           },
@@ -28,17 +28,17 @@
           },
           {
             "name": "近藤",
-            "role": "作業員",
-            "vehicle": "4tダンプ",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "Wキャブ",
             "isDriver": true,
-            "memo": "運搬あり",
+            "memo": "",
             "absent": "",
             "isLeader": false
           },
           {
             "name": "大竹",
-            "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "4tダンプ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -46,7 +46,7 @@
           },
           {
             "name": "菅沼",
-            "role": "ﾌﾟﾚｰﾄ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -63,22 +63,87 @@
             "isLeader": false
           },
           {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "運搬あり",
+            "absent": "",
+            "isLeader": false
+          }
+        ],
+        "2026-10-19": [
+          {
+            "name": "駒田",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "2tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "運搬あるかも？",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "運搬あるかも？",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "4tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "2tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
             "name": "アマダ",
             "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
-            "name": "関",
-            "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "Wキャブ",
-            "isDriver": true,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
+            "absent": ""
           }
         ]
       },
@@ -123,15 +188,76 @@
             "寒水粉",
             "砂",
             "乳剤一式",
-            "シールコート一式"
+            "シールコート一式",
+            "定規",
+            "糸張りくん",
+            "防炎シート"
           ],
-          "gatherTime": "6:30"
+          "gatherTime": "7:15",
+          "dayNote": "CRは茨城リース・回送車置けない・8:40集合・定規くず含め数本・乳剤は薄めてないもの"
+        },
+        "2026-10-19": {
+          "works": [
+            "切削",
+            "舗装工"
+          ],
+          "supplies": [
+            "根庫",
+            "清掃用具一式",
+            "養生一式",
+            "台車",
+            "定規",
+            "ハンドスイーパー",
+            "寒水粉",
+            "防炎シート",
+            "シールコート一式",
+            "乳剤一式"
+          ],
+          "gatherTime": "7:00",
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 2,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": "3tダンプ"
+            },
+            {
+              "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ｽﾌﾟﾚｲﾔｰ",
+              "qty": 1,
+              "carrier": "2tダンプ"
+            },
+            {
+              "name": "AF45",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ショベル0.5",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "電動ハンマー",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            }
+          ],
+          "dayNote": "一応発電機"
         }
       },
       "shift": "昼",
       "place": "下河原崎",
       "prime": "常盤茨",
-      "contact": "沖田",
+      "contact": "斉藤所長",
       "contactManual": "",
       "contactTel": "",
       "ourContact": "阿部",
@@ -496,7 +622,7 @@
       "assigns": {
         "2026-10-16": [
           {
-            "name": "中川",
+            "name": "関",
             "role": "作業員",
             "vehicle": "2tダンプ",
             "isDriver": true,
@@ -512,6 +638,14 @@
             "memo": "",
             "absent": "",
             "isLeader": false
+          },
+          {
+            "name": "アマダ",
+            "role": "作業員",
+            "vehicle": "2tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
@@ -520,7 +654,22 @@
           "shift": "昼",
           "works": [
             "雑工"
-          ]
+          ],
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 1,
+              "carrier": "2tダンプ"
+            }
+          ],
+          "supplies": [
+            "清掃用具一式",
+            "台車",
+            "シールコート一式",
+            "コア埋め一式"
+          ],
+          "gatherTime": "8:00",
+          "dayNote": "9:00置場集合・コア埋めあるのでスコップ.ほうき.タンパ等・シール乳剤は薄めてないもの。"
         }
       },
       "shift": "昼",
@@ -16633,9 +16782,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-10-05",
-  "fiveBase": "2026-10-14",
+  "fiveBase": "2026-10-15",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/10/14 15:24:11",
-  "_savedAt": "2026/10/14 15:24:11"
+  "lastSaved": "2026/10/15 15:51:15",
+  "_savedAt": "2026/10/15 15:51:15"
 }

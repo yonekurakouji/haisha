@@ -1,6 +1,231 @@
 {
   "sites": [
     {
+      "id": "3",
+      "days": [
+        "2026-10-19",
+        "2026-10-20",
+        "2026-10-21",
+        "2026-10-22"
+      ],
+      "assigns": {
+        "2026-10-19": [
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "アリヤ",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ],
+        "2026-10-20": [
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "アマダ",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ]
+      },
+      "dayData": {
+        "2026-10-19": {
+          "gatherTime": "18:15",
+          "dayNote": "スコップ、レーキ"
+        },
+        "2026-10-20": {
+          "gatherTime": "18:15"
+        }
+      },
+      "shift": "夜",
+      "place": "隅田",
+      "prime": "コスモ2③",
+      "contact": "__manual__",
+      "contactManual": "コスモ田村",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "2",
+      "days": [
+        "2026-10-19",
+        "2026-10-20",
+        "2026-10-21",
+        "2026-10-22"
+      ],
+      "assigns": {
+        "2026-10-19": [
+          {
+            "name": "近藤",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "菅沼",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ],
+        "2026-10-20": [
+          {
+            "name": "近藤",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ]
+      },
+      "dayData": {
+        "2026-10-19": {
+          "gatherTime": "18:15",
+          "dayNote": "スコップ"
+        },
+        "2026-10-20": {
+          "gatherTime": "18:15"
+        }
+      },
+      "shift": "夜",
+      "place": "大宮",
+      "prime": "コスモ2②",
+      "contact": "__manual__",
+      "contactManual": "コスモ佐藤",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "1",
+      "days": [
+        "2026-10-19",
+        "2026-10-20",
+        "2026-10-21",
+        "2026-10-22"
+      ],
+      "assigns": {
+        "2026-10-19": [
+          {
+            "name": "小松﨑",
+            "role": "作業員",
+            "vehicle": "2tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "2tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ],
+        "2026-10-20": [
+          {
+            "name": "小松﨑",
+            "role": "作業員",
+            "vehicle": "2tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "佐藤",
+            "role": "作業員",
+            "vehicle": "2tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ]
+      },
+      "dayData": {
+        "2026-10-19": {
+          "gatherTime": "18:15",
+          "dayNote": "スコップ、レーキ"
+        }
+      },
+      "shift": "夜",
+      "place": "板橋",
+      "prime": "コスモ2①",
+      "contact": "__manual__",
+      "contactManual": "コスモ川",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
       "id": "1",
       "days": [
         "2026-10-16",
@@ -78,7 +303,7 @@
             "role": "ﾚｰｷﾏﾝ",
             "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "",
+            "memo": "0.1BH",
             "absent": ""
           },
           {
@@ -86,7 +311,7 @@
             "role": "ﾛｰﾗｰﾏﾝ",
             "vehicle": "2tダンプ",
             "isDriver": true,
-            "memo": "",
+            "memo": "ドラム、スプレーヤー",
             "absent": ""
           },
           {
@@ -116,14 +341,6 @@
           {
             "name": "菅沼",
             "role": "ﾌﾟﾚｰﾄ",
-            "vehicle": "2tダンプ",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "佐藤",
-            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -251,7 +468,7 @@
               "carrier": "Wキャブ"
             }
           ],
-          "dayNote": "一応発電機"
+          "dayNote": "一応発電機、定規数本とくず"
         }
       },
       "shift": "昼",
@@ -16782,9 +16999,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-10-05",
-  "fiveBase": "2026-10-15",
+  "fiveBase": "2026-10-16",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/10/15 15:51:15",
-  "_savedAt": "2026/10/15 15:51:15"
+  "lastSaved": "2026/10/16 15:36:14",
+  "_savedAt": "2026/10/16 15:36:14"
 }

@@ -1,113 +1,56 @@
 {
   "sites": [
     {
-      "id": "1",
+      "id": "2",
       "days": [
-        "2026-10-28",
         "2026-10-29"
       ],
       "assigns": {
-        "2026-10-28": [
-          {
-            "name": "駒田",
-            "role": "重機OP",
-            "vehicle": "4tダンプ",
-            "isDriver": true,
-            "memo": "西尾",
-            "absent": "",
-            "isLeader": true
-          },
-          {
-            "name": "小松﨑",
-            "role": "重機OP",
-            "vehicle": "大型",
-            "isDriver": true,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
-            "name": "近藤",
-            "role": "運搬員",
-            "vehicle": "大型",
-            "isDriver": true,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
-            "name": "中川",
-            "role": "運搬員",
-            "vehicle": "4tダンプ",
-            "isDriver": true,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
-            "name": "佐藤",
-            "role": "作業員",
-            "vehicle": "大型",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
-            "name": "アマダ",
-            "role": "作業員",
-            "vehicle": "大型",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          }
-        ],
         "2026-10-29": [
           {
             "name": "駒田",
-            "role": "重機OP",
-            "vehicle": "Wキャブ",
-            "isDriver": true,
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
             "memo": "",
             "absent": ""
           },
           {
             "name": "小松﨑",
-            "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "大型",
-            "isDriver": true,
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
             "memo": "",
             "absent": ""
           },
           {
             "name": "近藤",
-            "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "大型",
-            "isDriver": true,
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
             "memo": "",
             "absent": ""
           },
           {
             "name": "中川",
-            "role": "作業員",
-            "vehicle": "4tダンプ",
-            "isDriver": true,
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
             "memo": "",
             "absent": ""
           },
           {
             "name": "大竹",
-            "role": "作業員",
-            "vehicle": "Wキャブ",
+            "role": "",
+            "vehicle": "",
             "isDriver": false,
             "memo": "",
             "absent": ""
           },
           {
-            "name": "菅沼",
-            "role": "作業員",
-            "vehicle": "Wキャブ",
+            "name": "佐藤",
+            "role": "",
+            "vehicle": "",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -115,24 +58,7 @@
         ]
       },
       "dayData": {
-        "2026-10-28": {
-          "works": [
-            "掘削"
-          ],
-          "machines": [
-            {
-              "name": "ユンボ0.2",
-              "qty": 2,
-              "carrier": ""
-            }
-          ],
-          "dayNote": "9:00現場集合・西尾水戸から0.25BH×2台+4tD",
-          "gatherTime": "7:00"
-        },
         "2026-10-29": {
-          "works": [
-            "路盤工"
-          ],
           "machines": [
             {
               "name": "ﾌﾟﾚｰﾄ",
@@ -140,23 +66,27 @@
               "carrier": ""
             },
             {
+              "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ﾗﾝﾏ",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
               "name": "９tタイヤ",
               "qty": 1,
-              "carrier": "大型"
+              "carrier": ""
             },
             {
               "name": "グレーダー3.1",
               "qty": 1,
-              "carrier": "大型"
-            },
-            {
-              "name": "コンバインド4.0",
-              "qty": 1,
-              "carrier": "4tダンプ"
+              "carrier": ""
             }
           ],
-          "gatherTime": "7:00",
-          "dayNote": "9:00現場集合・西尾水戸から3.1GD・9TR・4tCR"
+          "dayNote": "3.1・9ｔＴＲは西尾水戸より入出"
         }
       },
       "shift": "昼",
@@ -167,7 +97,9 @@
       "contactTel": "",
       "ourContact": "阿部",
       "leader": "",
-      "works": [],
+      "works": [
+        "路盤工"
+      ],
       "machines": [],
       "gatherTime": "",
       "gatherType": "集合",
@@ -177,32 +109,10 @@
       "enShoo": false
     },
     {
-      "id": "2",
-      "days": [],
-      "assigns": {},
-      "dayData": {},
-      "shift": "昼",
-      "place": "",
-      "prime": "",
-      "contact": "",
-      "contactManual": "",
-      "contactTel": "",
-      "ourContact": "",
-      "leader": "",
-      "works": [],
-      "machines": [],
-      "gatherTime": "",
-      "gatherType": "集合",
-      "note": "",
-      "okiba": "",
-      "kaisou": "",
-      "enShoo": false
-    },
-    {
       "id": "1",
       "days": [
         "2026-10-22",
-        "2026-11-02"
+        "2026-11-04"
       ],
       "assigns": {
         "2026-10-22": [
@@ -233,7 +143,8 @@
             "absent": "",
             "isLeader": false
           }
-        ]
+        ],
+        "2026-11-04": []
       },
       "dayData": {
         "2026-10-22": {
@@ -264,10 +175,11 @@
     {
       "id": "smvhq71nl8jbc",
       "days": [
-        "2026-10-30"
+        "2026-11-02"
       ],
       "assigns": {
-        "2026-10-30": []
+        "2026-10-30": [],
+        "2026-11-02": []
       },
       "dayData": {},
       "shift": "夜",
@@ -290,7 +202,7 @@
     {
       "id": "smvhq6q3lkrns",
       "days": [
-        "2026-10-29"
+        "2026-10-30"
       ],
       "assigns": {
         "2026-10-29": [
@@ -366,6 +278,80 @@
             "memo": "",
             "absent": ""
           }
+        ],
+        "2026-10-30": [
+          {
+            "name": "阿部",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
         ]
       },
       "dayData": {},
@@ -389,7 +375,7 @@
     {
       "id": "smvhq6msfly0z",
       "days": [
-        "2026-10-28"
+        "2026-10-29"
       ],
       "assigns": {
         "2026-10-28": [
@@ -465,10 +451,86 @@
             "absent": "",
             "isLeader": false
           }
+        ],
+        "2026-10-29": [
+          {
+            "name": "阿部",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "2tダンプ",
+            "isDriver": true,
+            "memo": "タイヤ",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "駒田",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "中川",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "菅沼",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アグン",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "渋川",
+            "role": "作業員",
+            "vehicle": "バルーン車",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "外注",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "タンデム",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "樋口",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
         ]
       },
       "dayData": {
         "2026-10-28": {
+          "dayNote": "幸和応援２名"
+        },
+        "2026-10-29": {
           "dayNote": "幸和応援２名"
         }
       },
@@ -492,7 +554,7 @@
     {
       "id": "smvhq6ghbfick",
       "days": [
-        "2026-10-27"
+        "2026-10-28"
       ],
       "assigns": {
         "2026-10-27": [
@@ -552,12 +614,108 @@
             "memo": "",
             "absent": ""
           }
+        ],
+        "2026-10-28": [
+          {
+            "name": "駒田",
+            "role": "重機OP",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "阿部",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "2tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "渋川",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "バルーン車",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "樋口",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
         ]
       },
       "dayData": {
         "2026-10-27": {
           "works": [
             "掘削",
+            "レベリング"
+          ],
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "９tタイヤ",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ショベル0.5",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "タンデム",
+              "qty": 1,
+              "carrier": ""
+            }
+          ],
+          "supplies": [
+            "根庫",
+            "台車",
+            "ハンドスイーパー"
+          ]
+        },
+        "2026-10-28": {
+          "works": [
+            "切削",
             "レベリング"
           ],
           "machines": [
@@ -614,10 +772,75 @@
     {
       "id": "smvhq6bz27va3",
       "days": [
-        "2026-10-26"
+        "2026-10-27"
       ],
       "assigns": {
         "2026-10-26": [
+          {
+            "name": "駒田",
+            "role": "重機OP",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "規制車準備",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "渋川",
+            "role": "重機OP",
+            "vehicle": "バルーン車",
+            "isDriver": true,
+            "memo": "規制前バルーン準備・規制車準備",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "阿部",
+            "role": "作業員",
+            "vehicle": "2tダンプ",
+            "isDriver": true,
+            "memo": "カラーコーン等.保安器配置",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "道具準備",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "カラーコーン等.保安器配置",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アグン",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "道具準備",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "菅沼",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "カラーコーン等.保安器配置",
+            "absent": "",
+            "isLeader": false
+          }
+        ],
+        "2026-10-27": [
           {
             "name": "駒田",
             "role": "重機OP",
@@ -715,6 +938,39 @@
             "台車",
             "砂"
           ]
+        },
+        "2026-10-27": {
+          "works": [
+            "切削"
+          ],
+          "machines": [
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ショベル0.5",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "発電機",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "電動ハンマー",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            }
+          ],
+          "supplies": [
+            "根庫",
+            "台車",
+            "砂"
+          ],
+          "gatherTime": "19:15"
         }
       },
       "shift": "夜",
@@ -1040,7 +1296,7 @@
       },
       "shift": "昼",
       "place": "つくばみどりの",
-      "prime": "荒井建設",
+      "prime": "新井建設",
       "contact": "",
       "contactManual": "",
       "contactTel": "",
@@ -1218,9 +1474,9 @@
         "2026-10-20",
         "2026-10-21",
         "2026-10-22",
-        "2026-10-26",
         "2026-10-27",
-        "2026-10-28"
+        "2026-10-28",
+        "2026-10-29"
       ],
       "assigns": {
         "2026-10-19": [
@@ -1362,6 +1618,26 @@
             "absent": "",
             "isLeader": true
           }
+        ],
+        "2026-10-29": [
+          {
+            "name": "アリヤ",
+            "role": "作業員",
+            "vehicle": "社用車",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "関",
+            "role": "作業員",
+            "vehicle": "社用車",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          }
         ]
       },
       "dayData": {
@@ -1381,9 +1657,15 @@
         "2026-10-27": {
           "works": [
             "舗装工"
-          ]
+          ],
+          "gatherTime": "17:30"
         },
         "2026-10-28": {
+          "works": [
+            "舗装工"
+          ]
+        },
+        "2026-10-29": {
           "works": [
             "舗装工"
           ]
@@ -1412,9 +1694,9 @@
         "2026-10-19",
         "2026-10-20",
         "2026-10-22",
-        "2026-10-26",
         "2026-10-27",
-        "2026-10-28"
+        "2026-10-28",
+        "2026-10-29"
       ],
       "assigns": {
         "2026-10-19": [
@@ -1556,6 +1838,26 @@
             "absent": "",
             "isLeader": false
           }
+        ],
+        "2026-10-29": [
+          {
+            "name": "近藤",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "アマダ",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
         ]
       },
       "dayData": {
@@ -1572,9 +1874,15 @@
         "2026-10-27": {
           "works": [
             "舗装工"
-          ]
+          ],
+          "gatherTime": "18:00"
         },
         "2026-10-28": {
+          "works": [
+            "舗装工"
+          ]
+        },
+        "2026-10-29": {
           "works": [
             "舗装工"
           ]
@@ -1604,9 +1912,9 @@
         "2026-10-20",
         "2026-10-21",
         "2026-10-22",
-        "2026-10-26",
         "2026-10-27",
-        "2026-10-28"
+        "2026-10-28",
+        "2026-10-29"
       ],
       "assigns": {
         "2026-10-19": [
@@ -1748,6 +2056,26 @@
             "absent": "",
             "isLeader": false
           }
+        ],
+        "2026-10-29": [
+          {
+            "name": "小松﨑",
+            "role": "作業員",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "西尾",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "佐藤",
+            "role": "作業員",
+            "vehicle": "3tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
         ]
       },
       "dayData": {
@@ -1782,6 +2110,12 @@
           ]
         },
         "2026-10-27": {
+          "works": [
+            "舗装工"
+          ],
+          "gatherTime": "18:00"
+        },
+        "2026-10-29": {
           "works": [
             "舗装工"
           ]
@@ -3315,7 +3649,8 @@
         "2026-10-08",
         "2026-10-09",
         "2026-10-13",
-        "2026-10-15"
+        "2026-10-15",
+        "2026-10-27"
       ],
       "assigns": {
         "2026-10-01": [
@@ -3668,6 +4003,62 @@
             "memo": "0.1BH.2.5CR",
             "absent": ""
           }
+        ],
+        "2026-10-27": [
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "3ｔダンプユナ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "小松﨑",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "近藤",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "菅沼",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "佐藤",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
         ]
       },
       "dayData": {
@@ -3749,6 +4140,34 @@
             "シールコート一式"
           ],
           "dayNote": "鉄板吊り、砕石、鉄板、あとは関の指示通り"
+        },
+        "2026-10-27": {
+          "works": [
+            "構造物設置",
+            "雑工"
+          ],
+          "gatherTime": "8:00",
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ﾗﾝﾏ",
+              "qty": 1,
+              "carrier": ""
+            }
+          ],
+          "supplies": [
+            "根庫",
+            "シールコート一式"
+          ]
         }
       },
       "shift": "昼",
@@ -17990,16 +18409,55 @@
     },
     "2026-10-09": {
       "島田聖子": "work"
+    },
+    "2026-10-13": {
+      "島田聖子": "work"
+    },
+    "2026-10-14": {
+      "島田聖子": "work"
+    },
+    "2026-10-15": {
+      "島田聖子": "work"
+    },
+    "2026-10-16": {
+      "島田聖子": "work"
+    },
+    "2026-10-19": {
+      "島田聖子": "work"
+    },
+    "2026-10-20": {
+      "島田聖子": "work"
+    },
+    "2026-10-21": {
+      "島田聖子": "work"
+    },
+    "2026-10-22": {
+      "島田聖子": "work"
+    },
+    "2026-10-23": {
+      "島田聖子": "work"
+    },
+    "2026-10-26": {
+      "島田聖子": "work"
+    },
+    "2026-10-27": {
+      "島田聖子": "work"
+    },
+    "2026-10-28": {
+      "島田聖子": "work"
+    },
+    "2026-10-29": {
+      "島田聖子": "work"
     }
   },
   "orgName": "工事部",
   "calNotes": {},
   "actuals": {},
   "excl": [],
-  "weekBase": "2026-10-05",
-  "fiveBase": "2026-10-22",
+  "weekBase": "2026-10-26",
+  "fiveBase": "2026-10-26",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/10/26 14:57:20",
-  "_savedAt": "2026/10/26 14:57:20"
+  "lastSaved": "2026/10/26 15:54:19",
+  "_savedAt": "2026/10/26 15:54:19"
 }

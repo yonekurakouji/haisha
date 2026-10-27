@@ -9,75 +9,84 @@
         "2026-10-30": [
           {
             "name": "阿部",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "AFOP",
+            "vehicle": "R1",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "駒田",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "R8",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": true
           },
           {
             "name": "小松﨑",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "R2",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "近藤",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "中川",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "運搬員",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "大竹",
-            "role": "",
-            "vehicle": "",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
-            "name": "佐藤",
-            "role": "",
-            "vehicle": "",
+            "name": "アリヤ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "アマダ",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "アグン",
-            "role": "",
-            "vehicle": "",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "関",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "写真",
+            "absent": "",
+            "isLeader": false
           }
         ]
       },
@@ -115,12 +124,12 @@
             {
               "name": "AF45",
               "qty": 1,
-              "carrier": ""
+              "carrier": "R1"
             },
             {
               "name": "AF30",
               "qty": 1,
-              "carrier": ""
+              "carrier": "R2"
             }
           ],
           "gatherTime": "7:30"
@@ -428,67 +437,75 @@
         "2026-10-30": [
           {
             "name": "阿部",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "2tダンプ",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "駒田",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "3ｔダンプユナ",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": true
           },
           {
             "name": "小松﨑",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "バルーン車",
+            "isDriver": true,
+            "memo": "タイヤ",
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "近藤",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "タイヤ見習い",
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "中川",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "アグン",
-            "role": "",
-            "vehicle": "",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "アリヤ",
-            "role": "",
-            "vehicle": "",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "菅沼",
-            "role": "",
-            "vehicle": "",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "外注",
@@ -496,7 +513,8 @@
             "vehicle": "",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           }
         ]
       },
@@ -803,15 +821,6 @@
             "isLeader": false
           },
           {
-            "name": "菅沼",
-            "role": "ﾌﾟﾚｰﾄ",
-            "vehicle": "2tダンプ",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
             "name": "アグン",
             "role": "ﾌﾟﾚｰﾄ",
             "vehicle": "バルーン車",
@@ -1049,10 +1058,10 @@
             "isLeader": false
           },
           {
-            "name": "菅沼",
+            "name": "渋川",
             "role": "作業員",
-            "vehicle": "Wキャブ",
-            "isDriver": false,
+            "vehicle": "各自(自分の車)",
+            "isDriver": true,
             "memo": "カラーコーン等.保安器配置・規制前バルーン準備",
             "absent": "",
             "isLeader": false
@@ -18617,9 +18626,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-10-26",
-  "fiveBase": "2026-10-26",
+  "fiveBase": "2026-10-27",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/10/26 18:28:10",
-  "_savedAt": "2026/10/26 18:28:10"
+  "lastSaved": "2026/10/27 17:19:30",
+  "_savedAt": "2026/10/27 17:19:30"
 }

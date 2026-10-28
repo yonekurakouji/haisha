@@ -10,7 +10,7 @@
           {
             "name": "阿部",
             "role": "AFOP",
-            "vehicle": "R1",
+            "vehicle": "3tダンプ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -28,7 +28,7 @@
           {
             "name": "小松﨑",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "R2",
+            "vehicle": "R1",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -37,7 +37,7 @@
           {
             "name": "近藤",
             "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "3tダンプ",
+            "vehicle": "R2",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -53,7 +53,7 @@
             "isLeader": false
           },
           {
-            "name": "大竹",
+            "name": "佐藤",
             "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": false,
@@ -196,7 +196,7 @@
             "isLeader": false
           },
           {
-            "name": "大竹",
+            "name": "アマダ",
             "role": "作業員",
             "vehicle": "P5",
             "isDriver": false,
@@ -499,7 +499,7 @@
             "isLeader": false
           },
           {
-            "name": "菅沼",
+            "name": "アマダ",
             "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": false,
@@ -520,7 +520,8 @@
       },
       "dayData": {
         "2026-10-30": {
-          "dayNote": "幸和応援１名"
+          "dayNote": "幸和応援１名",
+          "gatherTime": "19:15"
         }
       },
       "shift": "夜",
@@ -623,10 +624,10 @@
         "2026-10-29": [
           {
             "name": "阿部",
-            "role": "ﾛｰﾗｰﾏﾝ",
+            "role": "ﾚｰｷﾏﾝ",
             "vehicle": "2tダンプ",
             "isDriver": true,
-            "memo": "タイヤ",
+            "memo": "",
             "absent": "",
             "isLeader": false
           },
@@ -642,17 +643,8 @@
           {
             "name": "中川",
             "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "4tダンプ",
+            "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
-            "name": "菅沼",
-            "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "Wキャブ",
-            "isDriver": false,
             "memo": "",
             "absent": "",
             "isLeader": false
@@ -668,8 +660,8 @@
           },
           {
             "name": "渋川",
-            "role": "作業員",
-            "vehicle": "バルーン車",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "各自(自分の車)",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -680,16 +672,16 @@
             "role": "ﾛｰﾗｰﾏﾝ",
             "vehicle": "",
             "isDriver": false,
-            "memo": "タンデム",
+            "memo": "タイヤ",
             "absent": "",
             "isLeader": false
           },
           {
             "name": "樋口",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "バルーン車",
+            "isDriver": true,
+            "memo": "タンデム",
             "absent": ""
           }
         ]
@@ -699,7 +691,8 @@
           "dayNote": "幸和応援２名"
         },
         "2026-10-29": {
-          "dayNote": "幸和応援1名"
+          "dayNote": "幸和応援1名",
+          "gatherTime": "19:15"
         }
       },
       "shift": "夜",
@@ -823,7 +816,7 @@
           {
             "name": "アグン",
             "role": "ﾌﾟﾚｰﾄ",
-            "vehicle": "バルーン車",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -893,7 +886,7 @@
             {
               "name": "ﾕﾝﾎﾞ0.1",
               "qty": 1,
-              "carrier": "R8"
+              "carrier": ""
             },
             {
               "name": "９tタイヤ",
@@ -902,11 +895,6 @@
             },
             {
               "name": "ショベル0.5",
-              "qty": 1,
-              "carrier": ""
-            },
-            {
-              "name": "タンデム",
               "qty": 1,
               "carrier": ""
             },
@@ -920,7 +908,8 @@
             "根庫",
             "台車",
             "ハンドスイーパー"
-          ]
+          ],
+          "gatherTime": "19:15"
         }
       },
       "shift": "夜",
@@ -1826,7 +1815,8 @@
         "2026-10-28": {
           "works": [
             "舗装工"
-          ]
+          ],
+          "gatherTime": "17:30"
         },
         "2026-10-29": {
           "works": [
@@ -2043,7 +2033,8 @@
         "2026-10-28": {
           "works": [
             "舗装工"
-          ]
+          ],
+          "gatherTime": "17:30"
         },
         "2026-10-29": {
           "works": [
@@ -2270,7 +2261,8 @@
         "2026-10-28": {
           "works": [
             "舗装工"
-          ]
+          ],
+          "gatherTime": "18:00"
         },
         "2026-10-27": {
           "works": [
@@ -18626,9 +18618,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-10-26",
-  "fiveBase": "2026-10-27",
+  "fiveBase": "2026-10-28",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/10/27 17:19:30",
-  "_savedAt": "2026/10/27 17:19:30"
+  "lastSaved": "2026/10/28 15:56:00",
+  "_savedAt": "2026/10/28 15:56:00"
 }

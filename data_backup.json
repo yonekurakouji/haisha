@@ -672,7 +672,7 @@
           {
             "name": "小松﨑",
             "role": "AFOP",
-            "vehicle": "バルーン車",
+            "vehicle": "レンジャー",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -739,12 +739,20 @@
             "isDriver": false,
             "memo": "",
             "absent": ""
+          },
+          {
+            "name": "樋口",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "バルーン車",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
       "dayData": {
         "2026-10-30": {
-          "dayNote": "幸和応援2名",
+          "dayNote": "幸和応援1名",
           "gatherTime": "19:15",
           "works": [
             "舗装工"
@@ -953,7 +961,7 @@
           "dayNote": "幸和応援２名"
         },
         "2026-10-29": {
-          "dayNote": "砂２袋・幸和応援2名",
+          "dayNote": "釘・砂２袋・幸和応援2名",
           "gatherTime": "19:15",
           "works": [
             "舗装工"
@@ -18928,6 +18936,6 @@
   "fiveBase": "2026-10-29",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/10/29 11:10:09",
-  "_savedAt": "2026/10/29 11:10:09"
+  "lastSaved": "2026/10/29 18:23:23",
+  "_savedAt": "2026/10/29 18:23:23"
 }

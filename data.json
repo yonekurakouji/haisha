@@ -3,6 +3,139 @@
     {
       "id": "1",
       "days": [
+        "2026-11-02"
+      ],
+      "assigns": {
+        "2026-11-02": [
+          {
+            "name": "阿部",
+            "role": "AFOP",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-11-02": {
+          "works": [
+            "路盤工",
+            "舗装工"
+          ],
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ｻｲﾄﾞﾛｰﾗｰ",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "AF45",
+              "qty": 1,
+              "carrier": ""
+            }
+          ]
+        }
+      },
+      "shift": "昼",
+      "place": "竜ケ崎長山",
+      "prime": "桂建設",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "関",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "1",
+      "days": [
         "2026-10-30"
       ],
       "assigns": {
@@ -12,7 +145,7 @@
             "role": "AFOP",
             "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "",
+            "memo": "乳剤",
             "absent": "",
             "isLeader": false
           },
@@ -48,7 +181,7 @@
             "role": "運搬員",
             "vehicle": "4tダンプ",
             "isDriver": true,
-            "memo": "",
+            "memo": "朝一砕石",
             "absent": "",
             "isLeader": false
           },
@@ -132,7 +265,22 @@
               "carrier": "R2"
             }
           ],
-          "gatherTime": "7:30"
+          "gatherTime": "7:30",
+          "supplies": [
+            "根庫",
+            "清掃用具一式",
+            "養生一式",
+            "台車",
+            "ハンドスイーパー",
+            "糸張りくん",
+            "カラーコーン",
+            "防炎シート",
+            "乳剤一式",
+            "シールコート一式",
+            "看板",
+            "砕石"
+          ],
+          "dayNote": "8t車２台"
         }
       },
       "shift": "昼",
@@ -334,9 +482,77 @@
       ],
       "assigns": {
         "2026-10-30": [],
-        "2026-11-02": []
+        "2026-11-02": [
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ]
       },
-      "dayData": {},
+      "dayData": {
+        "2026-11-02": {
+          "gatherTime": "19:15",
+          "works": [
+            "シールコート",
+            "舗装工",
+            "雑工"
+          ],
+          "dayNote": "取付・シールコート・コア埋め",
+          "supplies": [
+            "根庫",
+            "清掃用具一式",
+            "養生一式",
+            "台車",
+            "乳剤一式",
+            "シールコート一式",
+            "コア埋め一式"
+          ]
+        }
+      },
       "shift": "夜",
       "works": [],
       "machines": [],
@@ -455,10 +671,10 @@
           },
           {
             "name": "小松﨑",
-            "role": "ﾛｰﾗｰﾏﾝ",
+            "role": "AFOP",
             "vehicle": "バルーン車",
             "isDriver": true,
-            "memo": "タイヤ",
+            "memo": "",
             "absent": "",
             "isLeader": false
           },
@@ -467,7 +683,7 @@
             "role": "作業員",
             "vehicle": "Wキャブ",
             "isDriver": true,
-            "memo": "タイヤ見習い",
+            "memo": "タイヤ",
             "absent": "",
             "isLeader": false
           },
@@ -476,7 +692,7 @@
             "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "",
+            "memo": "定規50本",
             "absent": "",
             "isLeader": false
           },
@@ -515,13 +731,51 @@
             "memo": "",
             "absent": "",
             "isLeader": false
+          },
+          {
+            "name": "米倉",
+            "role": "AFOP",
+            "vehicle": "大型",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
       "dayData": {
         "2026-10-30": {
-          "dayNote": "幸和応援１名",
-          "gatherTime": "19:15"
+          "dayNote": "幸和応援2名",
+          "gatherTime": "19:15",
+          "works": [
+            "舗装工"
+          ],
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 2,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "AF60",
+              "qty": 1,
+              "carrier": "大型"
+            },
+            {
+              "name": "９tタイヤ",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "タンデム",
+              "qty": 1,
+              "carrier": ""
+            }
+          ]
         }
       },
       "shift": "夜",
@@ -645,7 +899,7 @@
             "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "",
+            "memo": "3㎝定規65本",
             "absent": "",
             "isLeader": false
           },
@@ -661,7 +915,7 @@
           {
             "name": "渋川",
             "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "各自(自分の車)",
+            "vehicle": "散水車",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -683,6 +937,14 @@
             "isDriver": true,
             "memo": "タンデム",
             "absent": ""
+          },
+          {
+            "name": "外注",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
@@ -691,8 +953,49 @@
           "dayNote": "幸和応援２名"
         },
         "2026-10-29": {
-          "dayNote": "幸和応援1名",
-          "gatherTime": "19:15"
+          "dayNote": "砂２袋・幸和応援2名",
+          "gatherTime": "19:15",
+          "works": [
+            "舗装工"
+          ],
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 2,
+              "carrier": ""
+            },
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "AF60",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "９tタイヤ",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ショベル0.5",
+              "qty": 1,
+              "carrier": ""
+            }
+          ],
+          "supplies": [
+            "根庫",
+            "清掃用具一式",
+            "養生一式",
+            "台車",
+            "ハンドスイーパー",
+            "定規",
+            "砂",
+            "寒水粉",
+            "防炎シート"
+          ]
         }
       },
       "shift": "夜",
@@ -18144,6 +18447,10 @@
     {
       "name": "3ｔダンプユナ",
       "allowance": 0
+    },
+    {
+      "name": "散水車",
+      "allowance": 0
     }
   ],
   "contacts": [
@@ -18618,9 +18925,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-10-26",
-  "fiveBase": "2026-10-28",
+  "fiveBase": "2026-10-29",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/10/28 15:56:00",
-  "_savedAt": "2026/10/28 15:56:00"
+  "lastSaved": "2026/10/29 11:09:33",
+  "_savedAt": "2026/10/29 11:09:33"
 }

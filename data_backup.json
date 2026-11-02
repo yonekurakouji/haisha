@@ -451,7 +451,7 @@
       "id": "1",
       "days": [
         "2026-10-22",
-        "2026-11-04"
+        "2026-11-07"
       ],
       "assigns": {
         "2026-10-22": [
@@ -511,6 +511,35 @@
             "absent": "",
             "isLeader": false
           }
+        ],
+        "2026-11-07": [
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "3ｔダンプユナ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "近藤",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
         ]
       },
       "dayData": {
@@ -522,6 +551,19 @@
           "dayNote": "前回の保安器積んでから朝一仙台名盤で追加保安器"
         },
         "2026-11-04": {
+          "gatherTime": "7:15",
+          "works": [
+            "雑工"
+          ],
+          "supplies": [
+            "シールコート一式",
+            "清掃用具一式",
+            "根庫",
+            "台車",
+            "コア埋め一式"
+          ]
+        },
+        "2026-11-07": {
           "gatherTime": "7:15",
           "works": [
             "雑工"
@@ -555,7 +597,7 @@
     {
       "id": "smvhq71nl8jbc",
       "days": [
-        "2026-11-02"
+        "2026-11-05"
       ],
       "assigns": {
         "2026-10-30": [],
@@ -587,10 +629,56 @@
             "absent": "",
             "isLeader": false
           }
+        ],
+        "2026-11-05": [
+          {
+            "name": "近藤",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "駒田",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "アグン",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
         ]
       },
       "dayData": {
         "2026-11-02": {
+          "gatherTime": "19:15",
+          "works": [
+            "シールコート",
+            "舗装工",
+            "雑工"
+          ],
+          "dayNote": "シールコート・コア埋め",
+          "supplies": [
+            "根庫",
+            "清掃用具一式",
+            "養生一式",
+            "台車",
+            "シールコート一式",
+            "コア埋め一式"
+          ]
+        },
+        "2026-11-05": {
           "gatherTime": "19:15",
           "works": [
             "シールコート",
@@ -1722,7 +1810,7 @@
       "id": "2",
       "days": [
         "2026-10-23",
-        "2026-11-05"
+        "2026-11-11"
       ],
       "assigns": {
         "2026-10-23": [
@@ -1821,6 +1909,56 @@
             "memo": "",
             "absent": ""
           }
+        ],
+        "2026-11-11": [
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
         ]
       },
       "dayData": {
@@ -1863,6 +2001,9 @@
           "dayNote": "くず定規"
         },
         "2026-11-05": {
+          "gatherTime": "7:00"
+        },
+        "2026-11-11": {
           "gatherTime": "7:00"
         }
       },
@@ -3545,23 +3686,7 @@
             "absent": ""
           },
           {
-            "name": "中川",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
             "name": "菅沼",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "佐藤",
             "role": "",
             "vehicle": "",
             "isDriver": false,
@@ -3577,7 +3702,7 @@
             "absent": ""
           },
           {
-            "name": "アリヤ",
+            "name": "近藤",
             "role": "",
             "vehicle": "",
             "isDriver": false,
@@ -3585,7 +3710,15 @@
             "absent": ""
           },
           {
-            "name": "アマダ",
+            "name": "駒田",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
             "role": "",
             "vehicle": "",
             "isDriver": false,
@@ -3603,6 +3736,22 @@
             "absent": ""
           },
           {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
             "name": "佐藤",
             "role": "",
             "vehicle": "",
@@ -3611,15 +3760,7 @@
             "absent": ""
           },
           {
-            "name": "アグン",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "アマダ",
+            "name": "アリヤ",
             "role": "",
             "vehicle": "",
             "isDriver": false,
@@ -19147,9 +19288,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-10-26",
-  "fiveBase": "2026-10-31",
+  "fiveBase": "2026-11-02",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/10/31 15:09:20",
-  "_savedAt": "2026/10/31 15:09:20"
+  "lastSaved": "2026/11/2 17:16:13",
+  "_savedAt": "2026/11/2 17:16:13"
 }

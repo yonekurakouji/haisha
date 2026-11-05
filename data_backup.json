@@ -19,7 +19,7 @@
           },
           {
             "name": "小松﨑",
-            "role": "作業員",
+            "role": "重機OP",
             "vehicle": "レンジャー",
             "isDriver": true,
             "memo": "",
@@ -28,7 +28,7 @@
           },
           {
             "name": "中川",
-            "role": "作業員",
+            "role": "重機OP",
             "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "",
@@ -46,7 +46,7 @@
           },
           {
             "name": "菅沼",
-            "role": "作業員",
+            "role": "ﾌﾟﾚｰﾄ",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -64,7 +64,7 @@
           },
           {
             "name": "アマダ",
-            "role": "作業員",
+            "role": "ﾌﾟﾚｰﾄ",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -19570,6 +19570,6 @@
   "fiveBase": "2026-11-05",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/5 15:11:06",
-  "_savedAt": "2026/11/5 15:11:06"
+  "lastSaved": "2026/11/5 15:16:02",
+  "_savedAt": "2026/11/5 15:16:02"
 }

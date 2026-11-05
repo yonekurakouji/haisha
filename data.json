@@ -11,9 +11,9 @@
           {
             "name": "駒田",
             "role": "重機OP",
-            "vehicle": "Wキャブ",
+            "vehicle": "3ｔダンプユナ",
             "isDriver": true,
-            "memo": "",
+            "memo": "0.1BH",
             "absent": "",
             "isLeader": true
           },
@@ -29,7 +29,7 @@
           {
             "name": "中川",
             "role": "作業員",
-            "vehicle": "3tダンプ",
+            "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -65,6 +65,98 @@
           {
             "name": "アマダ",
             "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ],
+        "2026-11-09": [
+          {
+            "name": "駒田",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "R8",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "小松﨑",
+            "role": "AFOP",
+            "vehicle": "R1",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "近藤",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "3tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "大竹",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "R1",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "菅沼",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "R8",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "佐藤",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アグン",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "3tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アリヤ",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アマダ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -113,6 +205,51 @@
             "カラーコーン",
             "糸張りくん",
             "防炎シート"
+          ]
+        },
+        "2026-11-09": {
+          "gatherTime": "6:45",
+          "works": [
+            "舗装工"
+          ],
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 2,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ｻｲﾄﾞﾛｰﾗｰ",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ﾗﾝﾏ",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "AF45",
+              "qty": 1,
+              "carrier": ""
+            }
+          ],
+          "supplies": [
+            "根庫",
+            "清掃用具一式",
+            "台車",
+            "養生一式",
+            "定規"
           ]
         }
       },
@@ -649,20 +786,11 @@
           {
             "name": "小松﨑",
             "role": "作業員",
-            "vehicle": "3tダンプ",
-            "isDriver": true,
-            "memo": "",
-            "absent": "",
-            "isLeader": true
-          },
-          {
-            "name": "近藤",
-            "role": "作業員",
             "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "",
             "absent": "",
-            "isLeader": false
+            "isLeader": true
           },
           {
             "name": "佐藤",
@@ -826,11 +954,10 @@
             "舗装工",
             "雑工"
           ],
-          "dayNote": "シールコート・コア埋め",
+          "dayNote": "シールコート・コア埋め　次回の打ち合わせお願い。返却などあるか。集合時間など",
           "supplies": [
             "根庫",
             "清掃用具一式",
-            "養生一式",
             "台車",
             "シールコート一式",
             "コア埋め一式"
@@ -15449,7 +15576,8 @@
         "2026-07-03",
         "2026-08-05",
         "2026-08-07",
-        "2026-09-07"
+        "2026-09-07",
+        "2026-11-06"
       ],
       "assigns": {
         "2026-07-01": [
@@ -15773,6 +15901,17 @@
             "memo": "",
             "absent": ""
           }
+        ],
+        "2026-11-06": [
+          {
+            "name": "近藤",
+            "role": "運搬員",
+            "vehicle": "P5",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          }
         ]
       },
       "dayData": {
@@ -15791,6 +15930,13 @@
             "片付け清掃"
           ],
           "dayNote": "プレートパーツ・整理整頓・備品買い足し・車内清掃・グリスアップ"
+        },
+        "2026-11-06": {
+          "gatherTime": "6:45",
+          "dayNote": "7:45にユナに９tTR・デカバケを谷田部搬入→西尾からタンデムを茨城町へ返却(燃料確認)→ユナに9tTR・デカバケ返却",
+          "works": [
+            "回送"
+          ]
         }
       },
       "shift": "昼",
@@ -19421,9 +19567,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-10-26",
-  "fiveBase": "2026-11-04",
+  "fiveBase": "2026-11-05",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/4 16:04:45",
-  "_savedAt": "2026/11/4 16:04:45"
+  "lastSaved": "2026/11/5 15:11:06",
+  "_savedAt": "2026/11/5 15:11:06"
 }

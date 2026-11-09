@@ -125,74 +125,83 @@
           {
             "name": "阿部",
             "role": "AFOP",
-            "vehicle": "",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "駒田",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "",
-            "isDriver": false,
+            "vehicle": "ハイエース",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": true
           },
           {
             "name": "小松﨑",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "",
-            "isDriver": false,
+            "vehicle": "R1",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "近藤",
             "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "",
-            "isDriver": false,
+            "vehicle": "Wキャブ",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "中川",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "2tダンプ",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "大竹",
-            "role": "",
-            "vehicle": "",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "菅沼",
             "role": "ﾌﾟﾚｰﾄ",
-            "vehicle": "",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "アグン",
             "role": "ﾌﾟﾚｰﾄ",
-            "vehicle": "",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "アリヤ",
-            "role": "",
-            "vehicle": "",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
             "isDriver": false,
-            "memo": "",
-            "absent": ""
+            "memo": "ふるい",
+            "absent": "",
+            "isLeader": false
           }
         ]
       },
@@ -210,17 +219,17 @@
             {
               "name": "ﾕﾝﾎﾞ0.1",
               "qty": 1,
-              "carrier": ""
+              "carrier": "R1"
             },
             {
               "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
               "qty": 1,
-              "carrier": ""
+              "carrier": "R1"
             },
             {
               "name": "ｻｲﾄﾞﾛｰﾗｰ",
               "qty": 1,
-              "carrier": ""
+              "carrier": "R1"
             },
             {
               "name": "ﾗﾝﾏ",
@@ -231,6 +240,21 @@
               "name": "AF45",
               "qty": 1,
               "carrier": ""
+            },
+            {
+              "name": "発電機",
+              "qty": 1,
+              "carrier": "ハイエース"
+            },
+            {
+              "name": "電動ハンマー",
+              "qty": 1,
+              "carrier": "ハイエース"
+            },
+            {
+              "name": "舗装カッター",
+              "qty": 1,
+              "carrier": "2tダンプ"
             }
           ],
           "supplies": [
@@ -240,9 +264,12 @@
             "養生一式",
             "ハンドスイーパー",
             "糸張りくん",
-            "シールコート一式"
+            "シールコート一式",
+            "砂",
+            "防炎シート",
+            "寒水粉"
           ],
-          "dayNote": "トラチョッキ・",
+          "dayNote": "トラチョッキ・セメント(ブロック3つ据える)",
           "gatherTime": "5:45"
         }
       },
@@ -19982,6 +20009,6 @@
   "fiveBase": "2026-11-09",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/9 15:43:01",
-  "_savedAt": "2026/11/9 15:43:01"
+  "lastSaved": "2026/11/9 17:32:41",
+  "_savedAt": "2026/11/9 17:32:41"
 }

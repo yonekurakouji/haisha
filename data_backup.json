@@ -9,7 +9,7 @@
         "2026-11-13": [
           {
             "name": "駒田",
-            "role": "",
+            "role": "ﾚｰｷﾏﾝ",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
@@ -17,7 +17,7 @@
           },
           {
             "name": "小松﨑",
-            "role": "",
+            "role": "AFOP",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
@@ -25,7 +25,7 @@
           },
           {
             "name": "近藤",
-            "role": "",
+            "role": "ﾛｰﾗｰﾏﾝ",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
@@ -33,7 +33,7 @@
           },
           {
             "name": "中川",
-            "role": "",
+            "role": "作業員",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
@@ -41,7 +41,7 @@
           },
           {
             "name": "大竹",
-            "role": "",
+            "role": "ﾚｰｷﾏﾝ",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
@@ -49,7 +49,7 @@
           },
           {
             "name": "菅沼",
-            "role": "",
+            "role": "ﾌﾟﾚｰﾄ",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
@@ -57,7 +57,7 @@
           },
           {
             "name": "佐藤",
-            "role": "",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
@@ -65,7 +65,7 @@
           },
           {
             "name": "アグン",
-            "role": "",
+            "role": "ﾌﾟﾚｰﾄ",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
@@ -73,7 +73,7 @@
           },
           {
             "name": "アリヤ",
-            "role": "",
+            "role": "作業員",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
@@ -81,7 +81,7 @@
           },
           {
             "name": "アマダ",
-            "role": "",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
@@ -94,7 +94,8 @@
           "works": [
             "路盤工",
             "舗装工"
-          ]
+          ],
+          "gatherTime": "7:00"
         }
       },
       "shift": "昼",
@@ -178,14 +179,6 @@
             "absent": ""
           },
           {
-            "name": "佐藤",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
             "name": "アグン",
             "role": "ﾌﾟﾚｰﾄ",
             "vehicle": "",
@@ -195,14 +188,6 @@
           },
           {
             "name": "アリヤ",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "アマダ",
             "role": "",
             "vehicle": "",
             "isDriver": false,
@@ -256,7 +241,9 @@
             "ハンドスイーパー",
             "糸張りくん",
             "シールコート一式"
-          ]
+          ],
+          "dayNote": "トラチョッキ・",
+          "gatherTime": "5:45"
         }
       },
       "shift": "昼",
@@ -444,7 +431,7 @@
           {
             "name": "駒田",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "R8",
+            "vehicle": "ハイエース",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -452,10 +439,10 @@
           },
           {
             "name": "小松﨑",
-            "role": "AFOP",
-            "vehicle": "R1",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "P5",
             "isDriver": true,
-            "memo": "",
+            "memo": "TR・345搬入後ユナで9ｔTR・帰り345，ＢＨ、ＳＲ",
             "absent": "",
             "isLeader": false
           },
@@ -464,23 +451,23 @@
             "role": "ﾛｰﾗｰﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": true,
-            "memo": "",
+            "memo": "CR",
             "absent": "",
             "isLeader": false
           },
           {
             "name": "中川",
-            "role": "作業員",
+            "role": "ﾛｰﾗｰﾏﾝ",
             "vehicle": "3tダンプ",
             "isDriver": true,
-            "memo": "",
+            "memo": "TR見習い・帰りＣＲ",
             "absent": "",
             "isLeader": false
           },
           {
             "name": "大竹",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "R1",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -489,7 +476,7 @@
           {
             "name": "菅沼",
             "role": "ﾌﾟﾚｰﾄ",
-            "vehicle": "R8",
+            "vehicle": "P5",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -507,16 +494,7 @@
           {
             "name": "アグン",
             "role": "ﾌﾟﾚｰﾄ",
-            "vehicle": "3tダンプ",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
-            "name": "アリヤ",
-            "role": "作業員",
-            "vehicle": "Wキャブ",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -530,6 +508,14 @@
             "memo": "",
             "absent": "",
             "isLeader": false
+          },
+          {
+            "name": "阿部",
+            "role": "AFOP",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
@@ -635,17 +621,17 @@
             {
               "name": "ﾕﾝﾎﾞ0.1",
               "qty": 1,
-              "carrier": ""
+              "carrier": "3tダンプ"
             },
             {
               "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
               "qty": 1,
-              "carrier": ""
+              "carrier": "P7"
             },
             {
               "name": "ｻｲﾄﾞﾛｰﾗｰ",
               "qty": 1,
-              "carrier": ""
+              "carrier": "P7"
             },
             {
               "name": "ﾗﾝﾏ",
@@ -655,7 +641,7 @@
             {
               "name": "AF45",
               "qty": 1,
-              "carrier": ""
+              "carrier": "P5"
             }
           ],
           "supplies": [
@@ -665,7 +651,7 @@
             "養生一式",
             "定規"
           ],
-          "dayNote": "雨で月曜日にズレるかも"
+          "dayNote": "トラチョッキ・定規20本、くず多め・アルミブリッジ"
         }
       },
       "shift": "昼",
@@ -2627,23 +2613,23 @@
             "absent": ""
           },
           {
-            "name": "大竹",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "菅沼",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
             "name": "アリヤ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
             "role": "",
             "vehicle": "",
             "isDriver": false,
@@ -19996,6 +19982,6 @@
   "fiveBase": "2026-11-09",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/9 8:39:33",
-  "_savedAt": "2026/11/9 8:39:33"
+  "lastSaved": "2026/11/9 15:43:01",
+  "_savedAt": "2026/11/9 15:43:01"
 }

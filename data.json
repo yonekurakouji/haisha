@@ -428,12 +428,20 @@
           },
           {
             "name": "アリヤ",
-            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "role": "作業員",
             "vehicle": "Wキャブ",
             "isDriver": false,
-            "memo": "",
+            "memo": "ふるいとか",
             "absent": "",
             "isLeader": false
+          },
+          {
+            "name": "佐藤",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ]
       },
@@ -20165,6 +20173,6 @@
   "fiveBase": "2026-11-11",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/11 16:06:15",
-  "_savedAt": "2026/11/11 16:06:15"
+  "lastSaved": "2026/11/11 18:05:15",
+  "_savedAt": "2026/11/11 18:05:15"
 }

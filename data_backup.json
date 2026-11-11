@@ -1,6 +1,247 @@
 {
   "sites": [
     {
+      "id": "4",
+      "days": [
+        "2026-11-12"
+      ],
+      "assigns": {
+        "2026-11-12": [
+          {
+            "name": "大竹",
+            "role": "AFOP",
+            "vehicle": "各自(自分の車)",
+            "isDriver": false,
+            "memo": "社長と見習い",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-11-12": {
+          "works": [
+            "舗装工"
+          ],
+          "gatherTime": "7:00",
+          "machines": [
+            {
+              "name": "AF60",
+              "qty": 1,
+              "carrier": ""
+            }
+          ]
+        }
+      },
+      "shift": "昼",
+      "place": "成田",
+      "prime": "宝永工業",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "米倉",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": true
+    },
+    {
+      "id": "3",
+      "days": [
+        "2026-11-10",
+        "2026-11-12",
+        "2026-11-13"
+      ],
+      "assigns": {
+        "2026-11-10": [
+          {
+            "name": "近藤",
+            "role": "運搬員",
+            "vehicle": "P7",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          }
+        ],
+        "2026-11-12": [
+          {
+            "name": "近藤",
+            "role": "運搬員",
+            "vehicle": "P5",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          }
+        ],
+        "2026-11-13": [
+          {
+            "name": "近藤",
+            "role": "運搬員",
+            "vehicle": "P7",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          }
+        ]
+      },
+      "dayData": {
+        "2026-11-10": {
+          "works": [
+            "回送"
+          ],
+          "gatherTime": "21:00"
+        },
+        "2026-11-12": {
+          "machines": [
+            {
+              "name": "AF60",
+              "qty": 1,
+              "carrier": "P5"
+            }
+          ],
+          "works": [
+            "機械部回送"
+          ]
+        },
+        "2026-11-13": {
+          "works": [
+            "機械部回送"
+          ],
+          "machines": [
+            {
+              "name": "AF60",
+              "qty": 1,
+              "carrier": "P7"
+            }
+          ]
+        }
+      },
+      "shift": "夜",
+      "place": "墨田区",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "渋川",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": true
+    },
+    {
+      "id": "2",
+      "days": [
+        "2026-11-14"
+      ],
+      "assigns": {
+        "2026-11-14": [
+          {
+            "name": "阿部",
+            "role": "AFOP",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {},
+      "shift": "昼",
+      "place": "我孫子",
+      "prime": "工藤建設",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "阿部",
+      "leader": "",
+      "works": [
+        "舗装工"
+      ],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
       "id": "2",
       "days": [
         "2026-11-13"
@@ -168,15 +409,6 @@
             "isLeader": false
           },
           {
-            "name": "大竹",
-            "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "ハイエース",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
             "name": "菅沼",
             "role": "ﾌﾟﾚｰﾄ",
             "vehicle": "ハイエース",
@@ -196,10 +428,10 @@
           },
           {
             "name": "アリヤ",
-            "role": "作業員",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": false,
-            "memo": "ふるい",
+            "memo": "",
             "absent": "",
             "isLeader": false
           }
@@ -19930,9 +20162,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-11-09",
-  "fiveBase": "2026-11-09",
+  "fiveBase": "2026-11-11",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/11 15:44:02",
-  "_savedAt": "2026/11/11 15:44:02"
+  "lastSaved": "2026/11/11 16:06:15",
+  "_savedAt": "2026/11/11 16:06:15"
 }

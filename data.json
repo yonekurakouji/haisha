@@ -59,7 +59,7 @@
           {
             "name": "大竹",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "ハイエース",
+            "vehicle": "レンジャー",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -113,7 +113,7 @@
           {
             "name": "阿部",
             "role": "AFOP",
-            "vehicle": "2tダンプ",
+            "vehicle": "ハイエース",
             "isDriver": true,
             "memo": "",
             "absent": ""
@@ -20541,6 +20541,6 @@
   "fiveBase": "2026-11-13",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/13 16:41:07",
-  "_savedAt": "2026/11/13 16:41:07"
+  "lastSaved": "2026/11/13 16:42:45",
+  "_savedAt": "2026/11/13 16:42:45"
 }

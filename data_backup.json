@@ -10,82 +10,92 @@
           {
             "name": "駒田",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "",
-            "isDriver": false,
+            "vehicle": "2tダンプ",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": true
           },
           {
             "name": "小松﨑",
             "role": "AFOP",
-            "vehicle": "",
-            "isDriver": false,
+            "vehicle": "レンジャー",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "近藤",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "中川",
-            "role": "",
-            "vehicle": "",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
+            "role": "作業員",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "フルイ、タンパ",
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "大竹",
-            "role": "",
-            "vehicle": "",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "レンジャー",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "菅沼",
-            "role": "",
-            "vehicle": "",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "2tダンプ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "佐藤",
-            "role": "",
-            "vehicle": "",
+            "role": "作業員",
+            "vehicle": "4tダンプ",
             "isDriver": false,
-            "memo": "",
-            "absent": ""
+            "memo": "フルイ、タンパ",
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "アグン",
-            "role": "",
-            "vehicle": "",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "Wキャブ",
             "isDriver": false,
-            "memo": "",
-            "absent": ""
+            "memo": "見習い",
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "アリヤ",
-            "role": "",
-            "vehicle": "",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "アマダ",
-            "role": "",
-            "vehicle": "",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           }
         ]
       },
@@ -93,7 +103,47 @@
         "2026-11-16": {
           "works": [
             "舗装工"
-          ]
+          ],
+          "machines": [
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": "2tダンプ"
+            },
+            {
+              "name": "ｽﾌﾟﾚｲﾔｰ",
+              "qty": 1,
+              "carrier": "4tダンプ"
+            },
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 2,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "ﾗﾝﾏ",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "AF45",
+              "qty": 1,
+              "carrier": "レンジャー"
+            }
+          ],
+          "supplies": [
+            "清掃用具一式",
+            "台車",
+            "養生一式",
+            "ハンドスイーパー",
+            "砂",
+            "乳剤一式",
+            "下駄",
+            "ロールシート",
+            "防炎シート",
+            "寒水粉"
+          ],
+          "gatherTime": "6:45"
         }
       },
       "shift": "昼",
@@ -20369,9 +20419,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-11-09",
-  "fiveBase": "2026-11-12",
+  "fiveBase": "2026-11-14",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/13 16:50:12",
-  "_savedAt": "2026/11/13 16:50:12"
+  "lastSaved": "2026/11/14 15:27:07",
+  "_savedAt": "2026/11/14 15:27:07"
 }

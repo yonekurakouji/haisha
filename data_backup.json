@@ -62,15 +62,6 @@
             "isLeader": false
           },
           {
-            "name": "佐藤",
-            "role": "作業員",
-            "vehicle": "4tダンプ",
-            "isDriver": false,
-            "memo": "フルイ、タンパ",
-            "absent": "",
-            "isLeader": false
-          },
-          {
             "name": "アグン",
             "role": "ﾛｰﾗｰﾏﾝ",
             "vehicle": "Wキャブ",
@@ -20422,6 +20413,6 @@
   "fiveBase": "2026-11-14",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/14 15:27:07",
-  "_savedAt": "2026/11/14 15:27:07"
+  "lastSaved": "2026/11/14 15:29:42",
+  "_savedAt": "2026/11/14 15:29:42"
 }

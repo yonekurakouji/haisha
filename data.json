@@ -8,17 +8,8 @@
       "assigns": {
         "2026-11-16": [
           {
-            "name": "駒田",
-            "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "2tダンプ",
-            "isDriver": true,
-            "memo": "",
-            "absent": "",
-            "isLeader": true
-          },
-          {
             "name": "小松﨑",
-            "role": "AFOP",
+            "role": "ﾚｰｷﾏﾝ",
             "vehicle": "レンジャー",
             "isDriver": true,
             "memo": "",
@@ -87,6 +78,15 @@
             "memo": "",
             "absent": "",
             "isLeader": false
+          },
+          {
+            "name": "阿部",
+            "role": "AFOP",
+            "vehicle": "2tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
           }
         ]
       },
@@ -20413,6 +20413,6 @@
   "fiveBase": "2026-11-14",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/14 15:29:42",
-  "_savedAt": "2026/11/14 15:29:42"
+  "lastSaved": "2026/11/14 15:46:35",
+  "_savedAt": "2026/11/14 15:46:35"
 }

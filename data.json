@@ -10,7 +10,118 @@
         "2026-11-25",
         "2026-11-26"
       ],
-      "assigns": {},
+      "assigns": {
+        "2026-11-18": [
+          {
+            "name": "阿部",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "駒田",
+            "role": "重機OP",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "小松﨑",
+            "role": "重機OP",
+            "vehicle": "ハイエース",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "近藤",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "P5",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "3ｔダンプユナ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "菅沼",
+            "role": "誘導員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "佐藤",
+            "role": "誘導員",
+            "vehicle": "P5",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アグン",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アリヤ",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アマダ",
+            "role": "作業員",
+            "vehicle": "3ｔダンプユナ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "関",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ]
+      },
       "dayData": {
         "2026-11-18": {
           "works": [
@@ -27,7 +138,33 @@
               "name": "ﾗﾝﾏ",
               "qty": 1,
               "carrier": "Wキャブ"
+            },
+            {
+              "name": "パートナー",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "発電機",
+              "qty": 1,
+              "carrier": "3ｔダンプユナ"
+            },
+            {
+              "name": "電動ハンマー",
+              "qty": 1,
+              "carrier": "3ｔダンプユナ"
             }
+          ],
+          "gatherTime": "8:00",
+          "dayNote": "0.4BH、舗装カッター、2.5CR、0.1ＢＨ前日搬入　　　　リールホース、ハンパ定規5.6本",
+          "supplies": [
+            "根庫",
+            "台車",
+            "養生一式",
+            "ハンドスイーパー",
+            "防炎シート",
+            "糸張りくん",
+            "定規"
           ]
         }
       },
@@ -20588,6 +20725,6 @@
   "fiveBase": "2026-11-16",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/16 15:52:45",
-  "_savedAt": "2026/11/16 15:52:45"
+  "lastSaved": "2026/11/16 16:09:04",
+  "_savedAt": "2026/11/16 16:09:04"
 }

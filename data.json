@@ -1097,15 +1097,6 @@
             "memo": "",
             "absent": "",
             "isLeader": false
-          },
-          {
-            "name": "アリヤ",
-            "role": "作業員",
-            "vehicle": "Wキャブ",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
           }
         ]
       },
@@ -4914,7 +4905,8 @@
         "2026-10-21",
         "2026-10-22",
         "2026-11-04",
-        "2026-11-05"
+        "2026-11-05",
+        "2026-11-17"
       ],
       "assigns": {
         "2026-10-09": [
@@ -5078,6 +5070,32 @@
             "memo": "",
             "absent": ""
           }
+        ],
+        "2026-11-17": [
+          {
+            "name": "中川",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
         ]
       },
       "dayData": {
@@ -5112,6 +5130,9 @@
         "2026-11-05": {
           "gatherTime": "8:00",
           "dayNote": "砂補充・オイル交換など"
+        },
+        "2026-11-17": {
+          "gatherTime": "8:00"
         }
       },
       "shift": "昼",
@@ -20546,6 +20567,6 @@
   "fiveBase": "2026-11-16",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/16 14:57:01",
-  "_savedAt": "2026/11/16 14:57:01"
+  "lastSaved": "2026/11/16 14:59:46",
+  "_savedAt": "2026/11/16 14:59:46"
 }

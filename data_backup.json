@@ -1246,13 +1246,12 @@
             "isLeader": false
           },
           {
-            "name": "アグン",
-            "role": "作業員",
-            "vehicle": "Wキャブ",
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "",
             "isDriver": false,
             "memo": "",
-            "absent": "",
-            "isLeader": false
+            "absent": ""
           }
         ]
       },
@@ -5237,7 +5236,7 @@
             "absent": ""
           },
           {
-            "name": "アマダ",
+            "name": "アリヤ",
             "role": "",
             "vehicle": "",
             "isDriver": false,
@@ -5245,7 +5244,7 @@
             "absent": ""
           },
           {
-            "name": "アリヤ",
+            "name": "アグン",
             "role": "",
             "vehicle": "",
             "isDriver": false,
@@ -20725,6 +20724,6 @@
   "fiveBase": "2026-11-16",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/16 16:12:36",
-  "_savedAt": "2026/11/16 16:12:36"
+  "lastSaved": "2026/11/16 16:40:01",
+  "_savedAt": "2026/11/16 16:40:01"
 }

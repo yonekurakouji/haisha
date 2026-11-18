@@ -275,7 +275,7 @@
           {
             "name": "米倉",
             "role": "AFOP",
-            "vehicle": "P5",
+            "vehicle": "S8",
             "isDriver": true,
             "memo": "",
             "absent": ""
@@ -283,7 +283,7 @@
           {
             "name": "ティ",
             "role": "AFOP",
-            "vehicle": "P5",
+            "vehicle": "S8",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -21136,6 +21136,6 @@
   "fiveBase": "2026-11-18",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/18 17:28:12",
-  "_savedAt": "2026/11/18 17:28:12"
+  "lastSaved": "2026/11/18 17:42:56",
+  "_savedAt": "2026/11/18 17:42:56"
 }

@@ -407,6 +407,104 @@
             "absent": "",
             "isLeader": false
           }
+        ],
+        "2026-11-24": [
+          {
+            "name": "阿部",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "関",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
         ]
       },
       "dayData": {
@@ -574,6 +672,45 @@
             "ロールシート"
           ],
           "dayNote": "軽油ポリ６缶、舗装道具一式　　　　　8ｔ５台、再密69ｔ"
+        },
+        "2026-11-24": {
+          "works": [
+            "捲り",
+            "路盤工"
+          ],
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 2,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": "レンジャー"
+            },
+            {
+              "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+              "qty": 1,
+              "carrier": "レンジャー"
+            },
+            {
+              "name": "ｻｲﾄﾞﾛｰﾗｰ",
+              "qty": 1,
+              "carrier": "レンジャー"
+            },
+            {
+              "name": "ﾗﾝﾏ",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "0.4BH",
+              "qty": 1,
+              "carrier": "大型"
+            }
+          ],
+          "gatherTime": "8:00"
         }
       },
       "shift": "昼",
@@ -13251,7 +13388,8 @@
         "2026-09-12",
         "2026-09-14",
         "2026-09-16",
-        "2026-09-17"
+        "2026-09-17",
+        "2026-11-24"
       ],
       "assigns": {
         "2026-07-23": [
@@ -15069,6 +15207,30 @@
             "糸張りくん",
             "定規"
           ]
+        },
+        "2026-11-24": {
+          "works": [
+            "構造物設置"
+          ],
+          "machines": [
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": "2tダンプ"
+            },
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 1,
+              "carrier": "4tダンプ"
+            }
+          ],
+          "supplies": [
+            "根庫",
+            "清掃用具一式",
+            "養生一式"
+          ],
+          "gatherTime": "6:15",
+          "dayNote": "水糸、水平器、タンパ"
         }
       },
       "shift": "昼",
@@ -15084,18 +15246,9 @@
       ],
       "machines": [
         {
-          "name": "ユンボ0.2",
-          "qty": 1,
-          "carrier": ""
-        },
-        {
           "name": "ﾌﾟﾚｰﾄ",
           "qty": 1,
           "carrier": ""
-        },
-        {
-          "name": "ﾗﾝﾏ",
-          "qty": 1
         }
       ],
       "gatherTime": "5:45",
@@ -21133,9 +21286,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-11-09",
-  "fiveBase": "2026-11-18",
+  "fiveBase": "2026-11-24",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/18 17:42:56",
-  "_savedAt": "2026/11/18 17:42:56"
+  "lastSaved": "2026/11/18 17:54:37",
+  "_savedAt": "2026/11/18 17:54:37"
 }

@@ -166,7 +166,7 @@
         "2026-11-19": [
           {
             "name": "阿部",
-            "role": "AFOP",
+            "role": "ﾛｰﾗｰﾏﾝ",
             "vehicle": "2tダンプ",
             "isDriver": true,
             "memo": "",
@@ -277,6 +277,14 @@
             "role": "AFOP",
             "vehicle": "P5",
             "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "ティ",
+            "role": "AFOP",
+            "vehicle": "P5",
+            "isDriver": false,
             "memo": "",
             "absent": ""
           }
@@ -21128,6 +21136,6 @@
   "fiveBase": "2026-11-18",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/18 17:26:57",
-  "_savedAt": "2026/11/18 17:26:57"
+  "lastSaved": "2026/11/18 17:28:12",
+  "_savedAt": "2026/11/18 17:28:12"
 }

@@ -3,55 +3,6 @@
     {
       "id": "1",
       "days": [
-        "2026-11-18"
-      ],
-      "assigns": {
-        "2026-11-18": [
-          {
-            "name": "近藤",
-            "role": "",
-            "vehicle": "R3",
-            "isDriver": true,
-            "memo": "",
-            "absent": "",
-            "isLeader": true
-          }
-        ]
-      },
-      "dayData": {
-        "2026-11-18": {
-          "works": [
-            "回送"
-          ],
-          "machines": [
-            {
-              "name": "AF45",
-              "qty": 1,
-              "carrier": "R3"
-            }
-          ]
-        }
-      },
-      "shift": "夜",
-      "place": "柏市",
-      "prime": "",
-      "contact": "",
-      "contactManual": "",
-      "contactTel": "",
-      "ourContact": "",
-      "leader": "",
-      "works": [],
-      "machines": [],
-      "gatherTime": "",
-      "gatherType": "集合",
-      "note": "",
-      "okiba": "",
-      "kaisou": "",
-      "enShoo": true
-    },
-    {
-      "id": "1",
-      "days": [
         "2026-11-16"
       ],
       "assigns": {
@@ -225,7 +176,7 @@
           {
             "name": "駒田",
             "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "3ｔダンプユナ",
+            "vehicle": "3tスライド",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -234,7 +185,7 @@
           {
             "name": "小松﨑",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "3ｔダンプユナ",
+            "vehicle": "3tスライド",
             "isDriver": true,
             "memo": "スプレイヤー、乳剤ドラム、砂",
             "absent": "",
@@ -20681,6 +20632,10 @@
     {
       "name": "散水車",
       "allowance": 0
+    },
+    {
+      "name": "3tスライド",
+      "allowance": 0
     }
   ],
   "contacts": [
@@ -21173,6 +21128,6 @@
   "fiveBase": "2026-11-18",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/18 17:17:41",
-  "_savedAt": "2026/11/18 17:17:41"
+  "lastSaved": "2026/11/18 17:26:57",
+  "_savedAt": "2026/11/18 17:26:57"
 }

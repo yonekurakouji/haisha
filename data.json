@@ -215,25 +215,25 @@
         "2026-11-19": [
           {
             "name": "阿部",
-            "role": "作業員",
-            "vehicle": "ハイエース",
-            "isDriver": false,
+            "role": "AFOP",
+            "vehicle": "2tダンプ",
+            "isDriver": true,
             "memo": "",
             "absent": "",
             "isLeader": false
           },
           {
             "name": "駒田",
-            "role": "重機OP",
-            "vehicle": "ハイエース",
-            "isDriver": true,
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "3ｔダンプユナ",
+            "isDriver": false,
             "memo": "",
             "absent": "",
             "isLeader": true
           },
           {
             "name": "小松﨑",
-            "role": "ﾛｰﾗｰﾏﾝ",
+            "role": "ﾚｰｷﾏﾝ",
             "vehicle": "3ｔダンプユナ",
             "isDriver": true,
             "memo": "スプレイヤー、乳剤ドラム、砂",
@@ -242,16 +242,16 @@
           },
           {
             "name": "近藤",
-            "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "P5",
+            "role": "運搬員",
+            "vehicle": "4tダンプ",
             "isDriver": true,
-            "memo": "",
+            "memo": "タイヤローラー前日搬入、西尾4TD",
             "absent": "",
             "isLeader": false
           },
           {
             "name": "中川",
-            "role": "作業員",
+            "role": "運搬員",
             "vehicle": "4tダンプ",
             "isDriver": true,
             "memo": "",
@@ -260,8 +260,8 @@
           },
           {
             "name": "大竹",
-            "role": "作業員",
-            "vehicle": "ハイエース",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "4tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -269,7 +269,7 @@
           },
           {
             "name": "菅沼",
-            "role": "作業員",
+            "role": "ﾌﾟﾚｰﾄ",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -278,17 +278,17 @@
           },
           {
             "name": "佐藤",
-            "role": "作業員",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "4tダンプ",
             "isDriver": false,
-            "memo": "",
+            "memo": "西尾4TD",
             "absent": "",
             "isLeader": false
           },
           {
             "name": "アグン",
             "role": "作業員",
-            "vehicle": "ハイエース",
+            "vehicle": "4tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -305,7 +305,7 @@
           },
           {
             "name": "アマダ",
-            "role": "作業員",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -314,12 +314,20 @@
           },
           {
             "name": "関",
-            "role": "作業員",
+            "role": "運搬員",
             "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "",
             "absent": "",
             "isLeader": false
+          },
+          {
+            "name": "米倉",
+            "role": "AFOP",
+            "vehicle": "P5",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
           }
         ],
         "2026-11-20": [
@@ -488,9 +496,10 @@
           ]
         },
         "2026-11-19": {
-          "gatherTime": "7:00",
+          "gatherTime": "7:45",
           "works": [
-            "路盤工"
+            "路盤工",
+            "舗装工"
           ],
           "machines": [
             {
@@ -521,12 +530,22 @@
             {
               "name": "９tタイヤ",
               "qty": 1,
-              "carrier": "P5"
+              "carrier": ""
             },
             {
               "name": "グレーダー3.1",
               "qty": 1,
+              "carrier": "P5"
+            },
+            {
+              "name": "ｻｲﾄﾞﾛｰﾗｰ",
+              "qty": 1,
               "carrier": ""
+            },
+            {
+              "name": "AF60",
+              "qty": 1,
+              "carrier": "P5"
             }
           ],
           "supplies": [
@@ -541,7 +560,7 @@
             "砂",
             "乳剤一式"
           ],
-          "dayNote": "軽油ポリ６缶、"
+          "dayNote": "軽油ポリ６缶、定規12本、ハンパ定規数本、"
         },
         "2026-11-20": {
           "gatherTime": "7:00",
@@ -21151,9 +21170,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-11-09",
-  "fiveBase": "2026-11-17",
+  "fiveBase": "2026-11-18",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/17 17:28:00",
-  "_savedAt": "2026/11/17 17:28:00"
+  "lastSaved": "2026/11/18 17:07:14",
+  "_savedAt": "2026/11/18 17:07:14"
 }

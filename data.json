@@ -2,6 +2,28 @@
   "sites": [
     {
       "id": "1",
+      "days": [],
+      "assigns": {},
+      "dayData": {},
+      "shift": "昼",
+      "place": "",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
+      "id": "1",
       "days": [
         "2026-11-16"
       ],
@@ -293,7 +315,7 @@
           {
             "name": "阿部",
             "role": "AFOP",
-            "vehicle": "3tスライド",
+            "vehicle": "3ｔダンプユナ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -347,7 +369,7 @@
           {
             "name": "菅沼",
             "role": "ﾌﾟﾚｰﾄ",
-            "vehicle": "3tスライド",
+            "vehicle": "3ｔダンプユナ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -21296,6 +21318,6 @@
   "fiveBase": "2026-11-19",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/19 17:47:20",
-  "_savedAt": "2026/11/19 17:47:20"
+  "lastSaved": "2026/11/19 17:48:38",
+  "_savedAt": "2026/11/19 17:48:38"
 }

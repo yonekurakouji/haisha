@@ -293,7 +293,7 @@
           {
             "name": "阿部",
             "role": "AFOP",
-            "vehicle": "ハイエース",
+            "vehicle": "3tスライド",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -301,8 +301,8 @@
           },
           {
             "name": "駒田",
-            "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "レンジャー",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "R1",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -310,7 +310,7 @@
           },
           {
             "name": "小松﨑",
-            "role": "ﾛｰﾗｰﾏﾝ",
+            "role": "ﾚｰｷﾏﾝ",
             "vehicle": "P7",
             "isDriver": true,
             "memo": "タイヤローラー",
@@ -329,7 +329,7 @@
           {
             "name": "中川",
             "role": "運搬員",
-            "vehicle": "4tダンプ",
+            "vehicle": "2tダンプ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -337,8 +337,8 @@
           },
           {
             "name": "大竹",
-            "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "ハイエース",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "P7",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -347,7 +347,7 @@
           {
             "name": "菅沼",
             "role": "ﾌﾟﾚｰﾄ",
-            "vehicle": "ハイエース",
+            "vehicle": "3tスライド",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -356,7 +356,7 @@
           {
             "name": "佐藤",
             "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "4tダンプ",
+            "vehicle": "2tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -365,7 +365,7 @@
           {
             "name": "アグン",
             "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "ハイエース",
+            "vehicle": "P5",
             "isDriver": false,
             "memo": "見習い",
             "absent": "",
@@ -390,15 +390,6 @@
             "isLeader": false
           },
           {
-            "name": "ティ",
-            "role": "AFOP",
-            "vehicle": "Wキャブ",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
             "name": "関",
             "role": "作業員",
             "vehicle": "Wキャブ",
@@ -406,6 +397,22 @@
             "memo": "",
             "absent": "",
             "isLeader": false
+          },
+          {
+            "name": "米倉",
+            "role": "AFOP",
+            "vehicle": "各自(自分の車)",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "渋川",
+            "role": "AFOP",
+            "vehicle": "R1",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
           }
         ],
         "2026-11-24": [
@@ -620,7 +627,7 @@
           "dayNote": "軽油ポリ６缶、定規12本、ハンパ定規数本、"
         },
         "2026-11-20": {
-          "gatherTime": "7:00",
+          "gatherTime": "7:30",
           "works": [
             "舗装工"
           ],
@@ -21286,9 +21293,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-11-09",
-  "fiveBase": "2026-11-24",
+  "fiveBase": "2026-11-19",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/19 8:18:21",
-  "_savedAt": "2026/11/19 8:18:21"
+  "lastSaved": "2026/11/19 17:47:20",
+  "_savedAt": "2026/11/19 17:47:20"
 }

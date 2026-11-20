@@ -1,6 +1,30 @@
 {
   "sites": [
     {
+      "id": "1",
+      "days": [
+        "2026-11-27"
+      ],
+      "assigns": {},
+      "dayData": {},
+      "shift": "昼",
+      "place": "土浦市天川1丁目",
+      "prime": "",
+      "contact": "",
+      "contactManual": "",
+      "contactTel": "",
+      "ourContact": "関",
+      "leader": "",
+      "works": [],
+      "machines": [],
+      "gatherTime": "",
+      "gatherType": "集合",
+      "note": "",
+      "okiba": "",
+      "kaisou": "",
+      "enShoo": false
+    },
+    {
       "id": "3",
       "days": [
         "2026-11-26",
@@ -21815,9 +21839,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-11-09",
-  "fiveBase": "2026-11-21",
+  "fiveBase": "2026-11-23",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/20 15:24:37",
-  "_savedAt": "2026/11/20 15:24:37"
+  "lastSaved": "2026/11/20 15:28:21",
+  "_savedAt": "2026/11/20 15:28:21"
 }

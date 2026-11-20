@@ -8,20 +8,49 @@
       "assigns": {
         "2026-11-27": [
           {
-            "name": "小松﨑",
+            "name": "阿部",
             "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "vehicle": "3ｔダンプユナ",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": true
           },
           {
             "name": "関",
             "role": "",
-            "vehicle": "",
+            "vehicle": "2tダンプ",
+            "isDriver": true,
+            "memo": "水タンク500ℓ、ハイウォッシャー",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "中川",
+            "role": "",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "菅沼",
+            "role": "",
+            "vehicle": "2tダンプ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "4tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
           }
         ]
       },
@@ -35,7 +64,7 @@
             {
               "name": "ﾕﾝﾎﾞ0.1",
               "qty": 1,
-              "carrier": "3tダンプ"
+              "carrier": "2tダンプ"
             },
             {
               "name": "ｻｲﾄﾞﾛｰﾗｰ",
@@ -97,75 +126,266 @@
         "2026-11-26": [
           {
             "name": "阿部",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "駒田",
+            "role": "重機OP",
+            "vehicle": "3tスライド",
+            "isDriver": true,
+            "memo": "0.1ＢＨ",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "小松﨑",
+            "role": "重機OP",
+            "vehicle": "R1",
+            "isDriver": true,
+            "memo": "0.1BH、4ｔＣＲはユナイト",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "近藤",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "P5",
+            "isDriver": true,
+            "memo": "朝19ｔタイヤと2.5ＣＲ相積み、午後1グレーダー引き取り",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "中川",
+            "role": "運搬員",
+            "vehicle": "4tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "大竹",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "菅沼",
+            "role": "作業員",
+            "vehicle": "R1",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アリヤ",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アグン",
+            "role": "作業員",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ],
+        "2026-11-27": [
+          {
+            "name": "駒田",
+            "role": "重機OP",
+            "vehicle": "Wキャブ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "小松﨑",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "3tスライド",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "近藤",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "P5",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "大竹",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "佐藤",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "P5",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アグン",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アリヤ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "米倉",
             "role": "",
             "vehicle": "",
             "isDriver": false,
             "memo": "",
             "absent": ""
+          },
+          {
+            "name": "ティ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ],
+        "2026-11-30": [
+          {
+            "name": "阿部",
+            "role": "",
+            "vehicle": "ハイエース",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "駒田",
             "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "vehicle": "R1",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": true
           },
           {
             "name": "小松﨑",
             "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "vehicle": "3ｔダンプユナ",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "近藤",
             "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "vehicle": "Wキャブ",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "中川",
             "role": "",
-            "vehicle": "",
-            "isDriver": false,
+            "vehicle": "ハイエース",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "大竹",
             "role": "",
-            "vehicle": "",
+            "vehicle": "R1",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "菅沼",
             "role": "",
-            "vehicle": "",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
-            "name": "アリヤ",
+            "name": "佐藤",
             "role": "",
-            "vehicle": "",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "アグン",
             "role": "",
-            "vehicle": "",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アリヤ",
+            "role": "",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
           }
         ]
       },
@@ -174,7 +394,7 @@
           "works": [
             "路盤工"
           ],
-          "gatherTime": "6:45",
+          "gatherTime": "7:00",
           "machines": [
             {
               "name": "ﾌﾟﾚｰﾄ",
@@ -184,17 +404,17 @@
             {
               "name": "ﾕﾝﾎﾞ0.1",
               "qty": 2,
-              "carrier": "レンジャー"
+              "carrier": "3tダンプ"
             },
             {
               "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
               "qty": 1,
-              "carrier": "レンジャー"
+              "carrier": "P5"
             },
             {
               "name": "ｻｲﾄﾞﾛｰﾗｰ",
               "qty": 1,
-              "carrier": "レンジャー"
+              "carrier": "R1"
             },
             {
               "name": "ﾗﾝﾏ",
@@ -204,14 +424,121 @@
             {
               "name": "グレーダー3.1",
               "qty": 1,
-              "carrier": "大型"
+              "carrier": "P5"
             },
             {
-              "name": "R2",
+              "name": "コンバインド4.0",
               "qty": 1,
-              "carrier": "大型"
+              "carrier": "R1"
+            },
+            {
+              "name": "９tタイヤ",
+              "qty": 1,
+              "carrier": "P5"
+            }
+          ],
+          "supplies": [
+            "根庫",
+            "清掃用具一式",
+            "養生一式",
+            "定規",
+            "防炎シート",
+            "糸張りくん",
+            "寒水粉"
+          ],
+          "dayNote": "ウスベニ2.3枚、ゴムマット、ハンパ定規5ｃｍ10本くらい、根庫2台、じょうろ"
+        },
+        "2026-11-27": {
+          "works": [
+            "路盤工",
+            "舗装工"
+          ],
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "AF60",
+              "qty": 1,
+              "carrier": "P5"
+            },
+            {
+              "name": "９tタイヤ",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "コンバインド4.0",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "グレーダー3.1",
+              "qty": 1,
+              "carrier": "P5"
             }
           ]
+        },
+        "2026-11-30": {
+          "works": [
+            "舗装工"
+          ],
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 2,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 2,
+              "carrier": ""
+            },
+            {
+              "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+              "qty": 1,
+              "carrier": ""
+            },
+            {
+              "name": "ｻｲﾄﾞﾛｰﾗｰ",
+              "qty": 1,
+              "carrier": "3ｔダンプユナ"
+            },
+            {
+              "name": "ﾗﾝﾏ",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "AF40",
+              "qty": 1,
+              "carrier": "R1"
+            }
+          ],
+          "supplies": [
+            "根庫",
+            "清掃用具一式",
+            "台車",
+            "養生一式",
+            "ハンドスイーパー",
+            "定規",
+            "防炎シート",
+            "下駄",
+            "ロールシート"
+          ],
+          "gatherTime": "6:30"
         }
       },
       "shift": "昼",
@@ -853,7 +1180,7 @@
             "isLeader": true
           },
           {
-            "name": "近藤",
+            "name": "小松﨑",
             "role": "重機OP",
             "vehicle": "P7",
             "isDriver": true,
@@ -1329,7 +1656,7 @@
             "ロールシート",
             "水タンク"
           ],
-          "dayNote": "根庫、ハンドスイーパー、薄鉄板、忘れずに"
+          "dayNote": "根庫、ハンドスイーパー、薄鉄板、忘れずに　　　0.1ＢＨ2台"
         },
         "2026-11-26": {
           "works": [
@@ -15450,7 +15777,7 @@
         ],
         "2026-11-24": [
           {
-            "name": "小松﨑",
+            "name": "近藤",
             "role": "重機OP",
             "vehicle": "2tダンプ",
             "isDriver": true,
@@ -15889,8 +16216,8 @@
             "清掃用具一式",
             "養生一式"
           ],
-          "gatherTime": "6:15",
-          "dayNote": "水糸、水平器、タンパ、アルミブリッジ、吊り帯2本、大バール、ゴムハンマー"
+          "gatherTime": "7:00",
+          "dayNote": "タンパ、アルミブリッジ、防炎シート"
         }
       },
       "shift": "昼",
@@ -21949,6 +22276,6 @@
   "fiveBase": "2026-11-23",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/20 16:53:57",
-  "_savedAt": "2026/11/20 16:53:57"
+  "lastSaved": "2026/11/20 18:22:54",
+  "_savedAt": "2026/11/20 18:22:54"
 }

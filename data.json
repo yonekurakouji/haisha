@@ -1164,7 +1164,7 @@
           {
             "name": "阿部",
             "role": "作業員",
-            "vehicle": "3ｔダンプユナ",
+            "vehicle": "2tダンプ",
             "isDriver": true,
             "memo": "水タンク、ハイウォッシャー、ハンパ定規数本、",
             "absent": "",
@@ -1200,7 +1200,7 @@
           {
             "name": "菅沼",
             "role": "作業員",
-            "vehicle": "3ｔダンプユナ",
+            "vehicle": "2tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -15779,7 +15779,7 @@
           {
             "name": "近藤",
             "role": "重機OP",
-            "vehicle": "2tダンプ",
+            "vehicle": "3tスライド",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -22276,6 +22276,6 @@
   "fiveBase": "2026-11-23",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/20 18:22:54",
-  "_savedAt": "2026/11/20 18:22:54"
+  "lastSaved": "2026/11/21 15:40:57",
+  "_savedAt": "2026/11/21 15:40:57"
 }

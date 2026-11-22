@@ -1162,15 +1162,6 @@
         ],
         "2026-11-24": [
           {
-            "name": "阿部",
-            "role": "作業員",
-            "vehicle": "2tダンプ",
-            "isDriver": true,
-            "memo": "水タンク、ハイウォッシャー、ハンパ定規数本、",
-            "absent": "",
-            "isLeader": false
-          },
-          {
             "name": "駒田",
             "role": "重機OP",
             "vehicle": "R1",
@@ -1200,7 +1191,7 @@
           {
             "name": "菅沼",
             "role": "作業員",
-            "vehicle": "2tダンプ",
+            "vehicle": "P7",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -22276,6 +22267,6 @@
   "fiveBase": "2026-11-23",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/21 15:40:57",
-  "_savedAt": "2026/11/21 15:40:57"
+  "lastSaved": "2026/11/22 11:11:18",
+  "_savedAt": "2026/11/22 11:11:18"
 }

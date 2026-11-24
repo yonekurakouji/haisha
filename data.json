@@ -1238,7 +1238,7 @@
           {
             "name": "阿部",
             "role": "AFOP",
-            "vehicle": "ハイエース",
+            "vehicle": "R1",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -1274,8 +1274,8 @@
           {
             "name": "中川",
             "role": "作業員",
-            "vehicle": "ハイエース",
-            "isDriver": false,
+            "vehicle": "4tダンプ",
+            "isDriver": true,
             "memo": "",
             "absent": "",
             "isLeader": false
@@ -1283,7 +1283,7 @@
           {
             "name": "大竹",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "ハイエース",
+            "vehicle": "R8",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -1301,7 +1301,7 @@
           {
             "name": "佐藤",
             "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "ハイエース",
+            "vehicle": "2tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -1647,7 +1647,7 @@
             "ロールシート",
             "水タンク"
           ],
-          "dayNote": "根庫、ハンドスイーパー、薄鉄板、忘れずに　　　0.1ＢＨ2台"
+          "dayNote": "根庫、ハンドスイーパー、定規10本、ハンパ定規数本　ウスベニ4枚くらい"
         },
         "2026-11-26": {
           "works": [
@@ -22267,6 +22267,6 @@
   "fiveBase": "2026-11-23",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/22 11:16:57",
-  "_savedAt": "2026/11/22 11:16:57"
+  "lastSaved": "2026/11/24 17:00:16",
+  "_savedAt": "2026/11/24 17:00:16"
 }

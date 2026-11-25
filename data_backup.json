@@ -202,7 +202,7 @@
           {
             "name": "アリヤ",
             "role": "ﾌﾟﾚｰﾄ",
-            "vehicle": "2tダンプ",
+            "vehicle": "",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -210,7 +210,7 @@
           {
             "name": "大竹",
             "role": "運搬員",
-            "vehicle": "3tスライド",
+            "vehicle": "",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -218,7 +218,7 @@
           {
             "name": "佐藤",
             "role": "運搬員",
-            "vehicle": "4tダンプ",
+            "vehicle": "",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -297,20 +297,29 @@
       "assigns": {
         "2026-11-26": [
           {
-            "name": "駒田",
-            "role": "重機OP",
+            "name": "阿部",
+            "role": "ﾛｰﾗｰﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "駒田",
+            "role": "重機OP",
+            "vehicle": "3tスライド",
+            "isDriver": true,
+            "memo": "0.1ＢＨ",
             "absent": "",
             "isLeader": true
           },
           {
             "name": "小松﨑",
             "role": "重機OP",
-            "vehicle": "3tスライド",
+            "vehicle": "R1",
             "isDriver": true,
-            "memo": "0.1BH",
+            "memo": "0.1BH、4ｔＣＲはユナイト",
             "absent": "",
             "isLeader": false
           },
@@ -319,7 +328,7 @@
             "role": "ﾛｰﾗｰﾏﾝ",
             "vehicle": "P5",
             "isDriver": true,
-            "memo": "0.1ＢＨ、4ｔＣＲ現場搬入後9ｔタイヤユナイトへ引き取り、午後1グレーダーイバジュウへ引き取り",
+            "memo": "朝19ｔタイヤと2.5ＣＲ相積み、午後1グレーダー引き取り",
             "absent": "",
             "isLeader": false
           },
@@ -344,7 +353,7 @@
           {
             "name": "菅沼",
             "role": "作業員",
-            "vehicle": "4tダンプ",
+            "vehicle": "R1",
             "isDriver": false,
             "memo": "",
             "absent": "",
@@ -393,7 +402,7 @@
             "role": "ﾛｰﾗｰﾏﾝ",
             "vehicle": "P5",
             "isDriver": true,
-            "memo": "60入れグレーダー出し",
+            "memo": "",
             "absent": "",
             "isLeader": false
           },
@@ -409,7 +418,7 @@
           {
             "name": "米倉",
             "role": "AFOP",
-            "vehicle": "ハイエース",
+            "vehicle": "S8",
             "isDriver": true,
             "memo": "",
             "absent": ""
@@ -417,7 +426,7 @@
           {
             "name": "ティ",
             "role": "AFOP",
-            "vehicle": "ハイエース",
+            "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -644,7 +653,7 @@
           "works": [
             "路盤工"
           ],
-          "gatherTime": "7:00",
+          "gatherTime": "6:30",
           "machines": [
             {
               "name": "ﾌﾟﾚｰﾄ",
@@ -659,17 +668,17 @@
             {
               "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
               "qty": 1,
-              "carrier": "4tダンプ"
+              "carrier": "P5"
             },
             {
               "name": "ｻｲﾄﾞﾛｰﾗｰ",
               "qty": 1,
-              "carrier": "4tダンプ"
+              "carrier": "R1"
             },
             {
               "name": "ﾗﾝﾏ",
               "qty": 1,
-              "carrier": "Wキャブ"
+              "carrier": ""
             },
             {
               "name": "グレーダー3.1",
@@ -679,7 +688,7 @@
             {
               "name": "コンバインド4.0",
               "qty": 1,
-              "carrier": "P5"
+              "carrier": "R1"
             },
             {
               "name": "９tタイヤ",
@@ -696,7 +705,7 @@
             "糸張りくん",
             "寒水粉"
           ],
-          "dayNote": "ウスベニ2.3枚、ゴムマット、ハンパ定規5ｃｍ10本くらい、根庫2台、じょうろ、デカバケ0.1ＢＨと1ＴＲは会社へ戻し"
+          "dayNote": "ウスベニ2.3枚、ゴムマット、ハンパ定規5ｃｍ10本くらい、根庫2台、じょうろ"
         },
         "2026-11-27": {
           "works": [
@@ -722,7 +731,7 @@
             {
               "name": "AF60",
               "qty": 1,
-              "carrier": "P5"
+              "carrier": "S8"
             },
             {
               "name": "９tタイヤ",
@@ -740,7 +749,7 @@
               "carrier": "P5"
             }
           ],
-          "gatherTime": "7:00",
+          "gatherTime": "6:30",
           "supplies": [
             "根庫",
             "清掃用具一式",
@@ -22594,6 +22603,6 @@
   "fiveBase": "2026-11-25",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/25 15:43:03",
-  "_savedAt": "2026/11/25 15:43:03"
+  "lastSaved": "2026/11/25 16:00:01",
+  "_savedAt": "2026/11/25 16:00:01"
 }

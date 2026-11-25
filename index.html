@@ -1707,7 +1707,7 @@ window.printReport=function(si,dk){
     const isDiffRet=p.returnVehicle&&p.returnVehicle!==a.vehicle;
     const isL=a.isLeader||(a.name===site.leader&&!assigns.some(x=>x.isLeader));
     return`<tr${p.excluded?' style="color:#999;text-decoration:line-through;"':''}>
-      <td style="border:1px solid #bbb;padding:5px 8px;font-weight:500;">${a.name}${isL?'☆':''}</td>
+      <td style="border:1px solid #bbb;padding:5px 8px;font-weight:500;">${a.name}${isL?'★':''}</td>
       <td style="border:1px solid #bbb;padding:5px 8px;">${a.role||''}</td>
       <td style="border:1px solid #bbb;padding:5px 8px;">${a.vehicle||''}${a.isDriver?' [運転]':''}${hasRet&&isDiffRet?'<br><span style="font-size:10px;">帰り: '+retVName+'</span>':''}</td>
       <td style="border:1px solid #bbb;padding:5px 8px;width:50px;"></td>

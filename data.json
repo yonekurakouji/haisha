@@ -7,8 +7,274 @@
         "2026-12-03",
         "2026-12-04"
       ],
-      "assigns": {},
-      "dayData": {},
+      "assigns": {
+        "2026-12-02": [
+          {
+            "name": "駒田",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ],
+        "2026-12-03": [
+          {
+            "name": "阿部",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "駒田",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "大竹",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "佐藤",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アグン",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アリヤ",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アマダ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "米倉",
+            "role": "AFOP",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "ティ",
+            "role": "AFOP",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ],
+        "2026-12-04": [
+          {
+            "name": "阿部",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "駒田",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "中川",
+            "role": "作業員",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "佐藤",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アグン",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アマダ",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "米倉",
+            "role": "AFOP",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "ティ",
+            "role": "AFOP",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-12-02": {
+          "works": [
+            "準備工"
+          ]
+        },
+        "2026-12-03": {
+          "works": [
+            "切削",
+            "舗装工"
+          ],
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": "レンジャー"
+            },
+            {
+              "name": "AF60",
+              "qty": 1,
+              "carrier": ""
+            }
+          ]
+        },
+        "2026-12-04": {
+          "works": [
+            "切削",
+            "舗装工"
+          ],
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 1,
+              "carrier": "Wキャブ"
+            },
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": "レンジャー"
+            },
+            {
+              "name": "AF60",
+              "qty": 1,
+              "carrier": "大型"
+            },
+            {
+              "name": "ｻｲﾄﾞﾛｰﾗｰ",
+              "qty": 1,
+              "carrier": "レンジャー"
+            }
+          ]
+        }
+      },
       "shift": "昼",
       "place": "阿見",
       "prime": "常盤",
@@ -33,8 +299,210 @@
         "2026-12-03",
         "2026-12-04"
       ],
-      "assigns": {},
-      "dayData": {},
+      "assigns": {
+        "2026-12-02": [
+          {
+            "name": "小松﨑",
+            "role": "重機OP",
+            "vehicle": "3ｔダンプユナ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": true
+          },
+          {
+            "name": "近藤",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "2tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "中川",
+            "role": "運搬員",
+            "vehicle": "3tスライド",
+            "isDriver": true,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "菅沼",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "3ｔダンプユナ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アグン",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "2tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          },
+          {
+            "name": "アリヤ",
+            "role": "ﾚｰｷﾏﾝ",
+            "vehicle": "3tスライド",
+            "isDriver": false,
+            "memo": "",
+            "absent": "",
+            "isLeader": false
+          }
+        ],
+        "2026-12-03": [
+          {
+            "name": "小松﨑",
+            "role": "AFOP",
+            "vehicle": "3ｔダンプユナ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "ﾛｰﾗｰﾏﾝ",
+            "vehicle": "3tスライド",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "ﾌﾟﾚｰﾄ",
+            "vehicle": "2tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "関",
+            "role": "作業員",
+            "vehicle": "2tダンプ",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          }
+        ],
+        "2026-12-04": [
+          {
+            "name": "小松﨑",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "近藤",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "菅沼",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "関",
+            "role": "",
+            "vehicle": "",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          }
+        ]
+      },
+      "dayData": {
+        "2026-12-02": {
+          "works": [
+            "乳剤散布",
+            "打替え舗装"
+          ],
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 1,
+              "carrier": "3ｔダンプユナ"
+            },
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": "3ｔダンプユナ"
+            },
+            {
+              "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+              "qty": 1,
+              "carrier": "3tスライド"
+            },
+            {
+              "name": "ﾗﾝﾏ",
+              "qty": 1,
+              "carrier": "3tスライド"
+            },
+            {
+              "name": "ｽﾌﾟﾚｲﾔｰ",
+              "qty": 1,
+              "carrier": "2tダンプ"
+            },
+            {
+              "name": "パートナー",
+              "qty": 1,
+              "carrier": "3tスライド"
+            }
+          ],
+          "supplies": [
+            "根庫",
+            "清掃用具一式",
+            "台車",
+            "養生一式",
+            "ハンドスイーパー",
+            "シールコート一式",
+            "砂",
+            "乳剤一式"
+          ],
+          "dayNote": "舗装、路盤道具、ウスベニ、ハンパ定規数本、"
+        },
+        "2026-12-03": {
+          "works": [
+            "打替え舗装"
+          ],
+          "machines": [
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": "3ｔダンプユナ"
+            },
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 1,
+              "carrier": "3ｔダンプユナ"
+            },
+            {
+              "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+              "qty": 1,
+              "carrier": "3tスライド"
+            },
+            {
+              "name": "AF45",
+              "qty": 1,
+              "carrier": "レンジャー"
+            }
+          ]
+        }
+      },
       "shift": "昼",
       "place": "若葉区",
       "prime": "大夢",
@@ -49,7 +517,7 @@
       "gatherType": "集合",
       "note": "",
       "okiba": "",
-      "kaisou": "",
+      "kaisou": "×",
       "enShoo": false
     },
     {
@@ -551,7 +1019,7 @@
           },
           {
             "name": "駒田",
-            "role": "",
+            "role": "ﾚｰｷﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "",
@@ -559,7 +1027,7 @@
           },
           {
             "name": "小松﨑",
-            "role": "",
+            "role": "ﾛｰﾗｰﾏﾝ",
             "vehicle": "R1",
             "isDriver": true,
             "memo": "",
@@ -567,7 +1035,7 @@
           },
           {
             "name": "近藤",
-            "role": "",
+            "role": "ﾛｰﾗｰﾏﾝ",
             "vehicle": "P5",
             "isDriver": true,
             "memo": "",
@@ -575,7 +1043,7 @@
           },
           {
             "name": "中川",
-            "role": "",
+            "role": "作業員",
             "vehicle": "3ｔダンプユナ",
             "isDriver": true,
             "memo": "",
@@ -583,7 +1051,7 @@
           },
           {
             "name": "大竹",
-            "role": "",
+            "role": "ﾚｰｷﾏﾝ",
             "vehicle": "P5",
             "isDriver": false,
             "memo": "",
@@ -591,7 +1059,7 @@
           },
           {
             "name": "菅沼",
-            "role": "",
+            "role": "ﾌﾟﾚｰﾄ",
             "vehicle": "R1",
             "isDriver": false,
             "memo": "",
@@ -599,7 +1067,7 @@
           },
           {
             "name": "佐藤",
-            "role": "",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "3ｔダンプユナ",
             "isDriver": false,
             "memo": "",
@@ -607,7 +1075,7 @@
           },
           {
             "name": "アグン",
-            "role": "",
+            "role": "ﾌﾟﾚｰﾄ",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -615,15 +1083,7 @@
           },
           {
             "name": "アリヤ",
-            "role": "",
-            "vehicle": "Wキャブ",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "アマダ",
-            "role": "",
+            "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -804,7 +1264,7 @@
             "下駄",
             "ロールシート"
           ],
-          "gatherTime": "6:30"
+          "gatherTime": "7:00"
         },
         "2026-12-01": {
           "works": [
@@ -865,7 +1325,7 @@
             "下駄",
             "ロールシート"
           ],
-          "gatherTime": "6:30"
+          "gatherTime": "7:00"
         }
       },
       "shift": "昼",
@@ -22594,6 +23054,6 @@
   "fiveBase": "2026-11-25",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/25 15:43:03",
-  "_savedAt": "2026/11/25 15:43:03"
+  "lastSaved": "2026/11/25 17:10:00",
+  "_savedAt": "2026/11/25 17:10:00"
 }

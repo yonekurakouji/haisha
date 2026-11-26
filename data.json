@@ -543,7 +543,8 @@
           "works": [
             "回送"
           ],
-          "gatherType": "着"
+          "gatherType": "着",
+          "gatherTime": "23:00"
         }
       },
       "shift": "夜",
@@ -668,25 +669,17 @@
             "isLeader": false
           },
           {
-            "name": "アリヤ",
-            "role": "ﾌﾟﾚｰﾄ",
-            "vehicle": "2tダンプ",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
-            "name": "大竹",
-            "role": "運搬員",
-            "vehicle": "3tスライド",
-            "isDriver": false,
-            "memo": "",
-            "absent": ""
-          },
-          {
             "name": "佐藤",
             "role": "運搬員",
             "vehicle": "4tダンプ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "アリヤ",
+            "role": "",
+            "vehicle": "2tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -841,7 +834,7 @@
           {
             "name": "駒田",
             "role": "重機OP",
-            "vehicle": "Wキャブ",
+            "vehicle": "3ｔダンプユナ",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -850,7 +843,7 @@
           {
             "name": "小松﨑",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "3ｔダンプユナ",
+            "vehicle": "ハイエース",
             "isDriver": true,
             "memo": "",
             "absent": "",
@@ -877,7 +870,7 @@
           {
             "name": "米倉",
             "role": "AFOP",
-            "vehicle": "ハイエース",
+            "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "",
             "absent": ""
@@ -885,7 +878,7 @@
           {
             "name": "ティ",
             "role": "AFOP",
-            "vehicle": "ハイエース",
+            "vehicle": "3ｔダンプユナ",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -901,6 +894,22 @@
           {
             "name": "アマダ",
             "role": "ｽｺｯﾌﾟﾏﾝ",
+            "vehicle": "Wキャブ",
+            "isDriver": false,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "ハオ",
+            "role": "作業員",
+            "vehicle": "社用車",
+            "isDriver": true,
+            "memo": "",
+            "absent": ""
+          },
+          {
+            "name": "大竹",
+            "role": "",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -23051,9 +23060,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-11-09",
-  "fiveBase": "2026-11-25",
+  "fiveBase": "2026-11-26",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/25 17:10:23",
-  "_savedAt": "2026/11/25 17:10:23"
+  "lastSaved": "2026/11/26 18:27:56",
+  "_savedAt": "2026/11/26 18:27:56"
 }

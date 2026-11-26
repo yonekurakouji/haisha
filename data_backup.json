@@ -115,7 +115,7 @@
           {
             "name": "小松﨑",
             "role": "",
-            "vehicle": "",
+            "vehicle": "3tスライド",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -123,7 +123,7 @@
           {
             "name": "近藤",
             "role": "",
-            "vehicle": "",
+            "vehicle": "3ｔダンプユナ",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -131,7 +131,7 @@
           {
             "name": "菅沼",
             "role": "",
-            "vehicle": "",
+            "vehicle": "2tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -139,7 +139,7 @@
           {
             "name": "関",
             "role": "",
-            "vehicle": "",
+            "vehicle": "2tダンプ",
             "isDriver": false,
             "memo": "",
             "absent": ""
@@ -226,6 +226,44 @@
               "qty": 1,
               "carrier": "2tダンプ"
             }
+          ],
+          "dayNote": "120m2の2層　15ｃｍ捲り10ｃｍ舗装　"
+        },
+        "2026-12-04": {
+          "works": [
+            "打替え舗装"
+          ],
+          "machines": [
+            {
+              "name": "ﾌﾟﾚｰﾄ",
+              "qty": 1,
+              "carrier": "3tスライド"
+            },
+            {
+              "name": "ﾕﾝﾎﾞ0.1",
+              "qty": 1,
+              "carrier": "3ｔダンプユナ"
+            },
+            {
+              "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
+              "qty": 1,
+              "carrier": "3tスライド"
+            },
+            {
+              "name": "ｻｲﾄﾞﾛｰﾗｰ",
+              "qty": 1,
+              "carrier": "2tダンプ"
+            }
+          ],
+          "supplies": [
+            "清掃用具一式",
+            "養生一式",
+            "台車",
+            "ハンドスイーパー",
+            "定規",
+            "防炎シート",
+            "シールコート一式",
+            "砂"
           ]
         }
       },
@@ -934,7 +972,7 @@
               "carrier": "P5"
             }
           ],
-          "gatherTime": "7:30",
+          "gatherTime": "7:00",
           "supplies": [
             "根庫",
             "清掃用具一式",
@@ -3712,6 +3750,12 @@
             "舗装工"
           ],
           "dayNote": "車道基層、歩道表層"
+        },
+        "2026-12-04": {
+          "works": [
+            "舗装工"
+          ],
+          "dayNote": "歩道表層"
         }
       },
       "shift": "昼",
@@ -23059,6 +23103,6 @@
   "fiveBase": "2026-11-30",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/26 20:42:43",
-  "_savedAt": "2026/11/26 20:42:43"
+  "lastSaved": "2026/11/26 22:47:12",
+  "_savedAt": "2026/11/26 22:47:12"
 }

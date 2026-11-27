@@ -440,7 +440,12 @@
             "ハンドスイーパー",
             "シールコート一式",
             "砂",
-            "乳剤一式"
+            "乳剤一式",
+            "カラーコーン",
+            "防炎シート",
+            "定規",
+            "看板",
+            "ロールシート"
           ],
           "dayNote": "舗装、路盤道具、ウスベニ、ハンパ定規数本、カラーコーン、片交看板、矢印2枚ずつ、コーンバー、",
           "gatherTime": "7:00"
@@ -479,7 +484,18 @@
             }
           ],
           "dayNote": "120m2の2層　15ｃｍ捲り10ｃｍ舗装　規制材、",
-          "gatherTime": "7:00"
+          "gatherTime": "7:00",
+          "supplies": [
+            "清掃用具一式",
+            "台車",
+            "養生一式",
+            "定規",
+            "防炎シート",
+            "ロールシート",
+            "乳剤一式",
+            "寒水粉",
+            "砂"
+          ]
         },
         "2026-12-04": {
           "works": [
@@ -995,7 +1011,7 @@
             "isLeader": false
           },
           {
-            "name": "佐藤",
+            "name": "アグン",
             "role": "ｽｺｯﾌﾟﾏﾝ",
             "vehicle": "ハイエース",
             "isDriver": false,
@@ -1004,17 +1020,8 @@
             "isLeader": false
           },
           {
-            "name": "アグン",
-            "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "ハイエース",
-            "isDriver": false,
-            "memo": "",
-            "absent": "",
-            "isLeader": false
-          },
-          {
             "name": "アリヤ",
-            "role": "ﾌﾟﾚｰﾄ",
+            "role": "作業員",
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
@@ -1043,66 +1050,74 @@
           {
             "name": "阿部",
             "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "R1",
+            "vehicle": "ハイエース",
             "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "駒田",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "Wキャブ",
+            "vehicle": "R1",
             "isDriver": true,
-            "memo": "",
-            "absent": ""
+            "memo": "0.1BH谷田部搬入4tCRユナイト返却",
+            "absent": "",
+            "isLeader": true
           },
           {
             "name": "小松﨑",
             "role": "AFOP",
             "vehicle": "S8",
             "isDriver": true,
-            "memo": "",
-            "absent": ""
+            "memo": "2.5CR谷田部搬入9ｔタイヤユナイト返却",
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "近藤",
             "role": "ﾛｰﾗｰﾏﾝ",
-            "vehicle": "P5",
+            "vehicle": "Wキャブ",
             "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "中川",
             "role": "作業員",
             "vehicle": "3ｔダンプユナ",
             "isDriver": true,
-            "memo": "",
-            "absent": ""
+            "memo": "定規",
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "大竹",
             "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "P5",
+            "vehicle": "S8",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "菅沼",
             "role": "ﾌﾟﾚｰﾄ",
-            "vehicle": "R1",
+            "vehicle": "3ｔダンプユナ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "佐藤",
             "role": "ｽｺｯﾌﾟﾏﾝ",
-            "vehicle": "3ｔダンプユナ",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "アグン",
@@ -1110,7 +1125,8 @@
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "アリヤ",
@@ -1118,15 +1134,17 @@
             "vehicle": "Wキャブ",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           },
           {
             "name": "米倉",
             "role": "AFOP",
-            "vehicle": "Wキャブ",
+            "vehicle": "ハイエース",
             "isDriver": false,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           }
         ]
       },
@@ -1317,7 +1335,7 @@
             {
               "name": "ｺﾝﾊﾞｲﾝﾄﾞ2.5",
               "qty": 1,
-              "carrier": "P5"
+              "carrier": "S8"
             },
             {
               "name": "ｻｲﾄﾞﾛｰﾗｰ",
@@ -1337,7 +1355,7 @@
             {
               "name": "９tタイヤ",
               "qty": 1,
-              "carrier": "P5"
+              "carrier": "S8"
             },
             {
               "name": "コンバインド4.0",
@@ -23074,9 +23092,9 @@
   "actuals": {},
   "excl": [],
   "weekBase": "2026-11-09",
-  "fiveBase": "2026-12-07",
+  "fiveBase": "2026-11-30",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/27 20:09:13",
-  "_savedAt": "2026/11/27 20:09:13"
+  "lastSaved": "2026/11/27 20:38:39",
+  "_savedAt": "2026/11/27 20:38:39"
 }

@@ -957,22 +957,13 @@
         ],
         "2026-11-30": [
           {
-            "name": "駒田",
-            "role": "ﾚｰｷﾏﾝ",
-            "vehicle": "R1",
-            "isDriver": true,
-            "memo": "",
-            "absent": "",
-            "isLeader": true
-          },
-          {
             "name": "小松﨑",
             "role": "重機OP",
             "vehicle": "3tスライド",
             "isDriver": true,
             "memo": "",
             "absent": "",
-            "isLeader": false
+            "isLeader": true
           },
           {
             "name": "近藤",
@@ -1040,10 +1031,11 @@
           {
             "name": "米倉",
             "role": "AFOP",
-            "vehicle": "ハイエース",
-            "isDriver": false,
+            "vehicle": "R1",
+            "isDriver": true,
             "memo": "",
-            "absent": ""
+            "absent": "",
+            "isLeader": false
           }
         ],
         "2026-12-01": [
@@ -1315,7 +1307,7 @@
             "ロールシート"
           ],
           "gatherTime": "7:15",
-          "dayNote": "歩道舗装　　ウスベニ、防炎シート"
+          "dayNote": "歩道舗装　　なるべくきれいなウスベニ、防炎シート"
         },
         "2026-12-01": {
           "works": [
@@ -23095,6 +23087,6 @@
   "fiveBase": "2026-11-30",
   "rpYM": "2026-06",
   "izYM": "2026-07",
-  "lastSaved": "2026/11/27 20:38:39",
-  "_savedAt": "2026/11/27 20:38:39"
+  "lastSaved": "2026/11/28 19:12:25",
+  "_savedAt": "2026/11/28 19:12:25"
 }
